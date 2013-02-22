@@ -391,7 +391,7 @@ DNS
 
 <!-- -->
 
-        ~$ luncy start dnsmasq
+        ~$ sudo lunchy start dnsmasq
           </script>
         </section>
 
@@ -405,6 +405,23 @@ Easy Way: add 127.0.0.1 to the top of your list of DNS servers
 <br>
 
 Automatic (trickier) Way: use a script to do this
+
+<br>
+
+(courtesy of [wizard](http://wizardmode.com/2012/06/apache-php-mysql-dev-on-os-x-lion-with-a-minimum-of-pain/))
+
+        ~$ wget https://gist.github.com/ziz/2931901#file-com-zizproductions-setdns-plist
+        ~$ wget https://gist.github.com/ziz/2931901#file-setdns-sh
+        ~$ mv setdns.sh /usr/local/bin
+        ~$ chmod a+x /usr/local/bin/setdns.sh
+        ~$ sudo mv com.zizproductions.setdns.plist /Library/LaunchDaemons
+        ~$ sudo launchctl load -w /Library/LaunchDaemons/com.zizproductions.setdns.plist
+
+Fix OS X Lion's [DNS problems](http://serverfault.com/questions/22419/set-dns-server-on-os-x-even-when-without-internet-connection)
+
+        ~$ mkdir /etc/resolver
+        ~$ # echo 'nameserver 127.0.0.1' > /etc/resolver/dev
+
           </script>
         </section>
       </section>
