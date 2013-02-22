@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Native AMP Stack in OS X</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+      .reveal code {
+        font-size: 85%;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+        <section>
+          <section data-markdown>
+            <script type="text/template">
+Native Web Stack
+----------------
+
+<img src="osx15logo.png" style="float: left;">
+
+<br>
+
+  - Homebrew
+
+  - No more MAMP
+
+  - Flexible environment
+
+  - Hands off Apache
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+The Breakdown
+-------------
+
+This presentation has 3 phases:
+
+ - Phase 1: Preparation
+
+ - Phase 2: Installation
+
+ - Phase 3: Configuration
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+DISCLAIMER
+----------
+This is an OVERHAUL of your development environment
+
+!['disclaimer'](disclaimer.jpg)
+            </script>
+          </section>
+
+        <section data-markdown>
+          <script type="text/template">
+Backup EVERYTHING
+
+- databases
+
+- webroot
+
+- system
+
+<br>
+
+Plan to be down for a while
+          </script>
+        </section>
+      </section>
+
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+Phase 1
+-------
+
+!['phase1'](phase1.jpeg)
+
+Preparation
+
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+
+        ~$ echo $PATH
+        ~$ vim ~/.bash_profile
+        ~$ vim /etc/paths
+
+<!-- -->
+
+        # /etc/paths
+        # Homebrew lives in /usr/local
+
+        /usr/local/bin
+        /usr/local/sbin
+        /usr/bin
+        /usr/sbin
+        /bin
+        /sbin
+
+
+Remove anything related to MAMP
+
+<br>
+
+Note: mysql db files are located here
+```
+/Library/Application\ Support/appsolut/MAMP
+```
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+Install Homebrew
+----------------
+
+        ~$ ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+Visit the Doctor
+----------------
+
+        ~$ brew doctor
+        ~$ brew update
+
+<br>
+
+DO NOT ignore brew doctor errors... bad things will happen
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+Install lunchy
+--------------
+
+So you can (sudo) make me sandwiches....
+
+        ~$ sudo gem install lunchy
+
+          </script>
+        </section>
+      </section>
+
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+Phase 2
+-------
+
+!['dr-evil'](dr-evil.jpg)
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+Install PHP
+-----------
+
+      ~$ brew tap homebrew/dupes
+      ~$ brew tap josegonzalez/homebrew-php
+      ~$ brew install php53 # or php54, which is AWESOME btw... try it
+
+<br>
+
+Yes, you can install MULTIPLE versions of php
+          </script>
+        </section>
+
+      <section data-markdown>
+        <script type="text/template">
+PHP Extensions
+--------------
+
+There is a smorgasbord of extensions to choose from...
+
+ - php-code-sniffer
+ - php53-apc
+ - php53-imagick
+ - php53-memcached
+ - php53-mongo
+ - php53-redis
+ - php53-uploadprogress
+ - php53-xdebug (recommended)
+ - php53-xhprof
+
+<br>
+
+Dynamically Linked...
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+Install a Database
+------------------
+
+!['maria-vs-mysql'](auf_mysql_vs_mariadb.jpg)
+
+<br>
+
+      ~$ brew install mariadb # or mysql
+
+        </script>
+      </section>
+
+      <section data-markdown>
+        <script type="text/template">
+dnsmasq
+-------
+
+      ~$ brew install dnsmasq
+
+More on this later....
+
+        </script>
+      </section>
+
+    </section>
+
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+
+Phase 3
+-------
+
+!['phase3'](phase3.png)
+
+Configuration
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+
+Where are my config files?
+--------------------------
+
+/usr/local/etc
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+
+PHP
+---
+
+        # /usr/local/etc/php/5.3/php.ini
+        ...
+
+        memory_limit = 2048M
+
+        ...
+
+<br>
+
+Config files for extensions:
+
+        /usr/local/etc/php/5.3/conf.d/ext-extension-xdebug.ini
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+
+MariaDB
+-------
+
+        ~$ cp $(brew --prefix mariadb)/support-files/my-large.cnf \
+           /usr/local/etc/my.cnf
+
+        ~$ sed -i "" 's/max_allowed_packet = 1.*M/max_allowed_packet = 64M/g' \
+           /usr/local/etc/my.cnf
+
+        ~$ lunchy install /usr/local/opt/mariadb/homebrew.mxcl.mariadb.plist
+
+        ~$ mysql_install_db \
+           --verbose --user=`whoami` \
+           --basedir="$(brew --prefix mariadb)" \
+           --datadir=/usr/local/var/mysql --tmpdir=/tmp
+
+        ~$ lunchy start mariadb
+        #launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mariadb.plist
+
+        ~$ mysqladmin -uroot password 'password'
+
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+
+Apache
+------
+
+        # /etc/apache2/httpd.conf
+        ...
+        LoadModule php5_module /usr/local/opt/php53/libexec/apache2/libphp5.so
+        ...
+        ServerName localhost:80
+
+<!-- -->
+
+        # /etc/apache2/users/username.conf
+        <VirtualHost *:80>
+          ServerName dev
+          VirtualDocumentRoot /Users/username/Sites/%-2/htdocs
+          UseCanonicalName Off
+
+          <Directory "/Users/username/Sites/*/htdocs">
+            AllowOverride All
+            Order allow,deny
+            Allow from all
+          </Directory>
+        </VirtualHost>
+
+<!-- -->
+
+        ~$ sudo apachectl restart
+        ~$ apachectl -S
+
+<!-- -->
+
+        VirtualHost configuration:
+        wildcard NameVirtualHosts and _default_ servers:
+        *:80                   dev (/etc/apache2/users/samheuck.conf:1)
+        Syntax OK
+
+          </script>
+        </section>
+
+
+        <section data-markdown>
+          <script type="text/template">
+DNS
+---
+
+        ~$ lunchy install /usr/local/opt/dnsmasq/homebrew.mxcl.dnsmasq.plist
+        ~$ touch /usr/local/etc/dnsmasq.conf
+
+<!-- -->
+
+        # /usr/local/etc/dnsmasq.conf
+        address=/.dev/127.0.0.1
+        rebind-domain-ok=/xip.io/nip.io/
+
+<!-- -->
+
+        ~$ luncy start dnsmasq
+          </script>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+More about DNS...
+-----------------
+
+Easy Way: add 127.0.0.1 to the top of your list of DNS servers
+
+<br>
+
+Automatic (trickier) Way: use a script to do this
+          </script>
+        </section>
+      </section>
+
+
+      <section>
+        <section data-markdown>
+          <script type="text/template">
+!['baby'](baby.jpg)
+
+        </script>
+      </section>
+
+
+      </section>
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
