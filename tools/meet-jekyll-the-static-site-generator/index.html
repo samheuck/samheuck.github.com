@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="shortcut icon" href="/images/samheuck-weblogo-small.png" type="image/png">
+  <title>Sam Heuck | Meet Jekyll, the Static Site Generator - Part 1</title>
+
+  
+  <meta name="description" content="Jekyll is a static site generator written in Ruby that uses the Liquid template engine. In combination with git for version control and Jenkins for deployment, Jekyll is a powerful tool not just for blogging, but also for small to medium-sized websites. Give Jekyll a try, and you can blog like a hacker." />
+  
+
+  <link rel="stylesheet" href="/pictonic/css/pictonic.css">
+  <!--[if lt IE 8]><script src="/pictonic/js/pictonic.min.js"></script><![endif]-->
+
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+
+  <link href='/assets/global-33af9e50e07b2271b1b34d74747a2747.css' rel='stylesheet' type='text/css' />
+
+
+  </head>
+
+  <body>
+    <header>
+     <a href="/" title="Home" rel="home">
+  <img id="logo" src="/images/dizzy.png" alt="SamHeuck.com">
+  <div id="site-name"><span>Sam</span> <span class='accent'>Heuck</span></div>
+</a>
+
+<nav>
+  <ul>
+    
+      
+      
+      
+    <li ><a  href="/about/">about</a></li>
+    
+      
+      
+      
+    <li ><a  href="/resume/">resume</a></li>
+    
+      
+      
+      
+    <li ><a  href="/blog/">blog</a></li>
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="main">
+      <section class="post">
+        <h1 class='heading'>Meet Jekyll, the Static Site Generator - Part 1</h1>
+        <span class='post-date'>07 March 2013</span>
+        <p><img src="/images/meet_jekyll.jpg" alt="Jekyll" /></p>
+
+<p>Jekyll is a static site generator written in Ruby that uses the Liquid template
+engine. In combination with git for version control and Jenkins for deployment,
+Jekyll is a powerful tool not just for blogging, but also for small to medium-
+sized websites. Give Jekyll a try, and you can blog like a hacker.</p>
+
+<h3 id="first-a-minor-diatribe">First, a minor diatribe…</h3>
+
+<p>Web sites used to be simple. A little HTML, some text and maybe an image or two.
+When you wanted to add content to a site, you would simply upload some html
+to the server with an FTP client, and your new content would be live. Someone would
+request to view that page, and the server would serve the HTML requested. No
+databases had to be queried, no code had to be interpreted by the server, and
+because of the simplicity, the site was fast and secure. Sometimes, when I am
+neck deep in a Drupal site trying to wrangle it into submission, I think to
+myself “Wow, whatever happend to just uploading an HTML file…”.</p>
+
+<h3 id="enter-the-static-site-generator">Enter the static site generator…</h3>
+
+<p>So what if, instead of using an application stack powerd by PHP and MySQL to
+create web pages on the fly, a website were compiled, in effect <em>frozen</em> into a
+static state, and then served to the client browser. Just like the good old days!
+<a href="http://jekyllrb.com/">Jekyll</a> is an open source project written in Ruby by
+github co-founder Tom Preston-Werner. Designed for blogs, and flexible enough
+that it could be used to create just about anything, Jekyll is a tool that does
+exactly that. It gathers up content, styling and javascript, organizes it into
+a predefined directory structure, and writes the necessary HTML.</p>
+
+<h3 id="advantages-of-static-websites">Advantages of static websites</h3>
+
+<div class="center-list">
+
+  <p><span class="icon-kub-approve green"></span> <strong>Speed</strong></p>
+
+  <blockquote>
+    <p>Web servers were originally designed to do one thing, serve a document.
+With Jekyll, that is exactly what your web server is doing. It doesn’t
+have to provision an instance of the PHP interpreter to execute expensive
+code. No database queries have to be made. Content is simply… delivered.</p>
+  </blockquote>
+
+  <p><span class="icon-kub-approve green"></span> <strong>Security</strong></p>
+
+  <blockquote>
+    <p>Because there is no backend application, there can be no database
+injection attacks, session highjacking, or malicious cross-site scripting.</p>
+  </blockquote>
+
+  <p><span class="icon-kub-approve green"></span> <strong>Versioning</strong></p>
+
+  <blockquote>
+    <p>Jekyll is designed to pair with source code control systems like Git. This
+means your posts are automatically versioned and can easily be backed up
+on github or bitbucket.</p>
+  </blockquote>
+
+  <p><span class="icon-kub-approve green"></span> <strong>Easy deployment</strong></p>
+
+  <blockquote>
+    <p>How do you deploy a static site? Copy the files to the server. Done.
+With source control, this is a trivial push and subsequent pull. You
+could also use rsync, or even plain old FTP to send files to the server.
+The 1337 among us might like to use Jenkins and a post commit hook
+to automatically build and publish the site, but that requires some
+extra setup server side. No matter how you deploy, though, static sites
+make it painless.</p>
+  </blockquote>
+
+  <p><span class="icon-kub-approve green"></span> <strong>Free Hosting!</strong></p>
+
+  <blockquote>
+    <p>For simple sites, you can use github pages or Dropbox to store and host
+your website. This isn’t right for everyone, but free hosting is a nice
+perk. Github pages is a great option for coders. You just have to create
+a repository using your account name and anything in the master branch
+will be published using jekyll.</p>
+  </blockquote>
+</div>
+
+<h3 id="disadvantages-of-static-site-generators">Disadvantages of static site generators</h3>
+
+<div class="center-list">
+  <p><span class="icon-kub-remove red"></span> <strong>Persistence</strong></p>
+
+  <blockquote>
+    <p>There is no database. Anything that requires persistence, such as comments,
+will need to be outsourced to a service. Disqus is popular for comments.
+Also database access of any kind has to be managed from the front end. This
+isn’t a huge problem with javascript frameworks like Ember and Backbone,
+but if you are used to server-side coding, there is a learning curve.</p>
+  </blockquote>
+
+  <p><span class="icon-kub-remove red"></span> <strong>This is <em>not</em> Wordpress…</strong></p>
+
+  <blockquote>
+    <p>There is a reason this is called <a href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html">blogging like a hacker</a>.
+You need a solid HTML &amp; CSS background, and some knowledge of how to install, maintain, and
+configure Ruby gems. You need to know how template engines work. And you also have
+to be willing to spend some time sifting through issue cues and bug reports when
+you run into an problem. If “user friendly” and one buttoan install is what you’re
+looking for, Jekyll is not for you.</p>
+  </blockquote>
+</div>
+
+<h3 id="the-basics">The basics</h3>
+
+<p>When jekyll runs, it will copy all files and folders in the project root into
+its build directory <em>except</em> for directories and files with a preceding
+underscore. You can also specify files to ignore in _config.yml. A typical site
+might look something like this:</p>
+
+<pre><code>_layouts/
+_includes/
+_posts/
+_plugins/
+_site/
+_config.yml
+index.md
+images/
+about/
+blog/
+</code></pre>
+
+<p>When the <code>~$ jekyll</code> command is issued, the site is generated inside the
+_site directory. _layouts contains the main template files, and _includes can
+be used for content partials which can be placed into pages with Liquid. Any
+file that begins with:</p>
+
+<pre><code>---
+layout: default
+title: a page
+foo: bar
+---
+</code></pre>
+
+<p>… will be parsed by Jekyll. This special header is the
+<a href="https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter">YAML Front Matter</a>
+block. There are some reserved variables like layout, and publish, but you
+can also add any variable you need. For example, you could have a variable
+called sidebar that could be used to include a specific piece of sidebar
+content on a specific page.</p>
+
+<p>Jekyll relies on the <a href="https://github.com/Shopify/liquid/wiki">Liquid</a> template
+engine to compile content. The syntax is intuitive and I found the learning
+curve for Liquid to be smooth and easy. Jekyll will parse Liquid include
+statements and search for the included content inside the _includes directory
+automatically. You don’t have to worry about registering paths to things.</p>
+
+<p>One of my favorite features of Jekyll is that it has built-in support
+for <a href="http://daringfireball.net/projects/markdown/">Markdown</a>.
+You can write posts in plain text, and Jekyll will convert the Markdown
+into HTML. For example, paragraphs of text will be properly wrapped in &lt;p&gt;
+tags, and any text surrounded by asterisks will be bolded. Jekyll has
+support for several Markdown engines; I like to use
+<a href="http://kramdown.rubyforge.org/">Kramdown</a>.</p>
+
+<p>This constitutes the basic stack for Jekyll. Write content in Markdown, create
+layouts for different types of content, and separate out partial blocks with
+Liquid includes. Then run <code>~$ jekyll</code> from the project root, and upload the
+contents of _site to your webserver.</p>
+
+<p>I built this site in Drupal, and then discovered Jekyll. I promptly redesigned
+my site using Jekyll and <em>I haven’t looked back</em>. In that process I discovered
+some essential add-ons and helpers for Jekyll. The next post will be a tutorial
+on some of what I learned.</p>
+
+<div class="center-list">
+  <ul>
+    <li>Jekyll plugins</li>
+    <li>Automatic <a href="http://sass-lang.com/">sass</a> compilation with Jekyll</li>
+    <li>Automatic compression of CSS and javascript using <a href="http://yui.github.com/yuicompressor/">yui-compressor</a></li>
+    <li>Workflow helper tasks with <a href="https://github.com/wycats/thor">Thor</a>, a Rake alternative</li>
+    <li>Sitemap generation on build</li>
+    <li>Deployment with <a href="http://jenkins-ci.org/">Jenkins</a></li>
+  </ul>
+</div>
+
+<p>So stay tuned, and happy coding!</p>
+
+
+      </section>
+    </div>
+
+    <aside>
+      <img class="about-img" src="/images/sam.jpg" alt="Sam Heuck" title="Sam Heuck">
+
+<div class='sb-block' id='recent-posts'>
+  <h3>Recent Posts</h3>
+  <ul>
+  
+    <li><span class='icon-kub-arw-right arrow'></span><a href="/coding/the-unforseen-downside-of-dabbling-in-a-new-language">The unforeseen challenge of dabbling in a new language</a></li>
+  
+    <li><span class='icon-kub-arw-right arrow'></span><a href="/code/why-clean-code-matters">Why clean code matters</a></li>
+  
+    <li><span class='icon-kub-arw-right arrow'></span><a href="/tools/meet-jekyll-the-static-site-generator-part-2">Meet Jekyll the Static Site Generator - Part 2</a></li>
+  
+    <li><span class='icon-kub-arw-right arrow'></span><a href="/tools/meet-jekyll-the-static-site-generator">Meet Jekyll, the Static Site Generator - Part 1</a></li>
+  
+    <li><span class='icon-kub-arw-right arrow'></span><a href="/code/view-templates-in-php">View templates in PHP</a></li>
+  
+    <li><span class='icon-kub-arw-right arrow'></span><a href="/books/books-part-1">Books part 1</a></li>
+  
+  </ul>
+</div>
+
+    </aside>
+  </body>
+  <script src='/assets/global-5732782c281fb04e82223e4fc519f9f4.js' type='text/javascript'></script>
+
+<script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-30348707-2']);_gaq.push(['_trackPageview']);(function(){var a=document.createElement('script');a.type='text/javascript';a.async=true;a.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(a,s)})();</script>
+
+</html>

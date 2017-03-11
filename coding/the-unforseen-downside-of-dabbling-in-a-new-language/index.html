@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="shortcut icon" href="/images/samheuck-weblogo-small.png" type="image/png">
+  <title>Sam Heuck | The unforeseen challenge of dabbling in a new language</title>
+
+  
+  <meta name="description" content="How messing around with Haskell made me a worse PHP developer" />
+  
+
+  <link rel="stylesheet" href="/pictonic/css/pictonic.css">
+  <!--[if lt IE 8]><script src="/pictonic/js/pictonic.min.js"></script><![endif]-->
+
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+
+  <link href='/assets/global-33af9e50e07b2271b1b34d74747a2747.css' rel='stylesheet' type='text/css' />
+
+
+  </head>
+
+  <body>
+    <header>
+     <a href="/" title="Home" rel="home">
+  <img id="logo" src="/images/dizzy.png" alt="SamHeuck.com">
+  <div id="site-name"><span>Sam</span> <span class='accent'>Heuck</span></div>
+</a>
+
+<nav>
+  <ul>
+    
+      
+      
+      
+    <li ><a  href="/about/">about</a></li>
+    
+      
+      
+      
+    <li ><a  href="/resume/">resume</a></li>
+    
+      
+      
+      
+    <li ><a  href="/blog/">blog</a></li>
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="main">
+      <section class="post">
+        <h1 class='heading'>The unforeseen challenge of dabbling in a new language</h1>
+        <span class='post-date'>23 September 2015</span>
+        <p><img src="/images/php-hammer.jpg" alt="php-hammer" /></p>
+
+<p>I was recently surprised by the realization that my dabbling, or perhaps more appropriately bumbling, with <a href="http://haskell.org" title="haskell.org">Haskell</a> may have actually degraded my performance as a PHP developer.</p>
+
+<p>To be clear, I happen to think PHP is a decent language. It is the language I used for my first honest-to-goodness web application that was useful to someone. Liking PHP is unpopular - as one could easily discover with a bit of <a href="http://blog.codinghorror.com/the-php-singularity" title="The PHP Singularity">reading</a>. But the fact is that PHP is often the “gateway drug” for aspiring web developers. It certainly was for me, and seven years later (during which I picked up javascript) I find myself attending a Haskell meet up.</p>
+
+<p>Haskell is about as far from PHP as you can possibly get. Haskell is compiled - PHP is interpreted. Haskell is statically typed - PHP is dynamically typed. Haskell is purely functional - PHP is procedural with bolted on object-oriented features and lambdas. Haskell is lazy - PHP is… not. But the particular dichotomy causing me difficulty is mutability.</p>
+
+<p>In PHP, nearly everything is mutable. Variable assignments, and their types, can change at runtime. Any bit of code can change global or local state at any time. Stating <code>$x = 4;</code> at the top of a function, and then later stating <code>$x = 'purple cat';</code> at the bottom of a function is not only valid, but commonplace in PHP.</p>
+
+<p>However, in Haskell, nothing is mutable. The compiler forbids doing such blasphemous things. This means that it expresses ideas the same way that algebra does. If you tell the compiler that <code>x = 4</code> for example, x will always be 4. Forever. The <code>=</code> symbol means <em>define</em>, not assign. If the program ever tries to change the definition of x the compiler will complain.</p>
+
+<p>At this point you might be wondering what the problem is. Of course these two languages are different, why would learning about one affect my ability to do useful work in the other?</p>
+
+<p>I think the answer is buried deep inside a characteristic of PHP that is both its greatest strength, and its greatest weakness. As I said, PHP is a “gateway drug” to programming. It entices the bright-eyed and bushy-tailed with its gentle learning curve, and its <a href="http://w3techs.com/technologies/history_overview/programming_language/ms/y">ubiquity</a>. All you need to get started is a simple text editor. You don’t need to know what mutability even means. You don’t need to know any set theory, type theory, or discrete mathematics. You don’t need to concern yourself with compilers or type systems or object oriented design principles. You can get a blog up and running in a matter of <em>minutes</em> by following any of the ridiculous number of PHP tutorials available online.</p>
+
+<p>This is a wonderful thing! So many people can start doing useful work in PHP with very little or no programming experience. And a whole lot of people have. And a whole lot of those people, myself included, turned that into a career.</p>
+
+<p>But when you start to broaden your horizons as a programmer, you learn new ways of approaching problems. You learn to <em>think</em> differently. Languages like Haskell open your mind to concepts that you never considered before. Like mutability. And I believe this is where the surprising double edged-sword is forged.</p>
+
+<p>When you program professionally, business value is always the number one pressure. If the code you are about to write does not add business value, you are wasting money. If you spend time thinking about something that you need not think about, you are wasting money. If I spend time worrying about the fact that this PHP function just reached into global state and changed some values on the object that represents the currently logged in user, just as a convenient way to add some business value, I have wasted time and therefore money.</p>
+
+<p>Before I started tinkering with Haskell, I didn’t think twice about grabbing the global user object and changing some values. But now, I see mutable state as something dangerous and scary! Sometimes particularly egregious violations need to be discussed at length with a teammate before I feel comfortable doing something that is perfectly acceptable in PHP. All of this extra worrying slows me down.</p>
+
+<p>That said, I believe that stretching your mind by learning antithetical techniques is important for a developer’s growth, and I’m a better developer for it. I just need to learn to focus my mind in a different way before sitting down in front of a PHP project.</p>
+
+
+      </section>
+    </div>
+
+    <aside>
+      <img class="about-img" src="/images/sam.jpg" alt="Sam Heuck" title="Sam Heuck">
+
+<div class='sb-block' id='recent-posts'>
+  <h3>Recent Posts</h3>
+  <ul>
+  
+    <li><span class='icon-kub-arw-right arrow'></span><a href="/coding/the-unforseen-downside-of-dabbling-in-a-new-language">The unforeseen challenge of dabbling in a new language</a></li>
+  
+    <li><span class='icon-kub-arw-right arrow'></span><a href="/code/why-clean-code-matters">Why clean code matters</a></li>
+  
+    <li><span class='icon-kub-arw-right arrow'></span><a href="/tools/meet-jekyll-the-static-site-generator-part-2">Meet Jekyll the Static Site Generator - Part 2</a></li>
+  
+    <li><span class='icon-kub-arw-right arrow'></span><a href="/tools/meet-jekyll-the-static-site-generator">Meet Jekyll, the Static Site Generator - Part 1</a></li>
+  
+    <li><span class='icon-kub-arw-right arrow'></span><a href="/code/view-templates-in-php">View templates in PHP</a></li>
+  
+    <li><span class='icon-kub-arw-right arrow'></span><a href="/books/books-part-1">Books part 1</a></li>
+  
+  </ul>
+</div>
+
+    </aside>
+  </body>
+  <script src='/assets/global-5732782c281fb04e82223e4fc519f9f4.js' type='text/javascript'></script>
+
+<script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-30348707-2']);_gaq.push(['_trackPageview']);(function(){var a=document.createElement('script');a.type='text/javascript';a.async=true;a.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(a,s)})();</script>
+
+</html>
