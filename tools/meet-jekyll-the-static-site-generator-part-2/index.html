@@ -106,7 +106,7 @@ Liquid makes it easy to create a layout and pull in page elements dynamically.</
 <p>Any page that begins with a YAML Front matter block…</p>
 
 <pre><code>---
-// predefinded default variables
+// predefined default variables
 layout: default
 category: funny
 published: true
@@ -181,7 +181,7 @@ nav:
 &lt;/nav&gt;
 </code></pre>
 
-<h3 id="plugins">Plugins</h3>
+<h3 id="plug-ins">Plug-ins</h3>
 
 <p>Out of the box, Jekyll is well equipped to create a blog with a custom layout,
 and it has built in support for markdown. But augment Jekyll with plugins and
@@ -189,7 +189,7 @@ you can start cooking with gas.</p>
 
 <p><strong>Jekyll Asset pipeline</strong></p>
 
-<p>This is an essential plugin for Jekyll that will compile sass, and also
+<p>This is an essential plug-in for Jekyll that will compile sass, and also
 aggregate and compress javascript and css.</p>
 
 <pre><code>$~ gem install Jekyll-asset-pipeline
@@ -201,7 +201,7 @@ minify both javascript and css.</p>
 <pre><code>$~ gem install yui-compressor
 </code></pre>
 
-<p>Once these Ruby gems are installed, enabling the asset pipeline plugin is as
+<p>Once these Ruby gems are installed, enabling the asset pipeline plug-in is as
 simple as putting a config file inside the _plugins directory. Here’s the one I
 use for this site…</p>
 
@@ -246,7 +246,7 @@ module JekyllAssetPipeline
 end
 </code></pre>
 
-<p>The asset pipeline plugin hooks into Liquid and looks for assets to include
+<p>The asset pipeline plug-in hooks into Liquid and looks for assets to include
 inside the _assets folder.</p>
 
 <p>Adding javascript looks like this:</p>
@@ -266,10 +266,10 @@ inside the _assets folder.</p>
 {% endcss_asset_tag %}
 </code></pre>
 
-<p>Including any file ending in .sass will cause asset pipline to compile the sass
+<p>Including any file ending in .sass will cause asset pipeline to compile the sass
 into css on site build.</p>
 
-<p>I also like to use a plugin for <a href="https://github.com/kinnetica/Jekyll-plugins">sitemap generation</a>.
+<p>I also like to use a plug-in for <a href="https://github.com/kinnetica/Jekyll-plugins">sitemap generation</a>.
 Just include it in the _plugins directory and a sitemap will be automatically
 generated on site build.</p>
 
