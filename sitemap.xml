@@ -29,6 +29,10 @@
         <lastmod>2015-09-23T15:06:34-05:00</lastmod>
     </url>
     <url>
+        <loc>http://samheuck.com/resume/</loc>
+        <lastmod>2018-03-01T21:36:56-06:00</lastmod>
+    </url>
+    <url>
         <loc>http://samheuck.com/about/</loc>
         <lastmod>2015-09-23T15:10:59-05:00</lastmod>
     </url>
@@ -39,9 +43,5 @@
     <url>
         <loc>http://samheuck.com/</loc>
         <lastmod>2015-09-23T15:10:59-05:00</lastmod>
-    </url>
-    <url>
-        <loc>http://samheuck.com/resume/</loc>
-        <lastmod>2016-10-09T16:13:37-05:00</lastmod>
     </url>
 </urlset>
