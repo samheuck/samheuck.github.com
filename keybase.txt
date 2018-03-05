@@ -1,0 +1,75 @@
+==================================================================
+https://keybase.io/samheuck
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://samheuck.com
+  * I am samheuck (https://keybase.io/samheuck) on keybase.
+  * I have a public key with fingerprint ADA4 8DB4 258A F55D 4D32  28FD 99F9 B55E A48D F379
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120d35cb89216b52f305b3ddbacfa3c35168312f9292822428ce4d11ee6d435988f0a",
+      "fingerprint": "ada48db4258af55d4d3228fd99f9b55ea48df379",
+      "host": "keybase.io",
+      "key_id": "99f9b55ea48df379",
+      "kid": "010156e32e59c620e6e89f42eec699373708620cdf0eca05e50405c93e374661097c0a",
+      "uid": "4955f95af9e6f14ac150c8ab26557b19",
+      "username": "samheuck"
+    },
+    "service": {
+      "hostname": "samheuck.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1520213685,
+  "expire_in": 157680000,
+  "prev": "5f451c465df0b7ff03e83ac6ef78faf8c679ec80259632a825dd9093ced6d33b",
+  "seqno": 27,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.76
+Comment: https://keybase.io/crypto
+
+yMNvAnicbVJtUBVVGL5IYpIfTB/CdEFgnUwLmbNn9+zdvQTiTJgWmaFoYcN19+xZ
+uOH94H4hXe9gBUWU0Iw5QqE2kzY2AaVJpg0BcgEVFS0+dQD5sGTQC1PYSEK2y+Sf
+pvPnzHnf53ne53nn+BcG60KDKqZqMw/v+SM/qK2x3K3LqDxY66Ukm5xPGb1UDpm9
+yA6ZOF2mHLNMGSlAQyAzCEu8AGlOQlBhAJIYWZZErIgMZhDN8QwNFQEKkIeQhTwm
+rEzThHAyyyCB5xUgUnGUYrZmEYfdYba6VFlRFllelliIeFFBSGZlBkJekQVBESSE
+iNZVGIOgErNtTo2hmpNEJ4k329Sa+jDN2vsf/APfgEYcYSBBAuYgIBzhBYWFhGBO
+EBgDYwC8WsayAggWASIIsABhgSGMgeU4GggGPOvbPSvHCggpAhIVgXAKzYqYRgDz
+ogQ5hAwSrc11O4nDKlqIinaKlmzixjmUL45Sqx4zJtpitST/QcRjm0Xl2h02lw3b
+dqidbJfL7jRqTFe+XYPmEcn0r4hJMltldY8qw0McTrPNShlpFYldZk2VRhBAmuF4
+FEeRnXazg5jMGgIZOB6oR5tDPKokUlhEY5ZDanrJoCiAITwjYo4oBl4RFR5zBoFg
+HkAkcAwUeYhkWQACg4nMyQwjUVqsXKuNMkKD6lPM0hKZs6yiy+0glO9M4xsP6YJC
+dSFz52gfTBc6P+zBtwOxYTp/Un1N3aaO8YMfvld4e2S4fax8UUpQfSW15eJNy37f
+5GO6sbVXPZ0TDVMjJZF9iSVLjvWl32ka1D83CHI4PFHRuaz6+Zkxe6O+Lvri0d6B
+lZ1P3i9d83DVSOZAWWzfW9KC8frPUrtC7oVvL7l+qDF1uKx7JHL3496G1UduUYnn
+7oakiAlL+5OMS/TTxXc2z+sZDfySeOvFA0NFvqYCtPH8taiKQNGvh7+LunI8RvZe
+nlu16mxMoehrxzM/eXY15XVWP3OskBoP78r83a8H6e+UdX/dNrmhsjZjpqlozMPM
+RFTW//WJPnrDI+ed29oO9Lx689GyPHqoLWVhsvOHtElYeuNufcscXd2KU/rhuNd3
+1S1qXX76UlH3my8VTE4F10QUM0MxcXtjfp739pqSlv1np1/p+9vU0UQy9m3ctsA3
+WD5a9D5XbkRcddX8avnGysALR8WMl5d9IEVfGyj+5ttzzU8kf769/FDtV5Q31xdS
+NyImeppbZP+JfkvUs6sdHwVA2uL1T31v7N1UesIAajq73FGRP77b2uP/8/oXaaAl
+9qQ+OEK63L6WqgjL+PLp5dGkOTVt56nTvsDmk4XHqXWv7RUqw5Xfpu+t6BkOBN++
+cCGLnvaPrm/dOofefabB9mlyUsLY/YItR+IvfWxp93vDtvZ35Kxa2tKx70rq6EQC
+hIvTdc17anpz112N+Ae+RNGa
+=8/6f
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/samheuck
+
+==================================================================
