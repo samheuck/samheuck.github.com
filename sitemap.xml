@@ -1,47 +1,50 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://samheuck.com/security/good-security</loc>
-        <lastmod>2015-09-23T15:06:34-05:00</lastmod>
+        <loc>https://samheuck.com/</loc>
     </url>
     <url>
-        <loc>http://samheuck.com/books/books-part-1</loc>
-        <lastmod>2019-06-23T16:02:12-05:00</lastmod>
+        <loc>https://samheuck.com/about/</loc>
     </url>
     <url>
-        <loc>http://samheuck.com/code/view-templates-in-php</loc>
-        <lastmod>2015-09-23T15:06:34-05:00</lastmod>
+        <loc>https://samheuck.com/blog/</loc>
     </url>
     <url>
-        <loc>http://samheuck.com/tools/meet-jekyll-the-static-site-generator</loc>
-        <lastmod>2019-06-23T16:02:12-05:00</lastmod>
+        <loc>https://samheuck.com/blog/books-worth-reading/</loc>
+        <lastmod>2013-02-05</lastmod>
     </url>
     <url>
-        <loc>http://samheuck.com/tools/meet-jekyll-the-static-site-generator-part-2</loc>
-        <lastmod>2019-06-23T16:02:12-05:00</lastmod>
+        <loc>https://samheuck.com/blog/dabbling-in-a-new-language/</loc>
+        <lastmod>2015-09-23</lastmod>
     </url>
     <url>
-        <loc>http://samheuck.com/code/why-clean-code-matters</loc>
-        <lastmod>2019-06-23T16:02:12-05:00</lastmod>
+        <loc>https://samheuck.com/blog/easy-nas-upgrade/</loc>
+        <lastmod>2021-02-01</lastmod>
     </url>
     <url>
-        <loc>http://samheuck.com/coding/the-unforseen-downside-of-dabbling-in-a-new-language</loc>
-        <lastmod>2015-09-23T15:06:34-05:00</lastmod>
+        <loc>https://samheuck.com/blog/good-security/</loc>
+        <lastmod>2012-04-25</lastmod>
     </url>
     <url>
-        <loc>http://samheuck.com/about/</loc>
-        <lastmod>2019-06-23T16:43:18-05:00</lastmod>
+        <loc>https://samheuck.com/blog/meet-jekyll-the-static-site-generator-part-1/</loc>
+        <lastmod>2013-03-07</lastmod>
     </url>
     <url>
-        <loc>http://samheuck.com/blog/</loc>
-        <lastmod>2015-09-23T15:10:59-05:00</lastmod>
+        <loc>https://samheuck.com/blog/meet-jekyll-the-static-site-generator-part-2/</loc>
+        <lastmod>2013-03-19</lastmod>
     </url>
     <url>
-        <loc>http://samheuck.com/</loc>
-        <lastmod>2015-09-23T15:10:59-05:00</lastmod>
+        <loc>https://samheuck.com/blog/view-templates-in-php/</loc>
+        <lastmod>2013-02-06</lastmod>
     </url>
     <url>
-        <loc>http://samheuck.com/resume/</loc>
-        <lastmod>2020-03-26T09:23:43-05:00</lastmod>
+        <loc>https://samheuck.com/blog/why-clean-code-matters/</loc>
+        <lastmod>2013-11-01</lastmod>
+    </url>
+    <url>
+        <loc>https://samheuck.com/on-my-mind/</loc>
+    </url>
+    <url>
+        <loc>https://samheuck.com/resume/</loc>
     </url>
 </urlset>

@@ -1,1076 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <link rel="shortcut icon" href="/images/samheuck-weblogo-small.png" type="image/png">
-  <title>Sam Heuck | Blog</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="/samheuck-weblogo-small.png" type="image/png">
+    <title>Sam Heuck</title>
+    <meta name="description" content="Sam Heuck is a web developer, IT professional and audio engineer currently working in Austin, TX." />
+    <meta name="author" content="Sam Heuck">
 
-  
-  <meta name="description" content="Sam Heuck's Blog - All things technology, programming, music, and random thoughts." />
-  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|Ubuntu:400,700" />
 
-  <link rel="stylesheet" href="/pictonic/css/pictonic.css">
-  <!--[if lt IE 8]><script src="/pictonic/js/pictonic.min.js"></script><![endif]-->
+    <link rel="stylesheet" href="/modern-normalize.min.css" />
+    <link rel="stylesheet" href="/tachyons.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/print.css" />
 
-  <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-
-  <link href='/assets/global-9e759ad1e86f7ea29154df956b268f16.css' rel='stylesheet' type='text/css' />
-
-
+    
+    
   </head>
 
   <body>
-    <header>
-     <a href="/" title="Home" rel="home">
-  <img id="logo" src="/images/dizzy.png" alt="SamHeuck.com">
-  <div id="site-name"><span>Sam</span> <span class='accent'>Heuck</span></div>
-</a>
+    <header class="w-100 flex pl3 pt3">
+      <div class="logo">
+        <a href="/" title="Home" rel="home">
+          <img id="logo" src="/dizzy.png" alt="SamHeuck.com">
+        </a>
+      </div>
 
-<nav>
-  <ul>
-    
-      
-      
-      
-    <li ><a  href="/about/">about</a></li>
-    
-      
-      
-      
-    <li ><a  href="/resume/">resume</a></li>
-    
-      
-      
-      
-        
-        
-      
-    <li class="active"><a class="active" href="/blog/">blog</a><span>&#8675;</span></li>
-    
-  </ul>
-</nav>
-
+      <div class="flex flex-column justify-end pl4">
+        <h1><a href="/">Sam <span class="accent">Heuck</span></a></h1>
+        <nav>
+          <ul>
+          
+            
+              <li><a class="active" href="&#x2F;blog&#x2F;">blog<span>&#8675;</span></a></li>
+            
+          
+            
+              <li><a href="&#x2F;about&#x2F;">about</a></li>
+            
+          
+            
+              <li><a href="&#x2F;resume&#x2F;">resume</a></li>
+            
+          
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <div id="main" class="blog">
-      
-<section class="post">
-  <h1 class="heading">The unforeseen challenge of dabbling in a new language</h1>
-  <span class="post-date">23 September 2015</span>
-  <p><img src="/images/php-hammer.jpg" alt="php-hammer" /></p>
+    <main class="w-100 pa4-ns flex-ns">
+      <div class="w-70-ns pr4-ns">
+        
 
-<p>I was recently surprised by the realization that my dabbling, or perhaps more appropriately bumbling, with <a href="http://haskell.org" title="haskell.org">Haskell</a> may have actually degraded my performance as a PHP developer.</p>
+  <section class="teaser">
+    <h3 class="tc">Hello.</h3>
+    <p class="tc">
+      Here lie the ramblings of a passionate web developer, overseen by an equally passionate border collie.
+    </p>
+  </section>
 
-<p>To be clear, I happen to think PHP is a decent language. It is the language I used for my first honest-to-goodness web application that was useful to someone. Liking PHP is unpopular - as one could easily discover with a bit of <a href="http://blog.codinghorror.com/the-php-singularity" title="The PHP Singularity">reading</a>. But the fact is that PHP is often the “gateway drug” for aspiring web developers. It certainly was for me, and seven years later (during which I picked up javascript) I find myself attending a Haskell meet up.</p>
+  
+    <section class="teaser">
+      <div class="teaser-header">
+        <h1 class="blog-post-title"><a href="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;easy-nas-upgrade&#x2F;">Need more digital storage? Upgrade the NAS!</a></h1>
+        <span class="post-date">2021-02-01 | <a href="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;easy-nas-upgrade&#x2F;">Read more</a></span>
+      </div>
 
-<p>Haskell is about as far from PHP as you can possibly get. Haskell is compiled - PHP is interpreted. Haskell is statically typed - PHP is dynamically typed. Haskell is purely functional - PHP is procedural with bolted on object-oriented features and lambdas. Haskell is lazy - PHP is… not. But the particular dichotomy causing me difficulty is mutability.</p>
+      <div class="flex-l flex-row-l justify-around-l">
 
-<p>In PHP, nearly everything is mutable. Variable assignments, and their types, can change at runtime. Any bit of code can change global or local state at any time. Stating <code>$x = 4;</code> at the top of a function, and then later stating <code>$x = 'purple cat';</code> at the bottom of a function is not only valid, but commonplace in PHP.</p>
+        
+        <div class="pa2 w-50-l">
+          <p>
+    I suppose my love for the vast landscapes of the American west also carries over into my digital life. I like having extra storage space for code, photos, backups, email, audio recordings, random database experiments, and my music library. So I recently decided to upgrade the storage capacity of my network attachable storage (NAS). I also needed to move a bunch of files from some old external…</p>
+        </div>
+        <div class="pa2 tc w-50-l">
+          <img src=https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;easy-nas-upgrade&#x2F;/NAS_step1.jpg alt="">
+        </div>
+        
+      </div>
 
-<p>However, in Haskell, nothing is mutable. The compiler forbids doing such blasphemous things. This means that it expresses ideas the same way that algebra does. If you tell the compiler that <code>x = 4</code> for example, x will always be 4. Forever. The <code>=</code> symbol means <em>define</em>, not assign. If the program ever tries to change the definition of x the compiler will complain.</p>
+    </section>
+  
+    <section class="teaser">
+      <div class="teaser-header">
+        <h1 class="blog-post-title"><a href="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;dabbling-in-a-new-language&#x2F;">The unforeseen challenge of dabbling in a new language</a></h1>
+        <span class="post-date">2015-09-23 | <a href="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;dabbling-in-a-new-language&#x2F;">Read more</a></span>
+      </div>
 
-<p>At this point you might be wondering what the problem is. Of course these two languages are different, why would learning about one affect my ability to do useful work in the other?</p>
+      <div class="flex-l flex-row-l justify-around-l">
 
-<p>I think the answer is buried deep inside a characteristic of PHP that is both its greatest strength, and its greatest weakness. As I said, PHP is a “gateway drug” to programming. It entices the bright-eyed and bushy-tailed with its gentle learning curve, and its <a href="http://w3techs.com/technologies/history_overview/programming_language/ms/y">ubiquity</a>. All you need to get started is a simple text editor. You don’t need to know what mutability even means. You don’t need to know any set theory, type theory, or discrete mathematics. You don’t need to concern yourself with compilers or type systems or object oriented design principles. You can get a blog up and running in a matter of <em>minutes</em> by following any of the ridiculous number of PHP tutorials available online.</p>
+        
+        <div class="pa2 w-50-l">
+          <p>
+    
+I was recently surprised by the realization that my dabbling, or perhaps more appropriately bumbling, with Haskell may have actually degraded my performance as a PHP developer.
+To be clear, I happen to think PHP is a decent language. It is the language I used for my first honest-to-goodness web application that was useful to someone. Liking PHP is unpopular - as one could easily discover wit…</p>
+        </div>
+        <div class="pa2 tc w-50-l">
+          <img src=https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;dabbling-in-a-new-language&#x2F;/php-hammer.jpg alt="">
+        </div>
+        
+      </div>
 
-<p>This is a wonderful thing! So many people can start doing useful work in PHP with very little or no programming experience. And a whole lot of people have. And a whole lot of those people, myself included, turned that into a career.</p>
+    </section>
+  
+    <section class="teaser">
+      <div class="teaser-header">
+        <h1 class="blog-post-title"><a href="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;why-clean-code-matters&#x2F;">Why clean code matters</a></h1>
+        <span class="post-date">2013-11-01 | <a href="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;why-clean-code-matters&#x2F;">Read more</a></span>
+      </div>
 
-<p>But when you start to broaden your horizons as a programmer, you learn new ways of approaching problems. You learn to <em>think</em> differently. Languages like Haskell open your mind to concepts that you never considered before. Like mutability. And I believe this is where the surprising double edged-sword is forged.</p>
+      <div class="flex-l flex-row-l justify-around-l">
 
-<p>When you program professionally, business value is always the number one pressure. If the code you are about to write does not add business value, you are wasting money. If you spend time thinking about something that you need not think about, you are wasting money. If I spend time worrying about the fact that this PHP function just reached into global state and changed some values on the object that represents the currently logged in user, just as a convenient way to add some business value, I have wasted time and therefore money.</p>
+        
+        <div class="pa2 w-50-l">
+          <p>
+    I&#x27;m going to give you two crucial pieces of information, and I want you to answer one very simple question based on
+this information.
+1: The name of a file: hourly_sync.py
+2: This file is a cronjob
+The question is, how often does this job run?
+If you thought to yourself, &amp;quot;I don&#x27;t know yet&amp;quot;, you might be a developer. If you are a normal human being,
+you thought, &amp;quot;That job runs e…</p>
+        </div>
+        <div class="pa2 tc w-50-l">
+          <img src=https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;why-clean-code-matters&#x2F;/clean_code.jpg alt="">
+        </div>
+        
+      </div>
 
-<p>Before I started tinkering with Haskell, I didn’t think twice about grabbing the global user object and changing some values. But now, I see mutable state as something dangerous and scary! Sometimes particularly egregious violations need to be discussed at length with a teammate before I feel comfortable doing something that is perfectly acceptable in PHP. All of this extra worrying slows me down.</p>
+    </section>
+  
+    <section class="teaser">
+      <div class="teaser-header">
+        <h1 class="blog-post-title"><a href="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;meet-jekyll-the-static-site-generator-part-2&#x2F;">Meet Jekyll the Static Site Generator - Part 2</a></h1>
+        <span class="post-date">2013-03-19 | <a href="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;meet-jekyll-the-static-site-generator-part-2&#x2F;">Read more</a></span>
+      </div>
 
-<p>That said, I believe that stretching your mind by learning antithetical techniques is important for a developer’s growth, and I’m a better developer for it. I just need to learn to focus my mind in a different way before sitting down in front of a PHP project.</p>
+      <div class="flex-l flex-row-l justify-around-l">
 
-
-</section>
-
-<section class="post">
-  <h1 class="heading">Why clean code matters</h1>
-  <span class="post-date">01 November 2013</span>
-  <p>I’m going to give you two crucial pieces of information, and I want you to answer one very simple question based on
-this information.</p>
-
-<ol>
-  <li>The name of a file: hourly_sync.py</li>
-  <li>This file is a cronjob</li>
-</ol>
-
-<p>The question is, how often does this job run?</p>
-
-<p>If you thought to yourself, “I don’t know yet”, you might be a developer. If you are a normal human being,
-you thought, “That job runs every hour”. You normal people would be dead wrong, but certainly by no fault
-of your own. No, the blame lies with the developer, who made the seemingly innocuous decision to name this
-job based on the frequency with which it runs. This job actually runs every 2 minutes. So why is it called hourly
-sync? Why, when the frequency at which the job needed to run, was the name of the job not changed to match?</p>
-
-<p>The only <em>true</em> constant in software development, the <em>only</em> thing you can count on happening every time, on
-every project, is change. This job was once actually run every hour. But as the user base for the application grew,
-hourly was not frequent enough to keep things… synced. So the cadence was increased, but the name of the job could
-not be changed, for fear of breaking the calling code.</p>
-
-<p>It is for this reason, the fact that change always rears its head, that developers want to write clean code. It is
-why we cling to principles like DRY, single responsibility, encapsulation, inversion of control, and open closed. So
-when a change request comes in, you can say, “yeah that’s easy” instead of, “this might break other things, I’ll need a few days to sort this out”.</p>
-
-<p>So <em>invest</em> in refactoring. <em>Invest</em> in solution architecture. Yes, in some cases, you may violate the
-80/20 rule, but believe me, when that inevitable change comes around, you’ll be glad you did.</p>
-
-</section>
-
-<section class="post">
-  <h1 class="heading">Meet Jekyll the Static Site Generator - Part 2</h1>
-  <span class="post-date">19 March 2013</span>
-  <p><img src="/images/meet_jekyll.jpg" alt="Jekyll" /></p>
-
-<h3 id="part-ii">Part II</h3>
-
-<p>In <a href="/tools/meet-jekyll-the-static-site-generator">part 1</a> I discussed why I
+        
+        <div class="pa2 w-50-l">
+          <p>
+    
+Part II
+In part 1 I discussed why I
 chose Jekyll to build this site and presented a high level overview of how
-Jekyll works. In this post, I’ll dive into the depths of Jekyll and show off
-some of its features.</p>
-
-<h3 id="liquid-templates">Liquid Templates</h3>
-
-<p>The template engine used by Jekyll is called <a href="http://liquidmarkup.org/">Liquid</a>.
-Liquid makes it easy to create a layout and pull in page elements dynamically.</p>
-
-<p>Jekyll will compile content into a page using a layout like this:</p>
-
-<pre><code>// _layouts/default.html
-
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-  &lt;head&gt;
-  {% include head.inc %}
-  &lt;/head&gt;
-
-  &lt;body&gt;
-    &lt;header&gt;
-     {% include header.inc %}
-    &lt;/header&gt;
-
-    &lt;div id="main"&gt;
-      {{ content }}
-    &lt;/div&gt;
-
-    &lt;aside&gt;
-    {% include sidebar.inc %}
-    &lt;/aside&gt;
-  &lt;/body&gt;
-  {% include js.inc %}
-&lt;/html&gt;
-</code></pre>
-
-<p><strong>Including partials</strong></p>
-
-<p>Jekyll will automatically find includes in the _includes directory.</p>
-
-<pre><code>{% include links.inc %}
-</code></pre>
-
-<p><strong>Loops and conditionals</strong></p>
-
-<p>Any page that begins with a YAML Front matter block…</p>
-
-<pre><code>---
-// predefined default variables
-layout: default
-category: funny
-published: true
-tags: cats
-
-// custom variables
-context: cats
-title: Funny Cats
----
-</code></pre>
-
-<p>can declare variables which can be accessed in Liquid. This allows the
-conditional placement of content. For instance, you can place a sidebar on a
-page based on a context variable…</p>
-
-<pre><code>// default layout
-
-...
-&lt;aside&gt;
-  {% case page.context %}
-    {% when 'about' %}
-      {% include sidebars/about-sidebar.inc %}
-    {% when 'contact' %}
-      {% include sidebars/contact-sidebar.inc %}
-    {% when 'home' %}
-      {% include sidebars/home-sidebar.inc %}
-    {% when 'blog' %}
-      {% include sidebars/blog-sidebar.inc %}
-    {% else %}
-  {% endcase %}
-&lt;/aside&gt;
-</code></pre>
-
-<p>It’s also simple to create a recent posts block with a loop…</p>
-
-<pre><code>&lt;h3&gt;Recent Posts&lt;/h3&gt;
-&lt;ul&gt;
-  {% for post in site.posts limit: 6 %}
-  &lt;li&gt;&lt;a href="{{ post.url }}"&gt;{{ post.title }}&lt;/a&gt;&lt;/li&gt;
-  {% endfor %}
-&lt;/ul&gt;
-</code></pre>
-
-<p>Site-wide variables can be declared in _config.yml. This is a convenient place
-to put primary navigation…</p>
-
-<pre><code>// _config.yml
-
-...
-
-nav:
-  - text: about
-    url: /about/index.html
-  - text: resume
-    url: /resume/index.html
-  - text: contact
-    url: /contact/index.html
-  - text: blog
-    url: /blog/index.html
-</code></pre>
-
-<p>Which can be included in the layout</p>
-
-<pre><code>&lt;nav&gt;
-  {% for link in site.nav %}
-    {% assign active = nil %}
-    {% if page.url == link.url or page.layout == link.layout %}
-      {% assign active = 'class="active"' %}
-    {% endif %}
-    &lt;li&gt;&lt;a {{ active }} href="/{{ link.text }}/"&gt;{{ link.text }}&lt;/a&gt;{{ indicator }}&lt;/li&gt;
-  {% endfor %}
-&lt;/nav&gt;
-</code></pre>
-
-<h3 id="plug-ins">Plug-ins</h3>
-
-<p>Out of the box, Jekyll is well equipped to create a blog with a custom layout,
-and it has built in support for markdown. But augment Jekyll with plugins and
-you can start cooking with gas.</p>
-
-<p><strong>Jekyll Asset pipeline</strong></p>
-
-<p>This is an essential plug-in for Jekyll that will compile sass, and also
-aggregate and compress javascript and css.</p>
-
-<pre><code>$~ gem install Jekyll-asset-pipeline
-</code></pre>
-
-<p>You have to install a compressor. I like the yui-compressor because it will
-minify both javascript and css.</p>
-
-<pre><code>$~ gem install yui-compressor
-</code></pre>
-
-<p>Once these Ruby gems are installed, enabling the asset pipeline plug-in is as
-simple as putting a config file inside the _plugins directory. Here’s the one I
-use for this site…</p>
-
-<pre><code>require 'Jekyll_asset_pipeline'
-
-module JekyllAssetPipeline
-  class SassConverter &lt; JekyllAssetPipeline::Converter
-    require 'sass'
-
-    def self.filetype
-      '.sass'
-    end
-
-    def convert
-      return Sass::Engine.new(@content, :load_paths =&gt; ['.','../_assets','_assets/sass','../_assets/sass'], :syntax =&gt; :sass).render
-    end
-  end
-
-  class CssCompressor &lt; JekyllAssetPipeline::Compressor
-    require 'yui/compressor'
-
-    def self.filetype
-      '.css'
-    end
-
-    def compress
-      return YUI::CssCompressor.new.compress(@content)
-    end
-  end
-
-  class JavaScriptCompressor &lt; JekyllAssetPipeline::Compressor
-    require 'yui/compressor'
-
-    def self.filetype
-      '.js'
-    end
-
-    def compress
-      return YUI::JavaScriptCompressor.new(:munge =&gt; true).compress(@content)
-    end
-  end
-end
-</code></pre>
-
-<p>The asset pipeline plug-in hooks into Liquid and looks for assets to include
-inside the _assets folder.</p>
-
-<p>Adding javascript looks like this:</p>
-
-<pre><code>{% javascript_asset_tag global %}
-  - /_assets/js/jquery.js
-  - /_assets/js/highlight.js
-  - /_assets/js/init.js
-{% endjavascript_asset_tag %}
-</code></pre>
-
-<p>And css:</p>
-
-<pre><code>{% css_asset_tag global %}
-  - /_assets/css/normalize.css
-  - /_assets/screen.sass
-{% endcss_asset_tag %}
-</code></pre>
-
-<p>Including any file ending in .sass will cause asset pipeline to compile the sass
-into css on site build.</p>
-
-<p>I also like to use a plug-in for <a href="https://github.com/kinnetica/Jekyll-plugins">sitemap generation</a>.
-Just include it in the _plugins directory and a sitemap will be automatically
-generated on site build.</p>
-
-<h3 id="helpers">Helpers</h3>
-
-<p>Thor is an alternative to Rake. I like to use it as a helper for creating posts
-and deploying my site. <a href="http://whatisthor.com/">Thor has some nifty features.</a></p>
-
-<pre><code>$~ gem install thor
-</code></pre>
-
-<p>A Thor task for creating posts:</p>
-
-<pre><code>class Site &lt; Thor
-  include Thor::Actions
-
-  desc "post", "create a new post"
-  def post
-    title = ask("Title:")
-    @title = title
-    @description = ask("Description:")
-    @category = ask("Category:")
-    @date = Time.now.strftime('%Y-%m-%d %k:%M:%S')
-
-      filename = "#{Time.now.strftime('%Y-%m-%d')}-#{title.gsub(/\s/, '-').downcase}.md"
-      template "_thor/templates/post", "_posts/#{filename}"
-
-    if ENV['EDITOR']
-        system("$EDITOR _posts/#{filename}")
-    else
-      system("vim _posts/#{filename}")
-    end
-  end
-end
-
-
-// Thor template for posts
-// lives in _thor/templates
----
-layout: post
-published: false
-date: &lt;%= @date %&gt;
-
-title: &lt;%= @title %&gt;
-description: &lt;%= @description %&gt;
-category: &lt;%= @category %&gt;
-image: &lt;%= @image %&gt;
----
-</code></pre>
-
-<p>From the command line, run thor site:post and it will prompt for info about
-the post - title, description, category and an image - and then create a file
-in _posts and open that file in your editor.</p>
-
-<p>Thor could also be used to run Jekyll, and then rsync the contents of _site to
-a server for easy deployment.</p>
-
-<p>You can also use <a href="http://jenkins-ci.org/">Jenkins</a> for deployment. For this site,
-I have the Jekyll stack and Thor installed on my host server. I then use Jenkins
-to run the thor deploy task which copies the contents of _site into the public
-html folder on my host. Updating my site is as simple as writing some content,
-saving that content into version control, and then running the Jenkins build.</p>
-
-<p>Taking this one step further, you could have Jenkins watch a remote repository
-for changes, and automatically run a build and deploy whenever it sees a change
-in the code base. That way, the site would be updated every time you pushed
-changes to your repository.</p>
-
-<p>So go start using Jekyll! Trust me, it’s fun…</p>
-
-
-</section>
-
-<section class="post">
-  <h1 class="heading">Meet Jekyll, the Static Site Generator - Part 1</h1>
-  <span class="post-date">07 March 2013</span>
-  <p><img src="/images/meet_jekyll.jpg" alt="Jekyll" /></p>
-
-<p>Jekyll is a static site generator written in Ruby that uses the Liquid template
+Jekyll works. In this post, I&#x27;ll dive into the depths of Jekyll and show off
+some of its features.
+Liquid Templates
+The template engine used by Jekyll is called Liquid.
+Liquid makes it easy to create a layout and pull in page elements dynamically.
+Jekyll will compile content into a …</p>
+        </div>
+        <div class="pa2 tc w-50-l">
+          <img src=https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;meet-jekyll-the-static-site-generator-part-2&#x2F;/meet_jekyll_2.jpg alt="">
+        </div>
+        
+      </div>
+
+    </section>
+  
+    <section class="teaser">
+      <div class="teaser-header">
+        <h1 class="blog-post-title"><a href="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;meet-jekyll-the-static-site-generator-part-1&#x2F;">Meet Jekyll, the Static Site Generator - Part 1</a></h1>
+        <span class="post-date">2013-03-07 | <a href="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;meet-jekyll-the-static-site-generator-part-1&#x2F;">Read more</a></span>
+      </div>
+
+      <div class="flex-l flex-row-l justify-around-l">
+
+        
+        <div class="pa2 w-50-l">
+          <p>
+    
+Jekyll is a static site generator written in Ruby that uses the Liquid template
 engine. In combination with git for version control and Jenkins for deployment,
 Jekyll is a powerful tool not just for blogging, but also for small to medium-
-sized websites. Give Jekyll a try, and you can blog like a hacker.</p>
+sized websites. Give Jekyll a try, and you can blog like a hacker.
+First, a minor diatribe...
+Web sites used to be simple. A little HTML, some text and may…</p>
+        </div>
+        <div class="pa2 tc w-50-l">
+          <img src=https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;meet-jekyll-the-static-site-generator-part-1&#x2F;/meet_jekyll_1.jpg alt="">
+        </div>
+        
+      </div>
 
-<h3 id="first-a-minor-diatribe">First, a minor diatribe…</h3>
+    </section>
+  
+    <section class="teaser">
+      <div class="teaser-header">
+        <h1 class="blog-post-title"><a href="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;view-templates-in-php&#x2F;">View templates in PHP</a></h1>
+        <span class="post-date">2013-02-06 | <a href="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;view-templates-in-php&#x2F;">Read more</a></span>
+      </div>
 
-<p>Web sites used to be simple. A little HTML, some text and maybe an image or two.
-When you wanted to add content to a site, you would simply upload some html
-to the server with an FTP client, and your new content would be live. Someone would
-request to view that page, and the server would serve the HTML requested. No
-databases had to be queried, no code had to be interpreted by the server, and
-because of the simplicity, the site was fast and secure. Sometimes, when I am
-neck deep in a Drupal site trying to wrangle it into submission, I think to
-myself “Wow, whatever happened to just uploading an HTML file…”.</p>
+      <div class="flex-l flex-row-l justify-around-l">
 
-<h3 id="enter-the-static-site-generator">Enter the static site generator…</h3>
-
-<p>So what if, instead of using an application stack powered by PHP and MySQL to
-create web pages on the fly, a website were compiled, in effect <em>frozen</em> into a
-static state, and then served to the client browser. Just like the good old days!
-<a href="http://jekyllrb.com/">Jekyll</a> is an open source project written in Ruby by
-github co-founder Tom Preston-Werner. Designed for blogs, and flexible enough
-that it could be used to create just about anything, Jekyll is a tool that does
-exactly that. It gathers up content, styling and javascript, organizes it into
-a predefined directory structure, and writes the necessary HTML.</p>
-
-<h3 id="advantages-of-static-websites">Advantages of static websites</h3>
-
-<div class="center-list">
-
-  <p><span class="icon-kub-approve green"></span> <strong>Speed</strong></p>
-
-  <blockquote>
-    <p>Web servers were originally designed to do one thing, serve a document.
-With Jekyll, that is exactly what your web server is doing. It doesn’t
-have to provision an instance of the PHP interpreter to execute expensive
-code. No database queries have to be made. Content is simply… delivered.</p>
-  </blockquote>
-
-  <p><span class="icon-kub-approve green"></span> <strong>Security</strong></p>
-
-  <blockquote>
-    <p>Because there is no backend application, there can be no database
-injection attacks, session highjacking, or malicious cross-site scripting.</p>
-  </blockquote>
-
-  <p><span class="icon-kub-approve green"></span> <strong>Version Control</strong></p>
-
-  <blockquote>
-    <p>Jekyll is designed to pair with source code control systems like Git. This
-means your posts are automatically versioned and can easily be backed up
-on github or bitbucket.</p>
-  </blockquote>
-
-  <p><span class="icon-kub-approve green"></span> <strong>Easy deployment</strong></p>
-
-  <blockquote>
-    <p>How do you deploy a static site? Copy the files to the server. Done.
-With source control, this is a trivial push and subsequent pull. You
-could also use rsync, or even plain old FTP to send files to the server.
-The 1337 among us might like to use Jenkins and a post commit hook
-to automatically build and publish the site, but that requires some
-extra setup server side. No matter how you deploy, though, static sites
-make it painless.</p>
-  </blockquote>
-
-  <p><span class="icon-kub-approve green"></span> <strong>Free Hosting!</strong></p>
-
-  <blockquote>
-    <p>For simple sites, you can use github pages or Dropbox to store and host
-your website. This isn’t right for everyone, but free hosting is a nice
-perk. Github pages is a great option for coders. You just have to create
-a repository using your account name and anything in the master branch
-will be published using jekyll.</p>
-  </blockquote>
-</div>
-
-<h3 id="disadvantages-of-static-site-generators">Disadvantages of static site generators</h3>
-
-<div class="center-list">
-  <p><span class="icon-kub-remove red"></span> <strong>Persistence</strong></p>
-
-  <blockquote>
-    <p>There is no database. Anything that requires persistence, such as comments,
-will need to be outsourced to a service. Disqus is popular for comments.
-Also database access of any kind has to be managed from the front end. This
-isn’t a huge problem with javascript frameworks like Ember and Backbone,
-but if you are used to server-side coding, there is a learning curve.</p>
-  </blockquote>
-
-  <p><span class="icon-kub-remove red"></span> <strong>This is <em>not</em> Wordpress…</strong></p>
-
-  <blockquote>
-    <p>There is a reason this is called <a href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html">blogging like a hacker</a>.
-You need a solid HTML &amp; CSS background, and some knowledge of how to install, maintain, and
-configure Ruby gems. You need to know how template engines work. And you also have
-to be willing to spend some time sifting through issue cues and bug reports when
-you run into an problem. If “user friendly” and one button install is what you’re
-looking for, Jekyll is not for you.</p>
-  </blockquote>
-</div>
-
-<h3 id="the-basics">The basics</h3>
-
-<p>When jekyll runs, it will copy all files and folders in the project root into
-its build directory <em>except</em> for directories and files with a preceding
-underscore. You can also specify files to ignore in _config.yml. A typical site
-might look something like this:</p>
-
-<pre><code>_layouts/
-_includes/
-_posts/
-_plugins/
-_site/
-_config.yml
-index.md
-images/
-about/
-blog/
-</code></pre>
-
-<p>When the <code>~$ jekyll</code> command is issued, the site is generated inside the
-_site directory. _layouts contains the main template files, and _includes can
-be used for content partials which can be placed into pages with Liquid. Any
-file that begins with:</p>
-
-<pre><code>---
-layout: default
-title: a page
-foo: bar
----
-</code></pre>
-
-<p>… will be parsed by Jekyll. This special header is the
-<a href="https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter">YAML Front Matter</a>
-block. There are some reserved variables like layout, and publish, but you
-can also add any variable you need. For example, you could have a variable
-called sidebar that could be used to include a specific piece of sidebar
-content on a specific page.</p>
-
-<p>Jekyll relies on the <a href="https://github.com/Shopify/liquid/wiki">Liquid</a> template
-engine to compile content. The syntax is intuitive and I found the learning
-curve for Liquid to be smooth and easy. Jekyll will parse Liquid include
-statements and search for the included content inside the _includes directory
-automatically. You don’t have to worry about registering paths to things.</p>
-
-<p>One of my favorite features of Jekyll is that it has built-in support
-for <a href="http://daringfireball.net/projects/markdown/">Markdown</a>.
-You can write posts in plain text, and Jekyll will convert the Markdown
-into HTML. For example, paragraphs of text will be properly wrapped in &lt;p&gt;
-tags, and any text surrounded by asterisks will be bold. Jekyll has
-support for several Markdown engines; I like to use
-<a href="http://kramdown.rubyforge.org/">Kramdown</a>.</p>
-
-<p>This constitutes the basic stack for Jekyll. Write content in Markdown, create
-layouts for different types of content, and separate out partial blocks with
-Liquid includes. Then run <code>~$ jekyll</code> from the project root, and upload the
-contents of _site to your webserver.</p>
-
-<p>I built this site in Drupal, and then discovered Jekyll. I promptly redesigned
-my site using Jekyll and <em>I haven’t looked back</em>. In that process I discovered
-some essential add-ons and helpers for Jekyll. The next post will be a tutorial
-on some of what I learned.</p>
-
-<div class="center-list">
-  <ul>
-    <li>Jekyll plugins</li>
-    <li>Automatic <a href="http://sass-lang.com/">sass</a> compilation with Jekyll</li>
-    <li>Automatic compression of CSS and javascript using <a href="http://yui.github.com/yuicompressor/">yui-compressor</a></li>
-    <li>Workflow helper tasks with <a href="https://github.com/wycats/thor">Thor</a>, a Rake alternative</li>
-    <li>Sitemap generation on build</li>
-    <li>Deployment with <a href="http://jenkins-ci.org/">Jenkins</a></li>
-  </ul>
-</div>
-
-<p>So stay tuned, and happy coding!</p>
-
-
-</section>
-
-<section class="post">
-  <h1 class="heading">View templates in PHP</h1>
-  <span class="post-date">06 February 2013</span>
-  <p><img src="/images/posts/view_templates_in_php01.png" alt="PHP" /></p>
-
-<p>When first learning PHP, it is quite easy to shoot yourself in the foot. PHP is
+        
+        <div class="pa2 w-50-l">
+          <p>
+    
+When first learning PHP, it is quite easy to shoot yourself in the foot. PHP is
 forgiving and you can get away with writing some seriously crappy code.
 Consequently, PHP programmers often follow a similar path as they develop their
 skills. I started off writing horrendous code that was utterly unmaintainable. Of
 course I ended up rewriting all of it. Twice. And through that process, one
-which all programmers are familiar with, I learned some fundamentals of design
-and architecture. “Separation of Concerns”, and “DRY” or “Don’t Repeat
-Yourself” are terms you’ve no doubt heard, but they are a little abstract.
-I hope to shed some light on these concepts.</p>
-
-<p>A templating system is one way to significantly improve both separation of
-concerns and DRY. View templates separate logic and data from design and layout,
-and provide a set of common functions for creating views. This post will
-introduce and explore templating techniques. The code in this post is mostly an
-exercise, because normally, you will be using external libraries and frameworks
-to do these same things. But writing your own system is a great way to level up
-your skills, not to mention it will teach you to recognize these techniques in
-existing systems, which will allow you to debug and troubleshoot more
-effectively.</p>
-
-<p>We’ll take a look at two common yet diametrical approaches to templating:
-search &amp; replace templates, and include templates - as well as some other nifty
-tricks.</p>
-
-<p>Think about what goes into a simple page of HTML. First there is a standard
-structure that never changes - Doctype followed by head with some meta tags, a
-title, stylesheets and maybe some javascript. Then comes the body tag, and
-some content. Some elements of this basic structure are the same on every
-page, and other elements vary. This is the perfect situation to use a template.
-The template will contain those elements that are static, and then PHP will
-inject the dynamic elements into the template. This is DRY because we don’t
-have to write the same bits of HTML for every single page in a site. It also
-separates concerns by allowing content to be completely separate from layout.</p>
-
-<p>Let’s start with the code that will actually create and display a page of HTML.</p>
-
-<pre><code>&lt;?php
-  $page = new HtmlPage();
-  $page
-    -&gt;setTitle('Home')
-    -&gt;setMeta('keywords', 'some slightly-less-than-random words')
-    -&gt;addStylesheet('base.css')
-    -&gt;addStylesheet('my_beautiful_styles.css')
-    -&gt;addScript('jquery.js')
-    -&gt;addScript('awesome_blinky_text.js')
-    -&gt;setBodyId('home')
-    -&gt;setBodyClass('blue')
-    -&gt;addContent($some_content)
-    -&gt;addContent($more_content)
-    -&gt;render('layout.phtml');
-?&gt;
-</code></pre>
-
-<p>Did you notice this code is…</p>
-
-<ul>
-  <li>Object oriented</li>
-  <li>Configurable (more on this later)</li>
-  <li>Stringing function calls together <a href="http://en.wikipedia.org/wiki/Fluent_interface">(fluent interface)</a></li>
-  <li>Declarative (stating what to do, not how)</li>
-</ul>
-
-<p>This PHP <em>writes</em> HTML code. Make note of the HTML elements that are being
-injected: CSS, javascript, titles, ids and content. These are the dynamic
-elements - different on each page. These dynamic elements could really come
-from any source, a text file on the local file system, a database, or even
-a RESTful API.</p>
-
-<p>Once all of the dynamic elements are declared, the page is rendered. Let’s
-take a closer look at the <code>HtmlPage::render()</code> function. It takes a single
-argument that references a file containing the HTML template for a basic page.</p>
-
-<pre><code>//layout.phtml
-&lt;?php echo $this-&gt;doctype; ?&gt;;
-&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
-  &lt;head&gt;
-    &lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8" /&gt;
-    &lt;?php echo $this-&gt;title; ?&gt;
-    &lt;?php echo $this-&gt;meta; ?&gt;
-
-    &lt;!-- STYLES --&gt;
-    &lt;?php echo $this-&gt;stylesheets; ?&gt;
-
-    &lt;!-- SCRIPTS --&gt;
-    &lt;?php echo $this-&gt;scripts; ?&gt;
-  &lt;/head&gt;
-
-  &lt;?php echo $this-&gt;bodyTag; ?&gt;
-  &lt;?php echo $this-&gt;content; ?&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-
-<p>This HTML template uses PHP to print out the dynamic elements declared by the
-HtmlPage class. <code>$this</code> refers to a specific instance of HtmlPage. So
-the HtmlPage class is including the template file, and the template file refers
-to instance variables of the HtmlPage class. Here’s how that works.</p>
-
-<pre><code>&lt;?php
-  ...
-
-  /**
-   * The render function.
-   *
-   * Responsible for displaying the page.
-   *
-   * @param String
-   *   - path to template
-   */
-  public function render($template) {
-    ob_start();
-    $this-&gt;_include($template);
-    return print ob_get_clean();
-  }
-
-
-  /**
-   * Include wrapper.
-   *
-   * Using the include keyword, a
-   * template is included.
-   */
-  private function _include() {
-    include func_get_arg(0);
-  }
-?&gt;
-</code></pre>
-
-<p><code>HtmlPage::render()</code> creates an output buffer to capture the template content
-being included. Then the include wrapper function is called with a reference to
-a template file. This reference is just a string that represents the file path
-to the template. The call to <code>func_get_arg(0)</code> limits the available scope of
-the template to the object referenced by <code>$this</code>. This is the heart of the
-include template technique.</p>
-
-<p><strong>The major advantage</strong> to this technique is that there is now one place which
-defines layout and static elements. The template can be changed or updated,
-and all other instances of HtmlPage will in turn reflect that change.</p>
-
-<p><em>So how do the methods generate HTML?</em></p>
-
-<pre><code>public function __get($key) {
-  // Tries to find and call a getter.
-  $method = 'get' . ucfirst($key);
-  return method_exists($this, $method) ? $this-&gt;$method() : null;
-}
-</code></pre>
-
-<p>The function <code>__get()</code> is a <a href="http://php.net/manual/en/language.oop5.magic.php">magic function</a>
-that gets called whenever a class variable that has not been defined is
-referenced. In other words, I can refer to <code>$this-&gt;foo</code> in a template,
-and that instance of HtmlPage will call the <code>__get(foo)</code> function because
-the foo variable was not explicitly defined in the HtmlPage class.</p>
-
-<p>The implementation of <code>__get()</code> can be customized, as is the case here, to
-do anything we need. In this example, I use the passed in string to call another
-function which returns HTML.</p>
-
-<pre><code>// A 'getter' method, called by __get
-public function getBodyTag()
-{
-  return sprintf("&lt;body%s%s&gt;", $this-&gt;_bodyId, $this-&gt;_bodyClass);
-}
-</code></pre>
-
-<p>In the template, <code>&lt;?php echo $this-&gt;bodyTag; ?&gt;</code> is really calling the
-getter function <code>HtmlPage::getBodyTag()</code> via the magical <code>__get()</code>
-function. A similar getter function exists for each setter function.
-<code>HtmlPage::addScript()</code> for instance, allows us to add as many scripts as we
-like. Each string passed in from <code>HtmlPage::addScript()</code> gets stored in an
-array, and the getter method iterates through the array, adds the appropriate
-javascript element tags, and sets the source to the value of the string passed
-in by addScript(). Each getter will have its own unique implementation depending
-on the output that is needed. HtmlPage contains the setters and getters
-necessary for creating HTML pages, but it could easily be extended to add new
-functions.</p>
-
-<p>Including pieces of content calls for a slightly different templating technique.
-Individual pieces of content often contain a few dynamic elements - the name
-of a logged in user for example. Search and replace templating is a technique
-you can use to inject variables into a piece of content. The <code>addContent()</code>
-function uses this technique. Its argument is actually an object defined by
-this class.</p>
-
-<pre><code>&lt;?php
-class Partial
-{
-  private $_html;
-  private $_items = array();
-
-  public function __construct($file)
-  {
-    if (!$this-&gt;_html = file_get_contents($file, FILE_USE_INCLUDE_PATH)) {
-      throw new Exception("Error Reading File: $file");
-    }
-  }
-
-  public function set($item, $value)
-  {
-    $this-&gt;_items[$item] = $value;
-    return $this;
-  }
-
-  public function output()
-  {
-    if (count($this-&gt;_items) &gt; 0 ) {
-      foreach ($this-&gt;_items as $item =&gt; $value) {
-          $replace = "[%$item]";
-          $this-&gt;_html = str_replace($replace, $value, $this-&gt;_html);
-      }
-    }
-    return preg_replace('/\[%.+\]/', '', $this-&gt;_html);
-  }
-}
-?&gt;
-</code></pre>
-
-<p>A partial is a small piece of HTML that acts as mini-template. Dynamic
-elements within the partial have a special syntax that distinguish them from
-regular HTML. When <code>Partial::output()</code> is called, any named placeholders
-(the dynamic elements) found in the partial are replaced with values stored and
-indexed under their corresponding names. We use an associative array for this,
-and to populate that array, we use the <code>Partial::set()</code> function to pass in
-an index and a value. The <code>Partial::output()</code> function iterates through this
-array, replacing any placeholder in the “mini-template” with the value of the
-corresponding index in the associative array. Any placeholder that doesn’t have
-a value set, gets replaced with an empty string by the reg-ex in the return
-statement.</p>
-
-<p>Long story short, little chunks of HTML can be appended to our HtmlPage’s
-content variable. If we want to include some dynamic elements in that content,
-we can use named placeholders. An example is in order.</p>
-
-<pre><code>//index.php
-...
-
-$content = new Partial('some_really_cool_content.html');
-$content-&gt;set('foo', 'bar');
-
-$page-&gt;addContent($content);
-</code></pre>
-
-<p>And here is what “some_really_cool_content.html” might look like:</p>
-
-<pre><code>&lt;h1&gt;This content is SWEEEEEEEEEET!&lt;/h1&gt;
-&lt;span&gt;[%foo]&lt;/span&gt;
-</code></pre>
-
-<p><code>[%foo]</code> is the named placeholder and will be replaced by our amazing
-content: “bar”. How very exciting. The data that replaces the placeholders could
-come from a database somewhere, an RSS feed, really anything. Since we use PHP
-to add the content and set the dynamic variables, we have the full flexibility
-of PHP at our disposal. We could even use the output of other partials to
-replace placeholders in a partial. Of course you don’t have to use any
-placeholders at all; partials can be used to simply include snippets of pure
-HTML.</p>
-
-<p>When we use <code>&lt;?php echo $this-&gt;content ?&gt;</code>, <code>HtmlPage::getContent()</code>
-will iterate through all partials which have been added, and call each of their
-output functions in turn - printing out all of the dynamically generated code.
-The content will appear in FIFO order (first in, first out) - in other
-words, in the same order each partial was added.</p>
-
-<p><strong>Caveats of search and replace</strong></p>
-
-<ul>
-  <li>Escaping unsafe strings is slightly trickier, especially with compound partials</li>
-  <li>It’s expensive - lots of parsing overhead, reg-ex</li>
-  <li>Performance concerns can be alleviated through cacheing, but this adds complexity</li>
-  <li>Not as well suited for highly dynamic web applications with lots of users</li>
-</ul>
-
-<h2 id="nifty-tricks">Nifty tricks…</h2>
-
-<p><em>How does <code>HtmlPage::addScript('script.js')</code> know where to find the script.js</em>
-file?</p>
-
-<p>HtmlPage is configurable.</p>
-
-<pre><code>&lt;?php
-...
-
-public function __construct()
-{
-    $path = realpath(dirname(__FILE__)) . "/HtmlPage.ini";
-    if (file_exists($path)) {
-        $config = parse_ini_file($path);
-        foreach($config as $key =&gt; $value) {
-            $this-&gt;_config[$key] = $value;
-        }
-    }
-
-    $this-&gt;_doctype = empty($this-&gt;_config['doctype.default'])
-        ? 'XHTML_1_0_STRICT' : $this-&gt;_config['doctype.default'];
-}
-</code></pre>
-
-<p>If HtmlPage finds a file called HtmlPage.ini in the same directory in which it
-resides, it will parse that file and save any configuration settings in an
-array. For instance, if a doctype has been specified in the config file, it will
-use it, otherwise, it will use XHTML 1.0 STRICT.</p>
-
-<p>The config file can be used to set base paths to scripts, stylesheets,
-templates, etc.. It can also specify a default template, which allows you to
-call <code>HtmlPage::render()</code> without any arguments at all. It will get the
-template file from the config file. Of course, any argument passed in will
-override the config file, so switching templates on the fly is still a cinch.
-The config file is handy for setting a base title and separator for pages too.
-If you end up extending HtmlPage, you can take advantage of the config file to
-set sensible defaults for any new functionality. Here’s what my config file
-looks like.</p>
-
-<pre><code>//HtmlPage.ini
-[base_paths]
-javascript.basepath  = "/public/js/"
-css.basepath         = "/public/css/"
-templates.directory  = "templates/"
-
-[defaults]
-template.default = "layout.phtml"
-doctype.default  = "XHTML_1_0_STRICT"
-title.prefix     = "Test"
-title.separator  = " | "
-</code></pre>
-
-<p><strong>The fluent interface…</strong> <br /> Fluent interfaces are very easy to implement in
-PHP. All you have to do is <code>return $this;</code> in the function. Since <code>$this</code> is a
-reference to an object, you can call another function, which also returns a
-reference to an object, and so on.</p>
-
-<p><strong>Prevent vital class variables from being overridden</strong> <br /> Magic functions in PHP
-are quite useful. Since we have defined several class variables, such as
-<code>$content</code>, that, if overwritten could potentially erase content from the HTML
-page, we need a way to reserve these variables so that client code cannot
-overwrite them. We want HtmlPage to be closed to modification, but open to
-extension. <code>__set()</code> provides the functionality needed.</p>
-
-<pre><code>//HtmlPage.php
-&lt;?php
-...
-
-public final function __set($property, $value)
-{
-    if (method_exists($this, 'get' . ucfirst($property))
-        || array_key_exists($property, get_class_vars(get_class($this)))
-    ) {
-        throw new Exception('Attempted to set a reserved variable');
-    }
-    $this-&gt;$property = $value;
-    return $this;
-}
-</code></pre>
-
-<p>Basically, any time a client assigns a class property, <code>__set()</code> checks to see if
-there is a getter method, or a class variable already defined for that property.
-If there is, <code>__set()</code> throws an exception. So the only way to add new class
-properties to HtmlPage is to extend it.</p>
-
-<h2 id="conclusion">Conclusion</h2>
-
-<p>The code outlined here is simply to illustrate some basic techniques for templating.
-This code <em>is</em> fully functional, and can be used to create web pages, but it’s
-not really meant to be used as a foundational framework. I merely hope that it
-helps you realize the power of separating those parts of an application
-that are static into templates, and injecting the dynamic elements into those
-templates. These techniques lead to more flexible, and maintainable code. Poke
-around some of the major PHP frameworks like Zend, and you will see some of these
-basic techniques in action.</p>
-
-<p>Happy coding!</p>
-
-</section>
-
-<section class="post">
-  <h1 class="heading">Books part 1</h1>
-  <span class="post-date">05 February 2013</span>
-  <div class="image-with-text">
-  <p><img src="/images/books/joel_on_software.jpg" alt="Joel On Software" /></p>
-
-  <h3 id="joel-on-software-by-joel-spolsky">Joel on Software by Joel Spolsky</h3>
-
-  <p>Incredibly relevant, hilarious, and snarky Joel Spolsky - you love him or you
-hate him, but you know he’s right. His writing may be a little unorthodox, but
-his anecdotes about the software industry are chock full of practical wisdom.
-This book is fun to read and it will make you think.</p>
-</div>
-
-<div class="image-with-text">
-  <p><img src="/images/books/pragmatic_programmer.jpg" alt="The Pragmatic Programmer" /></p>
-
-  <h3 id="the-pragmatic-programmer-by-andrew-hunt-and-david-thomas">The Pragmatic Programmer by Andrew Hunt and David Thomas</h3>
-
-  <p>Well written, concise and easy to read This book provides excellent advice in a
-down to earth way. It doesn’t lord its insight over you, but it will change the
-way you program, and you won’t necessarily notice that it was responsible for
-changing the way you program.</p>
-</div>
-
-<div class="image-with-text">
-  <p><img src="/images/books/head_first_design_patterns.jpg" alt="Head First Design Patterns" /></p>
-
-  <h3 id="head-first-design-patterns-by-eric--elisabeth-freeman">Head First Design Patterns by Eric &amp; Elisabeth Freeman</h3>
-
-  <p>Delightfully quirky and effective, albeit a little… childish… in a good way
-If you are, like myself, among the uninitiated when it comes to software
-engineering, this book is a great way to dive into design patterns. Instead of
-blindly making things up as I go, I now tend to prototype my designs on paper
-using pseudo-code and this book as a guide.</p>
-</div>
-
-<div class="image-with-text">
-  <p><img src="/images/books/c_programming_language.jpg" alt="The C Programming Language" /></p>
-
-  <h3 id="the-c-programming-language-by-brian-kernighan-and-dennis-ritchie">The C Programming Language by Brian Kernighan and Dennis Ritchie</h3>
-
-  <p>Not what most people would consider pleasure reading… but I am not most people
-Still a classic and the ultimate (in my opinion) authority on ANSI C. Every
-programmer should read this book. It’s also a great way to get to sleep really
-quickly. Great “night stand” reading…</p>
-</div>
-
-</section>
-
-<section class="post">
-  <h1 class="heading">Good security</h1>
-  <span class="post-date">25 April 2012</span>
-  <p><img src="/images/posts/good_security.jpg" /></p>
-
-<p>At my former job, I was involved with a group called the SWAG - The Secure Web Applications Group. One hotly debated topic was identity management and central authentication. For months the SWAG discussed plans we could implement to improve the security of our network and the various web applications that run on our network. Of course, this is a group of computer nerds. So we discuss things like how to properly salt your SHA2 password hashes, which database abstraction to use in order to avoid SQL injection, and the best way to prevent session hijacking. These things are important, but also highly technical. It struck me that sometimes we focus too much on the technology, and we miss the simple yet often more dangerous security vulnerabilities: human beings.</p>
-
-<p>For example, a faculty member asks me to help them with their email. Nine times out of ten, and this was one of the nine, the problem is a forgotten or expired password. A quick call to the help desk to change the password and voilá, the spam cometh forth. Did you catch the potential security problem? Did the help desk ask me to verify my identity? Nope. He fired up his management console, asked me for the password I would like to set, (another security problem) and boom, password is changed. I could have easily told the guy I wanted to change the password of the president’s exchange account and he probably would have done it. I wasn’t even trying that hard either. I could have made up some grand story like “Hi, this is Sam over in the president’s office. I’m providing on site technical support for the president, whose laptop was recently run over by a maintenance van. The president can’t remember her password and it was saved on her now flattened laptop. Could you change her exchange password to 12345? Thanks!” (I realized later this probably wouldn’t have worked because the help desk has caller ID.)</p>
-
-<p>This got me thinking, what’s the point of implementing the most cutting edge security measures if I can circumvent them completely with a phone call? Good security has to include educating staff about clever social engineers <em>and</em> having great technology. I actually had a faculty member respond to a phishing attempt thinking it was central IT, and when I looked at the email, it took me a second to realize it was a fake. The giveaway was a technical detail about our network that was way off in the email, but the victim could not have known such a detail. As technology specialists, we have to be vigilant about the more organic security vulnerabilities, and sometimes that means we have to come up out of the depths of uber-nerd world and think about normal people.</p>
-
-</section>
-
-
-    </div>
-
-    <aside>
-      
-          <img class="about-img" src="/images/sam.jpg" alt="Sam Heuck" title="Sam Heuck">
-
-<div class='sb-block' id='recent-posts'>
-  <h3>Recent Posts</h3>
-  <ul>
+whic…</p>
+        </div>
+        <div class="pa2 tc w-50-l">
+          <img src=https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;view-templates-in-php&#x2F;/view_templates_in_php01.png alt="">
+        </div>
+        
+      </div>
+
+    </section>
   
-    <li><span class='icon-kub-arw-right arrow'></span><a href="/coding/the-unforseen-downside-of-dabbling-in-a-new-language">The unforeseen challenge of dabbling in a new language</a></li>
-  
-    <li><span class='icon-kub-arw-right arrow'></span><a href="/code/why-clean-code-matters">Why clean code matters</a></li>
-  
-    <li><span class='icon-kub-arw-right arrow'></span><a href="/tools/meet-jekyll-the-static-site-generator-part-2">Meet Jekyll the Static Site Generator - Part 2</a></li>
-  
-    <li><span class='icon-kub-arw-right arrow'></span><a href="/tools/meet-jekyll-the-static-site-generator">Meet Jekyll, the Static Site Generator - Part 1</a></li>
-  
-    <li><span class='icon-kub-arw-right arrow'></span><a href="/code/view-templates-in-php">View templates in PHP</a></li>
-  
-    <li><span class='icon-kub-arw-right arrow'></span><a href="/books/books-part-1">Books part 1</a></li>
-  
-  </ul>
-</div>
+    <section class="teaser">
+      <div class="teaser-header">
+        <h1 class="blog-post-title"><a href="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;books-worth-reading&#x2F;">Books worth reading</a></h1>
+        <span class="post-date">2013-02-05 | <a href="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;books-worth-reading&#x2F;">Read more</a></span>
+      </div>
+
+      <div class="flex-l flex-row-l justify-around-l">
 
         
-    </aside>
+        <div class="pa2 w-50-l">
+          <p>
+    
 
+
+Joel on Software by Joel Spolsky
+Incredibly relevant, hilarious, and snarky Joel Spolsky - you love him or you
+hate him, but you know he&#x27;s right. His writing may be a little unorthodox, but
+his anecdotes about the software industry are chock full of practical wisdom.
+This book is fun to read and it will make you think.
+
+
+
+
+
+The Pragmatic Programmer by Andrew Hunt and David Thomas
+Well writ…</p>
+        </div>
+        <div class="pa2 tc w-50-l">
+          <img src=https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;books-worth-reading&#x2F;/joel_on_software.jpg alt="">
+        </div>
+        
+      </div>
+
+    </section>
+  
+    <section class="teaser">
+      <div class="teaser-header">
+        <h1 class="blog-post-title"><a href="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;good-security&#x2F;">Good security</a></h1>
+        <span class="post-date">2012-04-25 | <a href="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;good-security&#x2F;">Read more</a></span>
+      </div>
+
+      <div class="flex-l flex-row-l justify-around-l">
+
+        
+        <div class="pa2 w-50-l">
+          <p>
+    
+At my former job, I was involved with a group called the SWAG - The Secure Web Applications Group. One hotly debated topic was identity management and central authentication. For months the SWAG discussed plans we could implement to improve the security of our network and the various web applications that run on our network. Of course, this is a group of computer nerds. So we discuss things …</p>
+        </div>
+        <div class="pa2 tc w-50-l">
+          <img src=https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;good-security&#x2F;/good_security.jpg alt="">
+        </div>
+        
+      </div>
+
+    </section>
+  
+
+
+      </div>
+      <aside class="w-30-ns">
+        
+        
+      </aside>
+    </main>
+    <footer class="w-100">
+      <p class="f6 tc">Opinions are my own. Share and enjoy! 🙂</p>
+      <p class="f7 tc">&copy; Copyright 2021 Sam Heuck</p>
+    </footer>
+    
   </body>
-  <script src='/assets/global-5732782c281fb04e82223e4fc519f9f4.js' type='text/javascript'></script>
-
-<script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-30348707-2']);_gaq.push(['_trackPageview']);(function(){var a=document.createElement('script');a.type='text/javascript';a.async=true;a.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(a,s)})();</script>
-
 </html>

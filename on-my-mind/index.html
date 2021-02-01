@@ -37,7 +37,7 @@
             
           
             
-              <li><a class="active" href="&#x2F;about&#x2F;">about<span>&#8675;</span></a></li>
+              <li><a href="&#x2F;about&#x2F;">about</a></li>
             
           
             
@@ -52,50 +52,61 @@
     <main class="w-100 pa4-ns flex-ns">
       <div class="w-70-ns pr4-ns">
         
-  <div class="bg-white pa4 cf">
-<section id="about" itemscope itemtype="http://data-vocabulary.org/Person">
-<p><meta itemprop="name" content="Sam Heuck">
-<span class="dropcap">I</span> am a <span itemprop="role">web developer</span>,
-IT professional and audio engineer based in
-<span itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
-  <span itemprop="locality">Austin</span>,
-  <span itemprop="region">TX</span>.
-</span> I specialize in custom web application development using a
-variety of open source technologies. I have a passion for the endless pursuit
-of practical, elegant code.</p>
-<p>I was born in Montana, and grew up on a ranch in Wyoming. Being a rancher's son
-is a fate I am grateful for. The ranch taught me to work hard, to get the job
-done no matter what, and to think of creative solutions to problems. Often times
-when fixing a well, or repairing a fence, the tool or part we needed was miles
-away - but the cows needed to drink. Knowing how to improvise in these
-situations is a skill I learned well, and continue to rely on when confronted
-with unexpected obstacles. Software design and information technology seem to be
-breeding grounds for unexpected obstacles, and rolling with the punches is
-essential. Luckily, thanks to the ranch, rolling with the punches is something I
-actually enjoy.</p>
-<p>I earned a Bachelor of Arts in Music Technology from Montana State University. I
-have always been into computers and technology, and before I discovered the
-Music Technology program, I was considering electrical engineering. However,
-electrical engineering does not present many situations in which playing
-saxophone would be of any benefit. So how to combine the nerd with the musician?
-Music Technology!</p>
-<p>When I was going to school, I had a unique opportunity to be part of the design
-and upbringing of this brand new degree program. Because the program was so new,
-and the only one of its kind in the region, there were many opportunities for
-volunteer work. These were not your usual undergraduate assistant, busy work
-tasks - the work was essential to the success of the program. It allowed me to
-be part of something bigger - something more than attending classes and getting
-my degree. It also allowed me to start creating software that solved real world
-headaches. I remember when I showed my newly created student information
-database application to a user she exclaimed, &quot;Wow it's like our software,
-except it doesn't suck!&quot; From that point on, I was hooked.</p>
-<p>Dizzy is my dog. He is a border collie, and as such, he considers it his duty
-to follow me everywhere I go - including my website. He has no cattle to herd,
-so he herds people, and apparently, all of my code.</p>
-<p>When Dizzy is not attempting to herd something, he is busy colluding with my
-son William. My wife Kristi somehow keeps them both from destroying our house...</p>
+  <section class="teaser">
+  <p class="tc sub-heading">music, code, thoughts & opinions</p>
+  <h2 class="tc">Hi!</h2>
+  <p class="tc">You've found what I choose to share with the world. <br>Have fun & be well.</p>
+</section>
+<section class="teaser">
+<h2 id="what-i-m-lisetning-to">What I'm lisetning to..</h2>
+<div class="media-block">
+<a href="https://www.jackdejohnette.com/discography">
+    <img src="/InMovement.jpg" width="250"
+        alt="Album Cover of In Movement by Jack DeJohnette. Swirling black & white brush-strokes."
+    >
+</a>
+<div>
+<p><strong>In Movement</strong></p>
+<p>I had the amazing privilege of hearing Jack DeJohnette, Ravi Coltrane, and Matt Garrison
+play live in Austin, TX. To hear Garrison augment his incredible bass playing with
+electronics, Coltrane's artful saxophone playing, and DeJohnette's always impressive drumming
+was a dream come true.</p>
+</div>
 </div>
 </section>
+<section class="teaser">
+<h2 id="bytes-are-weird-but-the-rust-programming-language-is-cool">Bytes are weird... but the Rust programming language is cool.</h2>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">main</span><span style="color:#5fb3b3;">() -&gt; </span><span style="color:#fac863;">Result</span><span style="color:#5fb3b3;">&lt;()&gt; {
+    </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> f </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">File</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">create</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">bytes.txt</span><span style="color:#5fb3b3;">&quot;)?;
+    {
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> bytes</span><span style="color:#5fb3b3;">: </span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#c594c5;">u8</span><span style="color:#5fb3b3;">&gt; = (</span><span style="color:#f99157;">0</span><span style="color:#5fb3b3;">..=</span><span style="color:#f99157;">255</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">collect</span><span style="color:#5fb3b3;">();
+        </span><span style="color:#c594c5;">let mut</span><span style="color:#cccece;"> writer </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">BufWriter</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">f</span><span style="color:#5fb3b3;">);
+        </span><span style="color:#c594c5;">match</span><span style="color:#cccece;"> writer</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">write_all</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#cccece;">bytes</span><span style="color:#5fb3b3;">) {
+            </span><span style="color:#fac863;">Ok</span><span style="color:#5fb3b3;">(()) =&gt; (),
+            </span><span style="color:#fac863;">Err</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">e</span><span style="color:#5fb3b3;">) =&gt; </span><span style="color:#cccece;">println!</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">ERR: {}</span><span style="color:#5fb3b3;">&quot;,</span><span style="color:#cccece;"> e</span><span style="color:#5fb3b3;">),
+        }
+    }
+    </span><span style="color:#fac863;">Ok</span><span style="color:#5fb3b3;">(())
+}
+</span></code></pre></section>
+<section class="teaser tc">
+    <p class="tc b">Want more?</p>
+    <a href="/blog">Check out the blog...</a>
+</section>
+<!-- <section class="teaser">
+
+Bugs to love and learn.
+
+
+</section> -->
+<!-- <section class="teaser">
+
+**Recent discoveries...**
+
+MuseApp
+
+</section> -->
 
 
       </div>
@@ -133,6 +144,33 @@ son William. My wife Kristi somehow keeps them both from destroying our house...
       <p class="f6 tc">Opinions are my own. Share and enjoy! 🙂</p>
       <p class="f7 tc">&copy; Copyright 2021 Sam Heuck</p>
     </footer>
+    
+      <script src="/glfx.js"></script>
+      <script>
+        window.addEventListener('load', function() {
+            try {
+                var canvas = fx.canvas();
+            } catch (e) {
+                console.log(e);
+                return;
+            }
+            var img = document.getElementById('frisbee');
+            var texture = canvas.texture(img);
+            canvas.draw(texture).hexagonalPixelate(320, 240.0, 16).update();
+            img.parentNode.insertBefore(canvas, img);
+            img.parentNode.removeChild(img);
+            canvas.addEventListener('click', function() {
+                console.log('click');
+                document.querySelector('#squirrel > div:nth-child(1)').innerText = 'Ha! You just scrolled 4000 pixels for that. Image effect courtesy of glfx.js';
+                canvas.draw(texture).update();
+            });
+        }, false);
+      </script>
+
+      <div id="squirrel">
+        <div>click it!</div>
+        <img id="frisbee" src="/frisbee.jpg" alt="crappy stick drawing of a dog chasing a frisbee.">
+      </div>
     
   </body>
 </html>

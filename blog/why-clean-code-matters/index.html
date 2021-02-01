@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="/samheuck-weblogo-small.png" type="image/png">
+    <title>Sam Heuck</title>
+    <meta name="description" content="Sam Heuck is a web developer, IT professional and audio engineer currently working in Austin, TX." />
+    <meta name="author" content="Sam Heuck">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|Ubuntu:400,700" />
+
+    <link rel="stylesheet" href="/modern-normalize.min.css" />
+    <link rel="stylesheet" href="/tachyons.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/print.css" />
+
+    
+    
+  </head>
+
+  <body>
+    <header class="w-100 flex pl3 pt3">
+      <div class="logo">
+        <a href="/" title="Home" rel="home">
+          <img id="logo" src="/dizzy.png" alt="SamHeuck.com">
+        </a>
+      </div>
+
+      <div class="flex flex-column justify-end pl4">
+        <h1><a href="/">Sam <span class="accent">Heuck</span></a></h1>
+        <nav>
+          <ul>
+          
+            
+              <li><a href="&#x2F;blog&#x2F;">blog</a></li>
+            
+          
+            
+              <li><a href="&#x2F;about&#x2F;">about</a></li>
+            
+          
+            
+              <li><a href="&#x2F;resume&#x2F;">resume</a></li>
+            
+          
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="w-100 pa4-ns flex-ns">
+      <div class="w-70-ns pr4-ns">
+        
+  <article class="blog-post pa2 pa4-ns">
+    <h1 class="blog-post-title">Why clean code matters</h1>
+    <span class="post-date">2013-11-01</span>
+    <section>
+      <p>I'm going to give you two crucial pieces of information, and I want you to answer one very simple question based on
+this information.</p>
+<p><strong>1:</strong> The name of a file: hourly_sync.py</p>
+<p><strong>2:</strong> This file is a cronjob</p>
+<p>The question is, how often does this job run?</p>
+<p>If you thought to yourself, &quot;I don't know yet&quot;, you might be a developer. If you are a normal human being,
+you thought, &quot;That job runs every hour&quot;. You normal people would be dead wrong, but certainly by no fault
+of your own. No, the blame lies with the developer, who made the seemingly innocuous decision to name this
+job based on the frequency with which it runs. This job actually runs every 2 minutes. So why is it called hourly
+sync? Why, when the frequency at which the job needed to run, was the name of the job not changed to match?</p>
+<p>The only <em>true</em> constant in software development, the <em>only</em> thing you can count on happening every time, on
+every project, is change. This job was once actually run every hour. But as the user base for the application grew,
+hourly was not frequent enough to keep things... synced. So the cadence was increased, but the name of the job could
+not be changed, for fear of breaking the calling code.</p>
+<p>It is for this reason, the fact that change always rears its head, that developers want to write clean code. It is
+why we cling to principles like DRY, single responsibility, encapsulation, inversion of control, and open closed. So
+when a change request comes in, you can say, &quot;yeah that's easy&quot; instead of, &quot;this might break other things, I'll need a few days to sort this out&quot;.</p>
+<p>So <em>invest</em> in refactoring. <em>Invest</em> in solution architecture. Yes, in some cases, you may violate the
+80/20 rule, but believe me, when that inevitable change comes around, you'll be glad you did.</p>
+
+    </section>
+  </article>
+
+      </div>
+      <aside class="w-30-ns">
+        
+        
+      </aside>
+    </main>
+    <footer class="w-100">
+      <p class="f6 tc">Opinions are my own. Share and enjoy! 🙂</p>
+      <p class="f7 tc">&copy; Copyright 2021 Sam Heuck</p>
+    </footer>
+    
+  </body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="/samheuck-weblogo-small.png" type="image/png">
+    <title>Sam Heuck</title>
+    <meta name="description" content="Sam Heuck is a web developer, IT professional and audio engineer currently working in Austin, TX." />
+    <meta name="author" content="Sam Heuck">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|Ubuntu:400,700" />
+
+    <link rel="stylesheet" href="/modern-normalize.min.css" />
+    <link rel="stylesheet" href="/tachyons.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/print.css" />
+
+    
+    
+  </head>
+
+  <body>
+    <header class="w-100 flex pl3 pt3">
+      <div class="logo">
+        <a href="/" title="Home" rel="home">
+          <img id="logo" src="/dizzy.png" alt="SamHeuck.com">
+        </a>
+      </div>
+
+      <div class="flex flex-column justify-end pl4">
+        <h1><a href="/">Sam <span class="accent">Heuck</span></a></h1>
+        <nav>
+          <ul>
+          
+            
+              <li><a href="&#x2F;blog&#x2F;">blog</a></li>
+            
+          
+            
+              <li><a href="&#x2F;about&#x2F;">about</a></li>
+            
+          
+            
+              <li><a href="&#x2F;resume&#x2F;">resume</a></li>
+            
+          
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="w-100 pa4-ns flex-ns">
+      <div class="w-70-ns pr4-ns">
+        
+  <article class="blog-post pa2 pa4-ns">
+    <h1 class="blog-post-title">Meet Jekyll the Static Site Generator - Part 2</h1>
+    <span class="post-date">2013-03-19</span>
+    <section>
+      <p><img src="https://samheuck.com/blog/meet-jekyll-the-static-site-generator-part-2/meet_jekyll_2.jpg" alt="Jekyll" /></p>
+<h3 id="part-ii">Part II</h3>
+<p>In <a href="/meet-jekyll-the-static-site-generator-part-1">part 1</a> I discussed why I
+chose Jekyll to build this site and presented a high level overview of how
+Jekyll works. In this post, I'll dive into the depths of Jekyll and show off
+some of its features.</p>
+<h3 id="liquid-templates">Liquid Templates</h3>
+<p>The template engine used by Jekyll is called <a href="http://liquidmarkup.org/">Liquid</a>.
+Liquid makes it easy to create a layout and pull in page elements dynamically.</p>
+<p>Jekyll will compile content into a page using a layout like this:</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-html" data-lang="html"><span style="color:#cccece;">// _layouts/default.html
+
+</span><span style="color:#5fb3b3;">&lt;!</span><span style="color:#c594c5;">DOCTYPE </span><span style="color:#f99157;">html</span><span style="color:#5fb3b3;">&gt;
+&lt;</span><span style="color:#eb606b;">html </span><span style="color:#bb80b3;">lang</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">en</span><span style="color:#5fb3b3;">&quot;&gt;
+  &lt;</span><span style="color:#eb606b;">head</span><span style="color:#5fb3b3;">&gt;
+</span><span style="color:#cccece;">    {% include head.inc %}
+  </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">head</span><span style="color:#5fb3b3;">&gt;
+
+  &lt;</span><span style="color:#eb606b;">body</span><span style="color:#5fb3b3;">&gt;
+    &lt;</span><span style="color:#eb606b;">header</span><span style="color:#5fb3b3;">&gt;
+</span><span style="color:#cccece;">      {% include header.inc %}
+    </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">header</span><span style="color:#5fb3b3;">&gt;
+
+    &lt;</span><span style="color:#eb606b;">div </span><span style="color:#bb80b3;">id</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">main</span><span style="color:#5fb3b3;">&quot;&gt;
+</span><span style="color:#cccece;">      {{ content }}
+    </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">div</span><span style="color:#5fb3b3;">&gt;
+
+    &lt;</span><span style="color:#eb606b;">aside</span><span style="color:#5fb3b3;">&gt;
+</span><span style="color:#cccece;">      {% include sidebar.inc %}
+    </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">aside</span><span style="color:#5fb3b3;">&gt;
+  &lt;/</span><span style="color:#eb606b;">body</span><span style="color:#5fb3b3;">&gt;
+</span><span style="color:#cccece;">  {% include js.inc %}
+</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">html</span><span style="color:#5fb3b3;">&gt;
+</span></code></pre>
+<p><strong>Including partials</strong></p>
+<p>Jekyll will automatically find includes in the _includes directory.</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">{% include links.inc %}
+</span></code></pre>
+<p><strong>Loops and conditionals</strong></p>
+<p>Any page that begins with a YAML Front matter block...</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-yaml" data-lang="yaml"><span style="color:#cccece;">---
+</span><span style="color:#eb606b;">// predefined default variables
+layout</span><span style="color:#5fb3b3;">: </span><span style="color:#eb606b;">default
+category</span><span style="color:#5fb3b3;">: </span><span style="color:#eb606b;">funny
+published</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">true
+</span><span style="color:#eb606b;">tags</span><span style="color:#5fb3b3;">: </span><span style="color:#eb606b;">cats
+
+// custom variables
+context</span><span style="color:#5fb3b3;">: </span><span style="color:#eb606b;">cats
+title</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">Funny Cats
+</span><span style="color:#cccece;">---
+</span></code></pre>
+<p>can declare variables which can be accessed in Liquid. This allows the
+conditional placement of content. For instance, you can place a sidebar on a
+page based on a context variable...</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-liquid" data-lang="liquid"><span style="color:#cccece;">--snip--
+
+&lt;aside&gt;
+  {% case page.context %}
+    {% when &#39;about&#39; %}
+      {% include sidebars/about-sidebar.inc %}
+    {% when &#39;contact&#39; %}
+      {% include sidebars/contact-sidebar.inc %}
+    {% when &#39;home&#39; %}
+      {% include sidebars/home-sidebar.inc %}
+    {% when &#39;blog&#39; %}
+      {% include sidebars/blog-sidebar.inc %}
+    {% else %}
+  {% endcase %}
+&lt;/aside&gt;
+</span></code></pre>
+<p>It's also simple to create a recent posts block with a loop...</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-html" data-lang="html"><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">h3</span><span style="color:#5fb3b3;">&gt;</span><span style="color:#cccece;">Recent Posts</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">h3</span><span style="color:#5fb3b3;">&gt;
+&lt;</span><span style="color:#eb606b;">ul</span><span style="color:#5fb3b3;">&gt;
+</span><span style="color:#cccece;">  {% for post in site.posts limit: 6 %}
+  </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">li</span><span style="color:#5fb3b3;">&gt;&lt;</span><span style="color:#eb606b;">a </span><span style="color:#bb80b3;">href</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">{{ post.url }}</span><span style="color:#5fb3b3;">&quot;&gt;</span><span style="color:#cccece;">{{ post.title }}</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">a</span><span style="color:#5fb3b3;">&gt;&lt;/</span><span style="color:#eb606b;">li</span><span style="color:#5fb3b3;">&gt;
+</span><span style="color:#cccece;">  {% endfor %}
+</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">ul</span><span style="color:#5fb3b3;">&gt;
+</span></code></pre>
+<p>Site-wide variables can be declared in _config.yml. This is a convenient place
+to put primary navigation…</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-yaml" data-lang="yaml"><span style="color:#eb606b;">// _config.yml
+</span><span style="color:#cccece;">---
+</span><span style="color:#eb606b;">nav</span><span style="color:#5fb3b3;">:
+  - </span><span style="color:#eb606b;">text</span><span style="color:#5fb3b3;">: </span><span style="color:#eb606b;">about
+    url</span><span style="color:#5fb3b3;">: </span><span style="color:#eb606b;">/about/index.html
+  </span><span style="color:#5fb3b3;">- </span><span style="color:#eb606b;">text</span><span style="color:#5fb3b3;">: </span><span style="color:#eb606b;">resume
+    url</span><span style="color:#5fb3b3;">: </span><span style="color:#eb606b;">/resume/index.html
+  </span><span style="color:#5fb3b3;">- </span><span style="color:#eb606b;">text</span><span style="color:#5fb3b3;">: </span><span style="color:#eb606b;">contact
+    url</span><span style="color:#5fb3b3;">: </span><span style="color:#eb606b;">/contact/index.html
+  </span><span style="color:#5fb3b3;">- </span><span style="color:#eb606b;">text</span><span style="color:#5fb3b3;">: </span><span style="color:#eb606b;">blog
+    url</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">/blog/index.html
+</span></code></pre>
+<p>Which can be included in the layout</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-liquid" data-lang="liquid"><span style="color:#cccece;">&lt;nav&gt;
+  {% for link in site.nav %}
+    {% assign active = nil %}
+    {% if page.url == link.url or page.layout == link.layout %}
+      {% assign active = &#39;class=&quot;active&quot;&#39; %}
+    {% endif %}
+    &lt;li&gt;&lt;a {{ active }} href=&quot;/{{ link.text }}/&quot;&gt;{{ link.text }}&lt;/a&gt;{{ indicator }}&lt;/li&gt;
+  {% endfor %}
+&lt;/nav&gt;
+</span></code></pre><h3 id="plug-ins">Plug-ins</h3>
+<p>Out of the box, Jekyll is well equipped to create a blog with a custom layout,
+and it has built in support for markdown. But augment Jekyll with plugins and
+you can start cooking with gas.</p>
+<p><strong>Jekyll Asset pipeline</strong></p>
+<p>This is an essential plug-in for Jekyll that will compile sass, and also
+aggregate and compress javascript and css.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-shell" data-lang="shell"><span style="color:#cccece;">~ gem install Jekyll-asset-pipeline
+</span></code></pre>
+<p>You have to install a compressor. I like the yui-compressor because it will
+minify both javascript and css.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-shell" data-lang="shell"><span style="color:#cccece;">~ gem install yui-compressor
+</span></code></pre>
+<p>Once these Ruby gems are installed, enabling the asset pipeline plug-in is as
+simple as putting a config file inside the _plugins directory. Here's the one I
+use for this site…</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-ruby" data-lang="ruby"><span style="color:#6699cc;">require </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">Jekyll_asset_pipeline</span><span style="color:#5fb3b3;">&#39;
+
+</span><span style="color:#c594c5;">module </span><span style="color:#cccece;">JekyllAssetPipeline
+  </span><span style="color:#c594c5;">class </span><span style="color:#fac863;">SassConverter </span><span style="color:#5fb3b3;">&lt; </span><span style="color:#99c794;">JekyllAssetPipeline</span><span style="color:#5fb3b3;">::</span><span style="color:#99c794;">Converter
+    </span><span style="color:#6699cc;">require </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">sass</span><span style="color:#5fb3b3;">&#39;
+
+    </span><span style="color:#c594c5;">def </span><span style="color:#ec5f67;">self</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">filetype
+      </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">.sass</span><span style="color:#5fb3b3;">&#39;
+    </span><span style="color:#c594c5;">end
+
+    def </span><span style="color:#6699cc;">convert
+      </span><span style="color:#c594c5;">return </span><span style="color:#fac863;">Sass</span><span style="color:#5fb3b3;">::</span><span style="color:#fac863;">Engine</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">new</span><span style="color:#5fb3b3;">(@</span><span style="color:#cccece;">content</span><span style="color:#5fb3b3;">,
+        :</span><span style="color:#99c794;">load_paths </span><span style="color:#5fb3b3;">=&gt; [&#39;</span><span style="color:#99c794;">.</span><span style="color:#5fb3b3;">&#39;,&#39;</span><span style="color:#99c794;">../_assets</span><span style="color:#5fb3b3;">&#39;,&#39;</span><span style="color:#99c794;">_assets/sass</span><span style="color:#5fb3b3;">&#39;,&#39;</span><span style="color:#99c794;">../_assets/sass</span><span style="color:#5fb3b3;">&#39;],
+        :</span><span style="color:#99c794;">syntax </span><span style="color:#5fb3b3;">=&gt; :</span><span style="color:#99c794;">sass
+      </span><span style="color:#5fb3b3;">).</span><span style="color:#cccece;">render
+    </span><span style="color:#c594c5;">end
+  end
+
+  class </span><span style="color:#fac863;">CssCompressor </span><span style="color:#5fb3b3;">&lt; </span><span style="color:#99c794;">JekyllAssetPipeline</span><span style="color:#5fb3b3;">::</span><span style="color:#99c794;">Compressor
+    </span><span style="color:#6699cc;">require </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">yui/compressor</span><span style="color:#5fb3b3;">&#39;
+
+    </span><span style="color:#c594c5;">def </span><span style="color:#ec5f67;">self</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">filetype
+      </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">.css</span><span style="color:#5fb3b3;">&#39;
+    </span><span style="color:#c594c5;">end
+
+    def </span><span style="color:#6699cc;">compress
+      </span><span style="color:#c594c5;">return </span><span style="color:#fac863;">YUI</span><span style="color:#5fb3b3;">::</span><span style="color:#fac863;">CssCompressor</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">new</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">compress</span><span style="color:#5fb3b3;">(@</span><span style="color:#cccece;">content</span><span style="color:#5fb3b3;">)
+    </span><span style="color:#c594c5;">end
+  end
+
+  class </span><span style="color:#fac863;">JavaScriptCompressor </span><span style="color:#5fb3b3;">&lt; </span><span style="color:#99c794;">JekyllAssetPipeline</span><span style="color:#5fb3b3;">::</span><span style="color:#99c794;">Compressor
+    </span><span style="color:#6699cc;">require </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">yui/compressor</span><span style="color:#5fb3b3;">&#39;
+
+    </span><span style="color:#c594c5;">def </span><span style="color:#ec5f67;">self</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">filetype
+      </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">.js</span><span style="color:#5fb3b3;">&#39;
+    </span><span style="color:#c594c5;">end
+
+    def </span><span style="color:#6699cc;">compress
+      </span><span style="color:#c594c5;">return </span><span style="color:#fac863;">YUI</span><span style="color:#5fb3b3;">::</span><span style="color:#fac863;">JavaScriptCompressor</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">new</span><span style="color:#5fb3b3;">(:</span><span style="color:#99c794;">munge </span><span style="color:#5fb3b3;">=&gt; </span><span style="color:#f99157;">true</span><span style="color:#5fb3b3;">).</span><span style="color:#cccece;">compress</span><span style="color:#5fb3b3;">(@</span><span style="color:#cccece;">content</span><span style="color:#5fb3b3;">)
+    </span><span style="color:#c594c5;">end
+  end
+end
+</span></code></pre>
+<p>The asset pipeline plug-in hooks into Liquid and looks for assets to include
+inside the <code>_assets</code> folder.</p>
+<p>Adding javascript looks like this:</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-markup" data-lang="markup"><span style="color:#cccece;">{% javascript_asset_tag global %}
+  - /_assets/js/jquery.js
+  - /_assets/js/highlight.js
+  - /_assets/js/init.js
+{% endjavascript_asset_tag %}
+</span></code></pre>
+<p>And css:</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-markup" data-lang="markup"><span style="color:#cccece;">{% css_asset_tag global %}
+  - /_assets/css/normalize.css
+  - /_assets/screen.sass
+{% endcss_asset_tag %}
+</span></code></pre>
+<p>Including any file ending in .sass will cause asset pipeline to compile the sass
+into css on site build.</p>
+<p>I also like to use a plug-in for <a href="https://github.com/kinnetica/Jekyll-plugins">sitemap generation</a>.
+Just include it in the <code>_plugins</code> directory and a sitemap will be automatically
+generated on site build.</p>
+<h3 id="helpers">Helpers</h3>
+<p>Thor is an alternative to Rake. I like to use it as a helper for creating posts
+and deploying my site. <a href="http://whatisthor.com/">Thor has some nifty features.</a></p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-shell" data-lang="shell"><span style="color:#cccece;">~ gem install thor
+</span></code></pre>
+<p>A Thor task for creating posts:</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-ruby" data-lang="ruby"><span style="color:#c594c5;">class </span><span style="color:#fac863;">Site </span><span style="color:#5fb3b3;">&lt; </span><span style="color:#99c794;">Thor
+  </span><span style="color:#6699cc;">include </span><span style="color:#fac863;">Thor</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Actions
+
+  desc </span><span style="color:#5fb3b3;">&quot;</span><span style="color:#99c794;">post</span><span style="color:#5fb3b3;">&quot;, &quot;</span><span style="color:#99c794;">create a new post</span><span style="color:#5fb3b3;">&quot;
+  </span><span style="color:#c594c5;">def </span><span style="color:#6699cc;">post
+</span><span style="color:#cccece;">    title </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> ask</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">Title:</span><span style="color:#5fb3b3;">&quot;)
+    @</span><span style="color:#cccece;">title </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> title
+    </span><span style="color:#5fb3b3;">@</span><span style="color:#cccece;">description </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> ask</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">Description:</span><span style="color:#5fb3b3;">&quot;)
+    @</span><span style="color:#cccece;">category </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> ask</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">Category:</span><span style="color:#5fb3b3;">&quot;)
+    @</span><span style="color:#cccece;">date </span><span style="color:#5fb3b3;">= </span><span style="color:#fac863;">Time</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">now</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">strftime</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">%Y-%m-%d %k:%M:%S</span><span style="color:#5fb3b3;">&#39;)
+
+</span><span style="color:#cccece;">      filename </span><span style="color:#5fb3b3;">= &quot;#{</span><span style="color:#fac863;">Time</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">now</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">strftime</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">%Y-%m-%d</span><span style="color:#5fb3b3;">&#39;)}</span><span style="color:#99c794;">-</span><span style="color:#5fb3b3;">#{</span><span style="color:#cccece;">title</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">gsub</span><span style="color:#5fb3b3;">(/\s/, &#39;</span><span style="color:#99c794;">-</span><span style="color:#5fb3b3;">&#39;).</span><span style="color:#cccece;">downcase</span><span style="color:#5fb3b3;">}</span><span style="color:#99c794;">.md</span><span style="color:#5fb3b3;">&quot;
+</span><span style="color:#cccece;">      template </span><span style="color:#5fb3b3;">&quot;</span><span style="color:#99c794;">_thor/templates/post</span><span style="color:#5fb3b3;">&quot;, &quot;</span><span style="color:#99c794;">_posts/</span><span style="color:#5fb3b3;">#{</span><span style="color:#cccece;">filename</span><span style="color:#5fb3b3;">}&quot;
+
+    </span><span style="color:#c594c5;">if </span><span style="color:#cccece;">ENV[</span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">EDITOR</span><span style="color:#5fb3b3;">&#39;</span><span style="color:#cccece;">]
+        </span><span style="color:#6699cc;">system</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">$EDITOR _posts/</span><span style="color:#5fb3b3;">#{</span><span style="color:#cccece;">filename</span><span style="color:#5fb3b3;">}&quot;)
+    </span><span style="color:#c594c5;">else
+      </span><span style="color:#6699cc;">system</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">vim _posts/</span><span style="color:#5fb3b3;">#{</span><span style="color:#cccece;">filename</span><span style="color:#5fb3b3;">}&quot;)
+    </span><span style="color:#c594c5;">end
+  end
+end
+</span></code></pre><pre style="background-color:#2b2c2f;">
+<code class="language-yaml" data-lang="yaml"><span style="color:#eb606b;">// Thor template for posts
+// lives in _thor/templates
+</span><span style="color:#cccece;">---
+</span><span style="color:#eb606b;">layout</span><span style="color:#5fb3b3;">: </span><span style="color:#eb606b;">post
+published</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">false
+</span><span style="color:#eb606b;">date</span><span style="color:#5fb3b3;">: </span><span style="color:#eb606b;">&lt;%= @date %&gt;
+
+title</span><span style="color:#5fb3b3;">: </span><span style="color:#eb606b;">&lt;%= @title %&gt;
+description</span><span style="color:#5fb3b3;">: </span><span style="color:#eb606b;">&lt;%= @description %&gt;
+category</span><span style="color:#5fb3b3;">: </span><span style="color:#eb606b;">&lt;%= @category %&gt;
+image</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">&lt;%= @image %&gt;
+</span><span style="color:#cccece;">---
+</span></code></pre>
+<p>From the command line, run thor site:post and it will prompt for info about
+the post - title, description, category and an image - and then create a file
+in <code>_posts</code> and open that file in your editor.</p>
+<p>Thor could also be used to run Jekyll, and then <code>rsync</code> the contents of _site to
+a server for easy deployment.</p>
+<p>You can also use <a href="http://jenkins-ci.org/">Jenkins</a> for deployment. For this site,
+I have the Jekyll stack and Thor installed on my host server. I then use Jenkins
+to run the thor deploy task which copies the contents of _site into the public
+html folder on my host. Updating my site is as simple as writing some content,
+saving that content into version control, and then running the Jenkins build.</p>
+<p>Taking this one step further, you could have Jenkins watch a remote repository
+for changes, and automatically run a build and deploy whenever it sees a change
+in the code base. That way, the site would be updated every time you pushed
+changes to your repository.</p>
+<p>So go start using Jekyll! Trust me, it's fun...</p>
+
+    </section>
+  </article>
+
+      </div>
+      <aside class="w-30-ns">
+        
+        
+      </aside>
+    </main>
+    <footer class="w-100">
+      <p class="f6 tc">Opinions are my own. Share and enjoy! 🙂</p>
+      <p class="f7 tc">&copy; Copyright 2021 Sam Heuck</p>
+    </footer>
+    
+  </body>
+</html>
