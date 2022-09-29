@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="/samheuck-weblogo-small.png" type="image/png">
+    <title>Sam Heuck</title>
+    <meta name="description" content="Sam Heuck is a web developer, IT professional and audio engineer currently working in Austin, TX." />
+    <meta name="author" content="Sam Heuck">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|Ubuntu:400,700" />
+
+    <link rel="stylesheet" href="/modern-normalize.min.css" />
+    <link rel="stylesheet" href="/tachyons.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/print.css" />
+
+    
+    
+  </head>
+
+  <body>
+    <header class="w-100 flex pl3 pt3">
+      <div class="logo">
+        <a href="/" title="Home" rel="home">
+          <img id="logo" src="/dizzy.png" alt="SamHeuck.com">
+        </a>
+      </div>
+
+      <div class="flex flex-column justify-end pl4">
+        <h1><a href="/">Sam <span class="accent">Heuck</span></a></h1>
+        <nav>
+          <ul>
+          
+            
+              <li><a href="&#x2F;blog&#x2F;">blog</a></li>
+            
+          
+            
+              <li><a href="&#x2F;about&#x2F;">about</a></li>
+            
+          
+            
+              <li><a href="&#x2F;resume&#x2F;">resume</a></li>
+            
+          
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="w-100 pa4-ns flex-ns">
+      <div class="w-70-ns pr4-ns">
+        
+  <article class="blog-post pa2 pa4-ns">
+    <h1 class="blog-post-title">Serve it up with Rust</h1>
+    <span class="post-date">2021-08-20</span>
+    <section>
+      <p><img src="https://samheuck.com/blog/learning-rust/crab_cakes.jpg" alt="Crab Cakes" title="~(_8^(I) mmmm. craaab caaakes..." /></p>
+<h2 id="a-fortunate-find">A fortunate find...</h2>
+<p>I recently stumbled on some wonderful material by a guy named Greg Wilson. While I was reading, I saw that he had contributed a chapter to a book (you know, the physical object with paper pages?!) that I happened to have on my shelf. It's called <em>&quot;500 Lines or Less: Experienced programmers solve interesting problems&quot;</em>.</p>
+<p>I enjoyed Greg's material so much that I decided to see what his chapter was all about. It turns out that he wrote a chapter on building a web server using Python. I thought this might be a good way for me to continue my learning journey with the Rust programming language.</p>
+<h2 id="breaking-down-the-chapter">Breaking down the chapter</h2>
+<p><strong>Some things I know going in</strong>:</p>
+<ul>
+<li>I'm confident in my knowledge of what a web server does</li>
+<li>I have a firm understanding of TCP/IP i.e. I understand connections, network addressing and ports.</li>
+<li>I know what a raw HTTP request looks like</li>
+<li>I know the parlance of HTTP: e.g. GET, PUT, POST, DELETE, Request, Response, URL etc.</li>
+</ul>
+<p><strong>Things I'm less sure of going in</strong>:</p>
+<ul>
+<li>I'm still a little fuzzy on how memory works in Rust, the ownership and borrowing stuff. I think
+this is because most of my experience is with dynamically typed, interpreted, and garbage collected languages.</li>
+</ul>
+<p><strong>With a focus on Rust specifically, here's what I will learn</strong></p>
+<ul>
+<li>How to use some <strong>free code</strong> (a dependency) to avoid writing code that parses HTTP and handles network connections</li>
+<li>How to make it <strong>easier to add features later</strong>, a.k.a extensibility</li>
+<li>How to create a set of functions that <strong>solve the general problem</strong> of handling HTTP requests</li>
+</ul>
+<h2 id="where-i-m-at-with-rust">Where I'm at with Rust</h2>
+<p>This post is the first time I've tried to get some of my experience working with Rust down on paper. At this point in my journey with Rust, I have read parts of &quot;The Rust Programming Language&quot; - but I haven't read it cover-to-cover. I have also written some small, menial programs.</p>
+<p><img src="https://samheuck.com/blog/learning-rust/bart_learns_rust.png" alt="Bart learns rust" /></p>
+<h2 id="the-questions">The questions</h2>
+<p>Absorbing some of the knowledge of how to learn is also something I've been doing lately. Another person who has contributed a lot on this topic is <a href="https://jvns.ca/blog/2018/09/01/learning-skills-you-can-practice/">Julia Evans</a>. In particular, she has written about using questions to hone in on what you don't understand. In thinking about how to apply some of those techniques to my own learning, I'm making note of my questions throughout this mini-project.</p>
+<p>One interesting thing about some of these questions is that they came to mind while working with Rust in the code editor. The compiler nudged me in various directions that led me to some of these questions.</p>
+<ol>
+<li><a href="https://samheuck.com/blog/learning-rust/#q1">How is this program going to speak HTTP and handle network connections?</a></li>
+<li><a href="https://samheuck.com/blog/learning-rust/#q2">Why isn't this method call working... what is an associated function?</a></li>
+<li><a href="https://samheuck.com/blog/learning-rust/#q3">What's a simple way to return some static HTML?</a></li>
+<li><a href="https://samheuck.com/blog/learning-rust/#q4">What's a <code>std::io::Cursor</code>?</a></li>
+<li><a href="https://samheuck.com/blog/learning-rust/#q5">Who &quot;owns&quot; the request?</a></li>
+<li><a href="https://samheuck.com/blog/learning-rust/#q6">What is a lifetime parameter and why do I need it?</a></li>
+<li><a href="https://samheuck.com/blog/learning-rust/#q7">Can I avoid lifetime annotations in this project?</a></li>
+<li><a href="https://samheuck.com/blog/learning-rust/#q8">Can I avoid creating a new instance of the request handler for every request?</a></li>
+<li><a href="https://samheuck.com/blog/learning-rust/#q9">In Rust, how do I do &quot;duck typing&quot;?</a></li>
+<li><a href="https://samheuck.com/blog/learning-rust/#q10">What is <code>Box</code> and how is it used?</a></li>
+<li><a href="https://samheuck.com/blog/learning-rust/#q11">It compiles, but how do I know it works?</a></li>
+</ol>
+<h2 id="how-to-write-less-code-crates"><a name="q1"></a> How to write less code? Crates!</h2>
+<p>It is &quot;500 lines or less&quot; after all.</p>
+<p>I know that HTTP is a solved problem. Receiving HTTP requests from HTTP clients, de-serializing those requests, and sending the responses back down the wire are common to every interaction a client has with a server. Writing a parser to turn an HTTP request into an &quot;object&quot; in my program is biting off more than I want to chew for this mini-project.</p>
+<p>In the Python programming language, the http package is included in the standard library. The solution in the book uses <code>BaseHTTPServer</code>. A quick check of the docs for Rust reveals that its standard library doesn't come with an http module. But I bet there are lots of Rust crates written by developers all over the world that solve this problem. So, how do I select a crate that will meet my needs?</p>
+<p>A suitable crate will need to handle network connections to and from the client, and provide the HTTP APIs I need. With this in mind, it's time to go shopping on crates.io! Who doesn't love shopping?!</p>
+<h3 id="searching-for-a-suitable-http-crate">Searching for a suitable HTTP crate</h3>
+<p>Searching crates.io with keywords like <code>http</code>, <code>web server</code>, <code>http server</code> shows lots of options. There are a lot of crates to choose from. How to narrow it down?</p>
+<p>When selecting any dependency my goal is to find just the right package <em>given the context</em>. This mini-project is low stakes and its purpose is for me to learn some specific things. I want to choose a dependency that is appropriate for the context.</p>
+<p>The context is: a personal mini-project I'm using in order to learn some things about the Rust programming language.</p>
+<p>I'm going to need to eliminate some options.</p>
+<p>Here are some guidelines I can think of straight away:</p>
+<ul>
+<li>Some of the crates solve problems I don't have</li>
+<li>Some of the crates are small and only solve parts of my problem</li>
+<li>Some of the crates are feature-rich and have features I don't need, and/or would be time consuming to learn</li>
+</ul>
+<p>I can also think about this in terms of risk. The risk profile for this project is considerably different than the one I might think about for a more serious project. What might actually be a benefit of any given dependency in a serious project might in fact be a risk in <em>this</em> project. Even a project like this has risks - after all, my free time listening to music with a tasty beverage is at stake!</p>
+<p>So what are the risks specific to this project?</p>
+<table class="w-100 mw8 center pv4 f5">
+  <tr>
+    <th>Risk</th>
+    <th>Level</th>
+    <th>Mitigation</th>
+  </tr>
+  <tr>
+    <td>1. Written by people I don't know</td>
+    <td>Minor</td>
+    <td>Research the authors, read the source code</td>
+  </tr>
+  <tr>
+    <td>2. Written as components of larger frameworks <super>*</super></td>
+    <td>Major</td>
+    <td>Avoid</td>
+  </tr>
+  <tr>
+    <td>3. Has Lots of dependencies on other crates</td>
+    <td>Minor</td>
+    <td>Do nothing</td>
+  </tr>
+  <tr>
+    <td>4. Has "pre-1.0" dependencies</td>
+    <td>Minor</td>
+    <td>Try it out, but switch to something else if necessary</td>
+  </tr>
+</table>
+<small>
+<p>* <em>Might mean they will be difficult to integrate into my mini-project, they might also change down the road, which might break my little web-server when I update my dependencies</em></p>
+</small>
+<p><strong>To get specific:</strong></p>
+<hr />
+<ul>
+<li><code>reqwest</code> - a &quot;higher level HTTP client library&quot; solves a problem I don't have - I'm building a server, not a client</li>
+<li><code>http-types</code> - too small for this project as it solves getting an object to work with but it doesn't manage the networking stuff</li>
+<li><code>http-connection</code> - also too small for this project - it solves the networking stuff but not the parsing</li>
+<li>I know I'm <em>not</em> going to be doing asynchronous stuff, so even though it's incredibly cool and worth learning about, anything that depends on <code>Tokio</code> is not a fit for my mini-project</li>
+<li><code>actix-http</code> looks very promising but it's a component of a larger framework - the &quot;Actix Ecosystem&quot; (Also incredibly cool) and not a fit given risk #2</li>
+<li>Oooh <code>hyper</code> looks promising too: &quot;A fast and correct http library&quot; - but it's asynchronous which means it depends on <code>Tokio</code> - not a fit for this context</li>
+<li><code>web_server</code> - getting a LOT closer, but this one includes an API for routing requests, which isn't quite what I'm looking for</li>
+<li><code>webby</code> - the API looks good but the only author is a game developer from Amsterdam who wrote it just for kicks</li>
+</ul>
+<div class="w-50 center">
+<p>Or, as my son William would say...</p>
+<p><img src="https://samheuck.com/blog/learning-rust/william_yeet.gif" alt="" /></p>
+</div>
+<p>Hmm... I want to take a look at <code>tiny-http</code>:</p>
+<ul>
+<li>It's written to be compliant with the HTTP standard</li>
+<li>It accepts and manages connections</li>
+<li>It parses requests which means I will get relevant objects to work with</li>
+<li>It has an active repository owner and more than one contributor</li>
+<li>It has relatively stable dependencies that make sense given the problem being solved</li>
+<li>A cursory scan of the source code itself reveals nothing strange or glaringly out of place</li>
+</ul>
+<p>I think we have a winner!</p>
+<h2 id="learning-to-use-the-selected-crate">Learning to use the selected crate</h2>
+<p>Time to get the example from <code>tiny_http</code>'s README working. After initializing a new rust project and adding <code>tiny_http</code> as a dependency in <code>Cargo.toml</code>, I got to work creating a web server.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">extern crate</span><span style="color:#cccece;"> tiny_http </span><span style="color:#5f6364;">//v0.8.2
+</span><span style="color:#c594c5;">use </span><span style="color:#cccece;">tiny_http</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Server</span><span style="color:#5fb3b3;">;
+
+</span><span style="color:#5f6364;">// Run this, and visit localhost:8000/foo with a browser, OR
+// make a get request using curl or httpie
+</span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">main</span><span style="color:#5fb3b3;">() {
+  </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> server </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">Server</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">http</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">127.0.0.1:8000</span><span style="color:#5fb3b3;">&quot;).</span><span style="color:#6699cc;">unwrap</span><span style="color:#5fb3b3;">();
+
+  </span><span style="color:#c594c5;">for</span><span style="color:#cccece;"> request </span><span style="color:#5fb3b3;">in</span><span style="color:#cccece;"> server</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">incoming_requests</span><span style="color:#5fb3b3;">() {
+    </span><span style="color:#cccece;">println!</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">{}</span><span style="color:#5fb3b3;">&quot;,</span><span style="color:#cccece;"> request</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">url</span><span style="color:#5fb3b3;">());
+  }
+}
+</span></code></pre>
+<p>Under the hood, tiny_http takes care of creating network sockets and provides APIs with <code>Request</code>, <code>Response</code>, <code>Header</code> <code>Method</code> and <code>StatusCode</code> types. This will do nicely to play the role of <em>Python's <code>BaseHttpServer</code></em> That's my first question solved!</p>
+<p>However, I don't have a <code>BaseHttpRequestHandler</code>, like the program from Chapter 22 of the book. I guess I'll have to write one because I need a way to handle requests coming from clients. I'll start by doing something more interesting in <code>main</code>. In addition to sending some more useful info to the console via stdout, I will pass requests to a <code>RequestHandler</code>.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">for</span><span style="color:#cccece;"> request </span><span style="color:#5fb3b3;">in</span><span style="color:#cccece;"> server</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">incoming_requests</span><span style="color:#5fb3b3;">() {
+  </span><span style="color:#cccece;">println!</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">method: {:?}</span><span style="color:#5fb3b3;">\n</span><span style="color:#99c794;">url: {:?}</span><span style="color:#5fb3b3;">\n</span><span style="color:#99c794;">user-agent: {:?}</span><span style="color:#5fb3b3;">\n&quot;,
+</span><span style="color:#cccece;">    request</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">method</span><span style="color:#5fb3b3;">(),
+</span><span style="color:#cccece;">    request</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">url</span><span style="color:#5fb3b3;">(),
+</span><span style="color:#cccece;">    request</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">headers</span><span style="color:#5fb3b3;">()[</span><span style="color:#f99157;">1</span><span style="color:#5fb3b3;">].</span><span style="color:#cccece;">value
+  </span><span style="color:#5fb3b3;">);
+
+  </span><span style="color:#5f6364;">// Doesn&#39;t compile yet.
+  </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> response </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">RequestHandler</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">request</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">handle_request</span><span style="color:#5fb3b3;">();
+}
+</span></code></pre>
+<p>I'm learning to read the compiler output, so I like to run <code>cargo build</code> a lot in order to train my eyeballs to look at the useful data coming out of the compiler. I know this won't compile yet because I haven't implemented this type yet, but it's giving me good practice - like practicing free-throws on the basketball court.</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">error[E0433]: failed to resolve: use of undeclared type `RequestHandler`
+  --&gt; src/main.rs:78:24
+   |
+78 |         let response = RequestHandler::new(request).handle_request();
+   |                        ^^^^^^^^^^^^^^ use of undeclared type `RequestHandler`
+</span></code></pre>
+<p>So here's an implementation that might work. For now, I'm just going to print something.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">use </span><span style="color:#cccece;">tiny_http</span><span style="color:#5fb3b3;">::{</span><span style="color:#cccece;">Server</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;"> Request</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;"> Response</span><span style="color:#5fb3b3;">};
+
+</span><span style="color:#c594c5;">struct </span><span style="color:#cccece;">RequestHandler </span><span style="color:#5fb3b3;">{
+  </span><span style="color:#cccece;">request</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> Request,
+</span><span style="color:#5fb3b3;">}
+
+</span><span style="color:#c594c5;">impl </span><span style="color:#cccece;">RequestHandler </span><span style="color:#5fb3b3;">{
+  </span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">request</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> Request</span><span style="color:#5fb3b3;">) -&gt; </span><span style="color:#c594c5;">Self </span><span style="color:#5fb3b3;">{
+</span><span style="color:#cccece;">    RequestHandler </span><span style="color:#5fb3b3;">{
+</span><span style="color:#cccece;">      request</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> request
+    </span><span style="color:#5fb3b3;">}
+  }
+
+  </span><span style="color:#c594c5;">pub fn </span><span style="color:#6699cc;">handle_request</span><span style="color:#5fb3b3;">() {
+    </span><span style="color:#cccece;">println!</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">handling request...</span><span style="color:#5fb3b3;">&quot;);
+  }
+}
+</span></code></pre><pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">error[E0599]: no method named `handle_request` found for struct `RequestHandler` in the current scope
+  --&gt; src/main.rs:85:53
+   |
+20 | struct RequestHandler {
+   | --------------------- method `handle_request` not found for this
+...
+85 |         let response = RequestHandler::new(request).handle_request();
+   |                        -----------------------------^^^^^^^^^^^^^^
+   |                        |                            |
+   |                        |                            this is an associated function, not a method
+   |                        help: use associated function syntax instead: `RequestHandler::handle_request`
+   |
+   = note: found the following associated functions; to be used as methods, functions must have a `self` parameter
+note: the candidate is defined in an impl for the type `RequestHandler`
+  --&gt; src/main.rs:31:5
+   |
+31 |     fn handle_request() {
+   |     ^^^^^^^^^^^^^^^^^^^
+</span></code></pre>
+<p><a name="q2"></a></p>
+<p>So why isn't this method working... wait what is an <em>&quot;associated function&quot;</em>? Running a search...</p>
+<div class="note">
+<p><small>From <a href="https://doc.rust-lang.org/book/ch05-03-method-syntax.html#associated-functions">https://doc.rust-lang.org/book/ch05-03-method-syntax.html#associated-functions</a></small></p>
+<p>... Another useful feature of impl blocks is that we’re allowed to define functions within impl blocks that don’t take self as a parameter. These are called associated functions because they’re associated with the struct.</p>
+</div>
+<p>Oh right - I forgot. Method syntax in Rust requires the first parameter of the method to be <code>&amp;self</code> - a reference to the struct the method belongs to. But it's <em>also</em> possible to omit <code>&amp;self</code> which is called an &quot;associated function&quot;. Associated functions have to be called with a different syntax: <code>RequestHandler::handle_request()</code>. Adding the <code>&amp;self</code> param and moving right along...</p>
+<p>The simplest design I can think to start with is to have the <code>RequestHandler</code> return <code>tiny_http::Response</code> objects. It looks like the <code>tiny_http::Request</code> has a method called <code>respond()</code> which takes a <code>Response</code> instance as an argument. So my request handler just needs to return <code>Response</code>.</p>
+<p>(<em><strong>Note:</strong></em> Leaving off the semicolon for expressions that are being returned means the <code>return</code> keyword can be omitted.)</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#5f6364;">// Doesn&#39;t compile - the return type ( -&gt; Response ) isn&#39;t right
+</span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">handle_request</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#f99157;">self</span><span style="color:#5fb3b3;">) -&gt;</span><span style="color:#cccece;"> Response </span><span style="color:#5fb3b3;">{
+</span><span style="color:#cccece;">  Response </span><span style="color:#5fb3b3;">{}
+}
+</span></code></pre><pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">error[E0107]: missing generics for struct `Response`
+  --&gt; src/main.rs:31:37
+   |
+31 |     pub fn handle_request(&amp;self) -&gt; Response {
+   |                                     ^^^^^^^^ expected 1 generic argument
+   |
+</span></code></pre>
+<p><a name="q3"></a></p>
+<p>So I need to learn how <code>tiny_http::Response</code> types work. How do I create one? Looking at the docs shows a few different ways of creating a <code>Response</code>, and <code>Response::from_string()</code> looks like it will do the trick. What is the type signature of its return? <code>Response&lt;std::io::Cursor&lt;Vec&lt;u8&gt;&gt;&gt;</code>.</p>
+<p><a name="q4"></a></p>
+<p>I know what a <code>Vec&lt;u8&gt;</code> is, but what is a <code>std::io::Cursor</code>? To the docs I go!</p>
+<div class="note">
+<p><small>From <a href="https://doc.rust-lang.org/std/io/index.html#structs">https://doc.rust-lang.org/std/io/index.html#structs</a></small></p>
+<p>Cursors are used with in-memory buffers, anything implementing AsRef&lt;[u8]&gt;, to allow them to implement Read and/or Write, allowing these buffers to be used anywhere you might use a reader or writer that does actual I/O.</p>
+</div>
+<p>Sounds good to me. I don't think I have a compelling reason to use anything other than a buffer of bytes to respond to requests. And now I know how to return some static HTML!</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">handle_request</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#f99157;">self</span><span style="color:#5fb3b3;">) -&gt; </span><span style="color:#cccece;">Response</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Cursor</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#c594c5;">u8</span><span style="color:#5fb3b3;">&gt;&gt;&gt; {
+    </span><span style="color:#cccece;">Response</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">from_string</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello web!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</span><span style="color:#5fb3b3;">&quot;)
+}
+</span></code></pre>
+<p>So that function compiles (no red squiggles in my editor!), <em>but</em> back in <code>main</code>, the compiler is not happy.</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">error[E0382]: use of moved value: `request`
+  --&gt; src/main.rs:85:9
+   |
+77 |     for request in server.incoming_requests() {
+   |         ------- move occurs because `request` has type `Request`, which does not implement the `Copy` trait
+...
+84 |         let response = RequestHandler::new(request).handle_request();
+   |                                            ------- value moved here
+85 |         request.respond(response).unwrap();
+   |         ^^^^^^^ value used here after move
+</span></code></pre>
+<p><a name="q5"></a></p>
+<p>So... my first stab at this threw me right into learning about ownership. Which brings me to the next question. Which function actually <em>owns</em> the request?</p>
+<p>Requests are sent by clients into a network socket which is managed internally by the <code>server</code> variable. The method <code>incoming_requests()</code> is an iterator over the requests that are received - so it is creating <code>Request</code> objects and then handing them over.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">main</span><span style="color:#5fb3b3;">() {
+    </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> server </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">Server</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">http</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">127.0.0.1:8000</span><span style="color:#5fb3b3;">&quot;).</span><span style="color:#6699cc;">unwrap</span><span style="color:#5fb3b3;">();
+    </span><span style="color:#c594c5;">for</span><span style="color:#cccece;"> request </span><span style="color:#5fb3b3;">in</span><span style="color:#cccece;"> server</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">incoming_requests</span><span style="color:#5fb3b3;">() {
+        </span><span style="color:#cccece;">println!</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">method: {:?}</span><span style="color:#5fb3b3;">\n</span><span style="color:#99c794;">url: {:?}</span><span style="color:#5fb3b3;">\n</span><span style="color:#99c794;">user-agent: {:?}</span><span style="color:#5fb3b3;">\n&quot;,
+</span><span style="color:#cccece;">            request</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">method</span><span style="color:#5fb3b3;">(),
+</span><span style="color:#cccece;">            request</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">url</span><span style="color:#5fb3b3;">(),
+</span><span style="color:#cccece;">            request</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">headers</span><span style="color:#5fb3b3;">()[</span><span style="color:#f99157;">1</span><span style="color:#5fb3b3;">].</span><span style="color:#cccece;">value
+        </span><span style="color:#5fb3b3;">);
+
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> response </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">RequestHandler</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">request</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">handle_request</span><span style="color:#5fb3b3;">();
+</span><span style="color:#cccece;">        request</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">respond</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">response</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">unwrap</span><span style="color:#5fb3b3;">();
+    }
+}
+</span></code></pre>
+<p>So when this for loop completes an iteration, the <code>request</code> variable goes out of scope and gets dropped. In other words, the memory that the for loop is keeping track of for the <code>Request</code> objects it creates gets cleared out after <code>request.respond()</code> method returns.</p>
+<p>At least for now in this program, I'm going to make a mental note and think of <code>main</code> as having ownership of the requests. (Although it's more like the for loop itself has ownership.)</p>
+<p>Taking a closer look at the <code>tiny_http::Request.respond()</code> method, I see the function signature is:</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">pub fn </span><span style="color:#6699cc;">respond</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">R</span><span style="color:#5fb3b3;">&gt;(</span><span style="color:#c594c5;">mut </span><span style="color:#f99157;">self</span><span style="color:#cccece;">, </span><span style="color:#f99157;">response</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Response</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">R</span><span style="color:#5fb3b3;">&gt;) -&gt; </span><span style="color:#fac863;">Result</span><span style="color:#5fb3b3;">&lt;()</span><span style="color:#cccece;">, IoError</span><span style="color:#5fb3b3;">&gt;
+  </span><span style="color:#c594c5;">where</span><span style="color:#cccece;"> R</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> Read
+</span></code></pre>
+<p>Because the response parameter in the function signature is <em>not</em> a reference (there's no <code>&amp;</code> character), I can say that it consumes the response. It takes ownership of it. This makes sense because after the response is sent back to the client, there is no need to keep it hanging around in memory. The program is done with it. So it gets freed when <code>respond()</code> finishes its work.</p>
+<p>Having a mental model for ownership and borrowing really helps when writing Rust. This explanation works well for me: <a href="http://intorust.com/tutorial/ownership/">intorust.com - Ownership</a> - or a more detailed explanation here: <a href="https://youtu.be/9wOzjbgRoNU?t=766">youtube - Rust Ownership</a></p>
+<p>A quick and dirty way to think of ownership and borrowing translated directly into code is:</p>
+<div class="note">
+<p><strong>Borrowing Basics</strong></p>
+<ul>
+<li><code>name: String</code>: owned value. freed when it goes out of scope. &quot;Consumed&quot;</li>
+<li><code>name: &amp;String</code>: borrowed (a.k.a shared) reference. &quot;Many readers, no writers&quot;</li>
+<li><code>name &amp;mut String</code>: mutable reference. &quot;exactly 1 writer, no outside readers&quot;</li>
+</ul>
+</div>
+<p>With this in mind, I take another look at my implementation of the request handler.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">struct </span><span style="color:#cccece;">RequestHandler </span><span style="color:#5fb3b3;">{
+    </span><span style="color:#cccece;">request</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> Request
+</span><span style="color:#5fb3b3;">}
+
+</span><span style="color:#c594c5;">impl </span><span style="color:#cccece;">RequestHandler </span><span style="color:#5fb3b3;">{
+    </span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">request</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> Request</span><span style="color:#5fb3b3;">) -&gt; </span><span style="color:#c594c5;">Self </span><span style="color:#5fb3b3;">{
+</span><span style="color:#cccece;">        RequestHandler </span><span style="color:#5fb3b3;">{
+</span><span style="color:#cccece;">            request</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> request
+        </span><span style="color:#5fb3b3;">}
+    }
+
+    </span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">handle_request</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#f99157;">self</span><span style="color:#5fb3b3;">) -&gt; </span><span style="color:#cccece;">Response</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Cursor</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#c594c5;">u8</span><span style="color:#5fb3b3;">&gt;&gt;&gt; {
+        </span><span style="color:#cccece;">Response</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">from_string</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello web!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</span><span style="color:#5fb3b3;">&quot;)
+    }
+}
+</span></code></pre>
+<p>There is no <code>&amp;</code> character on the <code>request</code>. The <code>new()</code> function consumes (or expects to take ownership of) the request. This is a problem because back in <code>main()</code>, <code>request.respond()</code> is called next.</p>
+<p>Since <code>request</code> is not borrowed by the handler, it can't be given back to <code>main()</code> so that <code>request.respond()</code> can be called.</p>
+<p>The way it is currently written, the expectation is that the handler will be responsible for freeing <code>request</code> whenever it goes out of scope.</p>
+<p>I could try to use <code>clone()</code> in this situation to make a byte-for-byte, deep copy of the request, but that seems like it would use more memory than necessary. It would be inefficient.</p>
+<p>The thing to do then, is to pass a reference so that <code>RequestHandler</code> can borrow the request. There should be no need to change (or mutate) the data within the request itself, so it doesn't need to be mutable. That means I could pass it around to as many functions as needed. This would be the &quot;many readers&quot; case for borrowing.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">let</span><span style="color:#cccece;"> response </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">RequestHandler</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#cccece;">request</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">handle_request</span><span style="color:#5fb3b3;">();
+</span></code></pre>
+<p>A reference to a value has a different <em>type</em> than an owned value. So the <code>RequestHandler</code> struct also has to be changed to accept a <code>ref</code> type.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">struct </span><span style="color:#cccece;">RequestHandler </span><span style="color:#5fb3b3;">{
+    </span><span style="color:#cccece;">request</span><span style="color:#5fb3b3;">: &amp;</span><span style="color:#cccece;">Request,
+</span><span style="color:#5fb3b3;">}
+</span></code></pre><pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">error[E0106]: missing lifetime specifier
+  --&gt; src/main.rs:21:14
+   |
+21 |     request: &amp;Request,
+   |              ^ expected named lifetime parameter
+   |
+help: consider introducing a named lifetime parameter
+   |
+20 | struct RequestHandler&lt;&#39;a&gt; {
+21 |     request: &amp;&#39;a Request,
+   |
+</span></code></pre>
+<p>Why <em>thank you</em> compiler! I think I will introduce a named lifetime parameter... just as soon as I figure out what that means. I guess you want me to do this...? A little sprinkling of <code>&lt;'a&gt;</code> and <code>&amp;'a</code>?</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">struct </span><span style="color:#cccece;">RequestHandler</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#c594c5;">&#39;a</span><span style="color:#5fb3b3;">&gt; {
+    </span><span style="color:#cccece;">request</span><span style="color:#5fb3b3;">: &amp;</span><span style="color:#c594c5;">&#39;a </span><span style="color:#cccece;">tiny_http</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Request,
+</span><span style="color:#5fb3b3;">}
+
+</span><span style="color:#c594c5;">impl</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#c594c5;">&#39;a</span><span style="color:#5fb3b3;">&gt; </span><span style="color:#cccece;">RequestHandler</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#c594c5;">&#39;a</span><span style="color:#5fb3b3;">&gt; {
+    </span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">request</span><span style="color:#5fb3b3;">: &amp;</span><span style="color:#c594c5;">&#39;a </span><span style="color:#cccece;">tiny_http</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Request</span><span style="color:#5fb3b3;">) -&gt; </span><span style="color:#c594c5;">Self </span><span style="color:#5fb3b3;">{
+</span><span style="color:#cccece;">        RequestHandler </span><span style="color:#5fb3b3;">{
+</span><span style="color:#cccece;">            request</span><span style="color:#5fb3b3;">: &amp;</span><span style="color:#cccece;">request
+        </span><span style="color:#5fb3b3;">}
+    }
+
+</span><span style="color:#5f6364;">// -- snip --
+</span></code></pre>
+<p><a name="q6"></a></p>
+<p>What <em>is</em> this &quot;lifetime parameter&quot; thing?</p>
+<p>Wait a minute. Before I dive into that, I just noticed something. This is the first time this program has compiled without <em>any</em> errors! So before I do anything else, I'm going to celebrate; I'm going to send a real-life, honest-to-goodness http request to this newly minted http server.</p>
+<p>Using <code>cargo run</code> to start the server, and a lovely http client called <code>httpie</code> to make the request, I hereby claim a small but well deserved <em>victory</em>.</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">~ http get 127.0.0.1:8000
+HTTP/1.1 200 OK
+Content-Length: 45
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 18 Sep 2021 20:41:44 GMT
+Server: tiny-http (Rust)
+
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello web!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+
+
+~
+</span></code></pre>
+<p>-- VICTORY DANCE --</p>
+<p>At this point, I have answered 5 of my questions. I now know:</p>
+<ul>
+<li>This program will speak HTTP using the <code>tiny_http</code> crate</li>
+<li>Method versus associated function syntax in Rust</li>
+<li>How to return some static HTML</li>
+<li>That a <code>std::io::Cursor</code> is a chunk of memory that can be read like a file</li>
+<li>That the <code>main</code> function has ownership of the request instances</li>
+</ul>
+<p>I also find that taking notice of small victories throughout the learning process is helpful. This is one reason why it's helpful to keep the program runnable as I go. Making sure things compile along the way as I add new code can be tricky when I don't know exactly what I want the program to do yet. Little tricks like just printing something in a function that isn't finished yet can sometimes be helpful. Or in the case of this server, just getting out a single, hard-coded HTTP response. Setting an overly-simplified, tiny goal that uses the minimal amount of functionality possible to get to a runnable program is especially helpful when learning something new.</p>
+<p>So. <em>Lifetimes.</em></p>
+<div class="note">
+<p><small>From <a href="https://doc.rust-lang.org/book/ch10-03-lifetime-syntax.html">https://doc.rust-lang.org/book/ch10-03-lifetime-syntax.html</a></small></p>
+<p>...every reference in Rust has a lifetime, which is the scope for which that reference is valid. Most of the time, lifetimes are implicit and inferred, just like most of the time, types are inferred. We must annotate types when multiple types are possible. In a similar way, we must annotate lifetimes when the lifetimes of references could be related in a few different ways. Rust requires us to annotate the relationships using generic lifetime parameters to ensure the actual references used at runtime will definitely be valid.</p>
+</div>
+<p>So... because the request being handled is now a <em>reference</em> (<code>&amp;request</code> instead of <code>request</code>), I have to tell the compiler how that reference relates to the object that borrows it. Lifetime annotations can usually be inferred. In many cases they are filled in for me, magically by the compiler, at compile time. But, in this case, the compiler needs a lifetime annotation. (Somewhere in the back of my mind I wonder if that can be avoided...)</p>
+<p>I'm passing a reference to the incoming request to my <code>RequestHandler</code>. I have already established that <code>main</code> owns the request. Which means any function that needs access to the request, needs to borrow it from <code>main</code>. So what is the relationship between the request and the request <em>handler</em>? Also, what function owns <code>RequestHandler</code>? What <em>should</em> own <code>RequestHandler</code>?</p>
+<p>It makes sense that the <code>RequestHandler</code> would need to be hanging around in memory <em>at least</em> as long as the request itself. Does it also make sense that when the request is freed, the request handler no longer serves a purpose, so it could also be freed?</p>
+<p>As currently written, the lifetime annotations that were added to <code>RequestHandler</code> specify that the reference to the request has a lifetime of <code>'a</code>. Because the <code>struct</code> holds onto that reference, it <em>also</em> needs a lifetime of <code>'a</code>, and so does the <code>impl</code>.</p>
+<p>In the <code>new()</code> function, the relationship between the <code>request</code> reference and the <code>RequestHandler</code> becomes visually very clear. The lifetime annotations are explicitly tying the two together. Those <code>'a</code> annotations are saying that these two things need to stick around in memory for exactly the same amount of time.</p>
+<p><a name='q7'></a>
+<a name='q8'></a></p>
+<p>But wait a minute... the web server needs to handle a whole bunch of requests. Requests will be coming in constantly - the job of the <code>RequestHandler</code> is to figure out how to respond to any request that gets sent its way.</p>
+<p>So wouldn't it make more sense for the <code>RequestHandler</code> to outlive the request? Wouldn't it be better for it to stick around longer in memory so that it can also handle subsequent requests?</p>
+<p>Then, ideally, <code>RequestHandler</code> would have the same lifetime as the <em>server</em>. The server already outlives the requests, and so should the <code>RequestHandler</code>.</p>
+<p>Since <code>main</code> owns the <code>tiny_http::Server</code>, then, <code>main</code> also needs to own the <code>RequestHandler</code>. When the entire process exits, <code>Server</code> and <code>RequestHandler</code> will be freed.</p>
+<p>That is starting to sound closer to what I want. Rather than specifying matching lifetimes between a <code>Request</code> object and a <code>RequestHandler</code> object, it sounds much better to have matching lifetimes between a <code>RequestHandler</code> and the <code>Server</code>. The individual requests should be freed after a response is sent, but the handler will still be alive and kicking, reading requests and returning responses.</p>
+<p>Here's what <code>main</code> looks like right now:</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">main</span><span style="color:#5fb3b3;">() {
+    </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> server </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">Server</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">http</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">127.0.0.1:8000</span><span style="color:#5fb3b3;">&quot;).</span><span style="color:#6699cc;">unwrap</span><span style="color:#5fb3b3;">();
+    </span><span style="color:#c594c5;">for</span><span style="color:#cccece;"> request </span><span style="color:#5fb3b3;">in</span><span style="color:#cccece;"> server</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">incoming_requests</span><span style="color:#5fb3b3;">() {
+        </span><span style="color:#5f6364;">// -- snip --
+
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> response </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">RequestHandler</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#cccece;">request</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">handle_request</span><span style="color:#5fb3b3;">();
+</span><span style="color:#cccece;">        request</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">respond</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">response</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">unwrap</span><span style="color:#5fb3b3;">();
+    }
+}
+</span></code></pre>
+<p>A new <code>RequestHandler</code> is created inside the loop - which means a new one gets created every time a client makes a request. That's why they have the same lifetime! Also, it could be inefficient to create a brand new handler every single time a request is received. <code>RequestHandler::new()</code> is in the wrong spot.</p>
+<p>The handler needs to be owned by <code>main</code> just like <code>server</code>, therefore it needs to be created outside of the loop.</p>
+<p>This will also mean that instead of passing the <code>&amp;request</code> to <code>new()</code>, it needs to be passed to the <code>handle_request()</code> method on the <code>RequestHandler</code>.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">main</span><span style="color:#5fb3b3;">() {
+    </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> server </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">tiny_http</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Server</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">http</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">127.0.0.1:8000</span><span style="color:#5fb3b3;">&quot;).</span><span style="color:#6699cc;">unwrap</span><span style="color:#5fb3b3;">();
+    </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> handler </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">RequestHandler</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">();
+
+    </span><span style="color:#c594c5;">for</span><span style="color:#cccece;"> request </span><span style="color:#5fb3b3;">in</span><span style="color:#cccece;"> server</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">incoming_requests</span><span style="color:#5fb3b3;">() {
+        </span><span style="color:#5f6364;">// -- snip --
+
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> response </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> handler</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">handle_request</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#cccece;">request</span><span style="color:#5fb3b3;">);
+</span><span style="color:#cccece;">        request</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">respond</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">response</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">unwrap</span><span style="color:#5fb3b3;">();
+    }
+}
+</span></code></pre>
+<p>This is much closer to to how the server is initialized in the Python example from <em>500 Lines Or Less</em>.</p>
+<p>In Python, using the <code>http.server</code> module looks like this:</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-py" data-lang="py"><span style="color:#c594c5;">def </span><span style="color:#6699cc;">run</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">server_class</span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;">HTTPServer</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">handler_class</span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;">BaseHTTPRequestHandler</span><span style="color:#5fb3b3;">):
+    </span><span style="color:#cccece;">server_address </span><span style="color:#5fb3b3;">= (&#39;&#39;, </span><span style="color:#f99157;">8000</span><span style="color:#5fb3b3;">)
+    </span><span style="color:#cccece;">httpd </span><span style="color:#5fb3b3;">= </span><span style="color:#6699cc;">server_class</span><span style="color:#5fb3b3;">(</span><span style="color:#6699cc;">server_address</span><span style="color:#5fb3b3;">, </span><span style="color:#6699cc;">handler_class</span><span style="color:#5fb3b3;">)
+    </span><span style="color:#6699cc;">httpd</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">serve_forever</span><span style="color:#5fb3b3;">()
+</span></code></pre>
+<p>In the above Python snippet, The <code>handler_class</code> parameter is passed to the server. It must exist in memory for as long as <code>server_class</code> exists in memory.</p>
+<p>Now that the relationship (lifetimes) between an incoming <code>request</code> and the <code>handler</code> have been separated, the <code>RequestHandler</code> struct no longer needs to have a request field.</p>
+<p>The compiler can then infer lifetimes again, and the <code>'a</code> annotations are no longer necessary. Woo hoo!</p>
+<p>Here's what the implementation looks like now:</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">struct </span><span style="color:#cccece;">RequestHandler </span><span style="color:#5fb3b3;">{}
+
+</span><span style="color:#c594c5;">impl </span><span style="color:#cccece;">RequestHandler </span><span style="color:#5fb3b3;">{
+    </span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">new</span><span style="color:#5fb3b3;">() -&gt; </span><span style="color:#c594c5;">Self </span><span style="color:#5fb3b3;">{
+</span><span style="color:#cccece;">        RequestHandler </span><span style="color:#5fb3b3;">{}
+    }
+
+    </span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">handle_request</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#f99157;">self</span><span style="color:#cccece;">, </span><span style="color:#f99157;">request</span><span style="color:#5fb3b3;">: &amp;</span><span style="color:#cccece;">Request</span><span style="color:#5fb3b3;">) -&gt; </span><span style="color:#cccece;">Response</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Cursor</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#c594c5;">u8</span><span style="color:#5fb3b3;">&gt;&gt;&gt; {
+        </span><span style="color:#cccece;">Response</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">from_string</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello web!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;</span><span style="color:#5fb3b3;">&quot;)
+    }
+}
+</span></code></pre>
+<p>At this point, the small goal of returning a hard-coded bit of HTML has been met. So now I need to move on to adding some more functionality to this server. Right now it's useless. It's time to change that!</p>
+<p><a name="q9"></a></p>
+<h2 id="adapting-the-concepts-from-python-to-rust">Adapting the concepts from Python to Rust</h2>
+<p>This is where the fun begins!</p>
+<p>In reading a bit more of the chapter of the book, I noticed a pattern. The general idea is that the server needs to respond to a handful of different scenarios. For example, in one case, an incoming request could be for a specific file. In another case, it could be a directory. In either case, the web server needs to decide what to do. Both of these cases have two things in common. The server needs to decide if the request can be handled, and then it needs to handle it by creating an appropriate response.</p>
+<p>Each case is represented as its own class. The classes for every case all have the same two functions <code>test()</code> and <code>act()</code>. <code>test()</code> determines if the request <em>can</em> be handled and <code>act()</code> does the work of responding to the request. Because these two functions are common to multiple classes, this feels like a concept called &quot;duck typing&quot;.</p>
+<div class="note">
+<p><small>From <a href="https://docs.python.org/3/glossary.html#term-duck-typing">https://docs.python.org/3/glossary.html#term-duck-typing</a></small></p>
+<p><strong>duck-typing</strong></p>
+<p>A programming style which does not look at an object’s type to determine if it has the right interface; instead, the method or attribute is simply called or used (“If it looks like a duck and quacks like a duck, it must be a duck.”) By emphasizing interfaces rather than specific types, well-designed code improves its flexibility by allowing polymorphic substitution.</p>
+</div>
+<p>So, how do I do duck-typing in Rust? The first language feature that immediately comes to mind is the <code>trait</code>. Rust traits are a lot like <code>interface</code> in other languages. Traits tell that <del>persnickety</del> detail-oriented compiler that an <code>impl</code> <em>is required</em> to have certain functions. Traits enable polymorphism in Rust. So I think I need a trait.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">trait </span><span style="color:#cccece;">HandleRequest </span><span style="color:#5fb3b3;">{
+    </span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">can_handle</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#f99157;">self</span><span style="color:#cccece;">, </span><span style="color:#f99157;">request</span><span style="color:#5fb3b3;">: &amp;</span><span style="color:#cccece;">Request</span><span style="color:#5fb3b3;">) -&gt; </span><span style="color:#c594c5;">bool</span><span style="color:#5fb3b3;">; </span><span style="color:#5f6364;">// my chosen name for test()
+    </span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">handle</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#f99157;">self</span><span style="color:#cccece;">, </span><span style="color:#f99157;">request</span><span style="color:#5fb3b3;">: &amp;</span><span style="color:#cccece;">Request</span><span style="color:#5fb3b3;">) -&gt; </span><span style="color:#cccece;">Response</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Cursor</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#c594c5;">u8</span><span style="color:#5fb3b3;">&gt;&gt;&gt;; </span><span style="color:#5f6364;">// my chosen name for act()
+</span><span style="color:#5fb3b3;">}
+</span></code></pre>
+<p>So, to take the case: &quot;get me a static file please&quot;, I need an <code>impl</code> to be in charge of handling that case. I'll use a <code>struct</code> and an <code>impl</code> to create a type for the static file case, as well as an implementation for the trait I already wrote.</p>
+<p>Since the interface for handling a request only needs to be able to read the request, read it but not change it, the request can be borrowed as an immutable reference.</p>
+<p>(Note: <code>todo!()</code> is a helpful macro when stubbing out code structure).</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#5f6364;">// Side-note, a struct declaration without braces is known as a &#39;Unit Struct&#39;.
+// &#39;Unit structs&#39; are 0 bytes in size, evaluate to `()` and are used
+// when a trait needs to be implemented, but there is no need to store
+// any data or fields.
+</span><span style="color:#c594c5;">struct </span><span style="color:#cccece;">StaticFile</span><span style="color:#5fb3b3;">;
+
+</span><span style="color:#c594c5;">impl </span><span style="color:#cccece;">HandleRequest </span><span style="color:#c594c5;">for </span><span style="color:#cccece;">StaticFile </span><span style="color:#5fb3b3;">{
+    </span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">can_handle</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#f99157;">self</span><span style="color:#cccece;">, </span><span style="color:#5fb3b3;">_</span><span style="color:#cccece;">: </span><span style="color:#5fb3b3;">&amp;</span><span style="color:#cccece;">tiny_http</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Request</span><span style="color:#5fb3b3;">) -&gt; </span><span style="color:#c594c5;">bool </span><span style="color:#5fb3b3;">{
+        </span><span style="color:#cccece;">todo!</span><span style="color:#5fb3b3;">()
+    }
+
+    </span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">handle</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#f99157;">self</span><span style="color:#cccece;">, </span><span style="color:#5fb3b3;">_</span><span style="color:#cccece;">: </span><span style="color:#5fb3b3;">&amp;</span><span style="color:#cccece;">tiny_http</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Request</span><span style="color:#5fb3b3;">) -&gt; </span><span style="color:#cccece;">tiny_http</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Response</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">std</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">io</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Cursor</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">std</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">vec</span><span style="color:#5fb3b3;">::</span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#c594c5;">u8</span><span style="color:#5fb3b3;">&gt;&gt;&gt; {
+        </span><span style="color:#cccece;">todo!</span><span style="color:#5fb3b3;">()
+    }
+}
+</span></code></pre>
+<p>Next, I need to loop over all the various cases, calling <code>can_handle()</code> and <code>handle()</code>. While I'm at it, I'm going to change <code>handle_request()</code> so that it can delegate the handling of incoming requests to another function that is specific to the kind of HTTP request being handled.</p>
+<p>I'm not thinking about PUT, POST, or DELETE requests yet, but web servers do need to know what to do with those. Delegating will be better because handling all of those different kinds of requests in one function could get messy. This will also follow more closely with the structure of the Python example from the book.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">impl </span><span style="color:#cccece;">RequestHandler </span><span style="color:#5fb3b3;">{
+</span><span style="color:#5f6364;">// -- snip --
+
+</span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">handle_request</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#f99157;">self</span><span style="color:#cccece;">, </span><span style="color:#f99157;">request</span><span style="color:#5fb3b3;">: &amp;</span><span style="color:#cccece;">Request</span><span style="color:#5fb3b3;">) -&gt; </span><span style="color:#cccece;">Response</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Cursor</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#c594c5;">u8</span><span style="color:#5fb3b3;">&gt;&gt;&gt; {
+  </span><span style="color:#c594c5;">match</span><span style="color:#cccece;"> request</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">method</span><span style="color:#5fb3b3;">() {
+      </span><span style="color:#cccece;">Method</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Get </span><span style="color:#5fb3b3;">=&gt; </span><span style="color:#ec5f67;">self</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">handle_get</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">request</span><span style="color:#5fb3b3;">),
+      _ =&gt; </span><span style="color:#cccece;">panic!</span><span style="color:#5fb3b3;">()
+  }
+}
+
+</span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">handle_get</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#f99157;">self</span><span style="color:#cccece;">, </span><span style="color:#f99157;">request</span><span style="color:#5fb3b3;">: &amp;</span><span style="color:#cccece;">Request</span><span style="color:#5fb3b3;">) -&gt; </span><span style="color:#cccece;">Response</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Cursor</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#c594c5;">u8</span><span style="color:#5fb3b3;">&gt;&gt;&gt; {
+  </span><span style="color:#c594c5;">for</span><span style="color:#cccece;"> case </span><span style="color:#5fb3b3;">in </span><span style="color:#ec5f67;">self</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">handlers</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">iter</span><span style="color:#5fb3b3;">() {
+    </span><span style="color:#c594c5;">if</span><span style="color:#cccece;"> case</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">can_handle</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">request</span><span style="color:#5fb3b3;">) {
+      </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> response </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> case</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">handle</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">request</span><span style="color:#5fb3b3;">);
+      </span><span style="color:#c594c5;">return</span><span style="color:#cccece;"> response</span><span style="color:#5fb3b3;">;
+    }
+  }
+}
+</span></code></pre>
+<p>I enjoy using pattern matching (the <code>match</code> keyword) in Rust - it's a satisfying language feature.</p>
+<p>Don't send a POST request lest you crash the server! <code>panic!()</code> is a placeholder for now - I'll figure out what to do with that later.</p>
+<p>I'll also need a <code>handlers</code> field to hold a collection of the objects for each of the cases. For now, it will just hold the <code>StaticFile</code> case, but there will be other cases, like file not found for example.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">struct </span><span style="color:#cccece;">RequestHandler </span><span style="color:#5fb3b3;">{
+  </span><span style="color:#cccece;">handlers</span><span style="color:#5fb3b3;">: </span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">dyn HandleRequest</span><span style="color:#5fb3b3;">&gt;
+}
+
+</span><span style="color:#c594c5;">impl </span><span style="color:#cccece;">RequestHandler </span><span style="color:#5fb3b3;">{
+    </span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">new</span><span style="color:#5fb3b3;">() -&gt; </span><span style="color:#c594c5;">Self </span><span style="color:#5fb3b3;">{
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> cases</span><span style="color:#5fb3b3;">: </span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">dyn HandleRequest</span><span style="color:#5fb3b3;">&gt; = </span><span style="color:#cccece;">vec!</span><span style="color:#5fb3b3;">[
+</span><span style="color:#cccece;">            StaticFile </span><span style="color:#5fb3b3;">{}
+        ];
+
+</span><span style="color:#cccece;">        RequestHandler </span><span style="color:#5fb3b3;">{
+</span><span style="color:#cccece;">            handlers</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> cases
+        </span><span style="color:#5fb3b3;">}
+    }
+
+  </span><span style="color:#5f6364;">// -- snip --
+</span><span style="color:#5fb3b3;">}
+</span></code></pre><pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">error[E0277]: the size for values of type `(dyn HandleRequest + &#39;static)` cannot be known at compilation time
+   --&gt; src/main.rs:21:15
+    |
+21  |     handlers: Vec&lt;dyn HandleRequest&gt;
+    |               ^^^^^^^^^^^^^^^^^^^^^^ doesn&#39;t have a size known at compile-time
+    |
+</span></code></pre>
+<p>This is one crux of doing duck-typing in Rust. The compiler needs to know how much memory objects will take up. But in this case, the objects stored in <code>handlers</code> aren't all the same type, they just share the same interface. I wonder what the Rust book has to say on this topic... To the Book!</p>
+<div class="note">
+<p><small>From <a href="https://doc.rust-lang.org/book/ch17-02-trait-objects.html">https://doc.rust-lang.org/book/ch17-02-trait-objects.html</a></small></p>
+<p>...create a trait object by specifying some sort of pointer, such as a &amp; reference or a Box<T> smart pointer, then the dyn keyword, and then specifying the relevant trait.</p>
+</div>
+<p><a name="q10"></a>
+So I need to put each case in a <code>Box</code>. Fair enough. What exactly is a <code>Box&lt;T&gt;</code>?</p>
+<div class="note">
+<p><small>From <a href="https://doc.rust-lang.org/book/ch15-01-box.html">https://doc.rust-lang.org/book/ch15-01-box.html</a></small></p>
+<p>The most straightforward smart pointer is a box, whose type is written Box<T>. Boxes allow you to store data on the heap rather than the stack. What remains on the stack is the pointer to the heap data.</p>
+<p>You’ll use them most often in these situations:</p>
+<ul>
+<li>When you have a type whose size can’t be known at compile time and you want to use a value of that type in a context that requires an exact size</li>
+<li>When you have a large amount of data and you want to transfer ownership but ensure the data won’t be copied when you do so</li>
+<li>When you want to own a value and you care only that it’s a type that implements a particular trait rather than being of a specific type</li>
+</ul>
+</div>
+<p>Of the above common use-cases for <code>Box&lt;T&gt;</code>, the first and third apply to this problem.</p>
+<p>The compiler is telling me it doesn't know the size of the type because <code>dyn HandleRequest</code> is a trait object. It only represents a common set of functions that are needed, it doesn't refer to a concrete type.</p>
+<p>What I need is a collection of pointers to my handlers. Since pointers <em>are</em> a known, fixed size, the compiler should be happy. <code>Vec</code> is my goto whenever I need a collection of something, so I will try a <code>Vec</code> of <code>Box&lt;T&gt;</code>s.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">struct </span><span style="color:#cccece;">RequestHandler </span><span style="color:#5fb3b3;">{
+    </span><span style="color:#cccece;">handlers</span><span style="color:#5fb3b3;">: </span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#fac863;">Box</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">dyn HandleRequest</span><span style="color:#5fb3b3;">&gt;&gt;
+}
+
+</span><span style="color:#c594c5;">impl </span><span style="color:#cccece;">RequestHandler </span><span style="color:#5fb3b3;">{
+    </span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">new</span><span style="color:#5fb3b3;">() -&gt; </span><span style="color:#c594c5;">Self </span><span style="color:#5fb3b3;">{
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> cases</span><span style="color:#5fb3b3;">: </span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#fac863;">Box</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">dyn HandleRequest</span><span style="color:#5fb3b3;">&gt;&gt; = </span><span style="color:#cccece;">vec!</span><span style="color:#5fb3b3;">[
+            </span><span style="color:#fac863;">Box</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">StaticFile</span><span style="color:#5fb3b3;">),
+        ];
+
+</span><span style="color:#cccece;">        RequestHandler </span><span style="color:#5fb3b3;">{
+</span><span style="color:#cccece;">            handlers</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> cases
+        </span><span style="color:#5fb3b3;">}
+    }
+
+</span><span style="color:#5f6364;">// -- snip --
+</span></code></pre>
+<p>Now that <code>RequestHandler</code> is happy, I have another error to sort out:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">   |
+42 |       fn handle_get(&amp;self, request: &amp;Request) -&gt; Response&lt;Cursor&lt;Vec&lt;u8&gt;&gt;&gt; {
+   |                                                  ------------------------- expected `Response&lt;std::io::Cursor&lt;Vec&lt;u8&gt;&gt;&gt;` because of return type
+43 | /         for case in self.handlers.iter() {
+44 | |             if case.can_handle(&amp;request) {
+45 | |                 let response = case.handle(&amp;request);
+46 | |                 return response;
+47 | |             }
+48 | |         }
+   | |_________^ expected struct `Response`, found `()`
+   |
+</span></code></pre>
+<p><code>handle_get()</code> is supposed to return a <code>tiny_http::Response</code> type - which it will do when it finds the right handler to use. But what if it doesn't? If it gets all the way through this loop and has nothing to show for it, what should the server do then?</p>
+<p>One option would be to call <code>panic!()</code> and crash the program, but keeping the server running would be better for clients.</p>
+<p>So the server needs to return a response that indicates an error of some kind instead of crashing. What does HTTP have to offer for errors?</p>
+<div class="note">
+<p><small>From <a href="https://httpwg.org/specs/rfc7231.html#status.codes">https://httpwg.org/specs/rfc7231.html#status.codes</a></small></p>
+<p>The first digit of the status-code defines the class of response. The last two digits do not have any categorization role. There are five values for the first digit:</p>
+<ul>
+<li>1xx (Informational): The request was received, continuing process</li>
+<li>2xx (Successful): The request was successfully received, understood, and accepted</li>
+<li>3xx (Redirection): Further action needs to be taken in order to complete the request</li>
+<li>4xx (Client Error): The request contains bad syntax or cannot be fulfilled</li>
+<li>5xx (Server Error): The server failed to fulfill an apparently valid request</li>
+</ul>
+</div>
+<p>I see two options that look appropriate. <code>500 Internal Server Error</code> or <code>501 Not Implemented</code>.</p>
+<p>After reading the descriptions of these errors, I think <code>500</code> is the best choice. <code>501</code> is for request methods (e.g. GET, PUT, POST, DELETE etc.) that the server can't respond to but may be able to in the future.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">handle_get</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#f99157;">self</span><span style="color:#cccece;">, </span><span style="color:#f99157;">request</span><span style="color:#5fb3b3;">: &amp;</span><span style="color:#cccece;">Request</span><span style="color:#5fb3b3;">) -&gt; </span><span style="color:#cccece;">Response</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Cursor</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#c594c5;">u8</span><span style="color:#5fb3b3;">&gt;&gt;&gt; {
+    </span><span style="color:#c594c5;">for</span><span style="color:#cccece;"> case </span><span style="color:#5fb3b3;">in </span><span style="color:#ec5f67;">self</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">handlers</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">iter</span><span style="color:#5fb3b3;">() {
+        </span><span style="color:#c594c5;">if</span><span style="color:#cccece;"> case</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">can_handle</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">request</span><span style="color:#5fb3b3;">) {
+            </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> response </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> case</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">handle</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">request</span><span style="color:#5fb3b3;">);
+            </span><span style="color:#c594c5;">return</span><span style="color:#cccece;"> response</span><span style="color:#5fb3b3;">;
+        }
+    }
+
+    </span><span style="color:#5f6364;">// Catch-all server error if no other handlers can handle the request.
+    </span><span style="color:#cccece;">Response</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">from_string</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">&lt;html&gt;&lt;body&gt;500 Internal Server Error&lt;/body&gt;&lt;/html&gt;</span><span style="color:#5fb3b3;">&quot;)
+        .</span><span style="color:#6699cc;">with_status_code</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">StatusCode</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">from</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">500</span><span style="color:#5fb3b3;">))
+}
+</span></code></pre>
+<p>And this now compiles, woo hoo! This 500 error is great because it will handle my programming mistakes with some grace. The next thing I need to do is actually flesh out the implementation for each case. That's the fun part! Now, I'll turn my attention to implementing the <code>StaticFile</code> case. I need to write <code>can_handle()</code> and <code>handle()</code> for requests that are for a file that exists, and is readable.</p>
+<p>To figure out which file is being requested, I need to look at the request itself and return a local path to the file. I think a function on the trait <code>HandleRequest</code> called <code>get_path(req)</code> makes sense. But what should it return? I need to make sure the file exists <em>and</em> it can be opened. Poking around the rust standard library shows the <code>PathBuf</code> type in <code>std::path</code> has what I need to implement these methods.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">trait </span><span style="color:#cccece;">HandleRequest </span><span style="color:#5fb3b3;">{
+    </span><span style="color:#5f6364;">// -- snip --
+
+    </span><span style="color:#6699cc;">get_path</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#ec5f67;">self</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;"> req</span><span style="color:#5fb3b3;">: &amp;</span><span style="color:#cccece;">Request</span><span style="color:#5fb3b3;">) -&gt;</span><span style="color:#cccece;"> PathBuf </span><span style="color:#5fb3b3;">{
+        </span><span style="color:#5f6364;">// Disregard the leading slash.
+        </span><span style="color:#c594c5;">let </span><span style="color:#5fb3b3;">(_,</span><span style="color:#cccece;"> uri</span><span style="color:#5fb3b3;">) =</span><span style="color:#cccece;"> req</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">url</span><span style="color:#5fb3b3;">().</span><span style="color:#6699cc;">split_at</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">1</span><span style="color:#5fb3b3;">);
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> uri </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> uri</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">as_ref</span><span style="color:#5fb3b3;">();
+
+        </span><span style="color:#5f6364;">// Use the working directory as the server root.
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> cwd </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">env</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">current_dir</span><span style="color:#5fb3b3;">().</span><span style="color:#6699cc;">unwrap</span><span style="color:#5fb3b3;">();
+
+</span><span style="color:#cccece;">        cwd</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">join</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">uri</span><span style="color:#5fb3b3;">)
+    }
+}
+</span></code></pre>
+<p>Now that I can get a file path out of the request, I need to deal with the file itself.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">struct </span><span style="color:#cccece;">StaticFile</span><span style="color:#5fb3b3;">;
+
+</span><span style="color:#c594c5;">impl </span><span style="color:#cccece;">HandleRequest </span><span style="color:#c594c5;">for </span><span style="color:#cccece;">StaticFile </span><span style="color:#5fb3b3;">{
+    </span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">can_handle</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#f99157;">self</span><span style="color:#cccece;">, </span><span style="color:#f99157;">req</span><span style="color:#5fb3b3;">: &amp;</span><span style="color:#cccece;">Request</span><span style="color:#5fb3b3;">) -&gt; </span><span style="color:#c594c5;">bool </span><span style="color:#5fb3b3;">{
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> path </span><span style="color:#5fb3b3;">= </span><span style="color:#ec5f67;">self</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">get_path</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">req</span><span style="color:#5fb3b3;">);
+</span><span style="color:#cccece;">        path</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">is_file</span><span style="color:#5fb3b3;">() &amp;&amp; </span><span style="color:#cccece;">File</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">open</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">path</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">is_ok</span><span style="color:#5fb3b3;">()
+    }
+
+    </span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">handle</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#f99157;">self</span><span style="color:#cccece;">, </span><span style="color:#f99157;">req</span><span style="color:#5fb3b3;">: &amp;</span><span style="color:#cccece;">Request</span><span style="color:#5fb3b3;">) -&gt; </span><span style="color:#cccece;">Response</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Cursor</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#c594c5;">u8</span><span style="color:#5fb3b3;">&gt;&gt; </span><span style="color:#cccece;">{
+        let path </span><span style="color:#5fb3b3;">= </span><span style="color:#ec5f67;">self</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">get_path</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">req</span><span style="color:#5fb3b3;">);
+        </span><span style="color:#ec5f67;">self</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">handle_file</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">path</span><span style="color:#5fb3b3;">)
+    }
+</span><span style="color:#cccece;">}
+</span></code></pre>
+<p>As well as implement a <code>handle_file()</code> function. This is will be the meat and potatoes
+of dealing with a static file.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#cccece;">  </span><span style="color:#c594c5;">trait </span><span style="color:#cccece;">HandleRequest </span><span style="color:#5fb3b3;">{
+    </span><span style="color:#5f6364;">// -- snip --
+
+    </span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">handle_file</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#f99157;">self</span><span style="color:#cccece;">, </span><span style="color:#f99157;">path</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> PathBuf</span><span style="color:#5fb3b3;">) -&gt; </span><span style="color:#cccece;">Response</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Cursor</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#c594c5;">u8</span><span style="color:#5fb3b3;">&gt;&gt;&gt; {
+        </span><span style="color:#c594c5;">let mut</span><span style="color:#cccece;"> buffer </span><span style="color:#5fb3b3;">= </span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">();
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> content_type </span><span style="color:#5fb3b3;">= </span><span style="color:#6699cc;">get_content_type</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#cccece;">path</span><span style="color:#5fb3b3;">);
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> headers </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">vec!</span><span style="color:#5fb3b3;">[</span><span style="color:#cccece;">Header </span><span style="color:#5fb3b3;">{
+</span><span style="color:#cccece;">            field</span><span style="color:#5fb3b3;">: &quot;</span><span style="color:#99c794;">Content-Type</span><span style="color:#5fb3b3;">&quot;.</span><span style="color:#6699cc;">parse</span><span style="color:#5fb3b3;">().</span><span style="color:#6699cc;">unwrap</span><span style="color:#5fb3b3;">(),
+</span><span style="color:#cccece;">            value</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> content_type</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">parse</span><span style="color:#5fb3b3;">().</span><span style="color:#6699cc;">unwrap</span><span style="color:#5fb3b3;">(),
+        }];
+
+        </span><span style="color:#c594c5;">let mut</span><span style="color:#cccece;"> file </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">File</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">open</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">path</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">unwrap</span><span style="color:#5fb3b3;">();
+</span><span style="color:#cccece;">        file</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">read_to_end</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> buffer</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">unwrap</span><span style="color:#5fb3b3;">();
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> data </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">Cursor</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">buffer</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">unwrap</span><span style="color:#5fb3b3;">();
+
+        </span><span style="color:#fac863;">Ok</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Response</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(
+            </span><span style="color:#cccece;">StatusCode</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">from</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">200</span><span style="color:#5fb3b3;">),
+</span><span style="color:#cccece;">            headers</span><span style="color:#5fb3b3;">,
+</span><span style="color:#cccece;">            data</span><span style="color:#5fb3b3;">,
+            </span><span style="color:#fac863;">None</span><span style="color:#5fb3b3;">,
+            </span><span style="color:#fac863;">None</span><span style="color:#5fb3b3;">,
+        ))
+    }
+</span></code></pre>
+<p><a name="q11"></a></p>
+<p>So that compiles, yay, but, how do I know it actually works? I could test it just by running the
+server and making a request like before, <em>or</em> I could write a test. Rust has unit testing built
+right in to the language and tool set, which is really convenient.</p>
+<p>The trick is going to be making a &quot;fake request&quot; from code, instead of using the
+<code>httpie</code> utility from the command line like I did before. I'm wondering if the <code>tiny_http</code> crate
+has any testing of its own? Perhaps it provides something handy for this? Ah... <code>TestRequest</code>.
+All I need to do is have <code>tiny_http</code> create a test request, pass it into the request handler,
+and then check that the result is 200 A-Okay.</p>
+<pre style="background-color:#2b2c2f;">
+<code class="language-rs" data-lang="rs"><span style="color:#5f6364;">// Note that it is good style to put tests into their own module.
+</span><span style="color:#5fb3b3;">#[</span><span style="color:#cccece;">cfg</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">test</span><span style="color:#5fb3b3;">)]
+</span><span style="color:#c594c5;">mod </span><span style="color:#cccece;">tests </span><span style="color:#5fb3b3;">{
+    </span><span style="color:#c594c5;">use super</span><span style="color:#5fb3b3;">::*;
+
+    #[</span><span style="color:#cccece;">test</span><span style="color:#5fb3b3;">]
+    </span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">serves_static_file</span><span style="color:#5fb3b3;">() {
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> handler </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">RequestHandler</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">();
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> request </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">tiny_http</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">TestRequest</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">()
+            .</span><span style="color:#6699cc;">with_method</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Method</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Get</span><span style="color:#5fb3b3;">)
+            .</span><span style="color:#6699cc;">with_path</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">/test_data/test_file</span><span style="color:#5fb3b3;">&quot;);
+
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> response </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> handler</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">handle_request</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#cccece;">request</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">into</span><span style="color:#5fb3b3;">());
+
+        </span><span style="color:#cccece;">assert_eq!</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">tiny_http</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">StatusCode</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">200</span><span style="color:#5fb3b3;">),</span><span style="color:#cccece;"> response</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">status_code</span><span style="color:#5fb3b3;">());
+    }
+}
+</span></code></pre>
+<p>Run <code>cargo test</code> at the command line and...</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">Finished test [unoptimized + debuginfo] target(s) in 0.03s
+Running unittests src/main.rs (target/debug/deps/ch22-fb3f2637e9d26e83)
+
+running 1 test
+test tests::serves_static_file ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+</span></code></pre>
+<p>Bingo. Static file delivered.</p>
+<h2 id="cowabunga">Cowabunga!</h2>
+<p>This has been a firehose of learning, and a lot of fun to work on. I'm really happy I managed to answer
+all of the questions I had. And I'm even <em>more</em> happy that I now have many more questions to dive into!</p>
+<div class="w-50 center">
+<p><img src="https://samheuck.com/blog/learning-rust/cowabunga.gif" alt="Bart Simpson" /></p>
+</div>
+<p>For example, what's up with all these calls to <code>unwrap()</code>? That seems kinda smelly to me because
+<code>unwrap()</code> will crash the program if it fails. It's like saying to the compiler, &quot;Don't worry buddy,
+this can't POSSIBLY fail so just give me what I need.&quot; But what if the file doesn't exist?</p>
+<p>In order for this code to be closer to production ready, it will need to handle errors properly. But
+that's a post for another day.</p>
+<h2 id="summing-up-some-rust-learnings">Summing up some Rust learnings</h2>
+<ul>
+<li>
+<p>Crates.io is an excellent resource for finding and doing homework on external packages &amp; libraries known as crates.</p>
+</li>
+<li>
+<p>The difference between an associated function and a method is the first parameter <code>self</code> (lowercase s, not <code>Self</code> uppercase S).</p>
+</li>
+<li>
+<p>Buffered I/O can be done with <code>Cursor</code>.</p>
+</li>
+<li>
+<p>Lifetimes are hints added to the code to tell the complier about the relationship between function parameters that
+are references so that they can be checked for validity at compile time. This means no more segfaults because of
+use after free errors, dangling pointers, and race conditions.</p>
+</li>
+<li>
+<p>Rust doesn't really have &quot;Classes, Objects, and Interfaces&quot; in the traditional sense. It has <code>struct</code> which holds data fields, and <code>impl</code> and <code>trait</code> which define and enforce an API.</p>
+</li>
+<li>
+<p><code>Box</code> is the smart pointer type, and it stores stuff on the heap.</p>
+</li>
+<li>
+<p>Polymorphism can be done with traits and dynamic dispatch - a bit like v-tables in C++.</p>
+</li>
+<li>
+<p>Successful compilation does not guarantee correctness - so use tests. It's incredibly
+convenient in Rust because it's baked right in to the standard tools that come with the language.</p>
+</li>
+</ul>
+<hr />
+<h2 id="development-environment-used">Development environment used</h2>
+<p>Rust is well supported on many platforms. Here's what I used for this mini-project:</p>
+<div class="note">
+<ul>
+<li>
+<p>Mac OS (with XCode 12.4 &amp; command line tools installed)</p>
+</li>
+<li>
+<p>rustup for managing the Rust language itself (Rust v1.54.0, 2018 Edition)</p>
+</li>
+<li>
+<p>rustup components:</p>
+<ul>
+<li>rls-x86_64-apple-darwin (deprecated in favor of rust-analyzer)</li>
+<li>rust-analysis-x86_64-apple-darwin</li>
+<li>rust-src</li>
+<li>rust-std-x86_64-apple-darwin</li>
+<li>rustc-x86_64-apple-darwin</li>
+<li>rustfmt-x86_64-apple-darwin</li>
+</ul>
+</li>
+<li>
+<p>Visual Studio Code &amp; the following extensions:</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=rust-lang.rust">Rust support for Visual Studio Code</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=dustypomerleau.rust-syntax">Rust Syntax</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://httpie.io/">httpie</a> for sending http requests to my web server from the command line</p>
+</li>
+</ul>
+<p>Note from Fall of 2022: Recommended VSCode extension for Rust is now <a href="https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer">rust-analyzer</a></p>
+</div>
+    </section>
+  </article>
+
+      </div>
+      <aside class="w-30-ns">
+        
+        
+      </aside>
+    </main>
+    <footer class="w-100">
+      <p class="f6 tc">Opinions are my own. Share and enjoy! 🙂</p>
+      <p class="f7 tc">&copy; Copyright 2022 Sam Heuck</p>
+    </footer>
+    
+  </body>
+  <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-30348707-2']);_gaq.push(['_trackPageview']);(function(){var a=document.createElement('script');a.type='text/javascript';a.async=true;a.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(a,s)})();</script>
+</html>
