@@ -56,7 +56,66 @@
     <h1 class="blog-post-title">Need more digital storage? Upgrade the NAS!</h1>
     <span class="post-date">2021-02-01</span>
     <section>
-      <script type="application/ld+json">
+      <p>I suppose my love for the vast landscapes of the American west also carries over into my digital life. I like having extra storage space for code, photos, backups, email, audio recordings, random database experiments, and my music library. So I recently decided to upgrade the storage capacity of my network attachable storage (NAS). I also needed to move a bunch of files from some old external drives to one central location for easy access.</p>
+<p>One of the nice things about a NAS device like this is that you can upgrade the drives over time. Once you have made the initial investment of the NAS itself, it's possible to upgrade the storage capacity as needed, so you don't have to spend too much on storage space up front.</p>
+<p>Another interesting thing about NAS solutions these days is that they are just another computer on your network. The Synology OS is well-built, and the app store it comes with is convenient. This means you can do some really cool things like install a WebDAV server for your <a href="https://tiddlywiki.com/" title="Tiddly Wiki">personal wiki</a>.</p>
+<p>Before I bought a NAS, I relied mostly on external USB and firewire drives for extra storage. That started getting unwieldy, so I decided to try a NAS. I started with 750 GB drives, but after a few years I found I needed some more breathing room, and I decided to upgrade the storage capacity by replacing the disks themselves. Here's how the upgrade process went.</p>
+<p><img src="./drives.jpg" alt="Hard Drives" /></p>
+<p>If you are skeptical about the upgrade-ability over time, fear not! RAID is designed to allow you to change out drives when needed. Personally, I like the peace of mind of using a RAID 1 (mirror) configuration so that if one of the disks fails, I don't lose any data, and the NAS beeps loudly and incessantly until I replace the dead drive.</p>
+<p>I have set up my NAS to use the mode called: <a href="https://www.synology.com/en-us/knowledgebase/DSM/tutorial/Storage/What_is_Synology_Hybrid_RAID_SHR" title="Synology Hybrid RAID">Synology Hybrid RAID (SHR)</a> (With data protection for 1 drive fault tolerance). It's functionally equivalent to RAID 1. The nice thing about RAID is that it's fault-tolerant, upgradeable, and has performance benefits even with spinners instead of SSDs.</p>
+<p>With a project like this, I definitely recommend checking out the official documentation before doing anything else, especially if you are unfamiliar with any part of the process. If the product is any good, there is usually vital information that can help you avoid common pitfalls. Synology has a really helpful in-depth doc for this here: <a href="https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/StorageManager/storage_pool_expand_replace_disk" title="Synology Docs">Synology Docs</a>.</p>
+<p><strong>Before you proceed with the upgrade</strong>, here's a few things you should know.</p>
+<div class="note">
+<p><strong>Important</strong>:</p>
+<ul>
+<li><strong>Be cautious</strong>: This process worked specifically for the Synology DS216j in the hybrid RAID configuration. Other NAS devices may be different.</li>
+<li><strong>Have a backup</strong>: This upgrade process does not delete existing data, but MURPHY IS OUT THERE, so make sure you have a full data backup in case something goes wrong.</li>
+<li><strong>Check the status</strong>: Make sure the storage pool is in a &quot;Normal&quot; healthy status.</li>
+<li><strong>Double check the docs</strong> on your make &amp; model for things like drive compatibility and OS version compatibility. For example, DSM 3.0 or later is required for drives larger than 3 terabytes (3 TB)</li>
+<li><strong>Replace drives one at a time</strong>: For RAID 1 (mirror) configurations, if you want the existing data on the old drives to remain on the NAS, you will need to replace the old drives <strong>one at a time</strong>, and power up the NAS between each drive replacement, so that the NAS software has a chance to rebuild the RAID array between each drive replacement.</li>
+<li><strong>Don't use during upgrade</strong>: I don't recommend uploading or downloading any files from the NAS during the upgrade process if you can help it.</li>
+</ul>
+</div>
+<p>I chose the WD Red series drives for this upgrade. You can check out the <a href="https://www.westerndigital.com/products/internal-drives/wd-red-hdd" title="Drive Specs">drive-specs</a> if you're curious. I like these because they come in a wide variety of spectacular sizes, they're specifically designed for NAS compatibility, they consume a little less power than standard desktop drives, and they are designed to have a longer overall lifespan than your typical desktop computer drive.</p>
+<h2 id="step-1">Step 1</h2>
+<p><strong>Remove 2 screws</strong> on the back.</p>
+<p><img src="./NAS_step1.jpg" alt="Synology upgrade Step 1.jpg" /></p>
+<h2 id="step-2">Step 2</h2>
+<p>Gently pry the internal frame backward, while <strong>sliding the chassis off</strong> of the internal frame.</p>
+<p><img src="./NAS_step2.jpg" alt="Synology upgrade Step 2.jpg" /></p>
+<h2 id="step-3">Step 3</h2>
+<p>Now that the case is opened up and the drives are exposed, <strong>remove the 4 screws holding the first drive in place</strong>. Then, gently tug on the drive to pull it free from the SATA ports.</p>
+<div class="note">
+<p><strong>Important</strong></p>
+<p>It's important to pull straight back with steady, even pressure so that you don't accidentally damage the plastic SATA ports. Avoid pulling with too much force on either side of the drive, or at an angle up or down.</p>
+</div>
+<p><strong>Once the old drive is removed</strong> from the mounting bracket, <strong>slide in the new drive</strong>. Push it onto the SATA ports gently with steady, even pressure. The holes for the screws will line up well if the drive is fully connected to the SATA ports. Once it is, secure it with the 4 screws you previously removed.</p>
+<p>Since this is the first of two drive replacements, you do not need to put the outer case back onto the NAS before you power it back up.</p>
+<p><img src="./NAS_step3.jpg" alt="Synology upgrade step 3" /></p>
+<p>Once the new drive is securely in place, it's time to power up the NAS so that it can repair the now &quot;broken&quot; RAID array. During the repair process, existing data will be copied automatically from the other original drive onto the brand new drive you just inserted. Once the repair process is complete and the NAS status is healthy, you can power off the NAS once more and replace the other drive.</p>
+<div class="note">
+<p><strong>Quick Tip</strong>:</p>
+<p>As a general rule of thumb, I find it useful to buy drives in pairs.
+One for day-to-day use, and one for a backup.</p>
+<p>In this case, the RAID 1 mirror provides redundancy in case of a hardware failure. Lest you think <em>this</em> is paranoid, I also keep cloud backups. :) You can never really know when waiting for 4 TB of data downloading over the internet will work, or be a very bad day.</p>
+</div>
+<h2 id="step-4">Step 4</h2>
+<p>The first thing you'll notice when you power on the Synology NAS to <strong>repair the array</strong> is a semi-annoying, surprisingly loud BEEEEEEEEEEEP, indicating that something terrible has happened! A DRIVE HAS FAILED!!!!!!1! But don't worry, this is expected because you just replaced a drive, which &quot;breaks&quot; the existing RAID 1 mirror. So, in order to hear yourself think, you'll want to turn off the beeping. For your auditory pleasure, here's how to do it:</p>
+<p><img src="./NAS_stop_beep.png" alt="Synology stop BEEP" /></p>
+<p>Once that is taken care of, head over to the &quot;Storage Manager&quot; in the main menu, and start the repair process. It will take some time so be patient. It's important to make sure the health status returns to normal before shutting down and replacing the other drive.</p>
+<p><img src="./NAS_step4.png" alt="Synology upgrade Step 4" /></p>
+<h2 id="rinse-repeat">Rinse &amp; Repeat</h2>
+<p>Once the repair process for the RAID array is complete, shut down the NAS as you normally would, and <strong>repeat steps 3 and 4 to replace the other drive</strong> in the array. You will, in fact, &quot;break&quot; the array again when you do this. And with that, comes more incessant beeping, followed by another quick &quot;Beep off&quot; button clicking extravaganza.</p>
+<p>Note that total capacity will not be updated until this final repair process is completed.</p>
+<p>And that's it! Capacity upgrade complete.</p>
+<h3 id="quick-reference">Quick Reference:</h3>
+<ul>
+<li>Turning off the warning BEEP: Control Panel -&gt; Hardware &amp; Power -&gt; Beep Control</li>
+<li><a href="https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/StorageManager/storage_pool_expand_replace_disk" title="Synology Docs">Synology Documentation</a></li>
+<li><a href="https://www.synology.com/en-us/knowledgebase/DSM/tutorial/Storage/What_is_Synology_Hybrid_RAID_SHR" title="Synology Hybrid RAID">Synology Hybrid Raid</a></li>
+<li><a href="https://www.westerndigital.com/products/internal-drives/wd-red-hdd" title="Drive Specs">Drive specs</a></li>
+</ul>
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "HowTo",
@@ -137,65 +196,6 @@
   ],
 }
 </script>
-<p>I suppose my love for the vast landscapes of the American west also carries over into my digital life. I like having extra storage space for code, photos, backups, email, audio recordings, random database experiments, and my music library. So I recently decided to upgrade the storage capacity of my network attachable storage (NAS). I also needed to move a bunch of files from some old external drives to one central location for easy access.</p>
-<p>One of the nice things about a NAS device like this is that you can upgrade the drives over time. Once you have made the initial investment of the NAS itself, it's possible to upgrade the storage capacity as needed, so you don't have to spend too much on storage space up front.</p>
-<p>Another interesting thing about NAS solutions these days is that they are just another computer on your network. The Synology OS is well-built, and the app store it comes with is convenient. This means you can do some really cool things like install a WebDAV server for your <a href="https://tiddlywiki.com/" title="Tiddly Wiki">personal wiki</a>.</p>
-<p>Before I bought a NAS, I relied mostly on external USB and firewire drives for extra storage. That started getting unwieldy, so I decided to try a NAS. I started with 750 GB drives, but after a few years I found I needed some more breathing room, and I decided to upgrade the storage capacity by replacing the disks themselves. Here's how the upgrade process went.</p>
-<p><img src="./drives.jpg" alt="Hard Drives" /></p>
-<p>If you are skeptical about the upgrade-ability over time, fear not! RAID is designed to allow you to change out drives when needed. Personally, I like the peace of mind of using a RAID 1 (mirror) configuration so that if one of the disks fails, I don't lose any data, and the NAS beeps loudly and incessantly until I replace the dead drive.</p>
-<p>I have set up my NAS to use the mode called: <a href="https://www.synology.com/en-us/knowledgebase/DSM/tutorial/Storage/What_is_Synology_Hybrid_RAID_SHR" title="Synology Hybrid RAID">Synology Hybrid RAID (SHR)</a> (With data protection for 1 drive fault tolerance). It's functionally equivalent to RAID 1. The nice thing about RAID is that it's fault-tolerant, upgradeable, and has performance benefits even with spinners instead of SSDs.</p>
-<p>With a project like this, I definitely recommend checking out the official documentation before doing anything else, especially if you are unfamiliar with any part of the process. If the product is any good, there is usually vital information that can help you avoid common pitfalls. Synology has a really helpful in-depth doc for this here: <a href="https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/StorageManager/storage_pool_expand_replace_disk" title="Synology Docs">Synology Docs</a>.</p>
-<p><strong>Before you proceed with the upgrade</strong>, here's a few things you should know.</p>
-<div class="note">
-<p><strong>Important</strong>:</p>
-<ul>
-<li><strong>Be cautious</strong>: This process worked specifically for the Synology DS216j in the hybrid RAID configuration. Other NAS devices may be different.</li>
-<li><strong>Have a backup</strong>: This upgrade process does not delete existing data, but MURPHY IS OUT THERE, so make sure you have a full data backup in case something goes wrong.</li>
-<li><strong>Check the status</strong>: Make sure the storage pool is in a &quot;Normal&quot; healthy status.</li>
-<li><strong>Double check the docs</strong> on your make &amp; model for things like drive compatibility and OS version compatibility. For example, DSM 3.0 or later is required for drives larger than 3 terabytes (3 TB)</li>
-<li><strong>Replace drives one at a time</strong>: For RAID 1 (mirror) configurations, if you want the existing data on the old drives to remain on the NAS, you will need to replace the old drives <strong>one at a time</strong>, and power up the NAS between each drive replacement, so that the NAS software has a chance to rebuild the RAID array between each drive replacement.</li>
-<li><strong>Don't use during upgrade</strong>: I don't recommend uploading or downloading any files from the NAS during the upgrade process if you can help it.</li>
-</ul>
-</div>
-<p>I chose the WD Red series drives for this upgrade. You can check out the <a href="https://www.westerndigital.com/products/internal-drives/wd-red-hdd" title="Drive Specs">drive-specs</a> if you're curious. I like these because they come in a wide variety of spectacular sizes, they're specifically designed for NAS compatibility, they consume a little less power than standard desktop drives, and they are designed to have a longer overall lifespan than your typical desktop computer drive.</p>
-<h2 id="step-1">Step 1</h2>
-<p><strong>Remove 2 screws</strong> on the back.</p>
-<p><img src="./NAS_step1.jpg" alt="Synology upgrade Step 1.jpg" /></p>
-<h2 id="step-2">Step 2</h2>
-<p>Gently pry the internal frame backward, while <strong>sliding the chassis off</strong> of the internal frame.</p>
-<p><img src="./NAS_step2.jpg" alt="Synology upgrade Step 2.jpg" /></p>
-<h2 id="step-3">Step 3</h2>
-<p>Now that the case is opened up and the drives are exposed, <strong>remove the 4 screws holding the first drive in place</strong>. Then, gently tug on the drive to pull it free from the SATA ports.</p>
-<div class="note">
-<p><strong>Important</strong></p>
-<p>It's important to pull straight back with steady, even pressure so that you don't accidentally damage the plastic SATA ports. Avoid pulling with too much force on either side of the drive, or at an angle up or down.</p>
-</div>
-<p><strong>Once the old drive is removed</strong> from the mounting bracket, <strong>slide in the new drive</strong>. Push it onto the SATA ports gently with steady, even pressure. The holes for the screws will line up well if the drive is fully connected to the SATA ports. Once it is, secure it with the 4 screws you previously removed.</p>
-<p>Since this is the first of two drive replacements, you do not need to put the outer case back onto the NAS before you power it back up.</p>
-<p><img src="./NAS_step3.jpg" alt="Synology upgrade step 3" /></p>
-<p>Once the new drive is securely in place, it's time to power up the NAS so that it can repair the now &quot;broken&quot; RAID array. During the repair process, existing data will be copied automatically from the other original drive onto the brand new drive you just inserted. Once the repair process is complete and the NAS status is healthy, you can power off the NAS once more and replace the other drive.</p>
-<div class="note">
-<p><strong>Quick Tip</strong>:</p>
-<p>As a general rule of thumb, I find it useful to buy drives in pairs.
-One for day-to-day use, and one for a backup.</p>
-<p>In this case, the RAID 1 mirror provides redundancy in case of a hardware failure. Lest you think <em>this</em> is paranoid, I also keep cloud backups. :) You can never really know when waiting for 4 TB of data downloading over the internet will work, or be a very bad day.</p>
-</div>
-<h2 id="step-4">Step 4</h2>
-<p>The first thing you'll notice when you power on the Synology NAS to <strong>repair the array</strong> is a semi-annoying, surprisingly loud BEEEEEEEEEEEP, indicating that something terrible has happened! A DRIVE HAS FAILED!!!!!!1! But don't worry, this is expected because you just replaced a drive, which &quot;breaks&quot; the existing RAID 1 mirror. So, in order to hear yourself think, you'll want to turn off the beeping. For your auditory pleasure, here's how to do it:</p>
-<p><img src="./NAS_stop_beep.png" alt="Synology stop BEEP" /></p>
-<p>Once that is taken care of, head over to the &quot;Storage Manager&quot; in the main menu, and start the repair process. It will take some time so be patient. It's important to make sure the health status returns to normal before shutting down and replacing the other drive.</p>
-<p><img src="./NAS_step4.png" alt="Synology upgrade Step 4" /></p>
-<h2 id="rinse-repeat">Rinse &amp; Repeat</h2>
-<p>Once the repair process for the RAID array is complete, shut down the NAS as you normally would, and <strong>repeat steps 3 and 4 to replace the other drive</strong> in the array. You will, in fact, &quot;break&quot; the array again when you do this. And with that, comes more incessant beeping, followed by another quick &quot;Beep off&quot; button clicking extravaganza.</p>
-<p>Note that total capacity will not be updated until this final repair process is completed.</p>
-<p>And that's it! Capacity upgrade complete.</p>
-<h3 id="quick-reference">Quick Reference:</h3>
-<ul>
-<li>Turning off the warning BEEP: Control Panel -&gt; Hardware &amp; Power -&gt; Beep Control</li>
-<li><a href="https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/StorageManager/storage_pool_expand_replace_disk" title="Synology Docs">Synology Documentation</a></li>
-<li><a href="https://www.synology.com/en-us/knowledgebase/DSM/tutorial/Storage/What_is_Synology_Hybrid_RAID_SHR" title="Synology Hybrid RAID">Synology Hybrid Raid</a></li>
-<li><a href="https://www.westerndigital.com/products/internal-drives/wd-red-hdd" title="Drive Specs">Drive specs</a></li>
-</ul>
 
     </section>
   </article>
