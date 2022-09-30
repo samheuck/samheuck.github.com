@@ -56,7 +56,88 @@
     <h1 class="blog-post-title">Need more digital storage? Upgrade the NAS!</h1>
     <span class="post-date">2021-02-01</span>
     <section>
-      <p>I suppose my love for the vast landscapes of the American west also carries over into my digital life. I like having extra storage space for code, photos, backups, email, audio recordings, random database experiments, and my music library. So I recently decided to upgrade the storage capacity of my network attachable storage (NAS). I also needed to move a bunch of files from some old external drives to one central location for easy access.</p>
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to upgrade a Synology NAS",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://samheuck.com/blog/easy-nas-upgrade/NAS_step2.jpg",
+    "height": "998",
+    "width": "1331"
+  },
+  "tool": [
+    {
+      "@type": "HowToTool",
+      "name": "philips screw driver"
+    },
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Remove 2 screws",
+      "itemListElement": [{
+        "@type": "HowToDirection",
+        "text": "Remove 2 screws from the back of the NAS - one on the left, and one on the right."
+      },],
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://samheuck.com/blog/easy-nas-upgrade/NAS_step1.jpg",
+        "height": "998",
+        "width": "1331"
+      }
+    }, {
+      "@type": "HowToStep",
+      "name": "Slide the chassis off",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://samheuck.com/blog/easy-nas-upgrade/NAS_step2.jpg",
+        "height": "998",
+        "width": "1331"
+      }
+    }, {
+      "@type": "HowToStep",
+      "name": "Remove the old drive, and install the new one."
+      "itemListElement": [{
+        "@type": "HowToDirection",
+        "text": "Remove the 4 screws holding the first drive in the metal housing, and gently tug the drive free"
+      }, {
+        "@type": "HowToDirection",
+        "text": "Slide in the new drive, and gently push it onto the SATA ports with steady, even hand pressure."
+      }, {
+        "@type": "HowToTip",
+        "text": "It's important to use gentle, steady, and even hand pressure so you don't damage the plastic SATA ports."
+      },],
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://samheuck.com/blog/easy-nas-upgrade/NAS_step3.jpg",
+        "height": "998",
+        "width": "1331"
+      }
+    }, {
+      "@type": "HowToStep",
+      "name": "Repair the array",
+      "itemListElement": [{
+        "@type": "HowToDirection",
+        "text": "Power up the NAS, disable the warning beep, and start repairing the RAID array"
+      }, {
+        "@type": "HowToDirection",
+        "text": "Go to the Control Panel -> Hardware & Power and then click the 'Beep Off' button"
+      }, {
+        "@type": "HowToDirection",
+        "text": "Next, open Storage Manager -> Storage Pool and click 'Start Repair'"
+      }],
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://samheuck.com/blog/easy-nas-upgrade/NAS_step4.jpg",
+        "height": "998",
+        "width": "1331"
+      }
+    }
+  ],
+}
+</script>
+<p>I suppose my love for the vast landscapes of the American west also carries over into my digital life. I like having extra storage space for code, photos, backups, email, audio recordings, random database experiments, and my music library. So I recently decided to upgrade the storage capacity of my network attachable storage (NAS). I also needed to move a bunch of files from some old external drives to one central location for easy access.</p>
 <p>One of the nice things about a NAS device like this is that you can upgrade the drives over time. Once you have made the initial investment of the NAS itself, it's possible to upgrade the storage capacity as needed, so you don't have to spend too much on storage space up front.</p>
 <p>Another interesting thing about NAS solutions these days is that they are just another computer on your network. The Synology OS is well-built, and the app store it comes with is convenient. This means you can do some really cool things like install a WebDAV server for your <a href="https://tiddlywiki.com/" title="Tiddly Wiki">personal wiki</a>.</p>
 <p>Before I bought a NAS, I relied mostly on external USB and firewire drives for extra storage. That started getting unwieldy, so I decided to try a NAS. I started with 750 GB drives, but after a few years I found I needed some more breathing room, and I decided to upgrade the storage capacity by replacing the disks themselves. Here's how the upgrade process went.</p>
