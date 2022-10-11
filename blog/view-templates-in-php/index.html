@@ -89,28 +89,27 @@ inject the dynamic elements into the template. This is DRY because we don't
 have to write the same bits of HTML for every single page in a site. It also
 separates concerns by allowing content to be completely separate from layout.</p>
 <p>Let's start with the code that will actually create and display a page of HTML.</p>
-<pre style="background-color:#2b2c2f;">
-<code class="language-php" data-lang="php"><span style="color:#5fb3b3;">&lt;?php
-  $</span><span style="color:#cccece;">page </span><span style="color:#5fb3b3;">= </span><span style="color:#c594c5;">new </span><span style="color:#fac863;">HtmlPage</span><span style="color:#5fb3b3;">();
-  $</span><span style="color:#cccece;">page
-    </span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#6699cc;">setTitle</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">Home</span><span style="color:#5fb3b3;">&#39;)
-    -&gt;</span><span style="color:#6699cc;">setMeta</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">keywords</span><span style="color:#5fb3b3;">&#39;, &#39;</span><span style="color:#99c794;">some slightly-less-than-random words</span><span style="color:#5fb3b3;">&#39;)
-    -&gt;</span><span style="color:#6699cc;">addStylesheet</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">base.css</span><span style="color:#5fb3b3;">&#39;)
-    -&gt;</span><span style="color:#6699cc;">addStylesheet</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">my_beautiful_styles.css</span><span style="color:#5fb3b3;">&#39;)
-    -&gt;</span><span style="color:#6699cc;">addScript</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">jquery.js</span><span style="color:#5fb3b3;">&#39;)
-    -&gt;</span><span style="color:#6699cc;">addScript</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">awesome_blinky_text.js</span><span style="color:#5fb3b3;">&#39;)
-    -&gt;</span><span style="color:#6699cc;">setBodyId</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">home</span><span style="color:#5fb3b3;">&#39;)
-    -&gt;</span><span style="color:#6699cc;">setBodyClass</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">blue</span><span style="color:#5fb3b3;">&#39;)
-    -&gt;</span><span style="color:#6699cc;">addContent</span><span style="color:#5fb3b3;">($</span><span style="color:#cccece;">some_content</span><span style="color:#5fb3b3;">)
-    -&gt;</span><span style="color:#6699cc;">addContent</span><span style="color:#5fb3b3;">($</span><span style="color:#cccece;">more_content</span><span style="color:#5fb3b3;">)
-    -&gt;</span><span style="color:#6699cc;">render</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">layout.phtml</span><span style="color:#5fb3b3;">&#39;);
-?&gt;
+<pre data-lang="php" style="background-color:#2b2c2f;color:#cccece;" class="language-php "><code class="language-php" data-lang="php"><span style="color:#5fb3b3;">&lt;?php
+</span><span>  </span><span style="color:#5fb3b3;">$</span><span>page </span><span style="color:#5fb3b3;">= </span><span style="color:#c594c5;">new </span><span style="color:#fac863;">HtmlPage</span><span style="color:#5fb3b3;">();
+</span><span>  </span><span style="color:#5fb3b3;">$</span><span>page
+</span><span>    </span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#6699cc;">setTitle</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">Home</span><span style="color:#5fb3b3;">&#39;)
+</span><span>    </span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#6699cc;">setMeta</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">keywords</span><span style="color:#5fb3b3;">&#39;, &#39;</span><span style="color:#99c794;">some slightly-less-than-random words</span><span style="color:#5fb3b3;">&#39;)
+</span><span>    </span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#6699cc;">addStylesheet</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">base.css</span><span style="color:#5fb3b3;">&#39;)
+</span><span>    </span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#6699cc;">addStylesheet</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">my_beautiful_styles.css</span><span style="color:#5fb3b3;">&#39;)
+</span><span>    </span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#6699cc;">addScript</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">jquery.js</span><span style="color:#5fb3b3;">&#39;)
+</span><span>    </span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#6699cc;">addScript</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">awesome_blinky_text.js</span><span style="color:#5fb3b3;">&#39;)
+</span><span>    </span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#6699cc;">setBodyId</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">home</span><span style="color:#5fb3b3;">&#39;)
+</span><span>    </span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#6699cc;">setBodyClass</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">blue</span><span style="color:#5fb3b3;">&#39;)
+</span><span>    </span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#6699cc;">addContent</span><span style="color:#5fb3b3;">($</span><span>some_content</span><span style="color:#5fb3b3;">)
+</span><span>    </span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#6699cc;">addContent</span><span style="color:#5fb3b3;">($</span><span>more_content</span><span style="color:#5fb3b3;">)
+</span><span>    </span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#6699cc;">render</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">layout.phtml</span><span style="color:#5fb3b3;">&#39;);
+</span><span style="color:#5fb3b3;">?&gt;
 </span></code></pre>
 <p>Did you notice this code is...</p>
 <ul>
 <li>Object oriented</li>
 <li>Configurable (more on this later)</li>
-<li>Stringing function calls together <a href="http://en.wikipedia.org/wiki/Fluent_interface">(fluent interface)</a></li>
+<li>Stringing function calls together <a rel="noopener" target="_blank" href="http://en.wikipedia.org/wiki/Fluent_interface">(fluent interface)</a></li>
 <li>Declarative (stating what to do, not how)</li>
 </ul>
 <p>This PHP <em>writes</em> HTML code. Make note of the HTML elements that are being
@@ -121,60 +120,58 @@ a RESTful API.</p>
 <p>Once all of the dynamic elements are declared, the page is rendered. Let's
 take a closer look at the <code>HtmlPage::render()</code> function. It takes a single
 argument that references a file containing the HTML template for a basic page.</p>
-<pre style="background-color:#2b2c2f;">
-<code class="language-php" data-lang="php"><span style="color:#cccece;">//layout.phtml
-</span><span style="color:#5fb3b3;">&lt;?php </span><span style="color:#6699cc;">echo </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#cccece;">doctype</span><span style="color:#5fb3b3;">; ?&gt;</span><span style="color:#cccece;">;
+<pre data-lang="php" style="background-color:#2b2c2f;color:#cccece;" class="language-php "><code class="language-php" data-lang="php"><span>//layout.phtml
+</span><span style="color:#5fb3b3;">&lt;?php </span><span style="color:#6699cc;">echo </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span>doctype</span><span style="color:#5fb3b3;">; ?&gt;</span><span>;
 </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">html </span><span style="color:#bb80b3;">xmlns</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">http://www.w3.org/1999/xhtml</span><span style="color:#5fb3b3;">&quot; </span><span style="color:#bb80b3;">xml:lang</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">en</span><span style="color:#5fb3b3;">&quot; </span><span style="color:#bb80b3;">lang</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">en</span><span style="color:#5fb3b3;">&quot;&gt;
-  &lt;</span><span style="color:#eb606b;">head</span><span style="color:#5fb3b3;">&gt;
-    &lt;</span><span style="color:#eb606b;">meta </span><span style="color:#bb80b3;">http-equiv</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">Content-Type</span><span style="color:#5fb3b3;">&quot; </span><span style="color:#bb80b3;">content</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">text/html;charset=utf-8</span><span style="color:#5fb3b3;">&quot; /&gt;
-    &lt;?php </span><span style="color:#6699cc;">echo </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#cccece;">title</span><span style="color:#5fb3b3;">; ?&gt;
-    &lt;?php </span><span style="color:#6699cc;">echo </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#cccece;">meta</span><span style="color:#5fb3b3;">; ?&gt;
-
-    </span><span style="color:#5f6364;">&lt;!-- STYLES --&gt;
-    </span><span style="color:#5fb3b3;">&lt;?php </span><span style="color:#6699cc;">echo </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#cccece;">stylesheets</span><span style="color:#5fb3b3;">; ?&gt;
-
-    </span><span style="color:#5f6364;">&lt;!-- SCRIPTS --&gt;
-    </span><span style="color:#5fb3b3;">&lt;?php </span><span style="color:#6699cc;">echo </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#cccece;">scripts</span><span style="color:#5fb3b3;">; ?&gt;
-  &lt;/</span><span style="color:#eb606b;">head</span><span style="color:#5fb3b3;">&gt;
-
-  &lt;?php </span><span style="color:#6699cc;">echo </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#cccece;">bodyTag</span><span style="color:#5fb3b3;">; ?&gt;
-  &lt;?php </span><span style="color:#6699cc;">echo </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#cccece;">content</span><span style="color:#5fb3b3;">; ?&gt;
-&lt;/</span><span style="color:#eb606b;">body</span><span style="color:#5fb3b3;">&gt;
-&lt;/</span><span style="color:#eb606b;">html</span><span style="color:#5fb3b3;">&gt;
+</span><span>  </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">head</span><span style="color:#5fb3b3;">&gt;
+</span><span>    </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">meta </span><span style="color:#bb80b3;">http-equiv</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">Content-Type</span><span style="color:#5fb3b3;">&quot; </span><span style="color:#bb80b3;">content</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">text/html;charset=utf-8</span><span style="color:#5fb3b3;">&quot; /&gt;
+</span><span>    </span><span style="color:#5fb3b3;">&lt;?php </span><span style="color:#6699cc;">echo </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span>title</span><span style="color:#5fb3b3;">; ?&gt;
+</span><span>    </span><span style="color:#5fb3b3;">&lt;?php </span><span style="color:#6699cc;">echo </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span>meta</span><span style="color:#5fb3b3;">; ?&gt;
+</span><span>
+</span><span>    </span><span style="color:#5f6364;">&lt;!-- STYLES --&gt;
+</span><span>    </span><span style="color:#5fb3b3;">&lt;?php </span><span style="color:#6699cc;">echo </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span>stylesheets</span><span style="color:#5fb3b3;">; ?&gt;
+</span><span>
+</span><span>    </span><span style="color:#5f6364;">&lt;!-- SCRIPTS --&gt;
+</span><span>    </span><span style="color:#5fb3b3;">&lt;?php </span><span style="color:#6699cc;">echo </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span>scripts</span><span style="color:#5fb3b3;">; ?&gt;
+</span><span>  </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">head</span><span style="color:#5fb3b3;">&gt;
+</span><span>
+</span><span>  </span><span style="color:#5fb3b3;">&lt;?php </span><span style="color:#6699cc;">echo </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span>bodyTag</span><span style="color:#5fb3b3;">; ?&gt;
+</span><span>  </span><span style="color:#5fb3b3;">&lt;?php </span><span style="color:#6699cc;">echo </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span>content</span><span style="color:#5fb3b3;">; ?&gt;
+</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">body</span><span style="color:#5fb3b3;">&gt;
+</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">html</span><span style="color:#5fb3b3;">&gt;
 </span></code></pre>
 <p>This HTML template uses PHP to print out the dynamic elements declared by the
 HtmlPage class. <code>$this</code> refers to a specific instance of HtmlPage. So
 the HtmlPage class is including the template file, and the template file refers
 to instance variables of the HtmlPage class. Here's how that works.</p>
-<pre style="background-color:#2b2c2f;">
-<code class="language-php" data-lang="php"><span style="color:#5fb3b3;">&lt;?php
-  ...
-
-  </span><span style="color:#5f6364;">/**
-    * The render function.
-    *
-    * Responsible for displaying the page.
-    *
-    * </span><span style="color:#c594c5;">@param</span><span style="color:#5f6364;"> String
-    *   - path to template
-    */
-  </span><span style="color:#c594c5;">public function </span><span style="color:#6699cc;">render</span><span style="color:#5fb3b3;">($</span><span style="color:#f99157;">template</span><span style="color:#5fb3b3;">) {
-    </span><span style="color:#6699cc;">ob_start</span><span style="color:#5fb3b3;">();
-    $</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#6699cc;">_include</span><span style="color:#5fb3b3;">($</span><span style="color:#cccece;">template</span><span style="color:#5fb3b3;">);
-    </span><span style="color:#c594c5;">return </span><span style="color:#6699cc;">print ob_get_clean</span><span style="color:#5fb3b3;">();
-  }
-
-
-  </span><span style="color:#5f6364;">/**
-    * Include wrapper.
-    *
-    * Using the include keyword, a
-    * template is included.
-    */
-  </span><span style="color:#c594c5;">private function </span><span style="color:#6699cc;">_include</span><span style="color:#5fb3b3;">() {
-    </span><span style="color:#c594c5;">include </span><span style="color:#6699cc;">func_get_arg</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0</span><span style="color:#5fb3b3;">);
-  }
-?&gt;
+<pre data-lang="php" style="background-color:#2b2c2f;color:#cccece;" class="language-php "><code class="language-php" data-lang="php"><span style="color:#5fb3b3;">&lt;?php
+</span><span>  </span><span style="color:#5fb3b3;">...
+</span><span>
+</span><span>  </span><span style="color:#5f6364;">/**
+</span><span style="color:#5f6364;">    * The render function.
+</span><span style="color:#5f6364;">    *
+</span><span style="color:#5f6364;">    * Responsible for displaying the page.
+</span><span style="color:#5f6364;">    *
+</span><span style="color:#5f6364;">    * </span><span style="color:#c594c5;">@param</span><span style="color:#5f6364;"> String
+</span><span style="color:#5f6364;">    *   - path to template
+</span><span style="color:#5f6364;">    */
+</span><span>  </span><span style="color:#c594c5;">public function </span><span style="color:#6699cc;">render</span><span style="color:#5fb3b3;">($</span><span style="color:#f99157;">template</span><span style="color:#5fb3b3;">) {
+</span><span>    </span><span style="color:#6699cc;">ob_start</span><span style="color:#5fb3b3;">();
+</span><span>    </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#6699cc;">_include</span><span style="color:#5fb3b3;">($</span><span>template</span><span style="color:#5fb3b3;">);
+</span><span>    </span><span style="color:#c594c5;">return </span><span style="color:#6699cc;">print ob_get_clean</span><span style="color:#5fb3b3;">();
+</span><span>  </span><span style="color:#5fb3b3;">}
+</span><span>
+</span><span>
+</span><span>  </span><span style="color:#5f6364;">/**
+</span><span style="color:#5f6364;">    * Include wrapper.
+</span><span style="color:#5f6364;">    *
+</span><span style="color:#5f6364;">    * Using the include keyword, a
+</span><span style="color:#5f6364;">    * template is included.
+</span><span style="color:#5f6364;">    */
+</span><span>  </span><span style="color:#c594c5;">private function </span><span style="color:#6699cc;">_include</span><span style="color:#5fb3b3;">() {
+</span><span>    </span><span style="color:#c594c5;">include </span><span style="color:#6699cc;">func_get_arg</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0</span><span style="color:#5fb3b3;">);
+</span><span>  </span><span style="color:#5fb3b3;">}
+</span><span style="color:#5fb3b3;">?&gt;
 </span></code></pre>
 <p><code>HtmlPage::render()</code> creates an output buffer to capture the template content
 being included. Then the include wrapper function is called with a reference to
@@ -186,14 +183,13 @@ include template technique.</p>
 defines layout and static elements. The template can be changed or updated,
 and all other instances of HtmlPage will in turn reflect that change.</p>
 <p><em>So how do the methods generate HTML?</em></p>
-<pre style="background-color:#2b2c2f;">
-<code class="language-php" data-lang="php"><span style="color:#cccece;">public function __get($key) {
-  // Tries to find and call a getter.
-  $method = &#39;get&#39; . ucfirst($key);
-  return method_exists($this, $method) ? $this-&gt;$method() : null;
-}
+<pre data-lang="php" style="background-color:#2b2c2f;color:#cccece;" class="language-php "><code class="language-php" data-lang="php"><span>public function __get($key) {
+</span><span>  // Tries to find and call a getter.
+</span><span>  $method = &#39;get&#39; . ucfirst($key);
+</span><span>  return method_exists($this, $method) ? $this-&gt;$method() : null;
+</span><span>}
 </span></code></pre>
-<p>The function <code>__get()</code> is a <a href="http://php.net/manual/en/language.oop5.magic.php">magic function</a>
+<p>The function <code>__get()</code> is a <a rel="noopener" target="_blank" href="http://php.net/manual/en/language.oop5.magic.php">magic function</a>
 that gets called whenever a class variable that has not been defined is
 referenced. In other words, I can refer to <code>$this-&gt;foo</code> in a template,
 and that instance of HtmlPage will call the <code>__get(foo)</code> function because
@@ -201,12 +197,11 @@ the foo variable was not explicitly defined in the HtmlPage class.</p>
 <p>The implementation of <code>__get()</code> can be customized, as is the case here, to
 do anything we need. In this example, I use the passed in string to call another
 function which returns HTML.</p>
-<pre style="background-color:#2b2c2f;">
-<code class="language-php" data-lang="php"><span style="color:#cccece;">// A &#39;getter&#39; method, called by __get
-public function getBodyTag()
-{
-  return sprintf(&quot;</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">body%s%s</span><span style="color:#5fb3b3;">&gt;</span><span style="color:#cccece;">&quot;, $this-&gt;_bodyId, $this-&gt;_bodyClass);
-}
+<pre data-lang="php" style="background-color:#2b2c2f;color:#cccece;" class="language-php "><code class="language-php" data-lang="php"><span>// A &#39;getter&#39; method, called by __get
+</span><span>public function getBodyTag()
+</span><span>{
+</span><span>  return sprintf(&quot;</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">body%s%s</span><span style="color:#5fb3b3;">&gt;</span><span>&quot;, $this-&gt;_bodyId, $this-&gt;_bodyClass);
+</span><span>}
 </span></code></pre>
 <p>In the template, <code>&lt;?php echo $this-&gt;bodyTag; ?&gt;</code> is really calling the
 getter function <code>HtmlPage::getBodyTag()</code> via the magical <code>__get()</code>
@@ -225,38 +220,37 @@ of a logged in user for example. Search and replace templating is a technique
 you can use to inject variables into a piece of content. The <code>addContent()</code>
 function uses this technique. Its argument is actually an object defined by
 this class.</p>
-<pre style="background-color:#2b2c2f;">
-<code class="language-php" data-lang="php"><span style="color:#5fb3b3;">&lt;?php
+<pre data-lang="php" style="background-color:#2b2c2f;color:#cccece;" class="language-php "><code class="language-php" data-lang="php"><span style="color:#5fb3b3;">&lt;?php
 </span><span style="color:#c594c5;">class </span><span style="color:#fac863;">Partial
 </span><span style="color:#5fb3b3;">{
-  </span><span style="color:#c594c5;">private </span><span style="color:#5fb3b3;">$</span><span style="color:#cccece;">_html</span><span style="color:#5fb3b3;">;
-  </span><span style="color:#c594c5;">private </span><span style="color:#5fb3b3;">$</span><span style="color:#cccece;">_items </span><span style="color:#5fb3b3;">= </span><span style="color:#6699cc;">array</span><span style="color:#5fb3b3;">();
-
-  </span><span style="color:#c594c5;">public function </span><span style="color:#6699cc;">__construct</span><span style="color:#5fb3b3;">($</span><span style="color:#f99157;">file</span><span style="color:#5fb3b3;">)
-  {
-    </span><span style="color:#c594c5;">if </span><span style="color:#5fb3b3;">(!$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#cccece;">_html </span><span style="color:#5fb3b3;">= </span><span style="color:#6699cc;">file_get_contents</span><span style="color:#5fb3b3;">($</span><span style="color:#cccece;">file</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">FILE_USE_INCLUDE_PATH</span><span style="color:#5fb3b3;">)) {
-      </span><span style="color:#c594c5;">throw new </span><span style="color:#fac863;">Exception</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">Error Reading File: </span><span style="color:#5fb3b3;">$</span><span style="color:#cccece;">file</span><span style="color:#5fb3b3;">&quot;);
-    }
-  }
-
-  </span><span style="color:#c594c5;">public function </span><span style="color:#6699cc;">set</span><span style="color:#5fb3b3;">($</span><span style="color:#f99157;">item</span><span style="color:#5fb3b3;">, $</span><span style="color:#f99157;">value</span><span style="color:#5fb3b3;">)
-  {
-    $</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#cccece;">_items</span><span style="color:#5fb3b3;">[$</span><span style="color:#cccece;">item</span><span style="color:#5fb3b3;">] = $</span><span style="color:#cccece;">value</span><span style="color:#5fb3b3;">;
-    </span><span style="color:#c594c5;">return </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">;
-  }
-
-  </span><span style="color:#c594c5;">public function </span><span style="color:#6699cc;">output</span><span style="color:#5fb3b3;">()
-  {
-    </span><span style="color:#c594c5;">if </span><span style="color:#5fb3b3;">(</span><span style="color:#6699cc;">count</span><span style="color:#5fb3b3;">($</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#cccece;">_items</span><span style="color:#5fb3b3;">) &gt; </span><span style="color:#f99157;">0 </span><span style="color:#5fb3b3;">) {
-      </span><span style="color:#c594c5;">foreach </span><span style="color:#5fb3b3;">($</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#cccece;">_items </span><span style="color:#5fb3b3;">as $</span><span style="color:#cccece;">item </span><span style="color:#5fb3b3;">=&gt; $</span><span style="color:#cccece;">value</span><span style="color:#5fb3b3;">) {
-          $</span><span style="color:#cccece;">replace </span><span style="color:#5fb3b3;">= &quot;</span><span style="color:#99c794;">[%</span><span style="color:#5fb3b3;">$</span><span style="color:#cccece;">item</span><span style="color:#99c794;">]</span><span style="color:#5fb3b3;">&quot;;
-          $</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#cccece;">_html </span><span style="color:#5fb3b3;">= </span><span style="color:#6699cc;">str_replace</span><span style="color:#5fb3b3;">($</span><span style="color:#cccece;">replace</span><span style="color:#5fb3b3;">, $</span><span style="color:#cccece;">value</span><span style="color:#5fb3b3;">, $</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#cccece;">_html</span><span style="color:#5fb3b3;">);
-      }
-    }
-    </span><span style="color:#c594c5;">return </span><span style="color:#6699cc;">preg_replace</span><span style="color:#5fb3b3;">(&#39;/\[</span><span style="color:#99c794;">%</span><span style="color:#f99157;">.</span><span style="color:#5fb3b3;">+\]/&#39;, &#39;&#39;, $</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#cccece;">_html</span><span style="color:#5fb3b3;">);
-  }
-}
-?&gt;
+</span><span>  </span><span style="color:#c594c5;">private </span><span style="color:#5fb3b3;">$</span><span>_html</span><span style="color:#5fb3b3;">;
+</span><span>  </span><span style="color:#c594c5;">private </span><span style="color:#5fb3b3;">$</span><span>_items </span><span style="color:#5fb3b3;">= </span><span style="color:#6699cc;">array</span><span style="color:#5fb3b3;">();
+</span><span>
+</span><span>  </span><span style="color:#c594c5;">public function </span><span style="color:#6699cc;">__construct</span><span style="color:#5fb3b3;">($</span><span style="color:#f99157;">file</span><span style="color:#5fb3b3;">)
+</span><span>  </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#c594c5;">if </span><span style="color:#5fb3b3;">(!$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span>_html </span><span style="color:#5fb3b3;">= </span><span style="color:#6699cc;">file_get_contents</span><span style="color:#5fb3b3;">($</span><span>file</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">FILE_USE_INCLUDE_PATH</span><span style="color:#5fb3b3;">)) {
+</span><span>      </span><span style="color:#c594c5;">throw new </span><span style="color:#fac863;">Exception</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">Error Reading File: </span><span style="color:#5fb3b3;">$</span><span>file</span><span style="color:#5fb3b3;">&quot;);
+</span><span>    </span><span style="color:#5fb3b3;">}
+</span><span>  </span><span style="color:#5fb3b3;">}
+</span><span>
+</span><span>  </span><span style="color:#c594c5;">public function </span><span style="color:#6699cc;">set</span><span style="color:#5fb3b3;">($</span><span style="color:#f99157;">item</span><span style="color:#5fb3b3;">, $</span><span style="color:#f99157;">value</span><span style="color:#5fb3b3;">)
+</span><span>  </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span>_items</span><span style="color:#5fb3b3;">[$</span><span>item</span><span style="color:#5fb3b3;">] = $</span><span>value</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#c594c5;">return </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">;
+</span><span>  </span><span style="color:#5fb3b3;">}
+</span><span>
+</span><span>  </span><span style="color:#c594c5;">public function </span><span style="color:#6699cc;">output</span><span style="color:#5fb3b3;">()
+</span><span>  </span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#c594c5;">if </span><span style="color:#5fb3b3;">(</span><span style="color:#6699cc;">count</span><span style="color:#5fb3b3;">($</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span>_items</span><span style="color:#5fb3b3;">) &gt; </span><span style="color:#f99157;">0 </span><span style="color:#5fb3b3;">) {
+</span><span>      </span><span style="color:#c594c5;">foreach </span><span style="color:#5fb3b3;">($</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span>_items </span><span style="color:#5fb3b3;">as $</span><span>item </span><span style="color:#5fb3b3;">=&gt; $</span><span>value</span><span style="color:#5fb3b3;">) {
+</span><span>          </span><span style="color:#5fb3b3;">$</span><span>replace </span><span style="color:#5fb3b3;">= &quot;</span><span style="color:#99c794;">[%</span><span style="color:#5fb3b3;">$</span><span>item</span><span style="color:#99c794;">]</span><span style="color:#5fb3b3;">&quot;;
+</span><span>          </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span>_html </span><span style="color:#5fb3b3;">= </span><span style="color:#6699cc;">str_replace</span><span style="color:#5fb3b3;">($</span><span>replace</span><span style="color:#5fb3b3;">, $</span><span>value</span><span style="color:#5fb3b3;">, $</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span>_html</span><span style="color:#5fb3b3;">);
+</span><span>      </span><span style="color:#5fb3b3;">}
+</span><span>    </span><span style="color:#5fb3b3;">}
+</span><span>    </span><span style="color:#c594c5;">return </span><span style="color:#6699cc;">preg_replace</span><span style="color:#5fb3b3;">(&#39;/\[</span><span style="color:#99c794;">%</span><span style="color:#f99157;">.</span><span style="color:#5fb3b3;">+\]/&#39;, &#39;&#39;, $</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span>_html</span><span style="color:#5fb3b3;">);
+</span><span>  </span><span style="color:#5fb3b3;">}
+</span><span style="color:#5fb3b3;">}
+</span><span style="color:#5fb3b3;">?&gt;
 </span></code></pre>
 <p>A partial is a small piece of HTML that acts as mini-template. Dynamic
 elements within the partial have a special syntax that distinguish them from
@@ -272,19 +266,17 @@ statement.</p>
 <p>Long story short, little chunks of HTML can be appended to our HtmlPage's
 content variable. If we want to include some dynamic elements in that content,
 we can use named placeholders. An example is in order.</p>
-<pre style="background-color:#2b2c2f;">
-<code class="language-php" data-lang="php"><span style="color:#cccece;">//index.php
-...
-
-$content = new Partial(&#39;some_really_cool_content.html&#39;);
-$content-&gt;set(&#39;foo&#39;, &#39;bar&#39;);
-
-$page-&gt;addContent($content);
+<pre data-lang="php" style="background-color:#2b2c2f;color:#cccece;" class="language-php "><code class="language-php" data-lang="php"><span>//index.php
+</span><span>...
+</span><span>
+</span><span>$content = new Partial(&#39;some_really_cool_content.html&#39;);
+</span><span>$content-&gt;set(&#39;foo&#39;, &#39;bar&#39;);
+</span><span>
+</span><span>$page-&gt;addContent($content);
 </span></code></pre>
 <p>And here is what &quot;some_really_cool_content.html&quot; might look like:</p>
-<pre style="background-color:#2b2c2f;">
-<code class="language-html" data-lang="html"><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">h1</span><span style="color:#5fb3b3;">&gt;</span><span style="color:#cccece;">This content is SWEEEEEEEEEET!</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">h1</span><span style="color:#5fb3b3;">&gt;
-&lt;</span><span style="color:#eb606b;">span</span><span style="color:#5fb3b3;">&gt;</span><span style="color:#cccece;">[%foo]</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">span</span><span style="color:#5fb3b3;">&gt;
+<pre data-lang="html" style="background-color:#2b2c2f;color:#cccece;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">h1</span><span style="color:#5fb3b3;">&gt;</span><span>This content is SWEEEEEEEEEET!</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">h1</span><span style="color:#5fb3b3;">&gt;
+</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">span</span><span style="color:#5fb3b3;">&gt;</span><span>[%foo]</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">span</span><span style="color:#5fb3b3;">&gt;
 </span></code></pre>
 <p><code>[%foo]</code> is the named placeholder and will be replaced by our amazing
 content: &quot;bar&quot;. How very exciting. The data that replaces the placeholders could
@@ -310,23 +302,22 @@ words, in the same order each partial was added.</p>
 <p><em>How does <code>HtmlPage::addScript('script.js')</code> know where to find the script.js</em>
 file?</p>
 <p>HtmlPage is configurable.</p>
-<pre style="background-color:#2b2c2f;">
-<code class="language-php" data-lang="php"><span style="color:#5fb3b3;">&lt;?php
-...
-
+<pre data-lang="php" style="background-color:#2b2c2f;color:#cccece;" class="language-php "><code class="language-php" data-lang="php"><span style="color:#5fb3b3;">&lt;?php
+</span><span style="color:#5fb3b3;">...
+</span><span>
 </span><span style="color:#c594c5;">public function </span><span style="color:#6699cc;">__construct</span><span style="color:#5fb3b3;">()
-{
-    $</span><span style="color:#cccece;">path </span><span style="color:#5fb3b3;">= </span><span style="color:#6699cc;">realpath</span><span style="color:#5fb3b3;">(</span><span style="color:#6699cc;">dirname</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">__FILE__</span><span style="color:#5fb3b3;">)) . &quot;</span><span style="color:#99c794;">/HtmlPage.ini</span><span style="color:#5fb3b3;">&quot;;
-    </span><span style="color:#c594c5;">if </span><span style="color:#5fb3b3;">(</span><span style="color:#6699cc;">file_exists</span><span style="color:#5fb3b3;">($</span><span style="color:#cccece;">path</span><span style="color:#5fb3b3;">)) {
-        $</span><span style="color:#cccece;">config </span><span style="color:#5fb3b3;">= </span><span style="color:#6699cc;">parse_ini_file</span><span style="color:#5fb3b3;">($</span><span style="color:#cccece;">path</span><span style="color:#5fb3b3;">);
-        </span><span style="color:#c594c5;">foreach</span><span style="color:#5fb3b3;">($</span><span style="color:#cccece;">config </span><span style="color:#5fb3b3;">as $</span><span style="color:#cccece;">key </span><span style="color:#5fb3b3;">=&gt; $</span><span style="color:#cccece;">value</span><span style="color:#5fb3b3;">) {
-            $</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#cccece;">_config</span><span style="color:#5fb3b3;">[$</span><span style="color:#cccece;">key</span><span style="color:#5fb3b3;">] = $</span><span style="color:#cccece;">value</span><span style="color:#5fb3b3;">;
-        }
-    }
-
-    $</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#cccece;">_doctype </span><span style="color:#5fb3b3;">= </span><span style="color:#6699cc;">empty</span><span style="color:#5fb3b3;">($</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#cccece;">_config</span><span style="color:#5fb3b3;">[&#39;</span><span style="color:#99c794;">doctype.default</span><span style="color:#5fb3b3;">&#39;])
-</span><span style="color:#cccece;">        ? </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">XHTML_1_0_STRICT</span><span style="color:#5fb3b3;">&#39;</span><span style="color:#cccece;"> : </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span style="color:#cccece;">_config</span><span style="color:#5fb3b3;">[&#39;</span><span style="color:#99c794;">doctype.default</span><span style="color:#5fb3b3;">&#39;];
-}
+</span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#5fb3b3;">$</span><span>path </span><span style="color:#5fb3b3;">= </span><span style="color:#6699cc;">realpath</span><span style="color:#5fb3b3;">(</span><span style="color:#6699cc;">dirname</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">__FILE__</span><span style="color:#5fb3b3;">)) . &quot;</span><span style="color:#99c794;">/HtmlPage.ini</span><span style="color:#5fb3b3;">&quot;;
+</span><span>    </span><span style="color:#c594c5;">if </span><span style="color:#5fb3b3;">(</span><span style="color:#6699cc;">file_exists</span><span style="color:#5fb3b3;">($</span><span>path</span><span style="color:#5fb3b3;">)) {
+</span><span>        </span><span style="color:#5fb3b3;">$</span><span>config </span><span style="color:#5fb3b3;">= </span><span style="color:#6699cc;">parse_ini_file</span><span style="color:#5fb3b3;">($</span><span>path</span><span style="color:#5fb3b3;">);
+</span><span>        </span><span style="color:#c594c5;">foreach</span><span style="color:#5fb3b3;">($</span><span>config </span><span style="color:#5fb3b3;">as $</span><span>key </span><span style="color:#5fb3b3;">=&gt; $</span><span>value</span><span style="color:#5fb3b3;">) {
+</span><span>            </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span>_config</span><span style="color:#5fb3b3;">[$</span><span>key</span><span style="color:#5fb3b3;">] = $</span><span>value</span><span style="color:#5fb3b3;">;
+</span><span>        </span><span style="color:#5fb3b3;">}
+</span><span>    </span><span style="color:#5fb3b3;">}
+</span><span>
+</span><span>    </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span>_doctype </span><span style="color:#5fb3b3;">= </span><span style="color:#6699cc;">empty</span><span style="color:#5fb3b3;">($</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span>_config</span><span style="color:#5fb3b3;">[&#39;</span><span style="color:#99c794;">doctype.default</span><span style="color:#5fb3b3;">&#39;])
+</span><span>        ? </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">XHTML_1_0_STRICT</span><span style="color:#5fb3b3;">&#39;</span><span> : </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;</span><span>_config</span><span style="color:#5fb3b3;">[&#39;</span><span style="color:#99c794;">doctype.default</span><span style="color:#5fb3b3;">&#39;];
+</span><span style="color:#5fb3b3;">}
 </span></code></pre>
 <p>If HtmlPage finds a file called HtmlPage.ini in the same directory in which it
 resides, it will parse that file and save any configuration settings in an
@@ -341,18 +332,17 @@ The config file is handy for setting a base title and separator for pages too.
 If you end up extending HtmlPage, you can take advantage of the config file to
 set sensible defaults for any new functionality. Here's what my config file
 looks like.</p>
-<pre style="background-color:#2b2c2f;">
-<code class="language-ini" data-lang="ini"><span style="color:#5fb3b3;">//</span><span style="color:#cccece;">HtmlPage</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">ini
+<pre data-lang="ini" style="background-color:#2b2c2f;color:#cccece;" class="language-ini "><code class="language-ini" data-lang="ini"><span style="color:#5f6364;">//HtmlPage.ini
 </span><span style="color:#c594c5;">[base_paths]
-</span><span style="color:#f99157;">javascript</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">basepath  </span><span style="color:#5fb3b3;">= </span><span style="color:#99c794;">&quot;/public/js/&quot;
-</span><span style="color:#f99157;">css</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">basepath         </span><span style="color:#5fb3b3;">= </span><span style="color:#99c794;">&quot;/public/css/&quot;
-</span><span style="color:#f99157;">templates</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">directory  </span><span style="color:#5fb3b3;">= </span><span style="color:#99c794;">&quot;templates/&quot;
-
+</span><span style="color:#f99157;">javascript</span><span style="color:#5fb3b3;">.</span><span>basepath  </span><span style="color:#5fb3b3;">= </span><span style="color:#99c794;">&quot;/public/js/&quot;
+</span><span style="color:#f99157;">css</span><span style="color:#5fb3b3;">.</span><span>basepath         </span><span style="color:#5fb3b3;">= </span><span style="color:#99c794;">&quot;/public/css/&quot;
+</span><span style="color:#f99157;">templates</span><span style="color:#5fb3b3;">.</span><span>directory  </span><span style="color:#5fb3b3;">= </span><span style="color:#99c794;">&quot;templates/&quot;
+</span><span>
 </span><span style="color:#c594c5;">[defaults]
-</span><span style="color:#f99157;">template</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">default </span><span style="color:#5fb3b3;">= </span><span style="color:#99c794;">&quot;layout.phtml&quot;
-</span><span style="color:#f99157;">doctype</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">default  </span><span style="color:#5fb3b3;">= </span><span style="color:#99c794;">&quot;XHTML_1_0_STRICT&quot;
-</span><span style="color:#f99157;">title</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">prefix     </span><span style="color:#5fb3b3;">= </span><span style="color:#99c794;">&quot;Test&quot;
-</span><span style="color:#f99157;">title</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">separator  </span><span style="color:#5fb3b3;">= </span><span style="color:#99c794;">&quot; | &quot;
+</span><span style="color:#f99157;">template</span><span style="color:#5fb3b3;">.</span><span>default </span><span style="color:#5fb3b3;">= </span><span style="color:#99c794;">&quot;layout.phtml&quot;
+</span><span style="color:#f99157;">doctype</span><span style="color:#5fb3b3;">.</span><span>default  </span><span style="color:#5fb3b3;">= </span><span style="color:#99c794;">&quot;XHTML_1_0_STRICT&quot;
+</span><span style="color:#f99157;">title</span><span style="color:#5fb3b3;">.</span><span>prefix     </span><span style="color:#5fb3b3;">= </span><span style="color:#99c794;">&quot;Test&quot;
+</span><span style="color:#f99157;">title</span><span style="color:#5fb3b3;">.</span><span>separator  </span><span style="color:#5fb3b3;">= </span><span style="color:#99c794;">&quot; | &quot;
 </span></code></pre>
 <p><strong>The fluent interface...</strong> <br> Fluent interfaces are very easy to implement in
 PHP. All you have to do is <code>return $this;</code> in the function. Since <code>$this</code> is a
@@ -364,21 +354,20 @@ are quite useful. Since we have defined several class variables, such as
 page, we need a way to reserve these variables so that client code cannot
 overwrite them. We want HtmlPage to be closed to modification, but open to
 extension. <code>__set()</code> provides the functionality needed.</p>
-<pre style="background-color:#2b2c2f;">
-<code class="language-php" data-lang="php"><span style="color:#cccece;">//HtmlPage.php
+<pre data-lang="php" style="background-color:#2b2c2f;color:#cccece;" class="language-php "><code class="language-php" data-lang="php"><span>//HtmlPage.php
 </span><span style="color:#5fb3b3;">&lt;?php
-...
-
+</span><span style="color:#5fb3b3;">...
+</span><span>
 </span><span style="color:#c594c5;">public final function </span><span style="color:#6699cc;">__set</span><span style="color:#5fb3b3;">($</span><span style="color:#f99157;">property</span><span style="color:#5fb3b3;">, $</span><span style="color:#f99157;">value</span><span style="color:#5fb3b3;">)
-{
-    </span><span style="color:#c594c5;">if </span><span style="color:#5fb3b3;">(</span><span style="color:#6699cc;">method_exists</span><span style="color:#5fb3b3;">($</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">, &#39;</span><span style="color:#99c794;">get</span><span style="color:#5fb3b3;">&#39; . </span><span style="color:#6699cc;">ucfirst</span><span style="color:#5fb3b3;">($</span><span style="color:#cccece;">property</span><span style="color:#5fb3b3;">))
-        || </span><span style="color:#6699cc;">array_key_exists</span><span style="color:#5fb3b3;">($</span><span style="color:#cccece;">property</span><span style="color:#5fb3b3;">, </span><span style="color:#6699cc;">get_class_vars</span><span style="color:#5fb3b3;">(</span><span style="color:#6699cc;">get_class</span><span style="color:#5fb3b3;">($</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">)))
-    ) {
-        </span><span style="color:#c594c5;">throw new </span><span style="color:#fac863;">Exception</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">Attempted to set a reserved variable</span><span style="color:#5fb3b3;">&#39;);
-    }
-    $</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;$</span><span style="color:#cccece;">property </span><span style="color:#5fb3b3;">= $</span><span style="color:#cccece;">value</span><span style="color:#5fb3b3;">;
-    </span><span style="color:#c594c5;">return </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">;
-}
+</span><span style="color:#5fb3b3;">{
+</span><span>    </span><span style="color:#c594c5;">if </span><span style="color:#5fb3b3;">(</span><span style="color:#6699cc;">method_exists</span><span style="color:#5fb3b3;">($</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">, &#39;</span><span style="color:#99c794;">get</span><span style="color:#5fb3b3;">&#39; . </span><span style="color:#6699cc;">ucfirst</span><span style="color:#5fb3b3;">($</span><span>property</span><span style="color:#5fb3b3;">))
+</span><span>        </span><span style="color:#5fb3b3;">|| </span><span style="color:#6699cc;">array_key_exists</span><span style="color:#5fb3b3;">($</span><span>property</span><span style="color:#5fb3b3;">, </span><span style="color:#6699cc;">get_class_vars</span><span style="color:#5fb3b3;">(</span><span style="color:#6699cc;">get_class</span><span style="color:#5fb3b3;">($</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">)))
+</span><span>    </span><span style="color:#5fb3b3;">) {
+</span><span>        </span><span style="color:#c594c5;">throw new </span><span style="color:#fac863;">Exception</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">Attempted to set a reserved variable</span><span style="color:#5fb3b3;">&#39;);
+</span><span>    </span><span style="color:#5fb3b3;">}
+</span><span>    </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">-&gt;$</span><span>property </span><span style="color:#5fb3b3;">= $</span><span>value</span><span style="color:#5fb3b3;">;
+</span><span>    </span><span style="color:#c594c5;">return </span><span style="color:#5fb3b3;">$</span><span style="color:#ec5f67;">this</span><span style="color:#5fb3b3;">;
+</span><span style="color:#5fb3b3;">}
 </span></code></pre>
 <p>Basically, any time a client assigns a class property, <code>__set()</code> checks to see if
 there is a getter method, or a class variable already defined for that property.

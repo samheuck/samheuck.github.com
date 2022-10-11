@@ -75,7 +75,7 @@ myself &quot;Wow, whatever happened to just uploading an HTML file...&quot;.</p>
 <p>So what if, instead of using an application stack powered by PHP and MySQL to
 create web pages on the fly, a website were compiled, in effect <em>frozen</em> into a
 static state, and then served to the client browser. Just like the good old days!
-<a href="http://jekyllrb.com/">Jekyll</a> is an open source project written in Ruby by
+<a rel="noopener" target="_blank" href="http://jekyllrb.com/">Jekyll</a> is an open source project written in Ruby by
 github co-founder Tom Preston-Werner. Designed for blogs, and flexible enough
 that it could be used to create just about anything, Jekyll is a tool that does
 exactly that. It gathers up content, styling and javascript, organizes it into
@@ -132,7 +132,7 @@ but if you are used to server-side coding, there is a learning curve.</p>
 </blockquote>
 <p><span class='icon-kub-remove red'></span> <strong>This is <em>not</em> Wordpress...</strong></p>
 <blockquote>
-<p>There is a reason this is called <a href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html">blogging like a hacker</a>.
+<p>There is a reason this is called <a rel="noopener" target="_blank" href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html">blogging like a hacker</a>.
 You need a solid HTML &amp; CSS background, and some knowledge of how to install, maintain, and
 configure Ruby gems. You need to know how template engines work. And you also have
 to be willing to spend some time sifting through issue cues and bug reports when
@@ -145,43 +145,41 @@ looking for, Jekyll is not for you.</p>
 its build directory <em>except</em> for directories and files with a preceding
 underscore. You can also specify files to ignore in _config.yml. A typical site
 might look something like this:</p>
-<pre style="background-color:#2b2c2f;">
-<code><span style="color:#cccece;">/project-root
-  _layouts/
-  _includes/
-  _posts/
-  _plugins/
-  _site/
-  _config.yml
-  index.md
-  images/
-  about/
-  blog/
+<pre style="background-color:#2b2c2f;color:#cccece;"><code><span>/project-root
+</span><span>  _layouts/
+</span><span>  _includes/
+</span><span>  _posts/
+</span><span>  _plugins/
+</span><span>  _site/
+</span><span>  _config.yml
+</span><span>  index.md
+</span><span>  images/
+</span><span>  about/
+</span><span>  blog/
 </span></code></pre>
 <p>When the <code>~$ jekyll</code> command is issued, the site is generated inside the
 _site directory. _layouts contains the main template files, and _includes can
 be used for content partials which can be placed into pages with Liquid. Any
 file that begins with:</p>
-<pre style="background-color:#2b2c2f;">
-<code class="language-yaml" data-lang="yaml"><span style="color:#cccece;">---
-</span><span style="color:#eb606b;">layout</span><span style="color:#5fb3b3;">: </span><span style="color:#eb606b;">default
-title</span><span style="color:#5fb3b3;">: </span><span style="color:#eb606b;">a page
-foo</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">bar
-</span><span style="color:#cccece;">---
+<pre data-lang="yaml" style="background-color:#2b2c2f;color:#cccece;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span>---
+</span><span style="color:#eb606b;">layout</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">default
+</span><span style="color:#eb606b;">title</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">a page
+</span><span style="color:#eb606b;">foo</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">bar
+</span><span>---
 </span></code></pre>
 <p>... will be parsed by Jekyll. This special header is the
-<a href="https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter">YAML Front Matter</a>
+<a rel="noopener" target="_blank" href="https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter">YAML Front Matter</a>
 block. There are some reserved variables like layout, and publish, but you
 can also add any variable you need. For example, you could have a variable
 called sidebar that could be used to include a specific piece of sidebar
 content on a specific page.</p>
-<p>Jekyll relies on the <a href="https://github.com/Shopify/liquid/wiki">Liquid</a> template
+<p>Jekyll relies on the <a rel="noopener" target="_blank" href="https://github.com/Shopify/liquid/wiki">Liquid</a> template
 engine to compile content. The syntax is intuitive and I found the learning
 curve for Liquid to be smooth and easy. Jekyll will parse Liquid include
 statements and search for the included content inside the _includes directory
 automatically. You don't have to worry about registering paths to things.</p>
 <p>One of my favorite features of Jekyll is that it has built-in support
-for <a href="http://daringfireball.net/projects/markdown/">Markdown</a>.
+for <a rel="noopener" target="_blank" href="http://daringfireball.net/projects/markdown/">Markdown</a>.
 You can write posts in plain text, and Jekyll will convert the Markdown
 into HTML. For example, paragraphs of text will be properly wrapped in &lt;p&gt;
 tags, and any text surrounded by asterisks will be bold. Jekyll has
@@ -197,11 +195,11 @@ some essential add-ons and helpers for Jekyll. The next post will be a tutorial
 on some of what I learned.</p>
 <ul>
 <li>Jekyll plugins</li>
-<li>Automatic <a href="http://sass-lang.com/">sass</a> compilation with Jekyll</li>
-<li>Automatic compression of CSS and javascript using <a href="https://github.com/yui/yuicompressor">yui-compressor</a></li>
-<li>Workflow helper tasks with <a href="https://github.com/wycats/thor">Thor</a>, a Rake alternative</li>
+<li>Automatic <a rel="noopener" target="_blank" href="http://sass-lang.com/">sass</a> compilation with Jekyll</li>
+<li>Automatic compression of CSS and javascript using <a rel="noopener" target="_blank" href="https://github.com/yui/yuicompressor">yui-compressor</a></li>
+<li>Workflow helper tasks with <a rel="noopener" target="_blank" href="https://github.com/wycats/thor">Thor</a>, a Rake alternative</li>
 <li>Sitemap generation on build</li>
-<li>Deployment with <a href="http://jenkins-ci.org/">Jenkins</a></li>
+<li>Deployment with <a rel="noopener" target="_blank" href="http://jenkins-ci.org/">Jenkins</a></li>
 </ul>
 <p>So stay tuned, and happy coding!</p>
 

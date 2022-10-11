@@ -5,6 +5,7 @@
     </url>
     <url>
         <loc>https://samheuck.com/about/</loc>
+        <lastmod>2022-10-08</lastmod>
     </url>
     <url>
         <loc>https://samheuck.com/blog/</loc>
@@ -47,8 +48,10 @@
     </url>
     <url>
         <loc>https://samheuck.com/on-my-mind/</loc>
+        <lastmod>1970-01-01</lastmod>
     </url>
     <url>
         <loc>https://samheuck.com/resume/</loc>
+        <lastmod>2022-10-08</lastmod>
     </url>
 </urlset>

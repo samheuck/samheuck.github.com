@@ -76,20 +76,20 @@ was a dream come true.</p>
 </section>
 <section class="teaser">
 <h2 id="bytes-are-weird-but-the-rust-programming-language-is-cool">Bytes are weird... but <a href="/blog/learning-rust/">the Rust programming language is cool...</a></h2>
-<pre style="background-color:#2b2c2f;">
-<code class="language-rs" data-lang="rs"><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">main</span><span style="color:#5fb3b3;">() -&gt; </span><span style="color:#fac863;">Result</span><span style="color:#5fb3b3;">&lt;()&gt; {
-    </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> f </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">File</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">create</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">bytes.txt</span><span style="color:#5fb3b3;">&quot;)?;
-    {
-        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> bytes</span><span style="color:#5fb3b3;">: </span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#c594c5;">u8</span><span style="color:#5fb3b3;">&gt; = (</span><span style="color:#f99157;">0</span><span style="color:#5fb3b3;">..=</span><span style="color:#f99157;">255</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">collect</span><span style="color:#5fb3b3;">();
-        </span><span style="color:#c594c5;">let mut</span><span style="color:#cccece;"> writer </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">BufWriter</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">f</span><span style="color:#5fb3b3;">);
-        </span><span style="color:#c594c5;">match</span><span style="color:#cccece;"> writer</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">write_all</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#cccece;">bytes</span><span style="color:#5fb3b3;">) {
-            </span><span style="color:#fac863;">Ok</span><span style="color:#5fb3b3;">(()) =&gt; (),
-            </span><span style="color:#fac863;">Err</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">e</span><span style="color:#5fb3b3;">) =&gt; </span><span style="color:#cccece;">println!</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">ERR: {}</span><span style="color:#5fb3b3;">&quot;,</span><span style="color:#cccece;"> e</span><span style="color:#5fb3b3;">),
-        }
-    }
-    </span><span style="color:#fac863;">Ok</span><span style="color:#5fb3b3;">(())
-}
-</span></code></pre></section>
+<pre data-lang="rs" style="background-color:#2b2c2f;color:#cccece;" class="language-rs "><code class="language-rs" data-lang="rs"><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">main</span><span style="color:#5fb3b3;">() -&gt; </span><span style="color:#fac863;">Result</span><span style="color:#5fb3b3;">&lt;()&gt; {
+</span><span>    </span><span style="color:#c594c5;">let</span><span> f </span><span style="color:#5fb3b3;">= </span><span>File</span><span style="color:#5fb3b3;">::</span><span>create</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">bytes.txt</span><span style="color:#5fb3b3;">&quot;)?;
+</span><span>    </span><span style="color:#5fb3b3;">{
+</span><span>        </span><span style="color:#c594c5;">let</span><span> bytes</span><span style="color:#5fb3b3;">: </span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#c594c5;">u8</span><span style="color:#5fb3b3;">&gt; = (</span><span style="color:#f99157;">0</span><span style="color:#5fb3b3;">..=</span><span style="color:#f99157;">255</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">collect</span><span style="color:#5fb3b3;">();
+</span><span>        </span><span style="color:#c594c5;">let mut</span><span> writer </span><span style="color:#5fb3b3;">= </span><span>BufWriter</span><span style="color:#5fb3b3;">::</span><span>new</span><span style="color:#5fb3b3;">(</span><span>f</span><span style="color:#5fb3b3;">);
+</span><span>        </span><span style="color:#c594c5;">match</span><span> writer</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">write_all</span><span style="color:#5fb3b3;">(&amp;</span><span>bytes</span><span style="color:#5fb3b3;">) {
+</span><span>            </span><span style="color:#fac863;">Ok</span><span style="color:#5fb3b3;">(()) =&gt; (),
+</span><span>            </span><span style="color:#fac863;">Err</span><span style="color:#5fb3b3;">(</span><span>e</span><span style="color:#5fb3b3;">) =&gt; </span><span>println!</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">ERR: {}</span><span style="color:#5fb3b3;">&quot;,</span><span> e</span><span style="color:#5fb3b3;">),
+</span><span>        </span><span style="color:#5fb3b3;">}
+</span><span>    </span><span style="color:#5fb3b3;">}
+</span><span>    </span><span style="color:#fac863;">Ok</span><span style="color:#5fb3b3;">(())
+</span><span style="color:#5fb3b3;">}
+</span></code></pre>
+</section>
 <section class="teaser tc">
     <p class="tc b">Want more?</p>
     <a href="/blog">Check out the blog...</a>
@@ -112,7 +112,7 @@ MuseApp
       "@context": "https://schema.org",
       "@type": "Organization",
       "url": "https://samheuck.com",
-      "logo": "https://samheuck/samheuck-weblogo-small.png"
+      "logo": "https://samheuck.com/samheuck-weblogo-small.png"
     }
 </script>
 
