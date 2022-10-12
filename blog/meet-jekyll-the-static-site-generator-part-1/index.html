@@ -83,25 +83,25 @@ a predefined directory structure, and writes the necessary HTML.</p>
 <h3 id="advantages-of-static-websites">Advantages of static websites</h3>
 <div class="center-list">
 <p><span class='icon-kub-approve green'></span> <strong>Speed</strong></p>
-<blockquote>
+<div class="note">
 <p>Web servers were originally designed to do one thing, serve a document.
 With Jekyll, that is exactly what your web server is doing. It doesn't
 have to provision an instance of the PHP interpreter to execute expensive
 code. No database queries have to be made. Content is simply... delivered.</p>
-</blockquote>
+</div>
 <p><span class='icon-kub-approve green'></span> <strong>Security</strong></p>
-<blockquote>
+<div class="note">
 <p>Because there is no backend application, there can be no database
 injection attacks, session highjacking, or malicious cross-site scripting.</p>
-</blockquote>
+</div>
 <p><span class='icon-kub-approve green'></span> <strong>Version Control</strong></p>
-<blockquote>
+<div class="note">
 <p>Jekyll is designed to pair with source code control systems like Git. This
 means your posts are automatically versioned and can easily be backed up
 on github or bitbucket.</p>
-</blockquote>
+</div>
 <p><span class='icon-kub-approve green'></span> <strong>Easy deployment</strong></p>
-<blockquote>
+<div class="note">
 <p>How do you deploy a static site? Copy the files to the server. Done.
 With source control, this is a trivial push and subsequent pull. You
 could also use rsync, or even plain old FTP to send files to the server.
@@ -109,36 +109,36 @@ The 1337 among us might like to use Jenkins and a post commit hook
 to automatically build and publish the site, but that requires some
 extra setup server side. No matter how you deploy, though, static sites
 make it painless.</p>
-</blockquote>
+</div>
 <p><span class='icon-kub-approve green'></span> <strong>Free Hosting!</strong></p>
-<blockquote>
+<div class="note">
 <p>For simple sites, you can use github pages or Dropbox to store and host
 your website. This isn't right for everyone, but free hosting is a nice
 perk. Github pages is a great option for coders. You just have to create
 a repository using your account name and anything in the master branch
 will be published using jekyll.</p>
-</blockquote>
+</div>
 </div>
 <h3 id="disadvantages-of-static-site-generators">Disadvantages of static site generators</h3>
 <div class="center-list">
   <span class='icon-kub-remove red'></span>
 <p><strong>Persistence</strong></p>
-<blockquote>
+<div class="note">
 <p>There is no database. Anything that requires persistence, such as comments,
-will need to be outsourced to a service. Disqus is popular for comments.
-Also database access of any kind has to be managed from the front end. This
-isn't a huge problem with javascript frameworks like Ember and Backbone,
-but if you are used to server-side coding, there is a learning curve.</p>
-</blockquote>
+will need to be outsourced to a service. Also database access of any kind
+has to be managed from the front end. This isn't a huge problem with javascript
+frameworks like Ember and Backbone, but if you are used to server-side coding,
+there is a learning curve.</p>
+</div>
 <p><span class='icon-kub-remove red'></span> <strong>This is <em>not</em> Wordpress...</strong></p>
-<blockquote>
+<div class="note">
 <p>There is a reason this is called <a rel="noopener" target="_blank" href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html">blogging like a hacker</a>.
 You need a solid HTML &amp; CSS background, and some knowledge of how to install, maintain, and
 configure Ruby gems. You need to know how template engines work. And you also have
 to be willing to spend some time sifting through issue cues and bug reports when
 you run into an problem. If &quot;user friendly&quot; and one button install is what you're
 looking for, Jekyll is not for you.</p>
-</blockquote>
+</div>
 </div>
 <h3 id="the-basics">The basics</h3>
 <p>When jekyll runs, it will copy all files and folders in the project root into
