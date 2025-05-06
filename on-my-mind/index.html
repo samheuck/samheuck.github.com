@@ -20,6 +20,7 @@
   </head>
 
   <body>
+    <div id="contact-form"></div>
     <header class="w-100 flex pl3 pt3">
       <div class="logo">
         <a href="/" title="Home" rel="home">
@@ -60,7 +61,7 @@
 <section class="teaser">
 <h3 class="tc">What were they thinking?</h3>
 <p class="tc">
-My thoughts on Apple's latest Ad for the new iPad Pro. Spoiler alert, it hit close to home. <br />
+My thoughts on Apple's troubling ad for the iPad Pro. Spoiler alert, it hit close to home. <br />
 <a href="/blog/the-outrage-is-warranted/">The outrage is warranted.</a>
 </p>
 </section>
@@ -132,6 +133,8 @@ production.</p>
 <section class="teaser tc">
     <p class="tc b">Want more?</p>
     <a href="/blog">Check out the blog...</a>
+    <p class="tc b">Care to chat?</p>
+    <a class="contact-me">Reach out...</a>
 </section>
 <script type="application/ld+json">
     {
@@ -244,9 +247,10 @@ production.</p>
     </main>
     <footer class="w-100">
       <p class="f6 tc">Opinions are my own. Share and enjoy! 🙂</p>
-      <p class="f7 tc">&copy; Copyright 2024 Sam Heuck</p>
+      <p class="f7 tc">&copy; Copyright 2025 Sam Heuck</p>
     </footer>
     
+      <script src="/contact.js"></script>
       <script src="/glfx.js"></script>
       <script>
         window.addEventListener('load', function() {
@@ -262,7 +266,6 @@ production.</p>
             img.parentNode.insertBefore(canvas, img);
             img.parentNode.removeChild(img);
             canvas.addEventListener('click', function() {
-                console.log('click');
                 document.querySelector('#squirrel > div:nth-child(1)').innerText = 'Ha! You just scrolled 4000 pixels for that. Image effect courtesy of glfx.js';
                 canvas.draw(texture).update();
             });
