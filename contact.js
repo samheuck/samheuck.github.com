@@ -26,7 +26,7 @@ function contactForm(openDate) {
 
         <input name="hpf" />
 
-        <label for="message">What can I do for you?</label>
+        <label for="message">What can Sam Heuck Web Development do for you?</label>
         <textarea name="message" rows=5 cols=60></textarea>
 
         <input type="submit" value="Send" />
