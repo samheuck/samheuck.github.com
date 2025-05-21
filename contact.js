@@ -24,11 +24,11 @@ function contactForm(openDate) {
         <label for="company">Company</label>
         <input name="company" />
 
-        <input name="hpf" />
 
         <label for="message">What can Sam Heuck Web Development do for you?</label>
-        <textarea name="message" rows=5 cols=60></textarea>
+        <textarea name="message" rows=5></textarea>
 
+        <input name="hpf" />
         <input type="submit" value="Send" />
       </form>
     </div>
