@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/print.css" />
 
+    <script src="/contact.js"></script>
     
 <title>Sam Heuck Web Development | Serve it up with Rust</title>
 <meta name="description" content="I learned about Rust by porting a lesson from the book 500 Lines or Less" />
@@ -97,7 +98,7 @@ this is because most of my experience is with dynamically typed, interpreted, an
 <li>How to create a set of functions that <strong>solve the general problem</strong> of handling HTTP requests</li>
 </ul>
 <h2 id="where-i-m-at-with-rust">Where I'm at with Rust</h2>
-<p>This post is the first time I've tried to get some of my experience working with Rust down on paper. At this point in my journey with Rust, I have read parts of &quot;The Rust Programming Language&quot; - but I haven't read it cover-to-cover. I have also written some small, menial programs.</p>
+<p>This post is the first time I've tried to get some of my experience working with Rust down on paper. At this point in my journey with Rust, I have read parts of "The Rust Programming Language" - but I haven't read it cover-to-cover. I have also written some small, menial programs.</p>
 <p><img src="https://samheuck.com/blog/learning-rust/bart_learns_rust.png" alt="Bart learns rust" /></p>
 <h2 id="the-questions">The questions</h2>
 <p>Absorbing some of the knowledge of how to learn is also something I've been doing lately. Another person who has contributed a lot on this topic is <a rel="noopener" target="_blank" href="https://jvns.ca/blog/2018/09/01/learning-skills-you-can-practice/">Julia Evans</a>. In particular, she has written about using questions to hone in on what you don't understand. In thinking about how to apply some of those techniques to my own learning, I'm making note of my questions throughout this mini-project.</p>
@@ -107,17 +108,17 @@ this is because most of my experience is with dynamically typed, interpreted, an
 <li><a href="https://samheuck.com/blog/learning-rust/#q2">Why isn't this method call working... what is an associated function?</a></li>
 <li><a href="https://samheuck.com/blog/learning-rust/#q3">What's a simple way to return some static HTML?</a></li>
 <li><a href="https://samheuck.com/blog/learning-rust/#q4">What's a <code>std::io::Cursor</code>?</a></li>
-<li><a href="https://samheuck.com/blog/learning-rust/#q5">Who &quot;owns&quot; the request?</a></li>
+<li><a href="https://samheuck.com/blog/learning-rust/#q5">Who "owns" the request?</a></li>
 <li><a href="https://samheuck.com/blog/learning-rust/#q6">What is a lifetime parameter and why do I need it?</a></li>
 <li><a href="https://samheuck.com/blog/learning-rust/#q7">Can I avoid lifetime annotations in this project?</a></li>
 <li><a href="https://samheuck.com/blog/learning-rust/#q8">Can I avoid creating a new instance of the request handler for every request?</a></li>
-<li><a href="https://samheuck.com/blog/learning-rust/#q9">In Rust, how do I do &quot;duck typing&quot;?</a></li>
+<li><a href="https://samheuck.com/blog/learning-rust/#q9">In Rust, how do I do "duck typing"?</a></li>
 <li><a href="https://samheuck.com/blog/learning-rust/#q10">What is <code>Box</code> and how is it used?</a></li>
 <li><a href="https://samheuck.com/blog/learning-rust/#q11">It compiles, but how do I know it works?</a></li>
 </ol>
 <h2 id="how-to-write-less-code-crates"><a name="q1"></a> How to write less code? Crates!</h2>
-<p>It is &quot;500 lines or less&quot; after all.</p>
-<p>I know that HTTP is a solved problem. Receiving HTTP requests from HTTP clients, de-serializing those requests, and sending the responses back down the wire are common to every interaction a client has with a server. Writing a parser to turn an HTTP request into an &quot;object&quot; in my program is biting off more than I want to chew for this mini-project.</p>
+<p>It is "500 lines or less" after all.</p>
+<p>I know that HTTP is a solved problem. Receiving HTTP requests from HTTP clients, de-serializing those requests, and sending the responses back down the wire are common to every interaction a client has with a server. Writing a parser to turn an HTTP request into an "object" in my program is biting off more than I want to chew for this mini-project.</p>
 <p>In the Python programming language, the http package is included in the standard library. The solution in the book uses <code>BaseHTTPServer</code>. A quick check of the docs for Rust reveals that its standard library doesn't come with an http module. But I bet there are lots of Rust crates written by developers all over the world that solve this problem. So, how do I select a crate that will meet my needs?</p>
 <p>A suitable crate will need to handle network connections to and from the client, and provide the HTTP APIs I need. With this in mind, it's time to go shopping on crates.io! Who doesn't love shopping?!</p>
 <h3 id="searching-for-a-suitable-http-crate">Searching for a suitable HTTP crate</h3>
@@ -166,12 +167,12 @@ this is because most of my experience is with dynamically typed, interpreted, an
 <p><strong>To get specific:</strong></p>
 <hr />
 <ul>
-<li><code>reqwest</code> - a &quot;higher level HTTP client library&quot; solves a problem I don't have - I'm building a server, not a client</li>
+<li><code>reqwest</code> - a "higher level HTTP client library" solves a problem I don't have - I'm building a server, not a client</li>
 <li><code>http-types</code> - too small for this project as it solves getting an object to work with but it doesn't manage the networking stuff</li>
 <li><code>http-connection</code> - also too small for this project - it solves the networking stuff but not the parsing</li>
 <li>I know I'm <em>not</em> going to be doing asynchronous stuff, so even though it's incredibly cool and worth learning about, anything that depends on <code>Tokio</code> is not a fit for my mini-project</li>
-<li><code>actix-http</code> looks very promising but it's a component of a larger framework - the &quot;Actix Ecosystem&quot; (Also incredibly cool) and not a fit given risk #2</li>
-<li>Oooh <code>hyper</code> looks promising too: &quot;A fast and correct http library&quot; - but it's asynchronous which means it depends on <code>Tokio</code> - not a fit for this context</li>
+<li><code>actix-http</code> looks very promising but it's a component of a larger framework - the "Actix Ecosystem" (Also incredibly cool) and not a fit given risk #2</li>
+<li>Oooh <code>hyper</code> looks promising too: "A fast and correct http library" - but it's asynchronous which means it depends on <code>Tokio</code> - not a fit for this context</li>
 <li><code>web_server</code> - getting a LOT closer, but this one includes an API for routing requests, which isn't quite what I'm looking for</li>
 <li><code>webby</code> - the API looks good but the only author is a game developer from Amsterdam who wrote it just for kicks</li>
 </ul>
@@ -263,12 +264,12 @@ this is because most of my experience is with dynamically typed, interpreted, an
 </span><span>   |     ^^^^^^^^^^^^^^^^^^^
 </span></code></pre>
 <p><a name="q2"></a></p>
-<p>So why isn't this method working... wait what is an <em>&quot;associated function&quot;</em>? Running a search...</p>
+<p>So why isn't this method working... wait what is an <em>"associated function"</em>? Running a search...</p>
 <div class="note">
 <p><small>From <a rel="noopener" target="_blank" href="https://doc.rust-lang.org/book/ch05-03-method-syntax.html#associated-functions">https://doc.rust-lang.org/book/ch05-03-method-syntax.html#associated-functions</a></small></p>
 <p>... Another useful feature of impl blocks is that we’re allowed to define functions within impl blocks that don’t take self as a parameter. These are called associated functions because they’re associated with the struct.</p>
 </div>
-<p>Oh right - I forgot. Method syntax in Rust requires the first parameter of the method to be <code>&amp;self</code> - a reference to the struct the method belongs to. But it's <em>also</em> possible to omit <code>&amp;self</code> which is called an &quot;associated function&quot;. Associated functions have to be called with a different syntax: <code>RequestHandler::handle_request()</code>. Adding the <code>&amp;self</code> param and moving right along...</p>
+<p>Oh right - I forgot. Method syntax in Rust requires the first parameter of the method to be <code>&amp;self</code> - a reference to the struct the method belongs to. But it's <em>also</em> possible to omit <code>&amp;self</code> which is called an "associated function". Associated functions have to be called with a different syntax: <code>RequestHandler::handle_request()</code>. Adding the <code>&amp;self</code> param and moving right along...</p>
 <p>The simplest design I can think to start with is to have the <code>RequestHandler</code> return <code>tiny_http::Response</code> objects. It looks like the <code>tiny_http::Request</code> has a method called <code>respond()</code> which takes a <code>Response</code> instance as an argument. So my request handler just needs to return <code>Response</code>.</p>
 <p>(<em><strong>Note:</strong></em> Leaving off the semicolon for expressions that are being returned means the <code>return</code> keyword can be omitted.)</p>
 <pre data-lang="rs" style="background-color:#2b2c2f;color:#cccece;" class="language-rs "><code class="language-rs" data-lang="rs"><span style="color:#5f6364;">// Doesn&#39;t compile - the return type ( -&gt; Response ) isn&#39;t right
@@ -337,9 +338,9 @@ this is because most of my experience is with dynamically typed, interpreted, an
 <div class="note">
 <p><strong>Borrowing Basics</strong></p>
 <ul>
-<li><code>name: String</code>: owned value. freed when it goes out of scope. &quot;Consumed&quot;</li>
-<li><code>name: &amp;String</code>: borrowed (a.k.a shared) reference. &quot;Many readers, no writers&quot;</li>
-<li><code>name &amp;mut String</code>: mutable reference. &quot;exactly 1 writer, no outside readers&quot;</li>
+<li><code>name: String</code>: owned value. freed when it goes out of scope. "Consumed"</li>
+<li><code>name: &amp;String</code>: borrowed (a.k.a shared) reference. "Many readers, no writers"</li>
+<li><code>name &amp;mut String</code>: mutable reference. "exactly 1 writer, no outside readers"</li>
 </ul>
 </div>
 <p>With this in mind, I take another look at my implementation of the request handler.</p>
@@ -363,7 +364,7 @@ this is because most of my experience is with dynamically typed, interpreted, an
 <p>Since <code>request</code> is not borrowed by the handler, it can't be given back to <code>main()</code> so that <code>request.respond()</code> can be called.</p>
 <p>The way it is currently written, the expectation is that the handler will be responsible for freeing <code>request</code> whenever it goes out of scope.</p>
 <p>I could try to use <code>clone()</code> in this situation to make a byte-for-byte, deep copy of the request, but that seems like it would use more memory than necessary. It would be inefficient.</p>
-<p>The thing to do then, is to pass a reference so that <code>RequestHandler</code> can borrow the request. There should be no need to change (or mutate) the data within the request itself, so it doesn't need to be mutable. That means I could pass it around to as many functions as needed. This would be the &quot;many readers&quot; case for borrowing.</p>
+<p>The thing to do then, is to pass a reference so that <code>RequestHandler</code> can borrow the request. There should be no need to change (or mutate) the data within the request itself, so it doesn't need to be mutable. That means I could pass it around to as many functions as needed. This would be the "many readers" case for borrowing.</p>
 <pre data-lang="rs" style="background-color:#2b2c2f;color:#cccece;" class="language-rs "><code class="language-rs" data-lang="rs"><span style="color:#c594c5;">let</span><span> response </span><span style="color:#5fb3b3;">= </span><span>RequestHandler</span><span style="color:#5fb3b3;">::</span><span>new</span><span style="color:#5fb3b3;">(&amp;</span><span>request</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">handle_request</span><span style="color:#5fb3b3;">();
 </span></code></pre>
 <p>A reference to a value has a different <em>type</em> than an owned value. So the <code>RequestHandler</code> struct also has to be changed to accept a <code>ref</code> type.</p>
@@ -398,7 +399,7 @@ this is because most of my experience is with dynamically typed, interpreted, an
 </span><span style="color:#5f6364;">// -- snip --
 </span></code></pre>
 <p><a name="q6"></a></p>
-<p>What <em>is</em> this &quot;lifetime parameter&quot; thing?</p>
+<p>What <em>is</em> this "lifetime parameter" thing?</p>
 <p>Wait a minute. Before I dive into that, I just noticed something. This is the first time this program has compiled without <em>any</em> errors! So before I do anything else, I'm going to celebrate; I'm going to send a real-life, honest-to-goodness http request to this newly minted http server.</p>
 <p>Using <code>cargo run</code> to start the server, and a lovely http client called <code>httpie</code> to make the request, I hereby claim a small but well deserved <em>victory</em>.</p>
 <pre style="background-color:#2b2c2f;color:#cccece;"><code><span>~ http get 127.0.0.1:8000
@@ -494,7 +495,7 @@ this is because most of my experience is with dynamically typed, interpreted, an
 <h2 id="adapting-the-concepts-from-python-to-rust">Adapting the concepts from Python to Rust</h2>
 <p>This is where the fun begins!</p>
 <p>In reading a bit more of the chapter of the book, I noticed a pattern. The general idea is that the server needs to respond to a handful of different scenarios. For example, in one case, an incoming request could be for a specific file. In another case, it could be a directory. In either case, the web server needs to decide what to do. Both of these cases have two things in common. The server needs to decide if the request can be handled, and then it needs to handle it by creating an appropriate response.</p>
-<p>Each case is represented as its own class. The classes for every case all have the same two functions <code>test()</code> and <code>act()</code>. <code>test()</code> determines if the request <em>can</em> be handled and <code>act()</code> does the work of responding to the request. Because these two functions are common to multiple classes, this feels like a concept called &quot;duck typing&quot;.</p>
+<p>Each case is represented as its own class. The classes for every case all have the same two functions <code>test()</code> and <code>act()</code>. <code>test()</code> determines if the request <em>can</em> be handled and <code>act()</code> does the work of responding to the request. Because these two functions are common to multiple classes, this feels like a concept called "duck typing".</p>
 <div class="note">
 <p><small>From <a rel="noopener" target="_blank" href="https://docs.python.org/3/glossary.html#term-duck-typing">https://docs.python.org/3/glossary.html#term-duck-typing</a></small></p>
 <p><strong>duck-typing</strong></p>
@@ -506,7 +507,7 @@ this is because most of my experience is with dynamically typed, interpreted, an
 </span><span>    </span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">handle</span><span style="color:#5fb3b3;">(&amp;</span><span style="color:#f99157;">self</span><span>, </span><span style="color:#f99157;">request</span><span style="color:#5fb3b3;">: &amp;</span><span>Request</span><span style="color:#5fb3b3;">) -&gt; </span><span>Response</span><span style="color:#5fb3b3;">&lt;</span><span>Cursor</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#fac863;">Vec</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#c594c5;">u8</span><span style="color:#5fb3b3;">&gt;&gt;&gt;; </span><span style="color:#5f6364;">// my chosen name for act()
 </span><span style="color:#5fb3b3;">}
 </span></code></pre>
-<p>So, to take the case: &quot;get me a static file please&quot;, I need an <code>impl</code> to be in charge of handling that case. I'll use a <code>struct</code> and an <code>impl</code> to create a type for the static file case, as well as an implementation for the trait I already wrote.</p>
+<p>So, to take the case: "get me a static file please", I need an <code>impl</code> to be in charge of handling that case. I'll use a <code>struct</code> and an <code>impl</code> to create a type for the static file case, as well as an implementation for the trait I already wrote.</p>
 <p>Since the interface for handling a request only needs to be able to read the request, read it but not change it, the request can be borrowed as an immutable reference.</p>
 <p>(Note: <code>todo!()</code> is a helpful macro when stubbing out code structure).</p>
 <pre data-lang="rs" style="background-color:#2b2c2f;color:#cccece;" class="language-rs "><code class="language-rs" data-lang="rs"><span style="color:#5f6364;">// Side-note, a struct declaration without braces is known as a &#39;Unit Struct&#39;.
@@ -715,7 +716,7 @@ of dealing with a static file.</p>
 <p>So that compiles, yay, but, how do I know it actually works? I could test it just by running the
 server and making a request like before, <em>or</em> I could write a test. Rust has unit testing built
 right in to the language and tool set, which is really convenient.</p>
-<p>The trick is going to be making a &quot;fake request&quot; from code, instead of using the
+<p>The trick is going to be making a "fake request" from code, instead of using the
 <code>httpie</code> utility from the command line like I did before. I'm wondering if the <code>tiny_http</code> crate
 has any testing of its own? Perhaps it provides something handy for this? Ah... <code>TestRequest</code>.
 All I need to do is have <code>tiny_http</code> create a test request, pass it into the request handler,
@@ -755,8 +756,8 @@ all of the questions I had. And I'm even <em>more</em> happy that I now have man
 <p><img src="https://samheuck.com/blog/learning-rust/cowabunga.gif" alt="Bart Simpson" /></p>
 </div>
 <p>For example, what's up with all these calls to <code>unwrap()</code>? That seems kinda smelly to me because
-<code>unwrap()</code> will crash the program if it fails. It's like saying to the compiler, &quot;Don't worry buddy,
-this can't POSSIBLY fail so just give me what I need.&quot; But what if the file doesn't exist?</p>
+<code>unwrap()</code> will crash the program if it fails. It's like saying to the compiler, "Don't worry buddy,
+this can't POSSIBLY fail so just give me what I need." But what if the file doesn't exist?</p>
 <p>In order for this code to be closer to production ready, it will need to handle errors properly. But
 that's a post for another day.</p>
 <h2 id="summing-up-some-rust-learnings">Summing up some Rust learnings</h2>
@@ -776,7 +777,7 @@ are references so that they can be checked for validity at compile time. This me
 use after free errors, dangling pointers, and race conditions.</p>
 </li>
 <li>
-<p>Rust doesn't really have &quot;Classes, Objects, and Interfaces&quot; in the traditional sense. It has <code>struct</code> which holds data fields, and <code>impl</code> and <code>trait</code> which define and enforce an API.</p>
+<p>Rust doesn't really have "Classes, Objects, and Interfaces" in the traditional sense. It has <code>struct</code> which holds data fields, and <code>impl</code> and <code>trait</code> which define and enforce an API.</p>
 </li>
 <li>
 <p><code>Box</code> is the smart pointer type, and it stores stuff on the heap.</p>

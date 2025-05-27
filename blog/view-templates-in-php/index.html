@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/print.css" />
 
+    <script src="/contact.js"></script>
     
 <title>Sam Heuck Web Development | View templates in PHP</title>
 <meta name="description" content="A look at templating techniques in PHP and how they can improve separation of concerns and DRY to make for more orthogonal code." />
@@ -80,8 +81,8 @@ Consequently, PHP programmers often follow a similar path as they develop their
 skills. I started off writing horrendous code that was utterly unmaintainable. Of
 course I ended up rewriting all of it. Twice. And through that process, one
 which all programmers are familiar with, I learned some fundamentals of design
-and architecture. &quot;Separation of Concerns&quot;, and &quot;DRY&quot; or &quot;Don't Repeat
-Yourself&quot; are terms you've no doubt heard, but they are a little abstract.
+and architecture. "Separation of Concerns", and "DRY" or "Don't Repeat
+Yourself" are terms you've no doubt heard, but they are a little abstract.
 I hope to shed some light on these concepts.</p>
 <p>A templating system is one way to significantly improve both separation of
 concerns and DRY. View templates separate logic and data from design and layout,
@@ -275,7 +276,7 @@ regular HTML. When <code>Partial::output()</code> is called, any named placehold
 indexed under their corresponding names. We use an associative array for this,
 and to populate that array, we use the <code>Partial::set()</code> function to pass in
 an index and a value. The <code>Partial::output()</code> function iterates through this
-array, replacing any placeholder in the &quot;mini-template&quot; with the value of the
+array, replacing any placeholder in the "mini-template" with the value of the
 corresponding index in the associative array. Any placeholder that doesn't have
 a value set, gets replaced with an empty string by the reg-ex in the return
 statement.</p>
@@ -290,12 +291,12 @@ we can use named placeholders. An example is in order.</p>
 </span><span>
 </span><span>$page-&gt;addContent($content);
 </span></code></pre>
-<p>And here is what &quot;some_really_cool_content.html&quot; might look like:</p>
+<p>And here is what "some_really_cool_content.html" might look like:</p>
 <pre data-lang="html" style="background-color:#2b2c2f;color:#cccece;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">h1</span><span style="color:#5fb3b3;">&gt;</span><span>This content is SWEEEEEEEEEET!</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">h1</span><span style="color:#5fb3b3;">&gt;
 </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">span</span><span style="color:#5fb3b3;">&gt;</span><span>[%foo]</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">span</span><span style="color:#5fb3b3;">&gt;
 </span></code></pre>
 <p><code>[%foo]</code> is the named placeholder and will be replaced by our amazing
-content: &quot;bar&quot;. How very exciting. The data that replaces the placeholders could
+content: "bar". How very exciting. The data that replaces the placeholders could
 come from a database somewhere, an RSS feed, really anything. Since we use PHP
 to add the content and set the dynamic variables, we have the full flexibility
 of PHP at our disposal. We could even use the output of other partials to
