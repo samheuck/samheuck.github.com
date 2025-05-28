@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="/print.css" />
 
     <script src="/contact.js"></script>
+    <script src="/hamburger.js"></script>
+
     
 <title>Sam Heuck Web Development | The Blog</title>
 <meta name="description" content="Personal blog of software engineer & creative professional Sam Heuck." />
@@ -37,13 +39,19 @@
         </a>
       </div>
 
-      <div class="flex flex-column justify-end pl4">
+      <div id="nav-main-parent" class="flex justify-end pl4">
         <h1><a href="/">Sam <span class="accent">Heuck</span> Web <span class="accent">Development</span></a></h1>
-        <nav>
+        <span id="hamburger">☰</span>
+        <nav id="nav-main">
           <ul>
+            <span data-action="close">ⓧ</span>
           
             
-              <li><a href="&#x2F;my-work&#x2F;">my work</a></li>
+              <li><a href="&#x2F;what-we-do&#x2F;">what we do</a></li>
+            
+          
+            
+              <li><a href="&#x2F;portfolio&#x2F;">client work</a></li>
             
           
             
@@ -105,12 +113,10 @@ More specifically, I am a music technologist. Not only do I have the tr…</p>
         
         <div class="pa2 w-50-l">
           <p>
-    &amp;lt;img src=&quot;cyborg.jpg&quot;
-alt=&quot;Cyberpunk themed, Half robot, half human typing at a computer desk while plugged in to various futuristic machinery.&quot;
-
-
+    
 Do DevOps and SRE teams have customers? They must, right? I mean, don&#x27;t they just fix the servers when something breaks?
-To put it another way, DevOps successes are invisible, but their failures can be extremely disruptive. Kind of like plumbers…</p>
+To put it another way, DevOps successes are invisible, but their failures can be extremely disruptive. Kind of like plumbers.
+How often do you think about plumbers? I would venture to guess that many people only ever interact with a plumber when their pipes freeze and brea…</p>
         </div>
         <div class="pa2 tc w-50-l">
           <img src=https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;customer-oriented-devops&#x2F;/cyborg.jpg alt="">

@@ -3,7 +3,7 @@ window.addEventListener('load', function () {
     const openDate = new Date();
     contactForm(openDate);
   }));
-}, { once: true })
+})
 
 function contactForm(openDate) {
   if (!openDate instanceof Date) {

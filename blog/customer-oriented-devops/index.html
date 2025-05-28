@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="/print.css" />
 
     <script src="/contact.js"></script>
+    <script src="/hamburger.js"></script>
+
     
 <title>Sam Heuck Web Development | Customer Oriented DevOps</title>
 <meta name="description" content="A DevOps engineer provides a valuable service to his customers that goes far beyond fixing broken things." />
@@ -41,13 +43,19 @@
         </a>
       </div>
 
-      <div class="flex flex-column justify-end pl4">
+      <div id="nav-main-parent" class="flex justify-end pl4">
         <h1><a href="/">Sam <span class="accent">Heuck</span> Web <span class="accent">Development</span></a></h1>
-        <nav>
+        <span id="hamburger">☰</span>
+        <nav id="nav-main">
           <ul>
+            <span data-action="close">ⓧ</span>
           
             
-              <li><a href="&#x2F;my-work&#x2F;">my work</a></li>
+              <li><a href="&#x2F;what-we-do&#x2F;">what we do</a></li>
+            
+          
+            
+              <li><a href="&#x2F;portfolio&#x2F;">client work</a></li>
             
           
             
@@ -74,10 +82,7 @@
     <h1 class="blog-post-title">Customer Oriented DevOps</h1>
     <span class="post-date">2024-04-18</span>
     <section>
-      <p>&lt;img src="cyborg.jpg"
-alt="Cyberpunk themed, Half robot, half human typing at a computer desk while plugged in to various futuristic machinery."</p>
-<blockquote>
-</blockquote>
+      <img src="cyborg.jpg" alt="Cyberpunk themed, Half robot, half human typing at a computer desk while plugged in to various futuristic machinery.">
 <p>Do DevOps and SRE teams have customers? They must, right? I mean, don't they just fix the servers when something breaks?</p>
 <p>To put it another way, DevOps successes are invisible, but their failures can be extremely disruptive. Kind of like plumbers.</p>
 <p>How often do you think about plumbers? I would venture to guess that many people only ever interact with a plumber when their pipes freeze and break. At which point, they urgently need attention from a good plumber. But have you ever considered that plumbers, in fact, offer a service, and the complexity of that service is blissfully out-of-sight and out-of-mind?</p>

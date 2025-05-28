@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="/print.css" />
 
     <script src="/contact.js"></script>
+    <script src="/hamburger.js"></script>
+
     
 <title>Sam Heuck Web Development | Meet Jekyll, the Static Site Generator - Part 1</title>
 <meta name="description" content="Jekyll is a static site generator written in Ruby that uses the Liquid template engine. In combination with git for version control and Jenkins for deployment, Jekyll is a powerful tool not just for blogging, but also for small to medium-sized websites. Give Jekyll a try, and you can blog like a hacker." />
@@ -41,13 +43,19 @@
         </a>
       </div>
 
-      <div class="flex flex-column justify-end pl4">
+      <div id="nav-main-parent" class="flex justify-end pl4">
         <h1><a href="/">Sam <span class="accent">Heuck</span> Web <span class="accent">Development</span></a></h1>
-        <nav>
+        <span id="hamburger">☰</span>
+        <nav id="nav-main">
           <ul>
+            <span data-action="close">ⓧ</span>
           
             
-              <li><a href="&#x2F;my-work&#x2F;">my work</a></li>
+              <li><a href="&#x2F;what-we-do&#x2F;">what we do</a></li>
+            
+          
+            
+              <li><a href="&#x2F;portfolio&#x2F;">client work</a></li>
             
           
             
