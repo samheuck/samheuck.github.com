@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/PTSans-Regular.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/PTSans-Bold.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url(/PTSans-Italic.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'PT Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: url(/PTSans-BoldItalic.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/Ubuntu-Regular.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/Ubuntu-Bold.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 400;
+  src: url(/Ubuntu-Italic.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 700;
+  src: url(/Ubuntu-BoldItalic.ttf) format('ttf');
+}
