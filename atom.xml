@@ -14,9 +14,7 @@
         
         <author>
           <name>
-            
-              Unknown
-            
+            Kristi McGarity
           </name>
         </author>
         
@@ -44,9 +42,7 @@
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
@@ -268,260 +264,13 @@ Practical advice to protect your website, avoid scammers and spammers, and keep 
         
     </entry>
     <entry xml:lang="en">
-        <title>Resume</title>
-        <published>2025-10-23T00:00:00+00:00</published>
-        <updated>2025-10-23T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            
-              Unknown
-            
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://samheuck.com/resume/"/>
-        <id>https://samheuck.com/resume/</id>
-        
-        <content type="html" xml:base="https://samheuck.com/resume/">&lt;script type=&quot;application&#x2F;ld+json&quot;&gt;
-{
-  &quot;@context&quot;: &quot;https:&#x2F;&#x2F;schema.org&quot;,
-  &quot;@type&quot;: &quot;Person&quot;,
-  &quot;address&quot;: {
-    &quot;@type&quot;: &quot;PostalAddress&quot;,
-    &quot;addressLocality&quot;: &quot;Kyle&quot;,
-    &quot;addressRegion&quot;: &quot;TX&quot;,
-    &quot;postalCode&quot;: &quot;78640&quot;,
-  },
-  &quot;email&quot;: &quot;mailto:shwd@emushack.com&quot;,
-  &quot;image&quot;: &quot;&#x2F;sam.jpg&quot;,
-  &quot;jobTitle&quot;: &quot;Sr. Software Engineer&quot;,
-  &quot;name&quot;: &quot;David Samuel Heuck&quot;,
-  &quot;url&quot;: &quot;https:&#x2F;&#x2F;samheuck.com&quot;
-}
-&lt;&#x2F;script&gt;
-&lt;div class=&quot;print-only&quot; id=&quot;me&quot;&gt;
-  &lt;div id=&quot;name&quot; class=&quot;text-large&quot;&gt;
-    &lt;span&gt;David Samuel&lt;&#x2F;span&gt;
-    &lt;span class=&quot;accent&quot;&gt;Heuck&lt;&#x2F;span&gt;
-    &lt;span&gt; | Full Stack Software Engineer &lt;&#x2F;span&gt;
-  &lt;&#x2F;div&gt;
-  &lt;hr&gt;
-  &lt;div&gt;email: shwd@emushack.com&lt;&#x2F;div&gt;
-  &lt;div&gt;phone: 406-600-9484&lt;&#x2F;div&gt;
-  &lt;div&gt;address: 1252 Twin Cv&lt;&#x2F;div&gt;
-  &lt;div&gt;city: Kyle&lt;&#x2F;div&gt;
-  &lt;div&gt;state: TX&lt;&#x2F;div&gt;
-  &lt;div&gt;zip: 78640&lt;&#x2F;div&gt;
-&lt;&#x2F;div&gt;
-&lt;section id=&quot;resume&quot;&gt;
-&lt;div id=&quot;summary&quot;&gt;
-&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;&#x2F;h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Agile Software Projects&lt;&#x2F;li&gt;
-&lt;li&gt;DevOps Engineering&lt;&#x2F;li&gt;
-&lt;li&gt;Operations &amp;amp; Monitoring&lt;&#x2F;li&gt;
-&lt;li&gt;Data Security&lt;&#x2F;li&gt;
-&lt;li&gt;Data Visualization&lt;&#x2F;li&gt;
-&lt;li&gt;Technical Leadership&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;div class=&quot;print-only&quot;&gt;&lt;br &#x2F;&gt;&lt;&#x2F;div&gt;
-&lt;h2 id=&quot;about-me&quot;&gt;About Me&lt;&#x2F;h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Self-motivated&lt;&#x2F;li&gt;
-&lt;li&gt;Creative problem solving&lt;&#x2F;li&gt;
-&lt;li&gt;Innovative yet pragmatic&lt;&#x2F;li&gt;
-&lt;li&gt;Fast learner&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;&#x2F;div&gt;
-&lt;div id=&quot;skills&quot;&gt;
-&lt;h2 style=&quot;margin-top: 0&quot;&gt;Skills &lt;&#x2F;h2&gt;
-&lt;p class=&quot;skills&quot;&gt;
-  &lt;div class=&quot;print-only&quot;&gt;&lt;ul&gt;&lt;li&gt;Developing &lt;span class=&quot;accent&quot;&gt; front end and back end software services&lt;&#x2F;span&gt; using &lt;span class=&quot;accent&quot;&gt;Python, JavaScript, Node.js, React, Vue.js, Typescript, Laravel, Symfony, PHP, Drupal&lt;&#x2F;span&gt;&lt;&#x2F;li&gt;&lt;li&gt;Planning cloud automation projects &lt;span class=&quot;accent&quot;&gt;AWS, Azure, Docker, Linux administration, Kubernetes, Github Actions, IaC&lt;&#x2F;span&gt;&lt;&#x2F;li&gt;  &lt;li&gt; Designing database schemas &lt;span class=&quot;accent&quot;&gt;MySQL, Postgres, No-SQL&lt;&#x2F;span&gt;&lt;&#x2F;li&gt; &lt;li&gt; Building and integrating &lt;span class=&quot;accent&quot;&gt;RESTful API services&lt;&#x2F;span&gt;&lt;&#x2F;li&gt; &lt;li&gt;Leading software projects using &lt;span class=&quot;accent&quot;&gt;Agile &amp;amp; scrum &amp;amp; kanban&lt;&#x2F;span&gt;&lt;&#x2F;li&gt; &lt;li&gt;Practicing DevOps &lt;span class=&quot;accent&quot;&gt;Jenkins, Prometheus &amp; Grafana, CI&#x2F;CD, build and release tools, configuration management, container orchestration, test automation, security&lt;&#x2F;span&gt;&lt;&#x2F;li&gt; &lt;li&gt;Infrastructure as code with &lt;span class=&quot;accent&quot;&gt;Ansible, Terraform, CloudFormation, Chef &amp;amp; Puppet&lt;&#x2F;span&gt;&lt;&#x2F;li&gt;&lt;li&gt;Web design with &lt;span class=&quot;accent&quot;&gt;HTML, CSS&lt;&#x2F;span&gt;&lt;&#x2F;li&gt;&lt;&#x2F;ul&gt;&lt;&#x2F;div&gt;
-  &lt;div class=&quot;no-print&quot;&gt;Developing &lt;span class=&quot;accent&quot;&gt;front end and back end software services&lt;&#x2F;span&gt; using &lt;span class=&quot;accent&quot;&gt;Python, JavaScript, Node.js, React, Vue.js, Typescript, Laravel, Symfony, PHP, Drupal&lt;&#x2F;span&gt;● Planning cloud automation projects &lt;span class=&quot;accent&quot;&gt;AWS, Azure, Docker, Linux administration, Kubernetes, Github Actions, IaC&lt;&#x2F;span&gt; ● Designing database schemas &lt;span class=&quot;accent&quot;&gt;MySQL, Postgres, No-SQL&lt;&#x2F;span&gt; ● Building and integrating &lt;span class=&quot;accent&quot;&gt;RESTful API services&lt;&#x2F;span&gt; ● Leading software projects using &lt;span class=&quot;accent&quot;&gt;Agile &amp;amp; scrum &amp;amp; kanban&lt;&#x2F;span&gt; ● Practicing DevOps &lt;span class=&quot;accent&quot;&gt;Jenkins, Prometheus &amp; Grafana, CI&#x2F;CD, build and release tools, configuration management, container orchestration, test automation, security&lt;&#x2F;span&gt; ● Infrastructure as code with &lt;span class=&quot;accent&quot;&gt;Ansible, Terraform, CloudFormation, Chef &amp;amp; Puppet&lt;&#x2F;span&gt; ● Web design with &lt;span class=&quot;accent&quot;&gt;HTML, CSS&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;div&gt;
-&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
-&lt;h2 id=&quot;experience&quot;&gt;Experience&lt;&#x2F;h2&gt;
-&lt;div class=&quot;job&quot;&gt;
-  &lt;h3&gt;Owner&lt;&#x2F;h3&gt;
-  &lt;span&gt;2013 - pr. | Sam Heuck Web Development&lt;&#x2F;span&gt;
-&lt;&#x2F;div&gt;
-&lt;h4 id=&quot;client-the-construct&quot;&gt;Client: The Construct&lt;&#x2F;h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Development on The Construct - An independent platform for intelligent discourse&lt;&#x2F;li&gt;
-&lt;li&gt;Front-end development with Flutter &amp;amp; Dart, back-end development using Firebase and Python&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;h4 id=&quot;client-trailside-creative&quot;&gt;Client: Trailside Creative&lt;&#x2F;h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Website update for Trailside Creative, an industrial design company specializing in outdoor recreation equipment.&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;h4 id=&quot;client-beck-audio-forensics&quot;&gt;Client: Beck Audio Forensics&lt;&#x2F;h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Website re-design for Beck Audio Forensics, a professional service offering expert analysis of audio evidence for legal proceedings&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;h4 id=&quot;client-mentrix-group&quot;&gt;Client: Mentrix Group&lt;&#x2F;h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Greenfield app development, design collaboration on an app for online discussions&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;h4 id=&quot;client-silver-bow-technology-group&quot;&gt;Client: Silver Bow Technology Group&lt;&#x2F;h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Produced a technology stack audit and roadmap recommendations&lt;&#x2F;li&gt;
-&lt;li&gt;Collaborated with offshore developers to address security risks with existing software&lt;&#x2F;li&gt;
-&lt;li&gt;Set up formal Agile process and Kanban boards for multiple product teams&lt;&#x2F;li&gt;
-&lt;li&gt;Led development of new custom CRM (SaaS product) to replace aging software solution&lt;&#x2F;li&gt;
-&lt;li&gt;Created a DevOps pipeline hosted on serverless cloud infrastructure to handle Docker container orchestration and deployments using AWS ECS, ECR, ELB, RDS, and CloudFormation&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;h4 id=&quot;client-aristo-global-custom-catalyst-solutions&quot;&gt;Client: Aristo Global: Custom Catalyst Solutions&lt;&#x2F;h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Developed and deployed a sales quote tool for emission-reducing engine catalysts&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;br &#x2F;&gt;
-&lt;div class=&quot;job&quot;&gt;
-  &lt;h3&gt;Senior Software Developer&lt;&#x2F;h3&gt;
-  &lt;span&gt;May 2024 - December 2024 | Orases&lt;&#x2F;span&gt;
-&lt;&#x2F;div&gt;
-&lt;h4 id=&quot;projects&quot;&gt;Projects&lt;&#x2F;h4&gt;
-&lt;div class=&quot;inset&quot; style=&quot;font-size:18px&quot;&gt;
-&lt;p&gt;&lt;em&gt;MED-EL&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;Worked with a team of developers and business analysts to design and implement
-a HIPAA-compliant web application allowing clinicians to plan and fit cochlear implant
-devices, built in Laravel and Vue.js.&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;em&gt;UL Research&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;Maintained and upgraded LMS (learning management system) for Fire Safety Research
-Institute firefighter training courses, using PHP&#x2F;Symfony.&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
-&lt;div class=&quot;job&quot;&gt;
-  &lt;h3&gt;Senior DevOps Engineer&lt;&#x2F;h3&gt;
-  &lt;span&gt;Nov 2022 - Apr 2023 | Projekt202&lt;&#x2F;span&gt;
-&lt;&#x2F;div&gt;
-&lt;h4 id=&quot;short-term-contract-mufj-financial-group&quot;&gt;Short-term contract MUFJ Financial Group&lt;&#x2F;h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Supported development teams by maintaining Jenkins pipelines&lt;&#x2F;li&gt;
-&lt;li&gt;Collaborated with multiple stakeholder groups to migrate CI&#x2F;CD to Azure DevOps&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;br &#x2F;&gt;
-&lt;div class=&quot;job&quot;&gt;
-  &lt;h3&gt;Senior Software Developer&lt;&#x2F;h3&gt;
-  &lt;span&gt;Jul 2019 - Oct 2022 | Interactive Health Technologies&lt;&#x2F;span&gt;
-&lt;&#x2F;div&gt;
-&lt;h4 id=&quot;achievements&quot;&gt;Achievements&lt;&#x2F;h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Collaborated with regional sales manager to secure $100K P&#x2F;O by delivering new features on time&lt;&#x2F;li&gt;
-&lt;li&gt;Integrated a Single Sign-On service for educators into the main software product&lt;&#x2F;li&gt;
-&lt;li&gt;Implemented a service to consume a common data standard for K-12 student rostering&lt;&#x2F;li&gt;
-&lt;li&gt;Built an Airflow ETL &amp;amp; OLAP service for processing FitnessGram® results for the Texas Education Agency&lt;&#x2F;li&gt;
-&lt;li&gt;Finished and supported an automated report delivery system for largest customer&lt;&#x2F;li&gt;
-&lt;li&gt;Added new features to data collection and reporting software&lt;&#x2F;li&gt;
-&lt;li&gt;Improved communication and process with customer service&lt;&#x2F;li&gt;
-&lt;li&gt;Reduced AWS hosting &amp;amp; infrastructure costs by 17%&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;h4 id=&quot;responsibilities&quot;&gt;Responsibilities&lt;&#x2F;h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Gather requirements, formalize, analyze, implement, and test new features&lt;&#x2F;li&gt;
-&lt;li&gt;Fix bugs and respond to customer feedback&lt;&#x2F;li&gt;
-&lt;li&gt;Plan software releases for main software products&lt;&#x2F;li&gt;
-&lt;li&gt;Rapidly respond to outages and site performance problems&lt;&#x2F;li&gt;
-&lt;li&gt;Coordinate with external software teams on API enhancements&lt;&#x2F;li&gt;
-&lt;li&gt;Advise and support the business on technology related growth opportunities&lt;&#x2F;li&gt;
-&lt;li&gt;Maintain, troubleshoot, and optimize use of AWS cloud services&lt;&#x2F;li&gt;
-&lt;li&gt;Provide 2nd tier technical support for customer service team&lt;&#x2F;li&gt;
-&lt;li&gt;Maintain software stacks and Linux servers (Ubuntu, CentOS)&lt;&#x2F;li&gt;
-&lt;li&gt;Maintain and improve CI&#x2F;CD for main software products&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;br &#x2F;&gt;
-&lt;div class=&quot;job&quot;&gt;
-  &lt;h3&gt;Director of Engineering &#x2F; Solution Architect&lt;&#x2F;h3&gt;
-  &lt;span&gt;Jan 2016 - Jul 2019 | Praxent&lt;&#x2F;span&gt;
-&lt;&#x2F;div&gt;
-&lt;h4 id=&quot;achievements-1&quot;&gt;Achievements&lt;&#x2F;h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Built a CI&#x2F;CD pipeline in AWS using Rancher, Docker &amp;amp; GoCD&lt;&#x2F;li&gt;
-&lt;li&gt;Cloud architecture for various web application projects&lt;&#x2F;li&gt;
-&lt;li&gt;Sales engineering for multiple $250,000 green field projects&lt;&#x2F;li&gt;
-&lt;li&gt;Sourced &amp;amp; hired multiple software teams&lt;&#x2F;li&gt;
-&lt;li&gt;Wrote and maintained automation for the setup and on-going operations of 3 different web applications&lt;&#x2F;li&gt;
-&lt;li&gt;On-boarded and integrated off-shore developers for multiple projects&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;h4 id=&quot;responsibilities-1&quot;&gt;Responsibilities&lt;&#x2F;h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Pre-sales engineering&lt;&#x2F;li&gt;
-&lt;li&gt;Architecture support for several project teams&lt;&#x2F;li&gt;
-&lt;li&gt;Operations support for software teams&lt;&#x2F;li&gt;
-&lt;li&gt;1x1s and career development for developers&lt;&#x2F;li&gt;
-&lt;li&gt;Recruiting &amp;amp; Staffing strategy&lt;&#x2F;li&gt;
-&lt;li&gt;Represent engineering in management committee&lt;&#x2F;li&gt;
-&lt;li&gt;Advise resource allocation team on staffing decisions&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;h4 id=&quot;projects-1&quot;&gt;Projects&lt;&#x2F;h4&gt;
-&lt;div class=&quot;inset&quot; style=&quot;font-size:18px&quot;&gt;
-&lt;p&gt;&lt;em&gt;Menu Services&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;I worked as a DevOps specialist on an agile team of five to build a menu design and
-analysis tool for a large food service company. I worked closely with several teams and architects
-within the Business Technology unit to deploy various micro-services in AWS. I also worked with
-the dev team to design and build a CI&#x2F;CD pipeline to allow them to iterate on the product rapidly.&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
-&lt;br &#x2F;&gt;
-&lt;div class=&quot;job&quot;&gt;
-  &lt;h3&gt;Developer&lt;&#x2F;h3&gt;
-  &lt;span&gt;May 2012 - Dec 2015 | Praxent&lt;&#x2F;span&gt;
-&lt;&#x2F;div&gt;
-&lt;h4 id=&quot;projects-2&quot;&gt;Projects&lt;&#x2F;h4&gt;
-&lt;div class=&quot;inset&quot; style=&quot;font-size:18px&quot;&gt;
-&lt;p&gt;&lt;em&gt;Interactive Health Technologies&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;I led a team charged with maintaining and improving a suite of software purpose-built
-to track health and fitness goals in schools throughout the country. The software is built
-with a combination of Drupal, EmberJS, NodeJS, MongoDB, and .NET, and it serves thousands of teachers
-and students from California to Florida.&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;em&gt;Texas Youth Football Association&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;I helped build a web application that enables TYFA to certify young athletes to participate in TYFA&#x27;s
-football and cheer sports leagues. Built in EmberJS and backed by a REST API written in Silex, the TYFA app
-allows hundreds of organizations across Texas to register over 15,000 athletes and 3,000 volunteers each
-season.&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;em&gt;Simple Numbers&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;I led a team of three, and we built a web application that helps businesses summarize
-their financial data for an at-a-glance view of financial health. Users upload QuickBooks data files
-and then categorize accounts into predefined &quot;buckets&quot;. The application can then analyze these
-buckets and report back to the user. It was built with Symfony, BackboneJS, and MongoDB.&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;em&gt;World Market Explorer&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;I was responsible for operations, maintenance, and feature development of the World Market
-loyalty rewards website. The site serves 5 million users and was built with Python on Django. It runs
-on a load-balanced cluster of Apache web servers, memcache and Postgres.&lt;&#x2F;p&gt;
-&lt;br &#x2F;&gt;
-&lt;&#x2F;div&gt;
-&lt;h4 id=&quot;achievements-2&quot;&gt;Achievements&lt;&#x2F;h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Elected to represent the engineering team in management &amp;amp; strategic planning meetings&lt;&#x2F;li&gt;
-&lt;li&gt;Facilitated the engineering team to develop a vision statement&lt;&#x2F;li&gt;
-&lt;li&gt;Established a standard for technical interviewing&lt;&#x2F;li&gt;
-&lt;li&gt;Helped establish a formal process for code reviews&lt;&#x2F;li&gt;
-&lt;li&gt;Helped establish a system for continuous integration &amp;amp; continuous deployment (CI&#x2F;CD)&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;h4 id=&quot;responsibilities-2&quot;&gt;Responsibilities&lt;&#x2F;h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Technical leadership of web projects&lt;&#x2F;li&gt;
-&lt;li&gt;Web application development (PHP, EmberJS, Drupal)&lt;&#x2F;li&gt;
-&lt;li&gt;Project scheduling and task delegation&lt;&#x2F;li&gt;
-&lt;li&gt;Recruiting and technical interviews&lt;&#x2F;li&gt;
-&lt;li&gt;Systems administration (AWS, public cloud servers, PaaS)&lt;&#x2F;li&gt;
-&lt;li&gt;Ensure smooth automated application deployments (DevSecOps)&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;h3 id=&quot;education&quot;&gt;Education&lt;&#x2F;h3&gt;
-&lt;p&gt;Bachelor of Arts (BA) | &lt;span class=&quot;accent&quot;&gt;Music Technology&lt;&#x2F;span&gt; &lt;br &#x2F;&gt;
-&lt;span class=&quot;accent&quot;&gt;Montana State University&lt;&#x2F;span&gt; | Bozeman, Montana&lt;&#x2F;p&gt;
-&lt;&#x2F;section&gt;
-</content>
-        
-    </entry>
-    <entry xml:lang="en">
         <title>Trailside Creative</title>
         <published>2025-10-01T00:00:00+00:00</published>
         <updated>2025-10-01T00:00:00+00:00</updated>
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
@@ -574,9 +323,7 @@ incoming leads from the web.&lt;&#x2F;p&gt;
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
@@ -616,9 +363,7 @@ website checkup&lt;&#x2F;a&gt; - just &lt;a class=&quot;contact-me&quot;&gt;send
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
@@ -701,9 +446,7 @@ A few months ago, I noticed a social media post by a doctor who had just purchas
         
         <author>
           <name>
-            
-              Unknown
-            
+            Kristi McGarity
           </name>
         </author>
         
@@ -728,9 +471,7 @@ A few months ago, I noticed a social media post by a doctor who had just purchas
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
@@ -792,9 +533,13 @@ A few months ago, I noticed a social media post by a doctor who had just purchas
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
+          </name>
+        </author>
+        
+        <author>
+          <name>
+            Kristi McGarity
           </name>
         </author>
         
@@ -892,67 +637,13 @@ Kristi is co-owner of Sam Heuck Web Development. &lt;&#x2F;p&gt;
         
     </entry>
     <entry xml:lang="en">
-        <title>Privacy Policy</title>
-        <published>2025-05-16T00:00:00+00:00</published>
-        <updated>2025-05-16T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            
-              Unknown
-            
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://samheuck.com/privacy/"/>
-        <id>https://samheuck.com/privacy/</id>
-        
-        <content type="html" xml:base="https://samheuck.com/privacy/">&lt;h3 id=&quot;information-we-collect&quot;&gt;INFORMATION WE COLLECT&lt;&#x2F;h3&gt;
-&lt;p&gt;To maintain and improve samheuck.com, we may collect anonymous information that cannot personally identify you, such as pages you visit, general geographical location, referring&#x2F;exit URLs, platform types, or browser versions.&lt;&#x2F;p&gt;
-&lt;p&gt;You may provide us with personal information by typing your email address or other information, posting comments, or filling out web forms. We do not collect personal information other than that which you provide us.&lt;&#x2F;p&gt;
-&lt;p&gt;Samheuck.com may store text files, or “cookies,” on user’s hard drives. We use cookies to recognize users who have previously visited samheuck.com, and to ensure expected website functionality. (For example, a cookie could record that you closed a pop-up, so you don&#x27;t get the same pop-up repeatedly.) If you prefer that this information not be stored, you can delete cookies using the instructions in your browser’s Help files.&lt;&#x2F;p&gt;
-&lt;h3 id=&quot;how-we-use-your-information&quot;&gt;HOW WE USE YOUR INFORMATION&lt;&#x2F;h3&gt;
-&lt;p&gt;We use anonymous information, such as browser statistics, to maintain and improve the functionality of samheuck.com.&lt;&#x2F;p&gt;
-&lt;p&gt;We may share personal and non-personal information with vendors who perform services for Sam Heuck Web Development. Our web hosting service, file hosting service, or email service may receive personal information from customers and site visitors, only at our direction and only for the express purpose of delivering a service or product you have requested. Our third-party vendors store data on servers located in the United States of America. We review the privacy policies of third-party service providers to ensure they do not share your information, except as necessary to perform services you have requested.&lt;&#x2F;p&gt;
-&lt;p&gt;Sam Heuck Web Development does not sell, trade, rent, or otherwise share your personal information with third parties for marketing or any other purpose.&lt;&#x2F;p&gt;
-&lt;p&gt;If you provide an email address to a webform on samheuck.com, you consent to receive electronic communications from Sam Heuck Web Development at that email address, limited to the purposes indicated on the form.&lt;&#x2F;p&gt;
-&lt;p&gt;We may disclose your information in response to a court order, or if required to do so by law.&lt;&#x2F;p&gt;
-&lt;h3 id=&quot;children-under-13&quot;&gt;CHILDREN UNDER 13&lt;&#x2F;h3&gt;
-&lt;p&gt;Sam Heuck Web Development does not knowingly collect information from children under age 13. Any reference to a child under 13 (such as a photo or story in a blog post) must have consent from that child’s parent or guardian.&lt;&#x2F;p&gt;
-&lt;h3 id=&quot;how-we-protect-your-information&quot;&gt;HOW WE PROTECT YOUR INFORMATION&lt;&#x2F;h3&gt;
-&lt;p&gt;We implement industry-standard security measures designed to protect your information from unauthorized access.&lt;&#x2F;p&gt;
-&lt;p&gt;We take industry-standard security measures to ensure that personal information is never harvested, scraped, or archived from our servers by any third party.&lt;&#x2F;p&gt;
-&lt;p&gt;We further protect your information from potential security breaches by implementing encryption and secure socket layer technology whenever you send personal information through samheuck.com.&lt;&#x2F;p&gt;
-&lt;p&gt;However, no internet communication is 100% secure, and these measures do not guarantee that your information cannot be accessed, disclosed, altered or destroyed by breach of our security systems.  By using our service, you acknowledge that you understand and agree to assume these risks.&lt;&#x2F;p&gt;
-&lt;h3 id=&quot;your-rights-regarding-your-personal-information&quot;&gt;YOUR RIGHTS REGARDING YOUR PERSONAL INFORMATION&lt;&#x2F;h3&gt;
-&lt;p&gt;If you prefer that we not store your personal information (such as contact information entered into a webform), we will anonymize or remove such information from our servers at your request. Removal from our servers will also prevent you from accessing this information in the future. Please notify &lt;a href=&quot;mailto:shwd@emushack.com&quot;&gt;shwd@emushack.com&lt;&#x2F;a&gt; if you prefer that your personal information be removed from our servers.&lt;&#x2F;p&gt;
-&lt;p&gt;You have the right to receive a complete copy of any personal information about you that we may have stored, on our servers or with any third-party service provider.&lt;&#x2F;p&gt;
-&lt;p&gt;You have the right to request information about how and where your information is stored and processed.&lt;&#x2F;p&gt;
-&lt;p&gt;You have the right to correct or update any personal information about you that we may have stored, on our servers or with any third-party service provider.&lt;&#x2F;p&gt;
-&lt;p&gt;You have the right to have your personal information deleted or anonymized upon request.&lt;&#x2F;p&gt;
-&lt;p&gt;To exercise any of these rights regarding your personal information, please contact &lt;a href=&quot;mailto:shwd@emushack.com&quot;&gt;shwd@emushack.com&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
-&lt;h3 id=&quot;links-to-other-websites&quot;&gt;LINKS TO OTHER WEBSITES&lt;&#x2F;h3&gt;
-&lt;p&gt;Sam Heuck Web Development may provide links to third party websites, as well as content or items belonging to or originating from third parties. Sam Heuck Web Development is not responsible for third party sites accessed from our site. You should review the terms and privacy policies of any site to which you navigate from our site.&lt;&#x2F;p&gt;
-&lt;h3 id=&quot;changes-to-our-privacy-policy&quot;&gt;CHANGES TO OUR PRIVACY POLICY&lt;&#x2F;h3&gt;
-&lt;p&gt;Sam Heuck Web Development reserves the right to change this policy in the future.  We will notify you of significant changes to our Privacy Policy by placing a prominent notice on our site. Significant changes will go into effect 30 days following such notification.&lt;&#x2F;p&gt;
-&lt;h3 id=&quot;general-terms&quot;&gt;GENERAL TERMS&lt;&#x2F;h3&gt;
-&lt;p&gt;If any part of this Agreement is held invalid or unenforceable, the remaining portions will remain in force and effect. Sam Heuck Web Development’s failure to enforce any provision of this agreement is not a waiver of our right to enforce such provision. Our rights under this agreement will survive any termination of this agreement.&lt;&#x2F;p&gt;
-&lt;p&gt;These terms and your use of our website are governed by the federal laws of the United States of America and the laws of the State of Texas.&lt;&#x2F;p&gt;
-&lt;h3 id=&quot;contact-us&quot;&gt;CONTACT US&lt;&#x2F;h3&gt;
-&lt;p&gt;If you have any questions regarding this Privacy Policy, please contact us at &lt;a href=&quot;mailto:shwd@emushack.com&quot;&gt;shwd@emushack.com&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
-</content>
-        
-    </entry>
-    <entry xml:lang="en">
         <title>Beck Audio Forensics</title>
         <published>2025-04-25T00:00:00+00:00</published>
         <updated>2025-04-25T00:00:00+00:00</updated>
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
@@ -1027,9 +718,7 @@ Kristi is co-owner of Sam Heuck Web Development. &lt;&#x2F;p&gt;
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
@@ -1143,9 +832,7 @@ production.&lt;&#x2F;p&gt;
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
@@ -1173,9 +860,7 @@ production.&lt;&#x2F;p&gt;
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
@@ -1220,9 +905,7 @@ production.&lt;&#x2F;p&gt;
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
@@ -1265,9 +948,7 @@ production.&lt;&#x2F;p&gt;
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
@@ -2051,9 +1732,7 @@ convenient in Rust because it&#x27;s baked right in to the standard tools that c
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
@@ -2214,9 +1893,7 @@ One for day-to-day use, and one for a backup.&lt;&#x2F;p&gt;
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
@@ -2246,9 +1923,7 @@ One for day-to-day use, and one for a backup.&lt;&#x2F;p&gt;
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
@@ -2284,9 +1959,7 @@ when a change request comes in, you can say, &quot;yeah that&#x27;s easy&quot; i
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
@@ -2542,9 +2215,7 @@ changes to your repository.&lt;&#x2F;p&gt;
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
@@ -2706,9 +2377,7 @@ on some of what I learned.&lt;&#x2F;p&gt;
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
@@ -3051,9 +2720,7 @@ basic techniques in action.&lt;&#x2F;p&gt;
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
@@ -3111,9 +2778,7 @@ quickly. Great &quot;night stand&quot; reading...&lt;&#x2F;p&gt;
         
         <author>
           <name>
-            
-              Unknown
-            
+            Sam Heuck
           </name>
         </author>
         
