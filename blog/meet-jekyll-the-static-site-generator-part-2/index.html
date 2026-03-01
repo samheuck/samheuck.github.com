@@ -13,6 +13,22 @@
     <link rel="stylesheet" href="/tachyons.min.css" />
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/print.css" fetchpriority="low" />
+    <style>
+      .giallo-l {
+        display: inline-block;
+        min-height: 1lh;
+        width: 100%;
+      }
+      .giallo-ln {
+        display: inline-block;
+        user-select: none;
+        margin-right: 0.4em;
+        padding: 0.4em;
+        min-width: 3ch;
+        text-align: right;
+        opacity: 0.8;
+      }
+    </style>
 
     <script src="/contact.js" fetchpriority="low"></script>
     <script src="/hamburger.js"></script>
@@ -29,6 +45,23 @@
 
   <meta property="og:image" content="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;meet-jekyll-the-static-site-generator-part-2&#x2F;meet_jekyll_2.jpg" />
 
+
+<style>
+  .giallo-l {
+    display: inline-block;
+    min-height: 1lh;
+    width: 100%;
+  }
+  .giallo-ln {
+    display: inline-block;
+    user-select: none;
+    margin-right: 0.4em;
+    padding: 0.4em;
+    min-width: 3ch;
+    text-align: right;
+    opacity: 0.8;
+  }
+</style>
 
 
     <meta property="og:image" content="https://samheuck.com/shwd_og.png" />
@@ -96,229 +129,212 @@ chose Jekyll to build this site and presented a high level overview of how
 Jekyll works. In this post, I'll dive into the depths of Jekyll and show off
 some of its features.</p>
 <h3 id="liquid-templates">Liquid Templates</h3>
-<p>The template engine used by Jekyll is called <a rel="noopener" target="_blank" href="http://liquidmarkup.org/">Liquid</a>.
+<p>The template engine used by Jekyll is called <a rel="noopener external" target="_blank" href="http://liquidmarkup.org/">Liquid</a>.
 Liquid makes it easy to create a layout and pull in page elements dynamically.</p>
 <p>Jekyll will compile content into a page using a layout like this:</p>
-<pre data-lang="html" style="background-color:#2b2c2f;color:#cccece;" class="language-html "><code class="language-html" data-lang="html"><span>// _layouts/default.html
-</span><span>
-</span><span style="color:#5fb3b3;">&lt;!</span><span style="color:#c594c5;">DOCTYPE </span><span style="color:#f99157;">html</span><span style="color:#5fb3b3;">&gt;
-</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">html </span><span style="color:#bb80b3;">lang</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">en</span><span style="color:#5fb3b3;">&quot;&gt;
-</span><span>  </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">head</span><span style="color:#5fb3b3;">&gt;
-</span><span>    {% include head.inc %}
-</span><span>  </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">head</span><span style="color:#5fb3b3;">&gt;
-</span><span>
-</span><span>  </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">body</span><span style="color:#5fb3b3;">&gt;
-</span><span>    </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">header</span><span style="color:#5fb3b3;">&gt;
-</span><span>      {% include header.inc %}
-</span><span>    </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">header</span><span style="color:#5fb3b3;">&gt;
-</span><span>
-</span><span>    </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">div </span><span style="color:#bb80b3;">id</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">main</span><span style="color:#5fb3b3;">&quot;&gt;
-</span><span>      {{ content }}
-</span><span>    </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">div</span><span style="color:#5fb3b3;">&gt;
-</span><span>
-</span><span>    </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">aside</span><span style="color:#5fb3b3;">&gt;
-</span><span>      {% include sidebar.inc %}
-</span><span>    </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">aside</span><span style="color:#5fb3b3;">&gt;
-</span><span>  </span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">body</span><span style="color:#5fb3b3;">&gt;
-</span><span>  {% include js.inc %}
-</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">html</span><span style="color:#5fb3b3;">&gt;
-</span></code></pre>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="html"><span class="giallo-l"><span>// _layouts/default.html</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>&lt;!</span><span style="color: #85E89D;">DOCTYPE</span><span style="color: #B392F0;"> html</span><span>&gt;</span></span>
+<span class="giallo-l"><span>&lt;</span><span style="color: #85E89D;">html</span><span style="color: #B392F0;"> lang</span><span>=</span><span style="color: #9ECBFF;">&quot;en&quot;</span><span>&gt;</span></span>
+<span class="giallo-l"><span>  &lt;</span><span style="color: #85E89D;">head</span><span>&gt;</span></span>
+<span class="giallo-l"><span>    {% include head.inc %}</span></span>
+<span class="giallo-l"><span>  &lt;/</span><span style="color: #85E89D;">head</span><span>&gt;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  &lt;</span><span style="color: #85E89D;">body</span><span>&gt;</span></span>
+<span class="giallo-l"><span>    &lt;</span><span style="color: #85E89D;">header</span><span>&gt;</span></span>
+<span class="giallo-l"><span>      {% include header.inc %}</span></span>
+<span class="giallo-l"><span>    &lt;/</span><span style="color: #85E89D;">header</span><span>&gt;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>    &lt;</span><span style="color: #85E89D;">div</span><span style="color: #B392F0;"> id</span><span>=</span><span style="color: #9ECBFF;">&quot;main&quot;</span><span>&gt;</span></span>
+<span class="giallo-l"><span>      {{ content }}</span></span>
+<span class="giallo-l"><span>    &lt;/</span><span style="color: #85E89D;">div</span><span>&gt;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>    &lt;</span><span style="color: #85E89D;">aside</span><span>&gt;</span></span>
+<span class="giallo-l"><span>      {% include sidebar.inc %}</span></span>
+<span class="giallo-l"><span>    &lt;/</span><span style="color: #85E89D;">aside</span><span>&gt;</span></span>
+<span class="giallo-l"><span>  &lt;/</span><span style="color: #85E89D;">body</span><span>&gt;</span></span>
+<span class="giallo-l"><span>  {% include js.inc %}</span></span>
+<span class="giallo-l"><span>&lt;/</span><span style="color: #85E89D;">html</span><span>&gt;</span></span></code></pre>
 <p><strong>Including partials</strong></p>
 <p>Jekyll will automatically find includes in the _includes directory.</p>
-<pre style="background-color:#2b2c2f;color:#cccece;"><code><span>{% include links.inc %}
-</span></code></pre>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="plain"><span class="giallo-l"><span>{% include links.inc %}</span></span></code></pre>
 <p><strong>Loops and conditionals</strong></p>
 <p>Any page that begins with a YAML Front matter block...</p>
-<pre data-lang="yaml" style="background-color:#2b2c2f;color:#cccece;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span>---
-</span><span style="color:#99c794;">// predefined default variables
-</span><span style="color:#eb606b;">layout</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">default
-</span><span style="color:#eb606b;">category</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">funny
-</span><span style="color:#eb606b;">published</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">true
-</span><span style="color:#eb606b;">tags</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">cats
-</span><span>
-</span><span style="color:#99c794;">// custom variables
-</span><span style="color:#eb606b;">context</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">cats
-</span><span style="color:#eb606b;">title</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">Funny Cats
-</span><span>---
-</span></code></pre>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="yaml"><span class="giallo-l"><span style="color: #B392F0;">---</span></span>
+<span class="giallo-l"><span style="color: #9ECBFF;">// predefined default variables</span></span>
+<span class="giallo-l"><span style="color: #85E89D;">layout</span><span>:</span><span style="color: #9ECBFF;"> default</span></span>
+<span class="giallo-l"><span style="color: #85E89D;">category</span><span>:</span><span style="color: #9ECBFF;"> funny</span></span>
+<span class="giallo-l"><span style="color: #85E89D;">published</span><span>:</span><span style="color: #79B8FF;"> true</span></span>
+<span class="giallo-l"><span style="color: #85E89D;">tags</span><span>:</span><span style="color: #9ECBFF;"> cats</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #9ECBFF;">// custom variables</span></span>
+<span class="giallo-l"><span style="color: #85E89D;">context</span><span>:</span><span style="color: #9ECBFF;"> cats</span></span>
+<span class="giallo-l"><span style="color: #85E89D;">title</span><span>:</span><span style="color: #9ECBFF;"> Funny Cats</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">---</span></span></code></pre>
 <p>can declare variables which can be accessed in Liquid. This allows the
 conditional placement of content. For instance, you can place a sidebar on a
 page based on a context variable...</p>
-<pre style="background-color:#2b2c2f;color:#cccece;"><code><span>--snip--
-</span><span>
-</span><span>&lt;aside&gt;
-</span><span>  {% case page.context %}
-</span><span>    {% when &#39;about&#39; %}
-</span><span>      {% include sidebars/about-sidebar.inc %}
-</span><span>    {% when &#39;contact&#39; %}
-</span><span>      {% include sidebars/contact-sidebar.inc %}
-</span><span>    {% when &#39;home&#39; %}
-</span><span>      {% include sidebars/home-sidebar.inc %}
-</span><span>    {% when &#39;blog&#39; %}
-</span><span>      {% include sidebars/blog-sidebar.inc %}
-</span><span>    {% else %}
-</span><span>  {% endcase %}
-</span><span>&lt;/aside&gt;
-</span></code></pre>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="plain"><span class="giallo-l"><span>--snip--</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>&lt;aside&gt;</span></span>
+<span class="giallo-l"><span>  {% case page.context %}</span></span>
+<span class="giallo-l"><span>    {% when &#39;about&#39; %}</span></span>
+<span class="giallo-l"><span>      {% include sidebars/about-sidebar.inc %}</span></span>
+<span class="giallo-l"><span>    {% when &#39;contact&#39; %}</span></span>
+<span class="giallo-l"><span>      {% include sidebars/contact-sidebar.inc %}</span></span>
+<span class="giallo-l"><span>    {% when &#39;home&#39; %}</span></span>
+<span class="giallo-l"><span>      {% include sidebars/home-sidebar.inc %}</span></span>
+<span class="giallo-l"><span>    {% when &#39;blog&#39; %}</span></span>
+<span class="giallo-l"><span>      {% include sidebars/blog-sidebar.inc %}</span></span>
+<span class="giallo-l"><span>    {% else %}</span></span>
+<span class="giallo-l"><span>  {% endcase %}</span></span>
+<span class="giallo-l"><span>&lt;/aside&gt;</span></span></code></pre>
 <p>It's also simple to create a recent posts block with a loop...</p>
-<pre data-lang="html" style="background-color:#2b2c2f;color:#cccece;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">h3</span><span style="color:#5fb3b3;">&gt;</span><span>Recent Posts</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">h3</span><span style="color:#5fb3b3;">&gt;
-</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">ul</span><span style="color:#5fb3b3;">&gt;
-</span><span>  {% for post in site.posts limit: 6 %}
-</span><span>  </span><span style="color:#5fb3b3;">&lt;</span><span style="color:#eb606b;">li</span><span style="color:#5fb3b3;">&gt;&lt;</span><span style="color:#eb606b;">a </span><span style="color:#bb80b3;">href</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">{{ post.url }}</span><span style="color:#5fb3b3;">&quot;&gt;</span><span>{{ post.title }}</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">a</span><span style="color:#5fb3b3;">&gt;&lt;/</span><span style="color:#eb606b;">li</span><span style="color:#5fb3b3;">&gt;
-</span><span>  {% endfor %}
-</span><span style="color:#5fb3b3;">&lt;/</span><span style="color:#eb606b;">ul</span><span style="color:#5fb3b3;">&gt;
-</span></code></pre>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="html"><span class="giallo-l"><span>&lt;</span><span style="color: #85E89D;">h3</span><span>&gt;Recent Posts&lt;/</span><span style="color: #85E89D;">h3</span><span>&gt;</span></span>
+<span class="giallo-l"><span>&lt;</span><span style="color: #85E89D;">ul</span><span>&gt;</span></span>
+<span class="giallo-l"><span>  {% for post in site.posts limit: 6 %}</span></span>
+<span class="giallo-l"><span>  &lt;</span><span style="color: #85E89D;">li</span><span>&gt;&lt;</span><span style="color: #85E89D;">a</span><span style="color: #B392F0;"> href</span><span>=</span><span style="color: #9ECBFF;">&quot;{{ post.url }}&quot;</span><span>&gt;{{ post.title }}&lt;/</span><span style="color: #85E89D;">a</span><span>&gt;&lt;/</span><span style="color: #85E89D;">li</span><span>&gt;</span></span>
+<span class="giallo-l"><span>  {% endfor %}</span></span>
+<span class="giallo-l"><span>&lt;/</span><span style="color: #85E89D;">ul</span><span>&gt;</span></span></code></pre>
 <p>Site-wide variables can be declared in _config.yml. This is a convenient place
 to put primary navigation…</p>
-<pre data-lang="yaml" style="background-color:#2b2c2f;color:#cccece;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#99c794;">// _config.yml
-</span><span>---
-</span><span style="color:#eb606b;">nav</span><span style="color:#5fb3b3;">:
-</span><span>  </span><span style="color:#5fb3b3;">- </span><span style="color:#eb606b;">text</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">about
-</span><span>    </span><span style="color:#eb606b;">url</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">/about/index.html
-</span><span>  </span><span style="color:#5fb3b3;">- </span><span style="color:#eb606b;">text</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">resume
-</span><span>    </span><span style="color:#eb606b;">url</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">/resume/index.html
-</span><span>  </span><span style="color:#5fb3b3;">- </span><span style="color:#eb606b;">text</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">contact
-</span><span>    </span><span style="color:#eb606b;">url</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">/contact/index.html
-</span><span>  </span><span style="color:#5fb3b3;">- </span><span style="color:#eb606b;">text</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">blog
-</span><span>    </span><span style="color:#eb606b;">url</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">/blog/index.html
-</span></code></pre>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="yaml"><span class="giallo-l"><span style="color: #9ECBFF;">// _config.yml</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">---</span></span>
+<span class="giallo-l"><span style="color: #85E89D;">nav</span><span>:</span></span>
+<span class="giallo-l"><span>  -</span><span style="color: #85E89D;"> text</span><span>:</span><span style="color: #9ECBFF;"> about</span></span>
+<span class="giallo-l"><span style="color: #85E89D;">    url</span><span>:</span><span style="color: #9ECBFF;"> /about/index.html</span></span>
+<span class="giallo-l"><span>  -</span><span style="color: #85E89D;"> text</span><span>:</span><span style="color: #9ECBFF;"> resume</span></span>
+<span class="giallo-l"><span style="color: #85E89D;">    url</span><span>:</span><span style="color: #9ECBFF;"> /resume/index.html</span></span>
+<span class="giallo-l"><span>  -</span><span style="color: #85E89D;"> text</span><span>:</span><span style="color: #9ECBFF;"> contact</span></span>
+<span class="giallo-l"><span style="color: #85E89D;">    url</span><span>:</span><span style="color: #9ECBFF;"> /contact/index.html</span></span>
+<span class="giallo-l"><span>  -</span><span style="color: #85E89D;"> text</span><span>:</span><span style="color: #9ECBFF;"> blog</span></span>
+<span class="giallo-l"><span style="color: #85E89D;">    url</span><span>:</span><span style="color: #9ECBFF;"> /blog/index.html</span></span></code></pre>
 <p>Which can be included in the layout</p>
-<pre style="background-color:#2b2c2f;color:#cccece;"><code><span>&lt;nav&gt;
-</span><span>  {% for link in site.nav %}
-</span><span>    {% assign active = nil %}
-</span><span>    {% if page.url == link.url or page.layout == link.layout %}
-</span><span>      {% assign active = &#39;class=&quot;active&quot;&#39; %}
-</span><span>    {% endif %}
-</span><span>    &lt;li&gt;&lt;a {{ active }} href=&quot;/{{ link.text }}/&quot;&gt;{{ link.text }}&lt;/a&gt;{{ indicator }}&lt;/li&gt;
-</span><span>  {% endfor %}
-</span><span>&lt;/nav&gt;
-</span></code></pre>
-<h3 id="plug-ins">Plug-ins</h3>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="plain"><span class="giallo-l"><span>&lt;nav&gt;</span></span>
+<span class="giallo-l"><span>  {% for link in site.nav %}</span></span>
+<span class="giallo-l"><span>    {% assign active = nil %}</span></span>
+<span class="giallo-l"><span>    {% if page.url == link.url or page.layout == link.layout %}</span></span>
+<span class="giallo-l"><span>      {% assign active = &#39;class=&quot;active&quot;&#39; %}</span></span>
+<span class="giallo-l"><span>    {% endif %}</span></span>
+<span class="giallo-l"><span>    &lt;li&gt;&lt;a {{ active }} href=&quot;/{{ link.text }}/&quot;&gt;{{ link.text }}&lt;/a&gt;{{ indicator }}&lt;/li&gt;</span></span>
+<span class="giallo-l"><span>  {% endfor %}</span></span>
+<span class="giallo-l"><span>&lt;/nav&gt;</span></span></code></pre><h3 id="plug-ins">Plug-ins</h3>
 <p>Out of the box, Jekyll is well equipped to create a blog with a custom layout,
 and it has built in support for markdown. But augment Jekyll with plugins and
 you can start cooking with gas.</p>
 <p><strong>Jekyll Asset pipeline</strong></p>
 <p>This is an essential plug-in for Jekyll that will compile sass, and also
 aggregate and compress javascript and css.</p>
-<pre data-lang="bash" style="background-color:#2b2c2f;color:#cccece;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#ec5f67;">~</span><span style="color:#6699cc;"> gem install Jekyll-asset-pipeline
-</span></code></pre>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #F97583;">~</span><span> gem install Jekyll-asset-pipeline</span></span></code></pre>
 <p>You have to install a compressor. I like the yui-compressor because it will
 minify both javascript and css.</p>
-<pre data-lang="bash" style="background-color:#2b2c2f;color:#cccece;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#ec5f67;">~</span><span style="color:#6699cc;"> gem install yui-compressor
-</span></code></pre>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #F97583;">~</span><span> gem install yui-compressor</span></span></code></pre>
 <p>Once these Ruby gems are installed, enabling the asset pipeline plug-in is as
 simple as putting a config file inside the _plugins directory. Here's the one I
 use for this site…</p>
-<pre data-lang="ruby" style="background-color:#2b2c2f;color:#cccece;" class="language-ruby "><code class="language-ruby" data-lang="ruby"><span style="color:#6699cc;">require </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">Jekyll_asset_pipeline</span><span style="color:#5fb3b3;">&#39;
-</span><span>
-</span><span style="color:#c594c5;">module </span><span>JekyllAssetPipeline
-</span><span>  </span><span style="color:#c594c5;">class </span><span style="color:#fac863;">SassConverter </span><span style="color:#5fb3b3;">&lt; </span><span style="color:#99c794;">JekyllAssetPipeline</span><span style="color:#5fb3b3;">::</span><span style="color:#99c794;">Converter
-</span><span>    </span><span style="color:#6699cc;">require </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">sass</span><span style="color:#5fb3b3;">&#39;
-</span><span>
-</span><span>    </span><span style="color:#c594c5;">def </span><span style="color:#ec5f67;">self</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">filetype
-</span><span>      </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">.sass</span><span style="color:#5fb3b3;">&#39;
-</span><span>    </span><span style="color:#c594c5;">end
-</span><span>
-</span><span>    </span><span style="color:#c594c5;">def </span><span style="color:#6699cc;">convert
-</span><span>      </span><span style="color:#c594c5;">return </span><span style="color:#fac863;">Sass</span><span style="color:#5fb3b3;">::</span><span style="color:#fac863;">Engine</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">new</span><span style="color:#5fb3b3;">(@</span><span>content</span><span style="color:#5fb3b3;">,
-</span><span>        </span><span style="color:#5fb3b3;">:</span><span style="color:#99c794;">load_paths </span><span style="color:#5fb3b3;">=&gt; [&#39;</span><span style="color:#99c794;">.</span><span style="color:#5fb3b3;">&#39;,&#39;</span><span style="color:#99c794;">../_assets</span><span style="color:#5fb3b3;">&#39;,&#39;</span><span style="color:#99c794;">_assets/sass</span><span style="color:#5fb3b3;">&#39;,&#39;</span><span style="color:#99c794;">../_assets/sass</span><span style="color:#5fb3b3;">&#39;],
-</span><span>        </span><span style="color:#5fb3b3;">:</span><span style="color:#99c794;">syntax </span><span style="color:#5fb3b3;">=&gt; :</span><span style="color:#99c794;">sass
-</span><span>      </span><span style="color:#5fb3b3;">).</span><span>render
-</span><span>    </span><span style="color:#c594c5;">end
-</span><span>  </span><span style="color:#c594c5;">end
-</span><span>
-</span><span>  </span><span style="color:#c594c5;">class </span><span style="color:#fac863;">CssCompressor </span><span style="color:#5fb3b3;">&lt; </span><span style="color:#99c794;">JekyllAssetPipeline</span><span style="color:#5fb3b3;">::</span><span style="color:#99c794;">Compressor
-</span><span>    </span><span style="color:#6699cc;">require </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">yui/compressor</span><span style="color:#5fb3b3;">&#39;
-</span><span>
-</span><span>    </span><span style="color:#c594c5;">def </span><span style="color:#ec5f67;">self</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">filetype
-</span><span>      </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">.css</span><span style="color:#5fb3b3;">&#39;
-</span><span>    </span><span style="color:#c594c5;">end
-</span><span>
-</span><span>    </span><span style="color:#c594c5;">def </span><span style="color:#6699cc;">compress
-</span><span>      </span><span style="color:#c594c5;">return </span><span style="color:#fac863;">YUI</span><span style="color:#5fb3b3;">::</span><span style="color:#fac863;">CssCompressor</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">new</span><span style="color:#5fb3b3;">.</span><span>compress</span><span style="color:#5fb3b3;">(@</span><span>content</span><span style="color:#5fb3b3;">)
-</span><span>    </span><span style="color:#c594c5;">end
-</span><span>  </span><span style="color:#c594c5;">end
-</span><span>
-</span><span>  </span><span style="color:#c594c5;">class </span><span style="color:#fac863;">JavaScriptCompressor </span><span style="color:#5fb3b3;">&lt; </span><span style="color:#99c794;">JekyllAssetPipeline</span><span style="color:#5fb3b3;">::</span><span style="color:#99c794;">Compressor
-</span><span>    </span><span style="color:#6699cc;">require </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">yui/compressor</span><span style="color:#5fb3b3;">&#39;
-</span><span>
-</span><span>    </span><span style="color:#c594c5;">def </span><span style="color:#ec5f67;">self</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">filetype
-</span><span>      </span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">.js</span><span style="color:#5fb3b3;">&#39;
-</span><span>    </span><span style="color:#c594c5;">end
-</span><span>
-</span><span>    </span><span style="color:#c594c5;">def </span><span style="color:#6699cc;">compress
-</span><span>      </span><span style="color:#c594c5;">return </span><span style="color:#fac863;">YUI</span><span style="color:#5fb3b3;">::</span><span style="color:#fac863;">JavaScriptCompressor</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">new</span><span style="color:#5fb3b3;">(:</span><span style="color:#99c794;">munge </span><span style="color:#5fb3b3;">=&gt; </span><span style="color:#f99157;">true</span><span style="color:#5fb3b3;">).</span><span>compress</span><span style="color:#5fb3b3;">(@</span><span>content</span><span style="color:#5fb3b3;">)
-</span><span>    </span><span style="color:#c594c5;">end
-</span><span>  </span><span style="color:#c594c5;">end
-</span><span style="color:#c594c5;">end
-</span></code></pre>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="ruby"><span class="giallo-l"><span style="color: #F97583;">require</span><span style="color: #9ECBFF;"> &#39;Jekyll_asset_pipeline&#39;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #F97583;">module</span><span style="color: #B392F0;"> JekyllAssetPipeline</span></span>
+<span class="giallo-l"><span style="color: #F97583;">  class</span><span style="color: #B392F0;"> SassConverter</span><span> &lt;</span><span style="color: #B392F0;"> JekyllAssetPipeline::Converter</span></span>
+<span class="giallo-l"><span style="color: #F97583;">    require</span><span style="color: #9ECBFF;"> &#39;sass&#39;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #F97583;">    def</span><span style="color: #B392F0;"> self.filetype</span></span>
+<span class="giallo-l"><span style="color: #9ECBFF;">      &#39;.sass&#39;</span></span>
+<span class="giallo-l"><span style="color: #F97583;">    end</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #F97583;">    def</span><span style="color: #B392F0;"> convert</span></span>
+<span class="giallo-l"><span style="color: #F97583;">      return</span><span style="color: #79B8FF;"> Sass</span><span>::</span><span style="color: #79B8FF;">Engine</span><span>.</span><span style="color: #F97583;">new</span><span>(@content,</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">        :load_paths</span><span> =&gt; [</span><span style="color: #9ECBFF;">&#39;.&#39;</span><span>,</span><span style="color: #9ECBFF;">&#39;../_assets&#39;</span><span>,</span><span style="color: #9ECBFF;">&#39;_assets/sass&#39;</span><span>,</span><span style="color: #9ECBFF;">&#39;../_assets/sass&#39;</span><span>],</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">        :syntax</span><span> =&gt;</span><span style="color: #79B8FF;"> :sass</span></span>
+<span class="giallo-l"><span>      ).</span><span style="color: #B392F0;">render</span></span>
+<span class="giallo-l"><span style="color: #F97583;">    end</span></span>
+<span class="giallo-l"><span style="color: #F97583;">  end</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #F97583;">  class</span><span style="color: #B392F0;"> CssCompressor</span><span> &lt;</span><span style="color: #B392F0;"> JekyllAssetPipeline::Compressor</span></span>
+<span class="giallo-l"><span style="color: #F97583;">    require</span><span style="color: #9ECBFF;"> &#39;yui/compressor&#39;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #F97583;">    def</span><span style="color: #B392F0;"> self.filetype</span></span>
+<span class="giallo-l"><span style="color: #9ECBFF;">      &#39;.css&#39;</span></span>
+<span class="giallo-l"><span style="color: #F97583;">    end</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #F97583;">    def</span><span style="color: #B392F0;"> compress</span></span>
+<span class="giallo-l"><span style="color: #F97583;">      return</span><span style="color: #79B8FF;"> YUI</span><span>::</span><span style="color: #79B8FF;">CssCompressor</span><span>.</span><span style="color: #F97583;">new</span><span>.</span><span style="color: #B392F0;">compress</span><span>(@content)</span></span>
+<span class="giallo-l"><span style="color: #F97583;">    end</span></span>
+<span class="giallo-l"><span style="color: #F97583;">  end</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #F97583;">  class</span><span style="color: #B392F0;"> JavaScriptCompressor</span><span> &lt;</span><span style="color: #B392F0;"> JekyllAssetPipeline::Compressor</span></span>
+<span class="giallo-l"><span style="color: #F97583;">    require</span><span style="color: #9ECBFF;"> &#39;yui/compressor&#39;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #F97583;">    def</span><span style="color: #B392F0;"> self.filetype</span></span>
+<span class="giallo-l"><span style="color: #9ECBFF;">      &#39;.js&#39;</span></span>
+<span class="giallo-l"><span style="color: #F97583;">    end</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #F97583;">    def</span><span style="color: #B392F0;"> compress</span></span>
+<span class="giallo-l"><span style="color: #F97583;">      return</span><span style="color: #79B8FF;"> YUI</span><span>::</span><span style="color: #79B8FF;">JavaScriptCompressor</span><span>.</span><span style="color: #F97583;">new</span><span>(</span><span style="color: #79B8FF;">:munge</span><span> =&gt;</span><span style="color: #79B8FF;"> true</span><span>).</span><span style="color: #B392F0;">compress</span><span>(@content)</span></span>
+<span class="giallo-l"><span style="color: #F97583;">    end</span></span>
+<span class="giallo-l"><span style="color: #F97583;">  end</span></span>
+<span class="giallo-l"><span style="color: #F97583;">end</span></span></code></pre>
 <p>The asset pipeline plug-in hooks into Liquid and looks for assets to include
 inside the <code>_assets</code> folder.</p>
 <p>Adding javascript looks like this:</p>
-<pre style="background-color:#2b2c2f;color:#cccece;"><code><span>{% javascript_asset_tag global %}
-</span><span>  - /_assets/js/jquery.js
-</span><span>  - /_assets/js/highlight.js
-</span><span>  - /_assets/js/init.js
-</span><span>{% endjavascript_asset_tag %}
-</span></code></pre>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="plain"><span class="giallo-l"><span>{% javascript_asset_tag global %}</span></span>
+<span class="giallo-l"><span>  - /_assets/js/jquery.js</span></span>
+<span class="giallo-l"><span>  - /_assets/js/highlight.js</span></span>
+<span class="giallo-l"><span>  - /_assets/js/init.js</span></span>
+<span class="giallo-l"><span>{% endjavascript_asset_tag %}</span></span></code></pre>
 <p>And css:</p>
-<pre style="background-color:#2b2c2f;color:#cccece;"><code><span>{% css_asset_tag global %}
-</span><span>  - /_assets/css/normalize.css
-</span><span>  - /_assets/screen.sass
-</span><span>{% endcss_asset_tag %}
-</span></code></pre>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="plain"><span class="giallo-l"><span>{% css_asset_tag global %}</span></span>
+<span class="giallo-l"><span>  - /_assets/css/normalize.css</span></span>
+<span class="giallo-l"><span>  - /_assets/screen.sass</span></span>
+<span class="giallo-l"><span>{% endcss_asset_tag %}</span></span></code></pre>
 <p>Including any file ending in .sass will cause asset pipeline to compile the sass
 into css on site build.</p>
-<p>I also like to use a plug-in for <a rel="noopener" target="_blank" href="https://github.com/kinnetica/Jekyll-plugins">sitemap generation</a>.
+<p>I also like to use a plug-in for <a rel="noopener external" target="_blank" href="https://github.com/kinnetica/Jekyll-plugins">sitemap generation</a>.
 Just include it in the <code>_plugins</code> directory and a sitemap will be automatically
 generated on site build.</p>
 <h3 id="helpers">Helpers</h3>
 <p>Thor is an alternative to Rake. I like to use it as a helper for creating posts
-and deploying my site. <a rel="noopener" target="_blank" href="http://whatisthor.com/">Thor has some nifty features.</a></p>
-<pre data-lang="bash" style="background-color:#2b2c2f;color:#cccece;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#ec5f67;">~</span><span style="color:#6699cc;"> gem install thor
-</span></code></pre>
+and deploying my site. <a rel="noopener external" target="_blank" href="http://whatisthor.com/">Thor has some nifty features.</a></p>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #F97583;">~</span><span> gem install thor</span></span></code></pre>
 <p>A Thor task for creating posts:</p>
-<pre data-lang="ruby" style="background-color:#2b2c2f;color:#cccece;" class="language-ruby "><code class="language-ruby" data-lang="ruby"><span style="color:#c594c5;">class </span><span style="color:#fac863;">Site </span><span style="color:#5fb3b3;">&lt; </span><span style="color:#99c794;">Thor
-</span><span>  </span><span style="color:#6699cc;">include </span><span style="color:#fac863;">Thor</span><span style="color:#5fb3b3;">::</span><span>Actions
-</span><span>
-</span><span>  desc </span><span style="color:#5fb3b3;">&quot;</span><span style="color:#99c794;">post</span><span style="color:#5fb3b3;">&quot;, &quot;</span><span style="color:#99c794;">create a new post</span><span style="color:#5fb3b3;">&quot;
-</span><span>  </span><span style="color:#c594c5;">def </span><span style="color:#6699cc;">post
-</span><span>    title </span><span style="color:#5fb3b3;">=</span><span> ask</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">Title:</span><span style="color:#5fb3b3;">&quot;)
-</span><span>    </span><span style="color:#5fb3b3;">@</span><span>title </span><span style="color:#5fb3b3;">=</span><span> title
-</span><span>    </span><span style="color:#5fb3b3;">@</span><span>description </span><span style="color:#5fb3b3;">=</span><span> ask</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">Description:</span><span style="color:#5fb3b3;">&quot;)
-</span><span>    </span><span style="color:#5fb3b3;">@</span><span>category </span><span style="color:#5fb3b3;">=</span><span> ask</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">Category:</span><span style="color:#5fb3b3;">&quot;)
-</span><span>    </span><span style="color:#5fb3b3;">@</span><span>date </span><span style="color:#5fb3b3;">= </span><span style="color:#fac863;">Time</span><span style="color:#5fb3b3;">.</span><span>now</span><span style="color:#5fb3b3;">.</span><span>strftime</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">%Y-%m-%d %k:%M:%S</span><span style="color:#5fb3b3;">&#39;)
-</span><span>
-</span><span>      filename </span><span style="color:#5fb3b3;">= &quot;#{</span><span style="color:#fac863;">Time</span><span style="color:#5fb3b3;">.</span><span>now</span><span style="color:#5fb3b3;">.</span><span>strftime</span><span style="color:#5fb3b3;">(&#39;</span><span style="color:#99c794;">%Y-%m-%d</span><span style="color:#5fb3b3;">&#39;)}</span><span style="color:#99c794;">-</span><span style="color:#5fb3b3;">#{</span><span>title</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">gsub</span><span style="color:#5fb3b3;">(/\s/, &#39;</span><span style="color:#99c794;">-</span><span style="color:#5fb3b3;">&#39;).</span><span>downcase</span><span style="color:#5fb3b3;">}</span><span style="color:#99c794;">.md</span><span style="color:#5fb3b3;">&quot;
-</span><span>      template </span><span style="color:#5fb3b3;">&quot;</span><span style="color:#99c794;">_thor/templates/post</span><span style="color:#5fb3b3;">&quot;, &quot;</span><span style="color:#99c794;">_posts/</span><span style="color:#5fb3b3;">#{</span><span>filename</span><span style="color:#5fb3b3;">}&quot;
-</span><span>
-</span><span>    </span><span style="color:#c594c5;">if </span><span>ENV[</span><span style="color:#5fb3b3;">&#39;</span><span style="color:#99c794;">EDITOR</span><span style="color:#5fb3b3;">&#39;</span><span>]
-</span><span>        </span><span style="color:#6699cc;">system</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">$EDITOR _posts/</span><span style="color:#5fb3b3;">#{</span><span>filename</span><span style="color:#5fb3b3;">}&quot;)
-</span><span>    </span><span style="color:#c594c5;">else
-</span><span>      </span><span style="color:#6699cc;">system</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">vim _posts/</span><span style="color:#5fb3b3;">#{</span><span>filename</span><span style="color:#5fb3b3;">}&quot;)
-</span><span>    </span><span style="color:#c594c5;">end
-</span><span>  </span><span style="color:#c594c5;">end
-</span><span style="color:#c594c5;">end
-</span></code></pre>
-<pre data-lang="yaml" style="background-color:#2b2c2f;color:#cccece;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#99c794;">// Thor template for posts
-</span><span style="color:#99c794;">// lives in _thor/templates
-</span><span>---
-</span><span style="color:#eb606b;">layout</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">post
-</span><span style="color:#eb606b;">published</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">false
-</span><span style="color:#eb606b;">date</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">&lt;%= @date %&gt;
-</span><span>
-</span><span style="color:#eb606b;">title</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">&lt;%= @title %&gt;
-</span><span style="color:#eb606b;">description</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">&lt;%= @description %&gt;
-</span><span style="color:#eb606b;">category</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">&lt;%= @category %&gt;
-</span><span style="color:#eb606b;">image</span><span style="color:#5fb3b3;">: </span><span style="color:#99c794;">&lt;%= @image %&gt;
-</span><span>---
-</span></code></pre>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="ruby"><span class="giallo-l"><span style="color: #F97583;">class</span><span style="color: #B392F0;"> Site</span><span> &lt;</span><span style="color: #B392F0;"> Thor</span></span>
+<span class="giallo-l"><span style="color: #F97583;">  include</span><span style="color: #79B8FF;"> Thor</span><span>::</span><span style="color: #79B8FF;">Actions</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  desc </span><span style="color: #9ECBFF;">&quot;post&quot;</span><span>,</span><span style="color: #9ECBFF;"> &quot;create a new post&quot;</span></span>
+<span class="giallo-l"><span style="color: #F97583;">  def</span><span style="color: #B392F0;"> post</span></span>
+<span class="giallo-l"><span style="color: #FFAB70;">    title</span><span style="color: #F97583;"> =</span><span style="color: #B392F0;"> ask</span><span>(</span><span style="color: #9ECBFF;">&quot;Title:&quot;</span><span>)</span></span>
+<span class="giallo-l"><span>    @title</span><span style="color: #F97583;"> =</span><span> title</span></span>
+<span class="giallo-l"><span>    @description</span><span style="color: #F97583;"> =</span><span style="color: #B392F0;"> ask</span><span>(</span><span style="color: #9ECBFF;">&quot;Description:&quot;</span><span>)</span></span>
+<span class="giallo-l"><span>    @category</span><span style="color: #F97583;"> =</span><span style="color: #B392F0;"> ask</span><span>(</span><span style="color: #9ECBFF;">&quot;Category:&quot;</span><span>)</span></span>
+<span class="giallo-l"><span>    @date</span><span style="color: #F97583;"> =</span><span style="color: #79B8FF;"> Time</span><span>.</span><span style="color: #B392F0;">now</span><span>.</span><span style="color: #B392F0;">strftime</span><span>(</span><span style="color: #9ECBFF;">&#39;%Y-%m-%d %k:%M:%S&#39;</span><span>)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #FFAB70;">      filename</span><span style="color: #F97583;"> =</span><span style="color: #9ECBFF;"> &quot;#{</span><span style="color: #79B8FF;">Time</span><span style="color: #9ECBFF;">.</span><span style="color: #B392F0;">now</span><span style="color: #9ECBFF;">.</span><span style="color: #B392F0;">strftime</span><span style="color: #9ECBFF;">(&#39;%Y-%m-%d&#39;)}-#{title.</span><span style="color: #79B8FF;">gsub</span><span style="color: #9ECBFF;">(</span><span style="color: #DBEDFF;">/</span><span style="color: #85E89D;font-weight: bold;">\s</span><span style="color: #DBEDFF;">/</span><span style="color: #9ECBFF;">, &#39;-&#39;).</span><span style="color: #B392F0;">downcase</span><span style="color: #9ECBFF;">}.md&quot;</span></span>
+<span class="giallo-l"><span>      template </span><span style="color: #9ECBFF;">&quot;_thor/templates/post&quot;</span><span>,</span><span style="color: #9ECBFF;"> &quot;_posts/#{filename}&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #F97583;">    if</span><span style="color: #79B8FF;"> ENV</span><span>[</span><span style="color: #9ECBFF;">&#39;EDITOR&#39;</span><span>]</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">        system</span><span>(</span><span style="color: #9ECBFF;">&quot;$EDITOR _posts/#{filename}&quot;</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #F97583;">    else</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">      system</span><span>(</span><span style="color: #9ECBFF;">&quot;vim _posts/#{filename}&quot;</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #F97583;">    end</span></span>
+<span class="giallo-l"><span style="color: #F97583;">  end</span></span>
+<span class="giallo-l"><span style="color: #F97583;">end</span></span></code></pre><pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="yaml"><span class="giallo-l"><span style="color: #9ECBFF;">// Thor template for posts</span></span>
+<span class="giallo-l"><span style="color: #9ECBFF;">// lives in _thor/templates</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">---</span></span>
+<span class="giallo-l"><span style="color: #85E89D;">layout</span><span>:</span><span style="color: #9ECBFF;"> post</span></span>
+<span class="giallo-l"><span style="color: #85E89D;">published</span><span>:</span><span style="color: #79B8FF;"> false</span></span>
+<span class="giallo-l"><span style="color: #85E89D;">date</span><span>:</span><span style="color: #9ECBFF;"> &lt;%= @date %&gt;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #85E89D;">title</span><span>:</span><span style="color: #9ECBFF;"> &lt;%= @title %&gt;</span></span>
+<span class="giallo-l"><span style="color: #85E89D;">description</span><span>:</span><span style="color: #9ECBFF;"> &lt;%= @description %&gt;</span></span>
+<span class="giallo-l"><span style="color: #85E89D;">category</span><span>:</span><span style="color: #9ECBFF;"> &lt;%= @category %&gt;</span></span>
+<span class="giallo-l"><span style="color: #85E89D;">image</span><span>:</span><span style="color: #9ECBFF;"> &lt;%= @image %&gt;</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">---</span></span></code></pre>
 <p>From the command line, run thor site:post and it will prompt for info about
 the post - title, description, category and an image - and then create a file
 in <code>_posts</code> and open that file in your editor.</p>
 <p>Thor could also be used to run Jekyll, and then <code>rsync</code> the contents of _site to
 a server for easy deployment.</p>
-<p>You can also use <a rel="noopener" target="_blank" href="http://jenkins-ci.org/">Jenkins</a> for deployment. For this site,
+<p>You can also use <a rel="noopener external" target="_blank" href="http://jenkins-ci.org/">Jenkins</a> for deployment. For this site,
 I have the Jekyll stack and Thor installed on my host server. I then use Jenkins
 to run the thor deploy task which copies the contents of _site into the public
 html folder on my host. Updating my site is as simple as writing some content,
