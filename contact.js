@@ -15,13 +15,13 @@ function contactForm(openDate) {
     <div class="modal">
       <span data-action='close'>ⓧ</span>
       <form name="contact">
-        <label for="name">Name</label>
+        <label for="name">* Name</label>
         <input type="text" name="name" required />
 
-        <label for="email">Email</label>
+        <label for="email">* Email</label>
         <input type="email" pattern=".+@.+" name="email" required />
 
-        <label for="company">Company</label>
+        <label for="company">Business Name</label>
         <input name="company" />
 
 

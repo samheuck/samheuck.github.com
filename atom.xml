@@ -52,26 +52,36 @@
         <content type="html" xml:base="https://samheuck.com/web-development/">&lt;section class=&quot;teaser&quot;&gt;
   &lt;p class=&quot;tc sub-heading&quot;&gt;Hand-crafted code = Websites that work&lt;&#x2F;p&gt;
   &lt;h2 class=&quot;tc&quot;&gt;&lt;a href=&quot;&#x2F;what-we-do&quot;&gt;What we do&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
-  &lt;p class=&quot;tc b&quot;&gt;&lt;&#x2F;p&gt;
-  &lt;p class=&quot;tc&quot;&gt;Hello and welcome from Sam and Kristi! With our family-owned web development business, we build and host hand-crafted custom websites and apps for small business and nonprofits. &lt;br&gt; &lt;br&gt; If your business is online, you’re managing a lot: hosting, SEO, forms, emails, landing pages, analytics, accessibility, security, payments… when it all starts to feel like chasing a flock of wandering sheep, we’ll be your border collie, herding your code into place! &lt;a href=&quot;&#x2F;what-we-do&quot;&gt;Learn more...&lt;&#x2F;a&gt;
+&lt;p&gt;Hello and welcome from Sam and Kristi! With our family-owned web development business, we build and host hand-crafted custom websites and apps for small business and nonprofits. &lt;br&gt; &lt;br&gt; If your business is online, you’re managing a lot: hosting, SEO, forms, emails, landing pages, analytics, accessibility, security, payments… when it all starts to feel like chasing a flock of wandering sheep, we’ll be your border collie, herding your code into place! &lt;a href=&quot;&#x2F;what-we-do&quot;&gt;Learn more...&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;&#x2F;section&gt;
 &lt;section class=&quot;teaser&quot;&gt;
-  &lt;h2 class=&quot;tc&quot;&gt;&lt;a href=&quot;&#x2F;website-checkup&quot;&gt;Free website checkup&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
-  &lt;p class=&quot;tc b&quot;&gt;&lt;&#x2F;p&gt;
-  &lt;p class=&quot;tc&quot;&gt;Local business owners: are customers finding you? &lt;br&gt; When they ask AI for (your business) in (your location), do they see &lt;i&gt;you?&lt;&#x2F;i&gt; &lt;br&gt; Could your website do more to help? &lt;br&gt; Try our free, no-obligation &lt;a href=&quot;&#x2F;website-checkup&quot;&gt;website checkup&lt;&#x2F;a&gt; to see opportunities you may be missing.&lt;br&gt; &lt;a class=&quot;contact-me&quot;&gt;Reach out today!&lt;&#x2F;a&gt;&lt;&#x2F;a&gt; 
-&lt;&#x2F;section&gt;
-&lt;section&gt;
-&lt;div class=&quot;alt-note&quot;&gt;
-&lt;p&gt;&quot;If you are considering hiring Sam, I envy you. You&#x27;re about to work with one of the most trustworthy technologists you&#x27;re likely to meet.&quot;&lt;&#x2F;p&gt;
-&lt;p&gt;– Diana Montalion, Architecting Systems&lt;&#x2F;p&gt;
+&lt;div class=&quot;flex flex-column items-center&quot;&gt;
+&lt;div class=&quot;responsive-row&quot;&gt;
+  &lt;div class=&quot;bg-gradient w-half pa4 mr4 tc&quot;&gt;
+    &lt;h2&gt;&lt;a class=&quot;contrast&quot; href=&quot;&#x2F;website-checkup&quot;&gt;Free Website Checkup&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+  &lt;&#x2F;div&gt;
+  &lt;div class=&quot;w-half&quot;&gt;
+    &lt;h3&gt;Local Business Owners:&lt;&#x2F;h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Are customers finding you?&lt;&#x2F;li&gt;
+      &lt;li&gt;When they ask AI, do they see &lt;i&gt;you?&lt;&#x2F;i&gt;&lt;&#x2F;li&gt;
+      &lt;li&gt;Could your website do more to help?&lt;&#x2F;li&gt;
+    &lt;&#x2F;ul&gt;
+  &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;p class=&quot;tc&quot;&gt;Try our free, no-obligation &lt;a href=&quot;&#x2F;website-checkup&quot;&gt;website checkup&lt;&#x2F;a&gt; to see opportunities you may be missing.&lt;br&gt;&lt;br&gt; &lt;a class=&quot;contact-me&quot;&gt;Reach out today!&lt;&#x2F;a&gt;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;&#x2F;div&gt;
 &lt;&#x2F;section&gt;
+&lt;div class=&quot;alt-note quotation&quot;&gt;
+&lt;p&gt;If you are considering hiring Sam, I envy you. You&#x27;re about to work with one of the most trustworthy technologists you&#x27;re likely to meet.&lt;&#x2F;p&gt;
+&lt;p&gt;– Diana Montalion, Architecting Systems&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
 &lt;section class=&quot;teaser tc&quot;&gt;
     &lt;p class=&quot;tc b&quot;&gt;Learn more:&lt;&#x2F;p&gt;
-    &lt;a href=&quot;&#x2F;my-work&quot;&gt;See some of our work...&lt;&#x2F;a&gt;
-    &lt;a href=&quot;&#x2F;blog&quot;&gt;Check out the blog...&lt;&#x2F;a&gt;
+    &lt;a href=&quot;&#x2F;portfolio&quot;&gt;See some of our work&lt;&#x2F;a&gt;
+    &lt;a href=&quot;&#x2F;blog&quot;&gt;Check out the blog&lt;&#x2F;a&gt;
     &lt;p class=&quot;tc b&quot;&gt;Care to chat?&lt;&#x2F;p&gt;
-    &lt;a class=&quot;contact-me&quot;&gt;Reach out...&lt;&#x2F;a&gt;
+    &lt;a class=&quot;contact-me&quot;&gt;Reach out&lt;&#x2F;a&gt;
 &lt;&#x2F;section&gt;
 &lt;script type=&quot;application&#x2F;ld+json&quot;&gt;
     {
@@ -81,8 +91,8 @@
       &quot;logo&quot;: &quot;https:&#x2F;&#x2F;samheuck.com&#x2F;samheuck-weblogo-small.png&quot;
     }
 &lt;&#x2F;script&gt;
-&lt;div class=&quot;alt-note&quot;&gt;
-&lt;p&gt;&quot;We chose Sam to work with on a custom web site because he had the necessary web development skills we needed, but mainly because he took the initiative to explain improvements he saw that could make our design work even better. Working with Sam was a delight; he is capable, intuitive, resourceful, and keenly interested in making a quality product.&quot;&lt;&#x2F;p&gt;
+&lt;div class=&quot;alt-note quotation&quot;&gt;
+&lt;p&gt;We chose Sam to work with on a custom web site because he had the necessary web development skills we needed, but mainly because he took the initiative to explain improvements he saw that could make our design work even better. Working with Sam was a delight; he is capable, intuitive, resourceful, and keenly interested in making a quality product.&lt;&#x2F;p&gt;
 &lt;p&gt;– Bob McDowell, engineering consultant&lt;&#x2F;p&gt;
 &lt;&#x2F;div&gt;</content>
         
@@ -368,8 +378,8 @@ website checkup&lt;&#x2F;a&gt; - just &lt;a class=&quot;contact-me&quot;&gt;send
         <content type="html" xml:base="https://samheuck.com/website-checkup/">&lt;section class=&quot;teaser&quot;&gt;
   &lt;h1 class=&quot;tc page-title accent underline&quot;&gt;Free Website Checkup&lt;&#x2F;h1&gt;
   &lt;h2 class=&quot;tc page-subtitle&quot;&gt;from Sam Heuck Web Development&lt;&#x2F;h2&gt;
-&lt;div class=&quot;alt-note&quot;&gt;
-&lt;p&gt;&quot;SEO need some help? Just had a meeting with Sam Heuck, and he was incredibly helpful! Took the time to explain what I was lacking and answered all my questions. Check him out if you are curious about how to improve your online presence.&quot;&lt;&#x2F;p&gt;
+&lt;div class=&quot;alt-note quotation&quot;&gt;
+&lt;p&gt;SEO need some help? Just had a meeting with Sam Heuck, and he was incredibly helpful! Took the time to explain what I was lacking and answered all my questions. Check him out if you are curious about how to improve your online presence.&lt;&#x2F;p&gt;
 &lt;p&gt;– Alma Duffey, CEO, Veloquix&lt;&#x2F;p&gt;
 &lt;&#x2F;div&gt;
 &lt;p&gt;You&#x27;ve no doubt heard the phrase &quot;Don&#x27;t fix what isn&#x27;t broken.”&lt;&#x2F;p&gt;
@@ -563,7 +573,7 @@ Learn more&lt;&#x2F;a&gt; about the power of &lt;a href=&quot;&#x2F;blog&#x2F;th
 Sam is a &lt;span itemprop=&quot;role&quot;&gt;web developer&lt;&#x2F;span&gt;,
 IT professional, woodworker and audio engineer. He specializes in custom software development and web hosting, using a variety of open source technologies. He has a passion for the endless pursuit of practical, elegant code.&lt;&#x2F;p&gt;
 &lt;p&gt;Sam has over 10 years of experience building and supporting custom web software for organizations large and small. He has developed everything from youth sports apps to customized CRMs to large-scale customer loyalty programs with users in the millions.&lt;&#x2F;p&gt;
-&lt;p&gt;His formative years were spent learning about the value of hard work within his family ranching business in Wyoming. He learned to solve problems and be resourceful, traits he puts to use for the benefit of businesses large and small.&lt;&#x2F;p&gt;
+&lt;p&gt;His formative years were spent learning about the value of hard work within his family ranching business in Wyoming. He learned to solve problems and be resourceful, traits he puts to use for the benefit of businesses large and small. &lt;a href=&quot;&#x2F;resume&quot;&gt;See Sam&#x27;s Resume&lt;&#x2F;a&gt; for more details on past work.&lt;&#x2F;p&gt;
 &lt;p&gt;Sam&#x27;s degree is in Music Technology,  and he loves fly fishing and designing custom furniture. He lives near&lt;span itemprop=&quot;address&quot; itemscope itemtype=&quot;https:&#x2F;&#x2F;schema.org&#x2F;address&quot;&gt;
 &lt;span itemprop=&quot;locality&quot;&gt;Austin&lt;&#x2F;span&gt;,
 &lt;span itemprop=&quot;region&quot;&gt;Texas&lt;&#x2F;span&gt; with his wife and business partner Kristi, their son, and two dogs who lack cattle to herd and so have taken to following us around herding all of our code.&lt;&#x2F;p&gt;
