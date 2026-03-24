@@ -5,8 +5,91 @@
     <link rel="self" type="application/atom+xml" href="https://samheuck.com/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://samheuck.com/"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2026-01-11T00:00:00+00:00</updated>
+    <updated>2026-03-24T00:00:00+00:00</updated>
     <id>https://samheuck.com/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Mind over Math</title>
+        <published>2026-03-24T00:00:00+00:00</published>
+        <updated>2026-03-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Sam Heuck
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://samheuck.com/blog/mind-over-math/"/>
+        <id>https://samheuck.com/blog/mind-over-math/</id>
+        
+        <content type="html" xml:base="https://samheuck.com/blog/mind-over-math/">&lt;p&gt;&lt;em&gt;Why coders rule and droids drool&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;mind-over-math&#x2F;claude_pelican.svg&quot; alt=&quot;claude_pelican&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I am what some might call a &lt;del&gt;tool connoisseur&lt;&#x2F;del&gt; tool hoarder. I still have the Black &amp;amp; Decker bench-top drill press that was my dad’s, complete with decades of accumulation of dust and grease that I will never clean up due to a combination of superstition and nostalgia. It’s older than I am, and still drills perfectly cromulent holes for me on a regular basis. On the other end of the complexity spectrum, I recently added to my ridiculous collection of computing devices (I think I’m up to ~25 or so computers in my 120 sq. ft office) by replacing  the computer I use as my daily driver. I upgraded from a 2018 Mac Mini to a 2025 Mac Studio stuffed with memory.&lt;&#x2F;p&gt;
+&lt;p&gt;For me, a good tool can vary in complexity between something as simple as a well-balanced mallet, to as complex and high-tech as a computer with 28 billion transistors for a brain. I make no sharp distinctions when it comes to technology; The humble wheel was considered advanced technology at one point in time, and today, we have some very complex “wheels”.&lt;&#x2F;p&gt;
+&lt;p&gt;Because of my &lt;del&gt;affinity for&lt;&#x2F;del&gt; obsession with tools, I tend to seek them out and test them out on the regular. I am excruciatingly picky though. Especially with software tools. If a software tool does not make a good first impression, I’m apt to banish it to the infinite depths of &#x2F;dev&#x2F;null. So what makes a good tool then?&lt;&#x2F;p&gt;
+&lt;p&gt;For me, it must be, first and foremost, predictable. Take a screw-driver for example. My favorite screw-driver behaves very predictably. When I manage to use it properly, it saves me a lot of time and effort when I need to fasten two things together. It absolutely refuses to drive nails no matter how hard I bang it against the head of the nail. It only works on screws of specific sizes and shapes. When I apply too much torque at the wrong angle, it predictably fails in exactly the same way every single time, by stripping the threads off the screw. I admit that sounds a little funny, but predictable failure for a tool is just as important to me as predictable success.&lt;&#x2F;p&gt;
+&lt;p&gt;So in case you haven’t heard, Artificial Intelligence has entered the proverbial chat. Specifically, generative pre-trained transformers (GPTs) and large language models (LLMs). Since software is written in text, the techniques brought to us by the AI field are a great fit for the job. Or so it would seem. Naturally, with &#x2F;dev&#x2F;null standing by, I gingerly pick up this new tool to evaluate its utility and ergonomics.&lt;&#x2F;p&gt;
+&lt;p&gt;I chose to start by using Anthropic&#x27;s Claude Sonnet with the Claude Code tool as my interface. I chose Claude because, at one point in time, it was a breakthrough champion of the “draw a pelican riding a bicycle” contest &lt;sup&gt;&lt;a href=&quot;https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;mind-over-math&#x2F;#1&quot;&gt;[1]&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;.  My criteria was simple. Could I Sam, sketch a stick figure pelican riding a stick figure bicycle that was more convincing than the AI model’s sketch? Knowing that my ability to sketch such things is sorely lacking, I felt that this was a pretty low bar. Claude’s sketch was more convincing than mine, which was a pleasant surprise.&lt;&#x2F;p&gt;
+&lt;div class=&quot;media-block&quot;&gt;
+&lt;img width=&quot;250px&quot; src=&quot;gpt_turbo_pelican.svg&quot; &#x2F;&gt;
+&lt;p&gt;Side note, I’m staying the hell away from GPT-3.5 Turbo - that pelican wants to run me over with its bicycle.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;First impressions…. Wow, it actually produced runnable code!&lt;&#x2F;p&gt;
+&lt;p&gt;I was again, pleasantly surprised that Claude wrote code that actually runs. My prompts were fairly direct, and focused on what the user of this software wants to accomplish. For my first few interactions, I wanted to avoid, as much as possible, using the technical lingo that I have picked up over the course of the last 2 decades of my software development career. I asked Claude to write me a tool that would visit a website and produce an in-browser report of the state of SEO for that site. I wanted to see if it could build me a tool similar to SEO Moz - a way to evaluate how a website is doing with its SEO.&lt;&#x2F;p&gt;
+&lt;p&gt;I proceeded to click on one of the links in the page it produced. I was expecting to see a page that shows a table of data - one row for every hyperlink on the site and whether or not that link was working, or 404 Not found. This is a very basic check to find broken links on a web page.&lt;&#x2F;p&gt;
+&lt;p&gt;I Immediately hit errors. The javascript for the page was full of syntax errors. What to do… what to do…. I decided to blindly copy and paste the errors, without reading them, back into Claude to see if it could fix them on its own. Again, I was pleasantly surprised - after several rounds of “guess and check” coding, I arrived at a page that looked more or less like what I wanted to see. Basic yes, not detailed enough, but not broken. Whew - okay bug fixed. Now let’s see about adding some more detail and new features….&lt;&#x2F;p&gt;
+&lt;p&gt;Rather than bore you, dear reader, with every little detail of the next 2 or 3 weeks of my back-and-forth with Claude, let it suffice to say that producing something with an AI assistant is like asking your dog to fetch a tasty meal for you. Always eager to please, it jumps into the task with gusto. Sometimes it comes back with a savory duck confit served on a decadent bed of polenta that is to die for. Other times, it comes back with a live catfish, covered in mud and dog slobber, dropped wriggling and slimy onto your favorite pillow just as you’re headed to bed after an exhausting day of pixel wrangling. Don’t get me wrong, fried catfish is a southern delicacy when expertly prepared. I was just hoping my dog could bread it and fry it for me. Turns out I need to work with my dog for a few weeks before he learns the details of how to properly use the fryer. And darn it if he doesn’t completely forget everything we talked about the moment he sees a squirrel. This analogy is beginning to feel a bit tortured.&lt;&#x2F;p&gt;
+&lt;p&gt;The point is, this is one tool that is not very predictable. I have definitely had a good time using it, and oh boy have I had some tough times using it too. Sometimes, the most powerful tools are also the most difficult to use. Take the piano for example. It is a fact that any human being that walks this earth can play the piano. It is hands down, the most playable instrument there is. All you have to do is push the keys down. Human babies can get piano sounds out of a piano. But if you want music? That’s an altogether more difficult ask that takes years to learn, and decades to master. AI coding assistants are very powerful and certainly have their uses. But they are a tool just the same. And I know from experience, that when a tool is misused, it can do more harm than good. Knowing what tool to bring to bear, and when and how to use it is critical to success.&lt;&#x2F;p&gt;
+&lt;p&gt;Now, I would be remiss, being a Texan, if I didn’t bring up football. (Hook ‘em horns.) I don’t think I’m alone when I say that, for me, the Super Bowl is some hilarious TV ads and an amazing musical spectacle with a bit of football mixed in. So we have got to talk about these ads.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Base 44&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Their slogan&lt;&#x2F;em&gt; “It’s App to You”&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Their value propositions:&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;“Wait, so anyone can make apps now?”&lt;&#x2F;li&gt;
+&lt;li&gt;&quot;But can it make reports?&quot;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;div class=&quot;video-embed&quot;&gt;
+  &lt;iframe src=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;kLdaIxDM-_Y&quot; webkitallowfullscreen
+    mozallowfullscreen allowfullscreen&gt;
+  &lt;&#x2F;iframe&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;I like the way this ad pokes some fun at obviously bad app ideas - like the inter-office dating app…. for dogs of course. The TV show Silicon Valley took the comedy even further with its portrayal of a start-up incubator of app ideas that hilariously flop.&lt;&#x2F;p&gt;
+&lt;div class=&quot;video-embed&quot;&gt;
+  &lt;iframe src=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;ACmydtFDTGs&quot; webkitallowfullscreen
+    mozallowfullscreen allowfullscreen&gt;
+  &lt;&#x2F;iframe&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;More seriously, I think there are many challenges inherent to building successful software products. Coming up with an idea, and building a quick prototype are the easy part. And yes, it is a wonderful rush to see your creation come to life, and there is value in that, don’t get me wrong. But I think it’s quite difficult to find a company where their main business problem is a lack of ideas. So I question the idea that we need more people coming up with and building more apps. I prefer quality over quantity, and this seems like it could rapidly lead to the opposite. But, then again, this feels like a personal nitpick to me. I mean, who am I to throw shade at someone’s passion project just because it’s derivative? I often work on my own little apps that I make entirely for myself, all of which already have an existing commercial solution.&lt;&#x2F;p&gt;
+&lt;p&gt;There is a bigger problem with enabling more rapid app creation. In fact, it’s such a common problem, that the industry has, for many years now, had a term for this entire category: &quot;Abandonware&quot;&lt;sup&gt;&lt;a href=&quot;https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;mind-over-math&#x2F;#2&quot;&gt;[2]&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;. Anyone who has worked as a professional programmer for more than a few years will likely have a harrowing story of how they had to embark on a digital archeology expedition in order to prevent a catastrophe for a client whose entire livelihood depended on an abandoned piece of software that stopped working. It turns out that maintaining software is a far more challenging problem than creating software, and I believe this challenge is too easily amplified by LLM coding assistants. The sheer volume of code that can be produced using a coding assistant is mind boggling. And they are such eager beavers that wrangling them in by instructing them to make readable, reliable, maintainable code that is secure and can stand the test of time requires some expertise and patience. To provide an example from my experience so far, I think LLM coding assistants lack 2 crucial things for writing maintainable code.&lt;&#x2F;p&gt;
+&lt;p&gt;The first is that they are incapable of being up-to-date. Their knowledge is based on a snapshot in time - like a time capsule. But the tools developers use to make apps are constantly evolving on a daily basis. Most software stacks have a monthly or quarterly release cycle. That means that the way code was written with any given stack 6 months ago can be quite a bit different than the way it is written today. Since training a large language model is capital intensive, it is cost-inefficient to re-train it frequently. This means that as time goes on, the same coding assistant will make more and more mistakes that have to either be corrected manually by the programmer, or painstakingly explained via prompting.&lt;&#x2F;p&gt;
+&lt;p&gt;And secondly, they lack the ability to know when software dependencies are problematic. Software development in this day and age relies very heavily on a supply chain of code written by people all over the world. It is a global ecosystem that is ever-changing. I spend a lot of time sifting through this ecosystem like a kid digging through a pile of lego pieces. I don’t manufacture the individual pieces from scratch, I simply grab what I need, and use it when and where I need it. This way of building software has a lot of benefits, but it is not without risks. When your software depends on this supply chain, you give up a little bit of control for every dependency you choose to use. If you&#x27;ve ever used a WordPress plugin that broke another plugin on your site, you might understand how troublesome this problem can be. Coding assistants lack the ability to understand the nuances of this supply chain. The ways in which a developer’s choices regarding dependencies are influenced, are difficult if not impossible for an LLM assistant to understand. The upshot of this for someone “vibe coding” using a coding assistant is that unless they have the knowledge and experience to spot problems, they will likely be completely unaware of the pitfalls lurking in their code. Sometimes these problems are minor inconveniences, but other times, they can devastate a business.&lt;&#x2F;p&gt;
+&lt;p&gt;How about website creation? Maybe that’s an easier problem to solve than the more complex case of building an app?&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Wix Harmony&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Their slogan&lt;&#x2F;em&gt;: “The new way to create”&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Their value propositions&lt;&#x2F;em&gt;:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Website creation should be as easy as describing your idea to a friend…&lt;&#x2F;li&gt;
+&lt;li&gt;Shape it into something that could only come from you...&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;div class=&quot;video-embed&quot;&gt;
+  &lt;iframe src=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;rRo5spaBfbo&quot; webkitallowfullscreen
+    mozallowfullscreen allowfullscreen&gt;
+  &lt;&#x2F;iframe&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;A friend who in reality is an enormous mathematical function that transforms your simple description into a website that is unique to you in the same way that your answer to a round of The Family Feud is evaluated against a survey of hundreds of other people. Because AI assistants are trained with all the data that already exists on the web, their output is constrained to be derivative. It will lack uniqueness. It will have no soul. It might feel unique to you, but in reality, there is nothing unique about it at all. But again, I feel like this might be a personal nitpick. Good artists copy, grate artists steal and all that.&lt;&#x2F;p&gt;
+&lt;p&gt;No I think the bigger issue is more technical. These types of website builders are gated communities. Everything about how these things work is proprietary, and relatively complex. In practice, this is very good for these companies because it makes their users sticky - it will be difficult to move your digital business presence to a bigger&#x2F;better&#x2F;cheaper solution if all of your creative content is tucked away inside Wix Harmony. In this case, Wix Harmony is the dependency - and if it doesn’t do something your business needs, by golly, all you have to do is opt in to a higher tier plan and all your wishes will come true!&lt;&#x2F;p&gt;
+&lt;p&gt;In reality, the higher tier plans often give you access to features you don’t really need, at a subscription price that can be hard to justify in the long term. It’s a bit like buying the premium cable TV package - you wanted to watch the latest episode of your new favorite show, but you end up having to buy a subscription that includes “24&#x2F;7 Infomercials” too. You buy the banana, but instead, you are given a gorilla holding your banana. Not exactly ideal.&lt;&#x2F;p&gt;
+&lt;p&gt;If you’re still reading, first, thank you, and next, let me sum up. AI coding and site-building assistants are wonderfully powerful tools with the potential to save a lot of time and effort. At the same time, they also have to power to create a lot of problems. Using them effectively still requires a lot of hard-won expertise and experience. So you, as a busy business owner should ask yourself: do I want to focus on my passions? The core of my business? Or do I want to become an expert in the nuances of the software dependency supply chain? If your answer is the former, &lt;a class=&quot;contact-me&quot;&gt;drop us a line.&lt;&#x2F;a&gt; We’ve got the latter covered.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a id=&quot;1&quot;&gt;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;simonw&#x2F;pelican-bicycle&#x2F;blob&#x2F;main&#x2F;README.md&quot;&gt;Pelican on a bicycle experiment&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;&lt;a id=&quot;2&quot;&gt;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;winworldpc.com&#x2F;library&#x2F;applications&quot;&gt;So many abandoned apps!&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Veloquix</title>
         <published>2026-01-11T00:00:00+00:00</published>
