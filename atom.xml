@@ -5,8 +5,48 @@
     <link rel="self" type="application/atom+xml" href="https://samheuck.com/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://samheuck.com/"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2026-03-24T00:00:00+00:00</updated>
+    <updated>2026-05-11T00:00:00+00:00</updated>
     <id>https://samheuck.com/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Esaltare Arts</title>
+        <published>2026-05-11T00:00:00+00:00</published>
+        <updated>2026-05-11T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Kristi McGarity
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://samheuck.com/portfolio/esaltare-arts/"/>
+        <id>https://samheuck.com/portfolio/esaltare-arts/</id>
+        
+        <content type="html" xml:base="https://samheuck.com/portfolio/esaltare-arts/">&lt;div class=&quot;flex justify-between-ns flex-wrap&quot;&gt;
+&lt;div class=&quot;w-70&quot;&gt;
+  &lt;img src=&quot;EsaltareArts-logo-small.jpeg&quot; alt=&quot;Esaltare Arts logo&quot; &#x2F;&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Esaltare Arts is a studio owned by artist Sondra Kretschmar in San Marcos, TX. Sondra designs and repairs custom stained glass for commercial and residential spaces throughout central Texas.&lt;&#x2F;p&gt;
+&lt;p&gt;Sondra came to us with a problem: when potential customers would ask an LLM (Large Language Model: ChatGPT, Google Gemini, etc.) about custom stained glass in San Marcos, they couldn&#x27;t see her new website. AI would recommend Sondra by name, but kept connecting her to a previous company she co-owned before launching Esaltare Arts.&lt;&#x2F;p&gt;
+&lt;p&gt;Her results in ChatGPT looked like this:&lt;&#x2F;p&gt;
+&lt;div class=&quot;media-block&quot;&gt;
+&lt;img src=&quot;EsaltareArts-ChatGPT-before.jpeg&quot; &#x2F;&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Sondra signed up for our free &lt;a href=&quot;&#x2F;website-checkup&quot;&gt;Website Checkup&lt;&#x2F;a&gt;, to get practical, no-nonsense advice on how to help potential clients find her new site. After just two hours of SEO work, priced at our affordable Site Builder rate, ChatGPT started saying this:&lt;&#x2F;p&gt;
+&lt;div class=&quot;media-block&quot;&gt;
+&lt;img src=&quot;EsaltareArts-ChatGPT-after.jpeg&quot; &#x2F;&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Progress!&lt;&#x2F;p&gt;
+&lt;p&gt;Whether your website is new or established, SEO (Search Engine Optimization) can do a lot to help LLMs find and recommend you. On-Page SEO is work we can do right there in the code for your pages: faster load time, mobile compatibility, alt text and accessibility, images formatted for social sharing, titles and descriptions with keywords your target customers already search for, FAQs that answer questions your target customers already ask, and structured data (schema) code that describes your products and services in a format AI can easily read.&lt;&#x2F;p&gt;
+&lt;p&gt;SEO isn&#x27;t a one-and-done task, it&#x27;s an ongoing effort to improve visibility and add new content every month. On the other hand, for most small businesses, SEO doesn&#x27;t require committing to an expensive monthly contract.&lt;&#x2F;p&gt;
+&lt;p&gt;At Sam Heuck Web Development, we offer concierge service: you choose a budget and you choose your priorities. We&#x27;ll work through your priority list from the top, doing as many items as we can, until we hit your budget. And when you&#x27;re ready for more website work, whether that&#x27;s next week or next month or next quarter - we&#x27;ll be here to help your local business thrive!&lt;&#x2F;p&gt;
+&lt;div class=&quot;note&quot;&gt;
+&lt;p&gt;&quot;My win this month: I hired Kristi to work on my website, and now when you search for a custom stained glass artist in San Marcos, Esaltare Arts shows up!&quot;&lt;&#x2F;p&gt;
+&lt;p&gt;-- Sondra Kretschmar, owner, Esaltare Arts&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Launching a new small business? Not sure if your website is set up to be found? Find out with our &lt;a class=&quot;contact-me&quot;&gt;free website checkup&lt;&#x2F;a&gt; today!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Mind over Math</title>
         <published>2026-03-24T00:00:00+00:00</published>

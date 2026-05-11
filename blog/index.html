@@ -537,6 +537,13 @@ At my former job, I was involved with a group called the SWAG - The Secure Web A
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
+    gtag('consent', 'default', {
+  analytics_storage: 'granted',
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied'
+});
+
     gtag('config', 'G-VPNND32685');
   </script>
 </html>

@@ -153,6 +153,13 @@ website checkup</a> - just <a class="contact-me">send us a link</a> and we'll se
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
+    gtag('consent', 'default', {
+  analytics_storage: 'granted',
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied'
+});
+
     gtag('config', 'G-VPNND32685');
   </script>
 </html>

@@ -161,6 +161,13 @@ when a change request comes in, you can say, "yeah that's easy" instead of, "thi
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
+    gtag('consent', 'default', {
+  analytics_storage: 'granted',
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied'
+});
+
     gtag('config', 'G-VPNND32685');
   </script>
 </html>
