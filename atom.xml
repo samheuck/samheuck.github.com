@@ -5,8 +5,66 @@
     <link rel="self" type="application/atom+xml" href="https://samheuck.com/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://samheuck.com/"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2026-05-11T00:00:00+00:00</updated>
+    <updated>2026-06-01T00:00:00+00:00</updated>
     <id>https://samheuck.com/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Welcome</title>
+        <published>2026-06-01T00:00:00+00:00</published>
+        <updated>2026-06-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Sam Heuck
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://samheuck.com/web-development/"/>
+        <id>https://samheuck.com/web-development/</id>
+        
+        <content type="html" xml:base="https://samheuck.com/web-development/">&lt;section class=&quot;teaser tc&quot;&gt;
+  &lt;h2 class=&quot;h2-dark&quot;&gt;We build custom websites and apps for small business.&lt;&#x2F;h2&gt;
+&lt;p&gt;If your business is online, you’re managing a lot: hosting, SEO, forms, emails, landing pages, analytics, accessibility, security, payments… when it all starts to feel like chasing a flock of wandering sheep, we’ll be your border collie, herding your code into place!&lt;&#x2F;p&gt;
+&lt;&#x2F;section&gt;
+&lt;section class=&quot;teaser&quot;&gt;
+&lt;div class=&quot;flex flex-column items-center&quot;&gt;
+&lt;div class=&quot;w-100 tc&quot;&gt;
+  &lt;h2 class=&quot;h2-dark&quot;&gt;Free Website Checkup&lt;&#x2F;h2&gt;
+  &lt;p class=&quot;tc b&quot;&gt;Local business owners:&lt;&#x2F;p&gt;
+  &lt;ul class=&quot;list pl0&quot;&gt;
+    &lt;li&gt;Are customers finding you?&lt;&#x2F;li&gt;
+    &lt;li&gt;When they ask AI, do they see &lt;i&gt;you?&lt;&#x2F;i&gt;&lt;&#x2F;li&gt;
+    &lt;li&gt;Could your website do more to help?&lt;&#x2F;li&gt;
+  &lt;&#x2F;ul&gt;
+&lt;&#x2F;div&gt;
+&lt;p class=&quot;tc&quot;&gt;Find out today with our free, no-obligation website checkup!&lt;br&gt;&lt;br&gt; &lt;a class=&quot;button&quot; href=&quot;&#x2F;website-checkup&quot;&gt;Learn more&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;section&gt;
+&lt;div class=&quot;alt-note quotation&quot;&gt;
+&lt;p&gt;Sam and Kristi have helped us tremendously. Our website and SEO was not where it needed to be but they fixed everything pretty quick. They really know what they are doing and I highly recommend them. Even if you think you don’t need them, you do!!!! They have made my life so much easier as a business owner.&lt;&#x2F;p&gt;
+&lt;p&gt;– Cristina Calise, Wee Bee Waste Services&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;section class=&quot;teaser tc&quot;&gt;
+    &lt;h2 class=&quot;h2-dark&quot;&gt;Learn more&lt;&#x2F;h2&gt;
+    &lt;a class=&quot;mh3 grow dib&quot; style=&quot;font-family:&#x27;Ubuntu&#x27;,sans-serif&quot; href=&quot;&#x2F;portfolio&quot;&gt;See some of our work&lt;&#x2F;a&gt;
+    &lt;a class=&quot;mh3 grow dib&quot; style=&quot;font-family:&#x27;Ubuntu&#x27;,sans-serif&quot; href=&quot;&#x2F;blog&quot;&gt;Check out the blog&lt;&#x2F;a&gt;
+    &lt;p class=&quot;tc b&quot;&gt;Care to chat?&lt;&#x2F;p&gt;&lt;br&gt;
+    &lt;a class=&quot;contact-me button&quot;&gt;Reach out&lt;&#x2F;a&gt;
+&lt;&#x2F;section&gt;
+&lt;div class=&quot;alt-note quotation&quot;&gt;
+&lt;p&gt;If you are considering hiring Sam, I envy you. You&#x27;re about to work with one of the most trustworthy technologists you&#x27;re likely to meet.&lt;&#x2F;p&gt;
+&lt;p&gt;– Diana Montalion, Architecting Systems&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;script type=&quot;application&#x2F;ld+json&quot;&gt;
+    {
+      &quot;@context&quot;: &quot;https:&#x2F;&#x2F;schema.org&quot;,
+      &quot;@type&quot;: &quot;Organization&quot;,
+      &quot;url&quot;: &quot;https:&#x2F;&#x2F;samheuck.com&quot;,
+      &quot;logo&quot;: &quot;https:&#x2F;&#x2F;samheuck.com&#x2F;samheuck-weblogo-small.png&quot;
+    }
+&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Esaltare Arts</title>
         <published>2026-05-11T00:00:00+00:00</published>
@@ -157,68 +215,6 @@
 &lt;&#x2F;div&gt;
 &lt;p&gt;And when your company needs extra hands on the development team to scale up a custom app - that&#x27;s exactly what we do. Here at Sam Heuck Web Development, we make your web app work - &lt;a class=&quot;contact-me&quot;&gt;find out how!&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 </content>
-        
-    </entry>
-    <entry xml:lang="en">
-        <title>Welcome</title>
-        <published>2025-12-19T00:00:00+00:00</published>
-        <updated>2025-12-19T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            Sam Heuck
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://samheuck.com/web-development/"/>
-        <id>https://samheuck.com/web-development/</id>
-        
-        <content type="html" xml:base="https://samheuck.com/web-development/">&lt;section class=&quot;teaser&quot;&gt;
-  &lt;p class=&quot;tc sub-heading&quot;&gt;Hand-crafted code = Websites that work&lt;&#x2F;p&gt;
-  &lt;h2 class=&quot;tc&quot;&gt;&lt;a href=&quot;&#x2F;what-we-do&quot;&gt;What we do&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
-&lt;p&gt;Hello and welcome from Sam and Kristi! With our family-owned web development business, we build and host hand-crafted custom websites and apps for small business and nonprofits. &lt;br&gt; &lt;br&gt; If your business is online, you’re managing a lot: hosting, SEO, forms, emails, landing pages, analytics, accessibility, security, payments… when it all starts to feel like chasing a flock of wandering sheep, we’ll be your border collie, herding your code into place! &lt;a href=&quot;&#x2F;what-we-do&quot;&gt;Learn more...&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
-&lt;&#x2F;section&gt;
-&lt;section class=&quot;teaser&quot;&gt;
-&lt;div class=&quot;flex flex-column items-center&quot;&gt;
-&lt;div class=&quot;responsive-row&quot;&gt;
-  &lt;div class=&quot;bg-gradient w-half pa4 mr4 tc&quot;&gt;
-    &lt;h2&gt;&lt;a class=&quot;contrast&quot; href=&quot;&#x2F;website-checkup&quot;&gt;Free Website Checkup&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
-  &lt;&#x2F;div&gt;
-  &lt;div class=&quot;w-half&quot;&gt;
-    &lt;h3&gt;Local Business Owners:&lt;&#x2F;h3&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Are customers finding you?&lt;&#x2F;li&gt;
-      &lt;li&gt;When they ask AI, do they see &lt;i&gt;you?&lt;&#x2F;i&gt;&lt;&#x2F;li&gt;
-      &lt;li&gt;Could your website do more to help?&lt;&#x2F;li&gt;
-    &lt;&#x2F;ul&gt;
-  &lt;&#x2F;div&gt;
-&lt;&#x2F;div&gt;
-&lt;p class=&quot;tc&quot;&gt;Try our free, no-obligation &lt;a href=&quot;&#x2F;website-checkup&quot;&gt;website checkup&lt;&#x2F;a&gt; to see opportunities you may be missing.&lt;br&gt;&lt;br&gt; &lt;a class=&quot;contact-me&quot;&gt;Reach out today!&lt;&#x2F;a&gt;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
-&lt;&#x2F;section&gt;
-&lt;div class=&quot;alt-note quotation&quot;&gt;
-&lt;p&gt;Sam and Kristi have helped us tremendously. Our website and SEO was not where it needed to be but they fixed everything pretty quick. They really know what they are doing and I highly recommend them. Even if you think you don’t need them, you do!!!! They have made my life so much easier as a business owner.&lt;&#x2F;p&gt;
-&lt;p&gt;– Cristina Calise, Wee Bee Waste Services&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
-&lt;section class=&quot;teaser tc&quot;&gt;
-    &lt;p class=&quot;tc b&quot;&gt;Learn more:&lt;&#x2F;p&gt;
-    &lt;a href=&quot;&#x2F;portfolio&quot;&gt;See some of our work&lt;&#x2F;a&gt;
-    &lt;a href=&quot;&#x2F;blog&quot;&gt;Check out the blog&lt;&#x2F;a&gt;
-    &lt;p class=&quot;tc b&quot;&gt;Care to chat?&lt;&#x2F;p&gt;
-    &lt;a class=&quot;contact-me&quot;&gt;Reach out&lt;&#x2F;a&gt;
-&lt;&#x2F;section&gt;
-&lt;script type=&quot;application&#x2F;ld+json&quot;&gt;
-    {
-      &quot;@context&quot;: &quot;https:&#x2F;&#x2F;schema.org&quot;,
-      &quot;@type&quot;: &quot;Organization&quot;,
-      &quot;url&quot;: &quot;https:&#x2F;&#x2F;samheuck.com&quot;,
-      &quot;logo&quot;: &quot;https:&#x2F;&#x2F;samheuck.com&#x2F;samheuck-weblogo-small.png&quot;
-    }
-&lt;&#x2F;script&gt;
-&lt;div class=&quot;alt-note quotation&quot;&gt;
-&lt;p&gt;If you are considering hiring Sam, I envy you. You&#x27;re about to work with one of the most trustworthy technologists you&#x27;re likely to meet.&lt;&#x2F;p&gt;
-&lt;p&gt;– Diana Montalion, Architecting Systems&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;</content>
         
     </entry>
     <entry xml:lang="en">
@@ -483,7 +479,7 @@ website checkup&lt;&#x2F;a&gt; - just &lt;a class=&quot;contact-me&quot;&gt;send
 &lt;p&gt;Is your company stuck with aging paper systems and spreadsheets? Replace those messy Excel docs named “final final no really THIS is the final version.xlsx” and delight your employees, with sleek custom software that follows your workflow.&lt;&#x2F;p&gt;
 &lt;p&gt;Finally, once your site goes live, we offer affordable monthly maintenance plans, with the option to purchase updates and edits anytime. Your online presence will stay secure and reliable as technology evolves.&lt;&#x2F;p&gt;
 &lt;p&gt;From our small business to yours, we hope to earn a place as your trusted technology partner. Sam Heuck Web Development is a family-owned, inclusive, neurodivergent-friendly shop, where you can be yourself, and we make your job easier!&lt;&#x2F;p&gt;
-&lt;p&gt;So why not &lt;a class=&quot;contact-me&quot;&gt;drop us a note&lt;&#x2F;a&gt;?&lt;&#x2F;p&gt;
+&lt;p class=&quot;tc&quot;&gt;&lt;a class=&quot;contact-me button&quot;&gt;Drop us a note&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;div class=&quot;alt-note quotation&quot;&gt;
 &lt;p&gt;We chose Sam to work with on a custom web site because he had the necessary web development skills we needed, but mainly because he took the initiative to explain improvements he saw that could make our design work even better. Working with Sam was a delight; he is capable, intuitive, resourceful, and keenly interested in making a quality product.&lt;&#x2F;p&gt;
 &lt;p&gt;– Bob McDowell, engineering consultant&lt;&#x2F;p&gt;
@@ -508,7 +504,7 @@ website checkup&lt;&#x2F;a&gt; - just &lt;a class=&quot;contact-me&quot;&gt;send
         <id>https://samheuck.com/website-checkup/</id>
         
         <content type="html" xml:base="https://samheuck.com/website-checkup/">&lt;section class=&quot;teaser&quot;&gt;
-  &lt;h1 class=&quot;tc page-title accent underline&quot;&gt;Free Website Checkup&lt;&#x2F;h1&gt;
+  &lt;h1 class=&quot;tc page-title&quot;&gt;Free Website Checkup&lt;&#x2F;h1&gt;
   &lt;h2 class=&quot;tc page-subtitle&quot;&gt;from Sam Heuck Web Development&lt;&#x2F;h2&gt;
 &lt;div class=&quot;alt-note quotation&quot;&gt;
 &lt;p&gt;Sam Heuck Web Development was incredibly helpful and generous with their time while reviewing my website and SEO. They gave thoughtful feedback, explained things clearly, and genuinely seemed to care about helping my business grow.&lt;&#x2F;p&gt;
@@ -692,17 +688,18 @@ A few months ago, I noticed a social media post by a doctor who had just purchas
         <link rel="alternate" type="text/html" href="https://samheuck.com/about/"/>
         <id>https://samheuck.com/about/</id>
         
-        <content type="html" xml:base="https://samheuck.com/about/">&lt;div class=&quot;bg-white ph4 pt4 cf&quot;&gt;
+        <content type="html" xml:base="https://samheuck.com/about/">&lt;div class=&quot;teaser&quot;&gt;
 &lt;h2 style=&quot;color: var(--colorAccent)&quot;&gt;Sam Heuck Web Development&lt;&#x2F;h2&gt;
 &lt;section id=&quot;about&quot; itemscope itemtype=&quot;https:&#x2F;&#x2F;schema.org&#x2F;Organization&quot;&gt;
 &lt;p&gt;&lt;meta itemprop=&quot;name&quot; content=&quot;Sam Heuck&quot;&gt;
 At Sam Heuck Web Development, we bring the power of &lt;span itemprop=&quot;Service&quot;&gt;custom web development&lt;&#x2F;span&gt; to small business, in &lt;span itemprop=&quot;AreaServed&quot;&gt; Central Texas&lt;&#x2F;span&gt; and beyond.&lt;&#x2F;p&gt;
 &lt;p&gt;We design, build, and host websites and apps to save you time and delight your customers. We help your business show up in search, grow beyond spreadsheets, and replace outdated paper processes. Our concierge support keeps your online presence running smoothly as technology evolves: optimized for search and mobile, fast, secure, on budget and reliable.&lt;&#x2F;p&gt;
 &lt;p&gt;Is your website working for you? &lt;a href=&quot;&#x2F;what-we-do&#x2F;&quot;&gt;
-Learn more&lt;&#x2F;a&gt; about the power of &lt;a href=&quot;&#x2F;blog&#x2F;the-hand-coded-advantage&#x2F;&quot;&gt; custom code &lt;&#x2F;a&gt;, or &lt;a class=&quot;contact-me&quot;&gt;get in touch&lt;&#x2F;a&gt; today!&lt;&#x2F;p&gt;
+Learn more&lt;&#x2F;a&gt; about the power of &lt;a href=&quot;&#x2F;blog&#x2F;the-hand-coded-advantage&#x2F;&quot;&gt; custom code &lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p class=&quot;tc mt4&quot;&gt;&lt;a class=&quot;contact-me button&quot;&gt;Get in touch today!&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;&#x2F;div&gt;
 &lt;&#x2F;section&gt;
-&lt;div class=&quot;bg-white ph4 pt2 cf&quot;&gt;
+&lt;div class=&quot;teaser&quot;&gt;
 &lt;h2 style=&quot;color: var(--colorAccent)&quot;&gt;About Sam&lt;&#x2F;h2&gt;
 &lt;section id=&quot;about&quot; itemscope itemtype=&quot;https:&#x2F;&#x2F;schema.org&#x2F;Person&quot;&gt;
 &lt;p&gt;&lt;meta itemprop=&quot;name&quot; content=&quot;Sam Heuck&quot;&gt;
@@ -714,14 +711,14 @@ IT professional, woodworker and audio engineer. He specializes in custom softwar
 &lt;span itemprop=&quot;locality&quot;&gt;Austin&lt;&#x2F;span&gt;,
 &lt;span itemprop=&quot;region&quot;&gt;Texas&lt;&#x2F;span&gt; with his wife and business partner Kristi, their son, and two dogs who lack cattle to herd and so have taken to following us around herding all of our code.&lt;&#x2F;p&gt;
 &lt;&#x2F;div&gt;
-&lt;div class=&quot;bg-white ph4 pt2 cf&quot;&gt;
+&lt;div class=&quot;teaser&quot;&gt;
 &lt;h2 style=&quot;color: var(--colorAccent)&quot;&gt;About Kristi&lt;&#x2F;h2&gt;
 &lt;section id=&quot;about&quot; itemscope itemtype=&quot;https:&#x2F;&#x2F;schema.org&#x2F;Person&quot;&gt;
 &lt;p&gt;&lt;meta itemprop=&quot;name&quot; content=&quot;Kristi McGarity&quot;&gt;
-Kristi is co-owner of Sam Heuck Web Development. &lt;&#x2F;p&gt;
+Kristi is co-owner of Sam Heuck Web Development. She provides our website checkup service, manages custom development projects, and loves building and debugging websites for small business owners.&lt;&#x2F;p&gt;
 &lt;p&gt;Her academic degrees are in music (DMA in Music Composition from the University of Texas at Austin). As a music professor, she founded the Music Technology program at Montana State University, building a new major for aspiring composers and sound engineers, while also managing technology and web applications for the music school.&lt;&#x2F;p&gt;
-&lt;p&gt;As SongInvention, she produces and engineers custom music on commission to celebrate and commemorate special events. Long before that, she made happy synthpop under the name Opposite Day.&lt;&#x2F;p&gt;
 &lt;p&gt;Since 2018, personal and family experience with health care policy led Kristi to join the National Council on Independent Living, where she chairs a workgroup under the Advocacy and Public Policy Committee. She was honored to be a recipient of the 2023 Corey Rowley National Advocacy Award, for efforts organizing access to health care for people with disabilities.&lt;&#x2F;p&gt;
+&lt;p&gt;She produces and engineers custom music as SongInvention, and long before that she made happy synthpop under the name Opposite Day.&lt;&#x2F;p&gt;
 &lt;p&gt;Kristi’s affinity for storytelling and stagecraft underlies her work in music, advocacy, and web design. Now with Sam Heuck Web Development, we bring the power of custom website development to tell your story too!&lt;&#x2F;p&gt;
 &lt;&#x2F;div&gt;
 &lt;&#x2F;section&gt;
@@ -778,7 +775,7 @@ Kristi is co-owner of Sam Heuck Web Development. &lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;&#x2F;div&gt;
-&lt;p&gt;The underrated advantage of hand-coded websites and apps is that nothing beats the precision, speed, and efficient consistency of code. This is what &lt;strong&gt;Sam &lt;span class=&quot;accent&quot;&gt;Heuck&lt;&#x2F;span&gt; Web &lt;span class=&quot;accent&quot;&gt;Development&lt;&#x2F;span&gt;&lt;&#x2F;strong&gt; is offering you. Go meet with your next client, and after, sip a margarita while we do the hard work for you. &lt;a class=&quot;contact-me&quot;&gt;Reach out today.&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The underrated advantage of hand-coded websites and apps is that nothing beats the precision, speed, and efficient consistency of code. This is what &lt;strong&gt;Sam Heuck &lt;span class=&quot;accent&quot;&gt;Web Development&lt;&#x2F;span&gt;&lt;&#x2F;strong&gt; is offering you. Go meet with your next client, and after, sip a margarita while we do the hard work for you. &lt;a class=&quot;contact-me&quot;&gt;Reach out today.&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 </content>
         
     </entry>
