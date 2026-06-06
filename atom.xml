@@ -5,8 +5,58 @@
     <link rel="self" type="application/atom+xml" href="https://samheuck.com/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://samheuck.com/"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2026-06-01T00:00:00+00:00</updated>
+    <updated>2026-06-05T00:00:00+00:00</updated>
     <id>https://samheuck.com/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Free Website Checkup</title>
+        <published>2026-06-05T00:00:00+00:00</published>
+        <updated>2026-06-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Sam Heuck
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://samheuck.com/website-checkup/"/>
+        <id>https://samheuck.com/website-checkup/</id>
+        
+        <content type="html" xml:base="https://samheuck.com/website-checkup/">&lt;section class=&quot;teaser&quot;&gt;
+  &lt;h1 class=&quot;tc page-title h1-dark&quot;&gt;Free Website Checkup&lt;&#x2F;h1&gt;
+  &lt;h2 class=&quot;tc page-subtitle&quot;&gt;from Sam Heuck Web Development&lt;&#x2F;h2&gt;
+&lt;div class=&quot;alt-note quotation&quot;&gt;
+&lt;p&gt;Sam Heuck Web Development was incredibly helpful and generous with their time while reviewing my website and SEO. They gave thoughtful feedback, explained things clearly, and genuinely seemed to care about helping my business grow.&lt;&#x2F;p&gt;
+&lt;p&gt;– Desiree Steele, author and photographer&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;You&#x27;ve no doubt heard the phrase &quot;Don&#x27;t fix what isn&#x27;t broken.”&lt;&#x2F;p&gt;
+&lt;p&gt;When something is working, keep using it!&lt;&#x2F;p&gt;
+&lt;p&gt;But... things break. And sometimes in ways that are not noticeable or obvious. So how do you know what to fix? The first step is to discover what is broken, or sub-optimal, or no longer working.&lt;&#x2F;p&gt;
+&lt;p&gt;That is why Sam Heuck Web Development offers free website checkups, no obligation and no pressure. Your business needs are our priority.&lt;&#x2F;p&gt;
+&lt;p&gt;What does our free checkup include?&lt;&#x2F;p&gt;
+&lt;p&gt;Our free website checkup is a thorough review of your web presence. The results help you optimize your decision-making about where to focus. It generally includes the following:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Site-Wide Page Performance Assessment&lt;&#x2F;li&gt;
+&lt;li&gt;Visitor Experience &amp;amp; Accessibility Assessment&lt;&#x2F;li&gt;
+&lt;li&gt;Mobile Responsive Design &amp;amp; Layout Inspection&lt;&#x2F;li&gt;
+&lt;li&gt;SEO Inspection&lt;&#x2F;li&gt;
+&lt;li&gt;Semantic SEO for AI visibility&lt;&#x2F;li&gt;
+&lt;li&gt;Common Error Report&lt;&#x2F;li&gt;
+&lt;li&gt;Website Security Checklist&lt;&#x2F;li&gt;
+&lt;li&gt;Opportunities and Strategy&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Want to ensure your website is serving you, your mission, and your customers? &lt;br&gt;&lt;&#x2F;p&gt;
+&lt;p class=&quot;tc&quot;&gt;&lt;a class=&quot;contact-me button&quot;&gt;Reach out today!&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;div class=&quot;alt-note quotation&quot;&gt;
+&lt;p&gt;SEO need some help? Just had a meeting with Sam Heuck, and he was incredibly helpful! Took the time to explain what I was lacking and answered all my questions. Check him out if you are curious about how to improve your online presence.&lt;&#x2F;p&gt;
+&lt;p&gt;– Alma Duffey, CEO, Veloquix&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+  &lt;img src=&quot;&#x2F;website-checkup&#x2F;SEOreport-example1.png&quot; alt=&quot;example SEO report&quot;&gt;
+  &lt;img src=&quot;&#x2F;website-checkup&#x2F;SEOreport-example2.jpg&quot; alt=&quot;example SEO report&quot;&gt;
+  &lt;h2 class=&quot;tc&quot;&gt;&lt;h2&gt;
+&lt;&#x2F;section&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Welcome</title>
         <published>2026-06-01T00:00:00+00:00</published>
@@ -485,55 +535,6 @@ website checkup&lt;&#x2F;a&gt; - just &lt;a class=&quot;contact-me&quot;&gt;send
 &lt;p&gt;– Bob McDowell, engineering consultant&lt;&#x2F;p&gt;
 &lt;&#x2F;div&gt;
 &lt;&#x2F;div&gt;
-&lt;&#x2F;section&gt;
-</content>
-        
-    </entry>
-    <entry xml:lang="en">
-        <title>Free Website Checkup</title>
-        <published>2025-08-25T00:00:00+00:00</published>
-        <updated>2025-08-25T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            Sam Heuck
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://samheuck.com/website-checkup/"/>
-        <id>https://samheuck.com/website-checkup/</id>
-        
-        <content type="html" xml:base="https://samheuck.com/website-checkup/">&lt;section class=&quot;teaser&quot;&gt;
-  &lt;h1 class=&quot;tc page-title&quot;&gt;Free Website Checkup&lt;&#x2F;h1&gt;
-  &lt;h2 class=&quot;tc page-subtitle&quot;&gt;from Sam Heuck Web Development&lt;&#x2F;h2&gt;
-&lt;div class=&quot;alt-note quotation&quot;&gt;
-&lt;p&gt;Sam Heuck Web Development was incredibly helpful and generous with their time while reviewing my website and SEO. They gave thoughtful feedback, explained things clearly, and genuinely seemed to care about helping my business grow.&lt;&#x2F;p&gt;
-&lt;p&gt;– Desiree Steele, Author&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
-&lt;p&gt;You&#x27;ve no doubt heard the phrase &quot;Don&#x27;t fix what isn&#x27;t broken.”&lt;&#x2F;p&gt;
-&lt;p&gt;When something is working, keep using it!&lt;&#x2F;p&gt;
-&lt;p&gt;But... things break. And sometimes in ways that are not noticeable or obvious. So how do you know what to fix? The first step is to discover what is broken, or sub-optimal, or no longer working.&lt;&#x2F;p&gt;
-&lt;p&gt;That is why Sam Heuck Web Development offers free website checkups, no obligation and no pressure. Your business needs are our priority.&lt;&#x2F;p&gt;
-&lt;p&gt;What does our free checkup include?&lt;&#x2F;p&gt;
-&lt;p&gt;Our free website checkup is a thorough review of your web presence. The results help you optimize your decision-making about where to focus. It generally includes the following:&lt;&#x2F;p&gt;
-&lt;ul&gt;
-&lt;li&gt;Site-Wide Page Performance Assessment&lt;&#x2F;li&gt;
-&lt;li&gt;Visitor Experience &amp;amp; Accessibility Assessment&lt;&#x2F;li&gt;
-&lt;li&gt;Mobile Responsive Design &amp;amp; Layout Inspection&lt;&#x2F;li&gt;
-&lt;li&gt;SEO Inspection&lt;&#x2F;li&gt;
-&lt;li&gt;Semantic SEO for AI visibility&lt;&#x2F;li&gt;
-&lt;li&gt;Common Error Report&lt;&#x2F;li&gt;
-&lt;li&gt;Website Security Checklist&lt;&#x2F;li&gt;
-&lt;li&gt;Opportunities and Strategy&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;p&gt;If you want to ensure that your website is serving you, your mission, and ultimately your customers, &lt;a class=&quot;contact-me&quot;&gt;reach out today&lt;&#x2F;a&gt; for a free website checkup!&lt;&#x2F;p&gt;
-&lt;div class=&quot;alt-note quotation&quot;&gt;
-&lt;p&gt;SEO need some help? Just had a meeting with Sam Heuck, and he was incredibly helpful! Took the time to explain what I was lacking and answered all my questions. Check him out if you are curious about how to improve your online presence.&lt;&#x2F;p&gt;
-&lt;p&gt;– Alma Duffey, CEO, Veloquix&lt;&#x2F;p&gt;
-&lt;&#x2F;div&gt;
-  &lt;img src=&quot;&#x2F;website-checkup&#x2F;SEOreport-example1.png&quot; alt=&quot;example SEO report&quot;&gt;
-  &lt;img src=&quot;&#x2F;website-checkup&#x2F;SEOreport-example2.jpg&quot; alt=&quot;example SEO report&quot;&gt;
-  &lt;h2 class=&quot;tc&quot;&gt;&lt;h2&gt;
 &lt;&#x2F;section&gt;
 </content>
         
