@@ -43,7 +43,7 @@
 <meta property="og:article:published_time" content="2013-02-06" />
 
 
-  <meta property="og:image" content="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;view-templates-in-php&#x2F;view_templates_in_php01.png" />
+  <meta property="og:image" content="https://samheuck.com/blog/view-templates-in-php/view_templates_in_php01.png" />
 
 
 <style>
@@ -84,19 +84,19 @@
             <span data-action="close">ⓧ</span>
           
             
-              <li><a href="&#x2F;what-we-do&#x2F;">What we do</a></li>
+              <li><a href="/what-we-do/">What we do</a></li>
             
           
             
-              <li><a href="&#x2F;portfolio&#x2F;">Client work</a></li>
+              <li><a href="/portfolio/">Client work</a></li>
             
           
             
-              <li><a class="active" href="&#x2F;blog&#x2F;">Blog</a></li>
+              <li><a class="active" href="/blog/">Blog</a></li>
             
           
             
-              <li><a href="&#x2F;about&#x2F;">About</a></li>
+              <li><a href="/about/">About</a></li>
             
           
           </ul>
@@ -150,7 +150,7 @@ inject the dynamic elements into the template. This is DRY because we don't
 have to write the same bits of HTML for every single page in a site. It also
 separates concerns by allowing content to be completely separate from layout.</p>
 <p>Let's start with the code that will actually create and display a page of HTML.</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="php"><span class="giallo-l"><span style="color: #F97583;">&lt;?</span><span style="color: #79B8FF;">php</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="php"><span class="giallo-l"><span style="color: #F97583;">&lt;?</span><span style="color: #79B8FF;">php</span></span>
 <span class="giallo-l"><span>  $page</span><span style="color: #F97583;"> = new</span><span style="color: #79B8FF;"> HtmlPage</span><span>();</span></span>
 <span class="giallo-l"><span>  $page</span></span>
 <span class="giallo-l"><span style="color: #F97583;">    -&gt;</span><span style="color: #B392F0;">setTitle</span><span>(</span><span style="color: #9ECBFF;">&#39;Home&#39;</span><span>)</span></span>
@@ -180,7 +180,7 @@ a RESTful API.</p>
 <p>Once all of the dynamic elements are declared, the page is rendered. Let's
 take a closer look at the <code>HtmlPage::render()</code> function. It takes a single
 argument that references a file containing the HTML template for a basic page.</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="php"><span class="giallo-l"><span style="color: #6A737D;">//layout.phtml</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="php"><span class="giallo-l"><span style="color: #6A737D;">//layout.phtml</span></span>
 <span class="giallo-l"><span style="color: #F97583;">&lt;?</span><span style="color: #79B8FF;">php echo $this</span><span style="color: #F97583;">-&gt;</span><span>doctype;</span><span style="color: #F97583;"> ?&gt;</span><span>;</span></span>
 <span class="giallo-l"><span style="color: #F97583;">&lt;</span><span style="color: #79B8FF;">html xmlns</span><span style="color: #F97583;">=</span><span style="color: #9ECBFF;">&quot;http://www.w3.org/1999/xhtml&quot;</span><span style="color: #79B8FF;"> xml</span><span style="color: #F97583;">:</span><span style="color: #79B8FF;">lang</span><span style="color: #F97583;">=</span><span style="color: #9ECBFF;">&quot;en&quot;</span><span style="color: #79B8FF;"> lang</span><span style="color: #F97583;">=</span><span style="color: #9ECBFF;">&quot;en&quot;</span><span style="color: #F97583;">&gt;</span></span>
 <span class="giallo-l"><span style="color: #F97583;">  &lt;</span><span style="color: #79B8FF;">head</span><span style="color: #F97583;">&gt;</span></span>
@@ -203,7 +203,7 @@ argument that references a file containing the HTML template for a basic page.</
 HtmlPage class. <code>$this</code> refers to a specific instance of HtmlPage. So
 the HtmlPage class is including the template file, and the template file refers
 to instance variables of the HtmlPage class. Here's how that works.</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="php"><span class="giallo-l"><span style="color: #F97583;">&lt;?</span><span style="color: #79B8FF;">php</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="php"><span class="giallo-l"><span style="color: #F97583;">&lt;?</span><span style="color: #79B8FF;">php</span></span>
 <span class="giallo-l"><span style="color: #F97583;">  ...</span></span>
 <span class="giallo-l"></span>
 <span class="giallo-l"><span style="color: #6A737D;">  /**</span></span>
@@ -241,7 +241,7 @@ include template technique.</p>
 defines layout and static elements. The template can be changed or updated,
 and all other instances of HtmlPage will in turn reflect that change.</p>
 <p><em>So how do the methods generate HTML?</em></p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="php"><span class="giallo-l"><span style="color: #F97583;">public function</span><span style="color: #79B8FF;"> __get</span><span>($key) {</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="php"><span class="giallo-l"><span style="color: #F97583;">public function</span><span style="color: #79B8FF;"> __get</span><span>($key) {</span></span>
 <span class="giallo-l"><span style="color: #6A737D;">  // Tries to find and call a getter.</span></span>
 <span class="giallo-l"><span>  $method</span><span style="color: #F97583;"> =</span><span style="color: #9ECBFF;"> &#39;get&#39;</span><span style="color: #F97583;"> .</span><span style="color: #79B8FF;"> ucfirst</span><span>($key);</span></span>
 <span class="giallo-l"><span style="color: #F97583;">  return</span><span style="color: #79B8FF;"> method_exists</span><span>(</span><span style="color: #79B8FF;">$this</span><span>, $method)</span><span style="color: #F97583;"> ?</span><span style="color: #79B8FF;"> $this</span><span style="color: #F97583;">-&gt;</span><span>$method()</span><span style="color: #F97583;"> :</span><span style="color: #79B8FF;"> null</span><span>;</span></span>
@@ -254,7 +254,7 @@ the foo variable was not explicitly defined in the HtmlPage class.</p>
 <p>The implementation of <code>__get()</code> can be customized, as is the case here, to
 do anything we need. In this example, I use the passed in string to call another
 function which returns HTML.</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="php"><span class="giallo-l"><span style="color: #6A737D;">// A &#39;getter&#39; method, called by __get</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="php"><span class="giallo-l"><span style="color: #6A737D;">// A &#39;getter&#39; method, called by __get</span></span>
 <span class="giallo-l"><span style="color: #F97583;">public function</span><span style="color: #B392F0;"> getBodyTag</span><span>()</span></span>
 <span class="giallo-l"><span>{</span></span>
 <span class="giallo-l"><span style="color: #F97583;">  return</span><span style="color: #79B8FF;"> sprintf</span><span>(</span><span style="color: #9ECBFF;">&quot;&lt;body%s%s&gt;&quot;</span><span>,</span><span style="color: #79B8FF;"> $this</span><span style="color: #F97583;">-&gt;</span><span>_bodyId,</span><span style="color: #79B8FF;"> $this</span><span style="color: #F97583;">-&gt;</span><span>_bodyClass);</span></span>
@@ -276,7 +276,7 @@ of a logged in user for example. Search and replace templating is a technique
 you can use to inject variables into a piece of content. The <code>addContent()</code>
 function uses this technique. Its argument is actually an object defined by
 this class.</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="php"><span class="giallo-l"><span style="color: #F97583;">&lt;?</span><span style="color: #79B8FF;">php</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="php"><span class="giallo-l"><span style="color: #F97583;">&lt;?</span><span style="color: #79B8FF;">php</span></span>
 <span class="giallo-l"><span style="color: #F97583;">class</span><span style="color: #B392F0;"> Partial</span></span>
 <span class="giallo-l"><span>{</span></span>
 <span class="giallo-l"><span style="color: #F97583;">  private</span><span> $_html;</span></span>
@@ -321,7 +321,7 @@ statement.</p>
 <p>Long story short, little chunks of HTML can be appended to our HtmlPage's
 content variable. If we want to include some dynamic elements in that content,
 we can use named placeholders. An example is in order.</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="php"><span class="giallo-l"><span style="color: #6A737D;">//index.php</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="php"><span class="giallo-l"><span style="color: #6A737D;">//index.php</span></span>
 <span class="giallo-l"><span style="color: #F97583;">...</span></span>
 <span class="giallo-l"></span>
 <span class="giallo-l"><span>$content</span><span style="color: #F97583;"> = new</span><span style="color: #79B8FF;"> Partial</span><span>(</span><span style="color: #9ECBFF;">&#39;some_really_cool_content.html&#39;</span><span>);</span></span>
@@ -329,7 +329,7 @@ we can use named placeholders. An example is in order.</p>
 <span class="giallo-l"></span>
 <span class="giallo-l"><span>$page</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">addContent</span><span>($content);</span></span></code></pre>
 <p>And here is what "some_really_cool_content.html" might look like:</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="html"><span class="giallo-l"><span>&lt;</span><span style="color: #85E89D;">h1</span><span>&gt;This content is SWEEEEEEEEEET!&lt;/</span><span style="color: #85E89D;">h1</span><span>&gt;</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="html"><span class="giallo-l"><span>&lt;</span><span style="color: #85E89D;">h1</span><span>&gt;This content is SWEEEEEEEEEET!&lt;/</span><span style="color: #85E89D;">h1</span><span>&gt;</span></span>
 <span class="giallo-l"><span>&lt;</span><span style="color: #85E89D;">span</span><span>&gt;[%foo]&lt;/</span><span style="color: #85E89D;">span</span><span>&gt;</span></span></code></pre>
 <p><code>[%foo]</code> is the named placeholder and will be replaced by our amazing
 content: "bar". How very exciting. The data that replaces the placeholders could
@@ -355,7 +355,7 @@ words, in the same order each partial was added.</p>
 <p><em>How does <code>HtmlPage::addScript('script.js')</code> know where to find the script.js</em>
 file?</p>
 <p>HtmlPage is configurable.</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="php"><span class="giallo-l"><span style="color: #F97583;">&lt;?</span><span style="color: #79B8FF;">php</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="php"><span class="giallo-l"><span style="color: #F97583;">&lt;?</span><span style="color: #79B8FF;">php</span></span>
 <span class="giallo-l"><span style="color: #F97583;">...</span></span>
 <span class="giallo-l"></span>
 <span class="giallo-l"><span style="color: #F97583;">public function</span><span style="color: #79B8FF;"> __construct</span><span>()</span></span>
@@ -384,7 +384,7 @@ The config file is handy for setting a base title and separator for pages too.
 If you end up extending HtmlPage, you can take advantage of the config file to
 set sensible defaults for any new functionality. Here's what my config file
 looks like.</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="ini"><span class="giallo-l"><span>//HtmlPage.ini</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="ini"><span class="giallo-l"><span>//HtmlPage.ini</span></span>
 <span class="giallo-l"><span style="color: #B392F0;">[base_paths]</span></span>
 <span class="giallo-l"><span style="color: #F97583;">javascript.basepath</span><span>  =</span><span style="color: #9ECBFF;"> &quot;/public/js/&quot;</span></span>
 <span class="giallo-l"><span style="color: #F97583;">css.basepath</span><span>         =</span><span style="color: #9ECBFF;"> &quot;/public/css/&quot;</span></span>
@@ -405,7 +405,7 @@ are quite useful. Since we have defined several class variables, such as
 page, we need a way to reserve these variables so that client code cannot
 overwrite them. We want HtmlPage to be closed to modification, but open to
 extension. <code>__set()</code> provides the functionality needed.</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="php"><span class="giallo-l"><span style="color: #6A737D;">//HtmlPage.php</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="php"><span class="giallo-l"><span style="color: #6A737D;">//HtmlPage.php</span></span>
 <span class="giallo-l"><span style="color: #F97583;">&lt;?</span><span style="color: #79B8FF;">php</span></span>
 <span class="giallo-l"><span style="color: #F97583;">...</span></span>
 <span class="giallo-l"></span>

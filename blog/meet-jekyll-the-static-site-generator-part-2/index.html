@@ -35,15 +35,15 @@
 
     
 <title>Sam Heuck Web Development | Meet Jekyll the Static Site Generator - Part 2</title>
-<meta name="description" content="In this post, I&#x27;ll dive into Jekyll and show off some of its features." />
+<meta name="description" content="In this post, I&#39;ll dive into Jekyll and show off some of its features." />
 <link rel="canonical" href="https://samheuck.com/blog/meet-jekyll-the-static-site-generator-part-2/" />
 
 <meta property="og:title" content="Meet Jekyll the Static Site Generator - Part 2" />
-<meta property="og:description" content="In this post, I&#x27;ll dive into Jekyll and show off some of its features." />
+<meta property="og:description" content="In this post, I&#39;ll dive into Jekyll and show off some of its features." />
 <meta property="og:article:published_time" content="2013-03-19" />
 
 
-  <meta property="og:image" content="https:&#x2F;&#x2F;samheuck.com&#x2F;blog&#x2F;meet-jekyll-the-static-site-generator-part-2&#x2F;meet_jekyll_2.jpg" />
+  <meta property="og:image" content="https://samheuck.com/blog/meet-jekyll-the-static-site-generator-part-2/meet_jekyll_2.jpg" />
 
 
 <style>
@@ -84,19 +84,19 @@
             <span data-action="close">ⓧ</span>
           
             
-              <li><a href="&#x2F;what-we-do&#x2F;">What we do</a></li>
+              <li><a href="/what-we-do/">What we do</a></li>
             
           
             
-              <li><a href="&#x2F;portfolio&#x2F;">Client work</a></li>
+              <li><a href="/portfolio/">Client work</a></li>
             
           
             
-              <li><a class="active" href="&#x2F;blog&#x2F;">Blog</a></li>
+              <li><a class="active" href="/blog/">Blog</a></li>
             
           
             
-              <li><a href="&#x2F;about&#x2F;">About</a></li>
+              <li><a href="/about/">About</a></li>
             
           
           </ul>
@@ -128,7 +128,7 @@ some of its features.</p>
 <p>The template engine used by Jekyll is called <a rel="noopener external" target="_blank" href="http://liquidmarkup.org/">Liquid</a>.
 Liquid makes it easy to create a layout and pull in page elements dynamically.</p>
 <p>Jekyll will compile content into a page using a layout like this:</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="html"><span class="giallo-l"><span>// _layouts/default.html</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="html"><span class="giallo-l"><span>// _layouts/default.html</span></span>
 <span class="giallo-l"></span>
 <span class="giallo-l"><span>&lt;!</span><span style="color: #85E89D;">DOCTYPE</span><span style="color: #B392F0;"> html</span><span>&gt;</span></span>
 <span class="giallo-l"><span>&lt;</span><span style="color: #85E89D;">html</span><span style="color: #B392F0;"> lang</span><span>=</span><span style="color: #9ECBFF;">&quot;en&quot;</span><span>&gt;</span></span>
@@ -153,10 +153,10 @@ Liquid makes it easy to create a layout and pull in page elements dynamically.</
 <span class="giallo-l"><span>&lt;/</span><span style="color: #85E89D;">html</span><span>&gt;</span></span></code></pre>
 <p><strong>Including partials</strong></p>
 <p>Jekyll will automatically find includes in the _includes directory.</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="plain"><span class="giallo-l"><span>{% include links.inc %}</span></span></code></pre>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="plain"><span class="giallo-l"><span>{% include links.inc %}</span></span></code></pre>
 <p><strong>Loops and conditionals</strong></p>
 <p>Any page that begins with a YAML Front matter block...</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="yaml"><span class="giallo-l"><span style="color: #B392F0;">---</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="yaml"><span class="giallo-l"><span style="color: #B392F0;">---</span></span>
 <span class="giallo-l"><span style="color: #9ECBFF;">// predefined default variables</span></span>
 <span class="giallo-l"><span style="color: #85E89D;">layout</span><span>:</span><span style="color: #9ECBFF;"> default</span></span>
 <span class="giallo-l"><span style="color: #85E89D;">category</span><span>:</span><span style="color: #9ECBFF;"> funny</span></span>
@@ -170,7 +170,7 @@ Liquid makes it easy to create a layout and pull in page elements dynamically.</
 <p>can declare variables which can be accessed in Liquid. This allows the
 conditional placement of content. For instance, you can place a sidebar on a
 page based on a context variable...</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="plain"><span class="giallo-l"><span>--snip--</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="plain"><span class="giallo-l"><span>--snip--</span></span>
 <span class="giallo-l"></span>
 <span class="giallo-l"><span>&lt;aside&gt;</span></span>
 <span class="giallo-l"><span>  {% case page.context %}</span></span>
@@ -186,7 +186,7 @@ page based on a context variable...</p>
 <span class="giallo-l"><span>  {% endcase %}</span></span>
 <span class="giallo-l"><span>&lt;/aside&gt;</span></span></code></pre>
 <p>It's also simple to create a recent posts block with a loop...</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="html"><span class="giallo-l"><span>&lt;</span><span style="color: #85E89D;">h3</span><span>&gt;Recent Posts&lt;/</span><span style="color: #85E89D;">h3</span><span>&gt;</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="html"><span class="giallo-l"><span>&lt;</span><span style="color: #85E89D;">h3</span><span>&gt;Recent Posts&lt;/</span><span style="color: #85E89D;">h3</span><span>&gt;</span></span>
 <span class="giallo-l"><span>&lt;</span><span style="color: #85E89D;">ul</span><span>&gt;</span></span>
 <span class="giallo-l"><span>  {% for post in site.posts limit: 6 %}</span></span>
 <span class="giallo-l"><span>  &lt;</span><span style="color: #85E89D;">li</span><span>&gt;&lt;</span><span style="color: #85E89D;">a</span><span style="color: #B392F0;"> href</span><span>=</span><span style="color: #9ECBFF;">&quot;{{ post.url }}&quot;</span><span>&gt;{{ post.title }}&lt;/</span><span style="color: #85E89D;">a</span><span>&gt;&lt;/</span><span style="color: #85E89D;">li</span><span>&gt;</span></span>
@@ -194,7 +194,7 @@ page based on a context variable...</p>
 <span class="giallo-l"><span>&lt;/</span><span style="color: #85E89D;">ul</span><span>&gt;</span></span></code></pre>
 <p>Site-wide variables can be declared in _config.yml. This is a convenient place
 to put primary navigation…</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="yaml"><span class="giallo-l"><span style="color: #9ECBFF;">// _config.yml</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="yaml"><span class="giallo-l"><span style="color: #9ECBFF;">// _config.yml</span></span>
 <span class="giallo-l"><span style="color: #B392F0;">---</span></span>
 <span class="giallo-l"><span style="color: #85E89D;">nav</span><span>:</span></span>
 <span class="giallo-l"><span>  -</span><span style="color: #85E89D;"> text</span><span>:</span><span style="color: #9ECBFF;"> about</span></span>
@@ -206,7 +206,7 @@ to put primary navigation…</p>
 <span class="giallo-l"><span>  -</span><span style="color: #85E89D;"> text</span><span>:</span><span style="color: #9ECBFF;"> blog</span></span>
 <span class="giallo-l"><span style="color: #85E89D;">    url</span><span>:</span><span style="color: #9ECBFF;"> /blog/index.html</span></span></code></pre>
 <p>Which can be included in the layout</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="plain"><span class="giallo-l"><span>&lt;nav&gt;</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="plain"><span class="giallo-l"><span>&lt;nav&gt;</span></span>
 <span class="giallo-l"><span>  {% for link in site.nav %}</span></span>
 <span class="giallo-l"><span>    {% assign active = nil %}</span></span>
 <span class="giallo-l"><span>    {% if page.url == link.url or page.layout == link.layout %}</span></span>
@@ -221,14 +221,14 @@ you can start cooking with gas.</p>
 <p><strong>Jekyll Asset pipeline</strong></p>
 <p>This is an essential plug-in for Jekyll that will compile sass, and also
 aggregate and compress javascript and css.</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #F97583;">~</span><span> gem install Jekyll-asset-pipeline</span></span></code></pre>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="shellscript"><span class="giallo-l"><span style="color: #F97583;">~</span><span> gem install Jekyll-asset-pipeline</span></span></code></pre>
 <p>You have to install a compressor. I like the yui-compressor because it will
 minify both javascript and css.</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #F97583;">~</span><span> gem install yui-compressor</span></span></code></pre>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="shellscript"><span class="giallo-l"><span style="color: #F97583;">~</span><span> gem install yui-compressor</span></span></code></pre>
 <p>Once these Ruby gems are installed, enabling the asset pipeline plug-in is as
 simple as putting a config file inside the _plugins directory. Here's the one I
 use for this site…</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="ruby"><span class="giallo-l"><span style="color: #F97583;">require</span><span style="color: #9ECBFF;"> &#39;Jekyll_asset_pipeline&#39;</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="ruby"><span class="giallo-l"><span style="color: #F97583;">require</span><span style="color: #9ECBFF;"> &#39;Jekyll_asset_pipeline&#39;</span></span>
 <span class="giallo-l"></span>
 <span class="giallo-l"><span style="color: #F97583;">module</span><span style="color: #B392F0;"> JekyllAssetPipeline</span></span>
 <span class="giallo-l"><span style="color: #F97583;">  class</span><span style="color: #B392F0;"> SassConverter</span><span> &lt;</span><span style="color: #B392F0;"> JekyllAssetPipeline::Converter</span></span>
@@ -273,13 +273,13 @@ use for this site…</p>
 <p>The asset pipeline plug-in hooks into Liquid and looks for assets to include
 inside the <code>_assets</code> folder.</p>
 <p>Adding javascript looks like this:</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="plain"><span class="giallo-l"><span>{% javascript_asset_tag global %}</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="plain"><span class="giallo-l"><span>{% javascript_asset_tag global %}</span></span>
 <span class="giallo-l"><span>  - /_assets/js/jquery.js</span></span>
 <span class="giallo-l"><span>  - /_assets/js/highlight.js</span></span>
 <span class="giallo-l"><span>  - /_assets/js/init.js</span></span>
 <span class="giallo-l"><span>{% endjavascript_asset_tag %}</span></span></code></pre>
 <p>And css:</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="plain"><span class="giallo-l"><span>{% css_asset_tag global %}</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="plain"><span class="giallo-l"><span>{% css_asset_tag global %}</span></span>
 <span class="giallo-l"><span>  - /_assets/css/normalize.css</span></span>
 <span class="giallo-l"><span>  - /_assets/screen.sass</span></span>
 <span class="giallo-l"><span>{% endcss_asset_tag %}</span></span></code></pre>
@@ -291,9 +291,9 @@ generated on site build.</p>
 <h3 id="helpers">Helpers</h3>
 <p>Thor is an alternative to Rake. I like to use it as a helper for creating posts
 and deploying my site. <a rel="noopener external" target="_blank" href="http://whatisthor.com/">Thor has some nifty features.</a></p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #F97583;">~</span><span> gem install thor</span></span></code></pre>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="shellscript"><span class="giallo-l"><span style="color: #F97583;">~</span><span> gem install thor</span></span></code></pre>
 <p>A Thor task for creating posts:</p>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="ruby"><span class="giallo-l"><span style="color: #F97583;">class</span><span style="color: #B392F0;"> Site</span><span> &lt;</span><span style="color: #B392F0;"> Thor</span></span>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="ruby"><span class="giallo-l"><span style="color: #F97583;">class</span><span style="color: #B392F0;"> Site</span><span> &lt;</span><span style="color: #B392F0;"> Thor</span></span>
 <span class="giallo-l"><span style="color: #F97583;">  include</span><span style="color: #79B8FF;"> Thor</span><span>::</span><span style="color: #79B8FF;">Actions</span></span>
 <span class="giallo-l"></span>
 <span class="giallo-l"><span>  desc </span><span style="color: #9ECBFF;">&quot;post&quot;</span><span>,</span><span style="color: #9ECBFF;"> &quot;create a new post&quot;</span></span>
@@ -313,7 +313,7 @@ and deploying my site. <a rel="noopener external" target="_blank" href="http://w
 <span class="giallo-l"><span style="color: #79B8FF;">      system</span><span>(</span><span style="color: #9ECBFF;">&quot;vim _posts/#{filename}&quot;</span><span>)</span></span>
 <span class="giallo-l"><span style="color: #F97583;">    end</span></span>
 <span class="giallo-l"><span style="color: #F97583;">  end</span></span>
-<span class="giallo-l"><span style="color: #F97583;">end</span></span></code></pre><pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="yaml"><span class="giallo-l"><span style="color: #9ECBFF;">// Thor template for posts</span></span>
+<span class="giallo-l"><span style="color: #F97583;">end</span></span></code></pre><pre class="giallo" style="color: #E1E4E8; background-color: #24292E;" ><code data-lang="yaml"><span class="giallo-l"><span style="color: #9ECBFF;">// Thor template for posts</span></span>
 <span class="giallo-l"><span style="color: #9ECBFF;">// lives in _thor/templates</span></span>
 <span class="giallo-l"><span style="color: #B392F0;">---</span></span>
 <span class="giallo-l"><span style="color: #85E89D;">layout</span><span>:</span><span style="color: #9ECBFF;"> post</span></span>
