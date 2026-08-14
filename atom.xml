@@ -5,8 +5,42 @@
     <link rel="self" type="application/atom+xml" href="https://samheuck.com/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://samheuck.com/"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2026-06-05T00:00:00+00:00</updated>
+    <updated>2026-08-14T00:00:00+00:00</updated>
     <id>https://samheuck.com/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Wee Bee Waste Services</title>
+        <published>2026-08-14T00:00:00+00:00</published>
+        <updated>2026-08-14T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Kristi McGarity
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://samheuck.com/portfolio/wee-bee-waste-services/"/>
+        <id>https://samheuck.com/portfolio/wee-bee-waste-services/</id>
+        
+        <content type="html" xml:base="https://samheuck.com/portfolio/wee-bee-waste-services/">&lt;p&gt;&lt;img src=&quot;https://samheuck.com/portfolio/wee-bee-waste-services/weebee-homepage.webp&quot; alt=&quot;Wee Bee&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;If you own a service company, you have a lot of options for your website.&lt;/p&gt;
+&lt;p&gt;Some owners hire a marketing agency – design, branding, content, SEO, ads, and social media bundled together – for a fixed monthly retainer.&lt;/p&gt;
+&lt;p&gt;Some choose from the DIY website builders – or these days, the proliferation of AI services promising “type a paragraph, get a website in seconds!” For very low cost, you get code that looks magic, with working buttons and modern fonts and colors. Is there a catch? Well, yes… months later, when you need to showcase new photos, add a new payment system, or fix a button that stopped working… trying to talk to an &lt;a href=&quot;https://samheuck.com/blog/mind-over-math/&quot;&gt; enormous mathematical function&lt;/a&gt; gets tedious and frustrating. (Just about as frustrating as clicking around in Wordpress trying to figure out why your drop-down menu went sideways.)&lt;/p&gt;
+&lt;p&gt;Another catch: the cost of DIY multiplies as the internet evolves. If your AI-generated code lacks flexibility to adapt to evolving SEO, you’ll miss out on GEO and AEO* and whatever the next thing will be. Or Google Chrome may change something, your contact form breaks, and the AI can’t quite fix it the way you wanted. There’s also lock-in: if your AI builder gets acquired or shuts down (happens a lot with tech companies) will your site stay online? Will you get to keep those search results you worked to achieve?&lt;/p&gt;
+&lt;p&gt;When we met Rob and Cristina, owners of Wee Bee Waste Services, they had a Wordpress site with a page builder and SEO plugins, but they weren’t sure which bits were actually working to their benefit.&lt;/p&gt;
+&lt;p&gt;Wee Bee Waste Services is Austin’s one-stop source for septic maintenance, grease trap pumping, power washing, and portable toilet rentals. Their motto is “Wee Bee there when you need us,” and their core mission is 24/7 emergency septic service – which doesn’t allow much time for keeping PHP code up to date.&lt;/p&gt;
+&lt;p&gt;Wee Bee Waste Services was a perfect fit for our concierge web development service. Because Wordpress sites tend to deteriorate little by little over time (nobody’s fault, it’s just how technology rolls), the first thing we did was get the broken bits working again. Then we rolled out an SEO update, removing redundant code and adding structured data. Structured data (aka schema) is code that human visitors don’t see but search engines and LLMs can easily read, so they understand what Wee Bee does and which customers to send their way.&lt;/p&gt;
+&lt;p&gt;Over three months, with improved online visibility for Rob and Cristina’s hard work and unparalleled customer service, Wee Bee Waste Services tripled their 5-star Google reviews from 25 to 75, with new happy customers finding them every week.&lt;/p&gt;
+&lt;p&gt;Service companies really do face an overwhelming variety of options for building a website. At Sam Heuck Web Development, we can help with them all. Our Agile process gives you the best of all worlds: You set priorities – which tasks need doing, how much you want to spend each month – &lt;i&gt;AND&lt;/i&gt; you never have to do the frustrating, tedious detail work yourself.&lt;/p&gt;
+&lt;p&gt;You get dedicated hours from dedicated professionals – &lt;a href=&quot;https://samheuck.com/about/#sam-bio&quot;&gt;one&lt;/a&gt; who can hand-code any customer portal or API integration** you’ll ever need, and &lt;a href=&quot;https://samheuck.com/about/#kristi-bio&quot;&gt;one&lt;/a&gt; who loves nothing more than saving time for local companies by handling their tedious details with care!&lt;/p&gt;
+&lt;p&gt;Small business owners, ready to get your time back? Let’s get your website working and your business growing - &lt;a class=&quot;contact-me&quot;&gt;contact us&lt;/a&gt; today!&lt;/p&gt;
+&lt;div style=&quot;font-size: 0.85em;&quot;&gt;
+&lt;p&gt;&lt;br&gt;&lt;/br&gt;
+* AEO = Answer Engine Optimization (or GEO, Generative Engine Optimization), techniques that help people find your website when they ask LLMs like ChatGPT or Claude, and help your company become an authoritative source of information.&lt;/p&gt;
+&lt;p&gt;** API Integration = code that connects web services together. Examples: a portal for customers to log in and manage their orders, a tool for sales reps to generate estimates in the field, or an invoicing tool that automatically updates your accounting system. (We would be happy to build one for you!)&lt;/p&gt;
+&lt;/div&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Free Website Checkup</title>
         <published>2026-06-05T00:00:00+00:00</published>
