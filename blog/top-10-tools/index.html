@@ -133,16 +133,29 @@
 <p>I would venture to say it's pretty much impossible to be a software developer on MacOS without using homebrew. It just works. It gives me access to a massive community of software people who are making and maintaining the tools that I rely on every day. It isn't a glamorous tool, but it is essential, and works perfectly.</p>
 <h3 id="4-xsv">#4. <img src="https://samheuck.com/blog/top-10-tools/xsv.png" alt="xsv" /> <a rel="noopener external" target="_blank" href="https://github.com/BurntSushi/xsv">xsv</a></h3>
 <p>If you work with CSV files everyday and you're not using xsv, you're missing out. <code>xsv</code> is a free tool that is ridiculously fast and full of features to read, analyze, and manipulate CSV files. I've personally thrown several GiB (yes, Gigs) of CSV data at xsv and I always get results quickly. This command-line tool beats the heck out of inspecting a CSV by opening it in Excel.</p>
-<h3 id="3-zola">#3. <img src="https://samheuck.com/blog/top-10-tools/zola.png" alt="zola" /> <a rel="noopener external" target="_blank" href="https://www.getzola.org/">Zola</a></h3>
+<h3 id="3-the-static-site-generator">#3. <img src="https://samheuck.com/blog/top-10-tools/Zola-logo-white.svg" alt="zola" /> <a rel="noopener external" target="_blank" href="https://www.getzola.org/">the Static Site Generator</a></h3>
 <p>So long Jekyll! I hardly knew ye. Zola is my new favorite static site generator. This website is built with Zola and it makes blogging a breeze. Zola is written in Rust, and that means I have a nice little static binary that just lives right next to my website's content. As long as that binary can execute on my machine, I will always be able to build my website, even as the rest of the world chugs along its usual path of constant improvement and updates. It also comes with some really nice features built right in: code syntax highlighting, a link checker that warns of 404s <em>before</em> I deploy updates, and automatic compilation of sass to css.</p>
 <h3 id="2-the-rust-programming-language">#2. <img src="https://samheuck.com/blog/top-10-tools/rust.svg" alt="rust" /> <a rel="noopener external" target="_blank" href="https://www.rust-lang.org/">The Rust Programming Language</a></h3>
 <p>I haven't used the Rust programming language much yet, but so far, I'm really enjoying what I've learned. The reasons <em>I</em> like Rust are the well designed tooling for one. The built-in developer tool <code>cargo</code> does everything I need from fetching crates (aka open-source dependencies), running tests, which by the way are integrated directly into the language itself (no need for a separate unit-testing package), and serving as the build-tool for my project. It handles incremental compilation so that I don't have to think about it. The Rust language has really helped me learn and grow as a developer because it has forced me into good habits for writing memory safe and thread safe code. It's also incredibly fast, has a helpful compiler, and has great editor support in VSCode. Code-completion and documentation are available in the editor which is essential for being productive.</p>
-<h3 id="1-muse">#1. <img src="https://samheuck.com/blog/top-10-tools/museapp.svg" alt="muse" /> <a rel="noopener external" target="_blank" href="https://museapp.com/">Muse</a></h3>
-<p>This is my favorite iPad app for design and thinking. It is an infinite canvas whiteboard that was designed with a unique philosophy. It has a minimalist interface, but it is packed with useful features. It's perfect for organizing my thinking because content is stored and presented spatially. It is fun to manipulate content in Muse using an Apple Pencil, and Muse also makes it easy to export that content for sharing. This app is worth every penny - there really isn't anything else quite like it.</p>
+<h3 id="1-ansible">#1. <img src="https://samheuck.com/blog/top-10-tools/ansible-core.svg" alt="ansible" /> <a rel="noopener external" target="_blank" href="https://www.ansible.com/">Ansible</a></h3>
+<p>You konw that feeling where you just sat down on the couch and you're settled in to chill out with your
+favorite show... but shoot I left my drink in the kitchen! Uugh I don't want to get up. If only there
+was a way to access my kitchen without getting off the couch. Well, that's where ansible comes in. Except
+your kitchen is all the servers you have to run updates on, or deploy apps to. I love ansible because
+I can run the same script on 10 servers if I want, and it can guarantee that each server will be in the
+same state when it's done, even if the starting state on servers 3 and 4 were different than servers 5
+and 8. This is a fantastic tool and I rely on it from all of my homelab configuration management needs. And
+since it uses SSH to connect to all my servers, I don't even have to leave my desk!</p>
 <style type="text/css">
   img {
     height: 45px;
     vertical-align: middle;
+  }
+
+  img[alt='zola'] {
+    background-color: black;
+    padding: 4px;
+    border-radius: 8px;
   }
 </style>
     </section>

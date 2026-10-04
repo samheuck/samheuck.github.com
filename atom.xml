@@ -1049,16 +1049,29 @@ production.&lt;/p&gt;
 &lt;p&gt;I would venture to say it&#39;s pretty much impossible to be a software developer on MacOS without using homebrew. It just works. It gives me access to a massive community of software people who are making and maintaining the tools that I rely on every day. It isn&#39;t a glamorous tool, but it is essential, and works perfectly.&lt;/p&gt;
 &lt;h3 id=&quot;4-xsv&quot;&gt;#4. &lt;img src=&quot;https://samheuck.com/blog/top-10-tools/xsv.png&quot; alt=&quot;xsv&quot; /&gt; &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://github.com/BurntSushi/xsv&quot;&gt;xsv&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;If you work with CSV files everyday and you&#39;re not using xsv, you&#39;re missing out. &lt;code&gt;xsv&lt;/code&gt; is a free tool that is ridiculously fast and full of features to read, analyze, and manipulate CSV files. I&#39;ve personally thrown several GiB (yes, Gigs) of CSV data at xsv and I always get results quickly. This command-line tool beats the heck out of inspecting a CSV by opening it in Excel.&lt;/p&gt;
-&lt;h3 id=&quot;3-zola&quot;&gt;#3. &lt;img src=&quot;https://samheuck.com/blog/top-10-tools/zola.png&quot; alt=&quot;zola&quot; /&gt; &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.getzola.org/&quot;&gt;Zola&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;3-the-static-site-generator&quot;&gt;#3. &lt;img src=&quot;https://samheuck.com/blog/top-10-tools/Zola-logo-white.svg&quot; alt=&quot;zola&quot; /&gt; &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.getzola.org/&quot;&gt;the Static Site Generator&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;So long Jekyll! I hardly knew ye. Zola is my new favorite static site generator. This website is built with Zola and it makes blogging a breeze. Zola is written in Rust, and that means I have a nice little static binary that just lives right next to my website&#39;s content. As long as that binary can execute on my machine, I will always be able to build my website, even as the rest of the world chugs along its usual path of constant improvement and updates. It also comes with some really nice features built right in: code syntax highlighting, a link checker that warns of 404s &lt;em&gt;before&lt;/em&gt; I deploy updates, and automatic compilation of sass to css.&lt;/p&gt;
 &lt;h3 id=&quot;2-the-rust-programming-language&quot;&gt;#2. &lt;img src=&quot;https://samheuck.com/blog/top-10-tools/rust.svg&quot; alt=&quot;rust&quot; /&gt; &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.rust-lang.org/&quot;&gt;The Rust Programming Language&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;I haven&#39;t used the Rust programming language much yet, but so far, I&#39;m really enjoying what I&#39;ve learned. The reasons &lt;em&gt;I&lt;/em&gt; like Rust are the well designed tooling for one. The built-in developer tool &lt;code&gt;cargo&lt;/code&gt; does everything I need from fetching crates (aka open-source dependencies), running tests, which by the way are integrated directly into the language itself (no need for a separate unit-testing package), and serving as the build-tool for my project. It handles incremental compilation so that I don&#39;t have to think about it. The Rust language has really helped me learn and grow as a developer because it has forced me into good habits for writing memory safe and thread safe code. It&#39;s also incredibly fast, has a helpful compiler, and has great editor support in VSCode. Code-completion and documentation are available in the editor which is essential for being productive.&lt;/p&gt;
-&lt;h3 id=&quot;1-muse&quot;&gt;#1. &lt;img src=&quot;https://samheuck.com/blog/top-10-tools/museapp.svg&quot; alt=&quot;muse&quot; /&gt; &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://museapp.com/&quot;&gt;Muse&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;This is my favorite iPad app for design and thinking. It is an infinite canvas whiteboard that was designed with a unique philosophy. It has a minimalist interface, but it is packed with useful features. It&#39;s perfect for organizing my thinking because content is stored and presented spatially. It is fun to manipulate content in Muse using an Apple Pencil, and Muse also makes it easy to export that content for sharing. This app is worth every penny - there really isn&#39;t anything else quite like it.&lt;/p&gt;
+&lt;h3 id=&quot;1-ansible&quot;&gt;#1. &lt;img src=&quot;https://samheuck.com/blog/top-10-tools/ansible-core.svg&quot; alt=&quot;ansible&quot; /&gt; &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.ansible.com/&quot;&gt;Ansible&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;You konw that feeling where you just sat down on the couch and you&#39;re settled in to chill out with your
+favorite show... but shoot I left my drink in the kitchen! Uugh I don&#39;t want to get up. If only there
+was a way to access my kitchen without getting off the couch. Well, that&#39;s where ansible comes in. Except
+your kitchen is all the servers you have to run updates on, or deploy apps to. I love ansible because
+I can run the same script on 10 servers if I want, and it can guarantee that each server will be in the
+same state when it&#39;s done, even if the starting state on servers 3 and 4 were different than servers 5
+and 8. This is a fantastic tool and I rely on it from all of my homelab configuration management needs. And
+since it uses SSH to connect to all my servers, I don&#39;t even have to leave my desk!&lt;/p&gt;
 &lt;style type=&quot;text/css&quot;&gt;
   img {
     height: 45px;
     vertical-align: middle;
+  }
+
+  img[alt=&#39;zola&#39;] {
+    background-color: black;
+    padding: 4px;
+    border-radius: 8px;
   }
 &lt;/style&gt;</content>
         
