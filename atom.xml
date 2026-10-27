@@ -5,8 +5,70 @@
     <link rel="self" type="application/atom+xml" href="https://samheuck.com/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://samheuck.com/"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2026-08-14T00:00:00+00:00</updated>
+    <updated>2026-10-26T00:00:00+00:00</updated>
     <id>https://samheuck.com/atom.xml</id>
+    <entry xml:lang="en">
+        <title>The perils of vibe-coding</title>
+        <published>2026-10-26T00:00:00+00:00</published>
+        <updated>2026-10-26T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Sam Heuck
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://samheuck.com/blog/the-perils-of-vibe-coding/"/>
+        <id>https://samheuck.com/blog/the-perils-of-vibe-coding/</id>
+        
+        <content type="html" xml:base="https://samheuck.com/blog/the-perils-of-vibe-coding/">&lt;p&gt;I’m a fan of heist movies. The Ocean’s Eleven movies are among my favorites in the genre. There is a scene from Ocean’s Thirteen that makes me laugh every time I think about it. Basher, the mechnically inclined explosives expert of the bunch, is operating this massive and complex tunnel boring machine so that they can fake an earthquake during the heist. A horrible scraping sound emerges from the machine as something goes wrong, and Basher, muttering various obscentities, dashes to the controls to try to fix the problem. He then exclaims: “You know when they were digging the tunnels, they had TEAMS of guys monitoring this!” And his colleague says “Yeah? How many?” - to which Basher, with a stern look, replies: “TEAMS!!”.&lt;/p&gt;
+&lt;p&gt;Using an LLM to make custom software - so-called “vibe coding” - is similar to what Basher is doing in this scene. For the last 75 years or so, TEAMS of people, operating complex machines, made the software you and I rely on every day. But times are-a changin’ and in this day and age, one person and an LLM can create software that once required teams of programmers and systems engineers. And just like Basher, they will inevitably have to deal with the problems that crop up with the machinery.&lt;/p&gt;
+&lt;p&gt;My take on vibe coding: the stronger your foundational knowledge is, the better results you will get out of the AI. This doesn’t mean you cannot achieve great results as a novice, or someone who is inexperienced in computer science, software engineering, and design. But I think it does mean that as a novice, the risk that you will inadvertently create more problems than you solve is higher. There is also a higher risk of creating information security issues that go unnoticed, which can and do end up costing companies a lot of money down the road. If you lack the experience and knowledge to spot these issues, and the know-how to correct them, the AI cannot guarantee to have your back on these problems because you are in the driver’s seat - the AI follows your instructions. Sometimes to your own detriment!&lt;/p&gt;
+&lt;p&gt;Here are some facts I find interesting:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;According to code.org’s State of AI and Computer Science Education report, in the 2024–25 school year, about 6% of U.S. high school students took a computer science course.&lt;/li&gt;
+&lt;li&gt;Code.org also reports that only four states currently focus on AI in their computer science standards&lt;/li&gt;
+&lt;li&gt;In the U.S., roughly 3 million employed people (as of 2023) hold a degree in computer and information technology&lt;/li&gt;
+&lt;li&gt;In the U.S., in 2023, bls.gov estimates about 161 million people were employed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So… 3 million ÷ 161 million… 1.9%. 1.9% of the workforce gets some formal training in programming and IT. I’m going to go out on a limb here and suggest that the percentage of people trying to use AI tools to make software is quite a lot higher.&lt;/p&gt;
+&lt;p&gt;LLMs (Large Language Models) are like lemmings. When an AI is asked to pick a number between 0 and 10, the models choose 7, which is also the same number most humans pick when asked this question. This is clear evidence that the LLM replicates the average of what humans collectively publish.&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;llm-chooses-a-number.webp&quot; width=&quot;800px&quot; alt=&quot;A bar-chart showing that GPT4o chooses &#39;7&#39; 55.5% of the time when asked to pick a number between 0 and 10&quot;&gt;
+&lt;figcaption&gt;source: https://medium.com/@aadityaubhat/humans-large-language-models-and-lucky-number-7-f09248400cc9&lt;/caption&gt;
+&lt;/figure&gt;
+&lt;p&gt;At a fundamental level, an LLM is a fancy averaging machine. The LLM will produce average software, by definition. Think about all the bugs in the websites you use every day: all the times you have to log out and log back in, all the weird error messages, all the times you hit &quot;add to cart&quot; and nothing happens... that&#39;s how average web software performs. It is true that the LLMs are very good at finding and fixing bugs. However, consider that fixing the code is not the most time-consuming aspect of coding anymore. No, the time-consuming bits are now about decision making:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Which tasks are higher priority?&lt;/li&gt;
+&lt;li&gt;Can this task be pushed into next month&#39;s budget, or is it too risky to delay?&lt;/li&gt;
+&lt;li&gt;How much of my token budget should be dedicated to new features vs refactoring?&lt;/li&gt;
+&lt;li&gt;Could that bug fix cause another bug somewhere else? Is it worth adding an automated test to be sure?&lt;/li&gt;
+&lt;li&gt;How many automated tests do I need, and what kind of tests are most effective?&lt;/li&gt;
+&lt;li&gt;How and when should a real human test these features, and how much time should be dedicated to testing?&lt;/li&gt;
+&lt;li&gt;What programming language is best suited to solve this problem?&lt;/li&gt;
+&lt;li&gt;What software packages should be used?&lt;/li&gt;
+&lt;li&gt;What software packages should be replaced?&lt;/li&gt;
+&lt;li&gt;How do these technology and architecture choices affect the security footprint of the organization?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;An LLM can help answer these questions, but an experienced operator is needed to analyze the answers efficiently.&lt;/p&gt;
+&lt;p&gt;So with that, let’s talk about some of the problems that are currently plaguesome in vibe-coded software today. I am going to focus on information security, but there are a whole host of other problems related to maintainability and reliability that crop up as well.&lt;/p&gt;
+&lt;h3 id=&quot;the-unforeseen-security-crisis&quot;&gt;The unforeseen security crisis&lt;/h3&gt;
+&lt;p&gt;Thankfully, it is not too often, relatively speaking, that a software bug makes global news headlines. But we just had one this past week known as &lt;em&gt;phpshell&lt;/em&gt;. If you are unfamiliar, this problem was security Armageddon for 70% or more of the global internet. If you vibe-coded your web app, is it written in PHP? What about Node? Keeping up with technology news is one of the many skills experienced programmers need. So is collaborating with business leaders to perform proactive maintenance and emergency repairs. With software that is vibe-coded, the author may not have paid close attention to the lower-level details. The LLM takes care of that for you… or does it? Not knowing what the LLM did makes it that much harder to maintain later on.&lt;/p&gt;
+&lt;h3 id=&quot;secret-not-so-much&quot;&gt;Secret? Not so much…&lt;/h3&gt;
+&lt;p&gt;Passwords, API keys, tokens and the like are used constantly to allow sotware applications to communicate with each other over the internet. One of the main goals of a cybercriminal is to steal these precious keys which give them more access and more influence over your company’s systems. If one of these codes, which are supposed to remain private and secret, like the security code to your house, inadverently ends up being used in the client side javascript of your app, or maybe stored on a public S3 bucket, the secret is out! Open season for cybercriminals, provided by your vibe-coded app.&lt;/p&gt;
+&lt;h3 id=&quot;the-gullible-security-robot&quot;&gt;The gullible security robot&lt;/h3&gt;
+&lt;p&gt;One thing that novices might not realize about web apps is that JavaScript, which enables sophisticated application features, is almost never private. In fact, it is fundamentally public when it runs in a browser. Because JavaScript is running inside the browser of the person who visited your website, the code itself gets downloaded onto that person’s computer. This means that if that person has any knowlege of programming, or access to an AI tool, they can actually edit the code that runs when they visit your site. Imagine you have a “secure” or “private” section of your site that requires a password to access. If the JavaScript is the security robot, responsible for checking that password, there is nothing stopping the visitor from simply changing the code to declare them as “logged in”. It’s like saying to the security robot: “Don’t worry, you can trust me”. And it just says, “Okay! You’re logged in!”. This is what happens when authentication is handled only on the frontend - and it is more common than you might realize.&lt;/p&gt;
+&lt;h3 id=&quot;the-lucky-guesser&quot;&gt;The lucky guesser&lt;/h3&gt;
+&lt;p&gt;Have you ever noticed that the URL you use to access an invoice has the invoice number somewhere in it? The link to the invoice might be something like &lt;code&gt;https://example.com/invoices/123&lt;/code&gt;. Have you ever tried to simply change that number to &lt;code&gt;/invoices/124&lt;/code&gt;? This is called an IDOR (Insecure Direct Object Reference) attack and they are really common. Invoice 123 is for our customer ACME, but invoice 124 is the top-secret military contractor who is legally required to remain publically nameless… but anyone who happens to guess the invoice number gets to see what they were spending money on. Uh oh.&lt;/p&gt;
+&lt;h3 id=&quot;the-bouncer-approved-guest&quot;&gt;The Bouncer approved guest&lt;/h3&gt;
+&lt;p&gt;I’ve never been to one of these clubs, but somtimes a nightclub will have a bouncer. If you are on the list, you get in, if not, you’re stuck at the door. Web application servers usually have bouncers. Those bouncers have to be able to distinguish between who or what is allowed in, and who or what is not. So to get past the bouncer, if I can find a way to pretend to be one of the cool kids, the bouncer lets me in without even checking the list! This is how an SSRF attack (Server Side Request Forgery) works - the attacker finds a way to pose as a trusted service when in reality, they just want to steal your club money… or your private customer data, in this case. SSRF vulnerabilities are pretty common in software applications in general, and they are notoriously difficult to spot during the development process.&lt;/p&gt;
+&lt;h3 id=&quot;the-snake-oil-bot&quot;&gt;The snake-oil bot&lt;/h3&gt;
+&lt;p&gt;LLMs live to serve. They &lt;strong&gt;love&lt;/strong&gt; to make recommendations. You’re feeling tired you say? Have you tried Active Regimen for Sustained Energy, and Natural Inner Connection? Also known as ARSENIC? Believe it or not, the snake-oil bot just poisoned you. This happens quite a lot in software. The bad guys will create a software module that looks on the surface like something very useful, but in reality, it is malware or virus code. Then, an unsuspecting vibe coder gets asked if it’s okay for the AI tool to download that module to solve some problem in their app. Unbeknownst to the programmer, they just authorized the LLM to download a virus. This is called &lt;em&gt;slop squatting&lt;/em&gt;, and it is known to have caused some major security incidents recently. Check out &lt;a rel=&quot;noopener external&quot; target=&quot;_blank&quot; href=&quot;https://www.bleepingcomputer.com/news/security/slopsquatting-phantom-domains-and-hallusquatting-are-the-same-ai-attack/&quot;&gt;Slop Squatting by Bleeping Computer&lt;/a&gt; and bring your popcorn.&lt;/p&gt;
+&lt;h3 id=&quot;we-ve-got-you-covered&quot;&gt;We&#39;ve got you covered&lt;/h3&gt;
+&lt;p&gt;So if you are considering creating your own software, and you want to use an AI tool to help you, you should also consider that you might end up having to take a crash course in cybersecurity while your app server is on fire and your biggest customer keeps leaving you angry sounding voicemails. Or you might be legally required to send out one of those &quot;Data Breach Notice&quot; letters to every customer you&#39;ve ever had, with free credit monitoring for all. Alternatively, you could augment your software project with AI tooling, with the requirement that a software professional be a the helm. &lt;a class=&quot;contact-me&quot;&gt;Care to chat?&lt;/a&gt;&lt;/p&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Wee Bee Waste Services</title>
         <published>2026-08-14T00:00:00+00:00</published>
